@@ -4,27 +4,26 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity implements OnClickListener{
     private ContactsFragment contactsFragment;
     private MatchFragment matchFragment;
     private MessageFragment messageFragment;
     private ScheduleFragment scheduleFragment;
     private SettingFragment settingFragment;
-    private View contactsLayout;
-    private View matchLayout;
-    private View messageLayout;
-    private View scheduleLayout;
-    private View settingLayout;
+    public View contactsLayout;
+    public View matchLayout;
+    public View messageLayout;
+    public View scheduleLayout;
+    public View settingLayout;
     private FragmentManager fragmentManager;
     private ImageView iv_contacts;
     private ImageView iv_match;
@@ -39,6 +38,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button btn_update;
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         initViews();
         fragmentManager = getFragmentManager();
         setTabSelection(0);
@@ -60,7 +60,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         tv_message = (TextView)findViewById(R.id.tv_main_message);
         tv_schedule = (TextView)findViewById(R.id.tv_main_schedule);
         tv_setting = (TextView)findViewById(R.id.tv_main_settings);
-        btn_update = (Button)findViewById(R.id.btn_main_update);//缺少相应的事件
+       btn_update = (Button)findViewById(R.id.btn_main_update);//缺少相应的事件
         contactsLayout.setOnClickListener(this);
         matchLayout.setOnClickListener(this);
         messageLayout.setOnClickListener(this);
