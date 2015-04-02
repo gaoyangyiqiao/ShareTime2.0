@@ -19,29 +19,19 @@
     android:iconifiedByDefault="true"
     android:queryHint="search"/>
 
-    <LinearLayout
-        android:id="@+id/contacts_line"
-        android:orientation="vertical"
+    <ListView
+        android:id="@+id/contacts_lv_functions"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/contacts_creat_group"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="创建群组"/>
-        <Button
-            android:id="@+id/contacts_newfriends_btn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="推介联系人"/>
-    </LinearLayout>
-
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sv_contacts"
+        android:layout_centerVertical="false"
+        />
 
     <ListView
-        android:layout_below="@id/contacts_line"
+        android:layout_below="@id/contacts_lv_functions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lv_contacts"
+        android:id="@+id/contacts_lv_contactlist"
         android:layout_centerVertical="false"
         />
 

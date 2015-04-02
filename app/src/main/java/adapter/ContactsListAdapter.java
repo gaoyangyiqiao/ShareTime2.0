@@ -21,12 +21,12 @@ import turingmachine.com.sharetime20.R;
 /**
  * Created by gaoyang on 15/4/1.
  */
-public class ContactsAdapter extends BaseAdapter implements SectionIndexer {
+public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
     private List<ContactPO> lists;
     private Context context;
     private LinearLayout layout;
 
-    public ContactsAdapter(List<ContactPO> lists,Context context){
+    public ContactsListAdapter(List<ContactPO> lists, Context context){
         this.lists=lists;
         this.context=context;
 
