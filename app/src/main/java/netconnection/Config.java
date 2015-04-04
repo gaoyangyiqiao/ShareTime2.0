@@ -7,13 +7,14 @@ import android.content.SharedPreferences;
  * Created by gaoyang on 15/4/1.
  */
 public class Config {
-    public final static String URL="http://localhost:63343/htdocs/sharetimedb2.0/index.php";
-
-    public static final int USER_ID=1;
+    //此时为仙1四楼ip地址
+//    public final static String URL="http://172.26.223.2:3306/sharetimedb/index.php";
+    //此时为大活5楼地址
+    public final static String URL="http://192.168.1.110:3306/sharetimedb/index.php";
 
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
-
+    public static final String KEY_CONTACTS="contacts";
     public static final String KEY_ACTION="action";
     public static final String KEY_USER_ID="user_id";
     public static final String KEY_ID="id";

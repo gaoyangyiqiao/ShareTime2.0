@@ -28,6 +28,7 @@ public class ContactsFragment extends Fragment {
     private SearchView searchView;
     private ListView lv_contactList;
     private ContactsListAdapter contactsListAdapter;
+    private List<ContactPO> contacts;
     private ListView lv_functions;
     private ContactsFunctionAdapter contactsFunctionAdapter;
     private Button btn_contacts_promotion;
@@ -75,7 +76,8 @@ public class ContactsFragment extends Fragment {
     }
     //TODO
     public void initContactListLv(){
-        List<ContactPO> contacts=new GetContacts().getInfo(Config.getCachedId(getActivity()));
+        contacts=new ArrayList<>();
+        new GetContacts().getInfo(Config.getCachedId(getActivity()),this);
         contactsListAdapter=new ContactsListAdapter(contacts,getActivity());
         lv_contactList.setAdapter(contactsListAdapter);
     }
@@ -96,8 +98,13 @@ public class ContactsFragment extends Fragment {
         });
     }
 
-
-
+    public List<ContactPO> getContacts() {
+        return contacts;
     }
+
+    public ContactsListAdapter getContactsListAdapter() {
+        return contactsListAdapter;
+    }
+}
 
 

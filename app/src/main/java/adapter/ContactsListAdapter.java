@@ -55,10 +55,9 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
             convertView= LayoutInflater.from(context).inflate(R.layout.contacts_view_cell,null);
             holder=new ViewHolder();
 
-            holder.tv_catalog= (TextView) convertView.findViewById(R.id.contacts_vie_cell_tv_catalog);
+            holder.tv_catalog= (TextView) convertView.findViewById(R.id.contacts_view_cell_tv_catalog);
             holder.tv_name= (TextView) convertView.findViewById(R.id.contacts_view_cell_tv_name);
             holder.tv_name.setText(lists.get(position).getName());
-            holder.tv_number.setText(lists.get(position).getPhone());
             holder.imv_icon= (ImageView) convertView.findViewById(R.id.contacts_view_cell_imv_icon);
             holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.contact_img));
             if(lists.get(position).getImageurl()!=null){
@@ -76,7 +75,6 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
         }else{
             holder= (ViewHolder) convertView.getTag();
             holder.tv_name.setText(lists.get(position).getName());
-            holder.tv_number.setText(lists.get(position).getPhone());
         }
 
         //根据position获取分类的首字母的char ascii值
