@@ -1,5 +1,8 @@
 package netconnection;
 
+
+import android.widget.BaseAdapter;
+
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
@@ -8,13 +11,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import po.ContactPO;
 import tools.CharacterParser;
-import turingmachine.com.sharetime20.ContactsFragment;
 
 /**
  * Created by gaoyang on 15/4/1.
@@ -27,8 +28,7 @@ public class GetContacts {
         parser=new CharacterParser();
     }
 
-    public void getInfo(String user_id, final ContactsFragment contactsFragment){
-        final ArrayList<ContactPO> result=new ArrayList<>();
+    public void getContacts(String user_id, final BaseAdapter adapter,final List list){
 
         final AjaxParams params = new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_GET_CONTACTS);
@@ -63,8 +63,8 @@ public class GetContacts {
                             contact.setSortLetters("#");
                         }
 
-                        contactsFragment.getContacts().add(contact);
-                        contactsFragment.getContactsListAdapter().notifyDataSetChanged();
+                        list.add(contact);
+                        adapter.notifyDataSetChanged();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

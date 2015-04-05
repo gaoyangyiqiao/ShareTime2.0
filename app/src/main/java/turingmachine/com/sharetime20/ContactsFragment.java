@@ -1,6 +1,7 @@
 package turingmachine.com.sharetime20;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ import adapter.ContactsListAdapter;
 import netconnection.Config;
 import netconnection.GetContacts;
 import po.ContactPO;
-import po.UserPO;
+import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
 /**
  * Created by admin on 2015/3/28.
@@ -64,7 +65,7 @@ public class ContactsFragment extends Fragment {
         searchView= (SearchView) getActivity().findViewById(R.id.sv_contacts);
         lv_functions= (ListView) getActivity().findViewById(R.id.contacts_lv_functions);
         lv_contactList = (ListView) getActivity().findViewById(R.id.contacts_lv_contactlist);
-
+        setListViewItemListener();
     }
 
     public void initFunctionLv(){
@@ -77,7 +78,7 @@ public class ContactsFragment extends Fragment {
     //TODO
     public void initContactListLv(){
         contacts=new ArrayList<>();
-        new GetContacts().getInfo(Config.getCachedId(getActivity()),this);
+        new GetContacts().getContacts(Config.getCachedId(getActivity()), contactsListAdapter,contacts);
         contactsListAdapter=new ContactsListAdapter(contacts,getActivity());
         lv_contactList.setAdapter(contactsListAdapter);
     }
@@ -86,7 +87,12 @@ public class ContactsFragment extends Fragment {
         lv_functions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                       if(position==0){
 
+                       }if(position==1){
+                            Intent i=new Intent(getActivity(),PhoneContactsActivity.class);
+                            startActivity(i);
+                       }
             }
         });
 
