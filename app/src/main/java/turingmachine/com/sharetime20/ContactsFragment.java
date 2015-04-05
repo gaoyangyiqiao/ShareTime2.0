@@ -19,6 +19,7 @@ import adapter.ContactsListAdapter;
 import netconnection.Config;
 import netconnection.GetContacts;
 import po.ContactPO;
+import turingmachine.com.sharetime20.subcontacts.ContactInfoActivity;
 import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
 /**
@@ -99,7 +100,9 @@ public class ContactsFragment extends Fragment {
         lv_contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent i=new Intent(getActivity(),ContactInfoActivity.class);
+                i.putExtra("id",((ContactPO)contactsListAdapter.getItem(position)).getId());
+                startActivity(i);
             }
         });
     }

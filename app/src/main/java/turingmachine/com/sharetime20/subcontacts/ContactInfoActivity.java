@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import net.tsz.afinal.FinalDb;
 
+import businesslogic.contactbl.ContactsInfoController;
 import po.ContactPO;
 import turingmachine.com.sharetime20.R;
 
@@ -19,15 +19,16 @@ public class ContactInfoActivity extends ActionBarActivity {
 
     private ImageView icon;
     private TextView name,account,tip;
-    private FinalDb db;
     private Button deleteBtn;
     private int id;
+    private ContactsInfoController contactsInfoController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_info);
 
+        contactsInfoController=new ContactsInfoController();
         //初始化
         icon= (ImageView) findViewById(R.id.contact_info_img);
         name= (TextView) findViewById(R.id.contact_info_name);
@@ -37,13 +38,8 @@ public class ContactInfoActivity extends ActionBarActivity {
 
         id=getIntent().getIntExtra("id",-1);
 
-        if(id==-1){
-            ContactPO contact=contactController.getContact(id);
-            Bitmap bitmap= BitmapFactory.decodeFile(contact.getImageurl());
-            icon.setImageBitmap(bitmap);
-            name.setText(contact.getName());
-            account.setText(contact.getAccount());
-            tip.setText(contact.getTip());
+        if(id!=-1){
+            contactsInfoController.displayContactInfo(id+"",this);
         }
 
 
@@ -73,5 +69,46 @@ public class ContactInfoActivity extends ActionBarActivity {
                 break;
         }
             return super.onOptionsItemSelected(item);
+    }
+
+    public ImageView getIcon() {
+        return icon;
+    }
+
+    public TextView getTip() {
+        return tip;
+    }
+
+    public TextView getAccount() {
+        return account;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public TextView getName() {
+        return name;
+
+    }
+
+    public void setIcon(ImageView icon) {
+        this.icon = icon;
+    }
+
+    public void setName(TextView name) {
+        this.name = name;
+    }
+
+    public void setAccount(TextView account) {
+        this.account = account;
+    }
+
+    public void setTip(TextView tip) {
+        this.tip = tip;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -6,6 +6,7 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import netconnection.GetContacts;
 import po.ContactPO;
 
 /**
@@ -14,7 +15,7 @@ import po.ContactPO;
 public class ContactsController implements ContactsService {
 
     @Override
-    public ArrayList<ContactPO> getContacts(String user_id,BaseAdapter adapter,List list) {
-        return null;
+    public void getContacts(String user_id,BaseAdapter adapter,List list) {
+        new GetContacts().getContacts(user_id,adapter,list);
     }
 }

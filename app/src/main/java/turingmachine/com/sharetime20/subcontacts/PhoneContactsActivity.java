@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import businesslogic.contactbl.GetPhoneContacts;
+import businesslogic.contactbl.PhoneContactsController;
 import po.ContactPO;
 import tools.CharacterParser;
 import tools.PinyinComparator;
@@ -27,18 +27,19 @@ public class PhoneContactsActivity extends ActionBarActivity {
 
     private CharacterParser characterParser;
 
+    private PhoneContactsController phoneContactsController;
+
     private PinyinComparator pinyinComparator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_contacts);
 
-
+        phoneContactsController=new PhoneContactsController();
         //实例化汉字转拼音类
         characterParser = CharacterParser.getInstance();
         pinyinComparator = new PinyinComparator();
-        GetPhoneContacts.getNumber(getApplicationContext());
-        list=filledData(GetPhoneContacts.lists);
+        list=filledData(phoneContactsController.getContacts(this));
         lv_contacts= (ListView) findViewById(R.id.lv_phone_contact);
 
         // 根据a-z进行排序源数据

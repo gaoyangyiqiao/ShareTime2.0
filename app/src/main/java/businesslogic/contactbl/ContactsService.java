@@ -12,5 +12,5 @@ import po.ContactPO;
  */
 public interface ContactsService {
 
-    public ArrayList<ContactPO> getContacts(String user_id,BaseAdapter adapter,List list);
+    public void getContacts(String user_id,BaseAdapter adapter,List list);
 }

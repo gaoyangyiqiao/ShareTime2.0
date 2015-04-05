@@ -14,6 +14,7 @@ public class Config {
 
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
+    public static final String KEY_ACCOUNT="account";
     public static final String KEY_CONTACTS="contacts";
     public static final String KEY_ACTION="action";
     public static final String KEY_USER_ID="user_id";
@@ -23,6 +24,7 @@ public class Config {
     public static final String KEY_IMG="img";
 
     public static final String ACTION_GET_CONTACTS="get_contacts";
+    public static final String ACTION_GET_CONTACT_INFO="get_contact_info";
 
     public static final int RESULT_STATUS_SUCCESS = 1;
     public static final int RESULT_STATUS_FAIL = 0;

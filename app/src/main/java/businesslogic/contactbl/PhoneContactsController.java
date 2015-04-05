@@ -10,12 +10,16 @@ import java.util.List;
 import po.ContactPO;
 
 /**
- * Created by gaoyang on 15/2/1.
- * 用来获得手机通讯录
+ * Created by gaoyang on 15/4/5.
  */
-public class GetPhoneContacts {
-    public static List<ContactPO> lists=new ArrayList<ContactPO>();
-    public static List getNumber(Context context){
+public class PhoneContactsController implements PhoneContactsService {
+    private List<ContactPO> list;
+
+    public PhoneContactsController(){
+        list=new ArrayList<>();
+    }
+    @Override
+    public List<ContactPO> getContacts(Context context) {
         Cursor cursor;
         cursor = context.getContentResolver()
                 .query(ContactsContract
@@ -27,11 +31,8 @@ public class GetPhoneContacts {
             phoneName = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             ContactPO contact=new ContactPO(phoneName);
             contact.setPhone(phoneNumber);
-            lists.add(contact);
+            list.add(contact);
         }
-        return lists;
-
+        return list;
     }
-
-
 }
