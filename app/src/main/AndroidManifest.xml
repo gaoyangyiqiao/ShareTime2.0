@@ -31,6 +31,10 @@
             android:label="PhoneContactsActivity">
         </activity>
 
+        <activity android:name=".subcontacts.ContactInfoActivity"
+            android:label="ContactInfoActivity">
+        </activity>
+
     </application>
 
 </manifest>

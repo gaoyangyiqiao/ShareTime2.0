@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import adapter.ContactsListAdapter;
 import po.ContactPO;
 import tools.CharacterParser;
 
@@ -63,7 +64,8 @@ public class GetContacts {
                         }
 
                         list.add(contact);
-                        adapter.notifyDataSetChanged();
+                        if(list.size()!=0)
+                            adapter.notifyDataSetChanged();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

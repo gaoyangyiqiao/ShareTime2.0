@@ -130,5 +130,11 @@ public class PhoneContactsActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void searchViewBussinesslogic(){
+        if(sv_phonecontacts.isFocused()){
+
+        }
+    }
+
 
 }

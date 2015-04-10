@@ -16,6 +16,7 @@ import java.util.List;
 
 import adapter.ContactsFunctionAdapter;
 import adapter.ContactsListAdapter;
+import businesslogic.contactbl.ContactsController;
 import netconnection.Config;
 import netconnection.GetContacts;
 import po.ContactPO;
@@ -33,6 +34,9 @@ public class ContactsFragment extends Fragment {
     private List<ContactPO> contacts;
     private ListView lv_functions;
     private ContactsFunctionAdapter contactsFunctionAdapter;
+
+    private ContactsController contactsController;
+
     private Button btn_contacts_promotion;
     private Button btn_createGroup;
 
@@ -67,6 +71,7 @@ public class ContactsFragment extends Fragment {
         lv_functions= (ListView) getActivity().findViewById(R.id.contacts_lv_functions);
         lv_contactList = (ListView) getActivity().findViewById(R.id.contacts_lv_contactlist);
         setListViewItemListener();
+        setSearchViewListener();
     }
 
     public void initFunctionLv(){
@@ -79,9 +84,33 @@ public class ContactsFragment extends Fragment {
     //TODO
     public void initContactListLv(){
         contacts=new ArrayList<>();
-        new GetContacts().getContacts(Config.getCachedId(getActivity()), contactsListAdapter,contacts);
         contactsListAdapter=new ContactsListAdapter(contacts,getActivity());
+        contactsController=new ContactsController();
+        contactsController.getContacts(Config.getCachedId(getActivity()), contactsListAdapter, contacts);
         lv_contactList.setAdapter(contactsListAdapter);
+    }
+
+    public void setSearchViewListener() {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //选择联系人界面的list内容
+                if (newText.isEmpty()) {
+                    contactsListAdapter.updateListView(contacts);
+                }
+                else {
+                    contactsListAdapter.updateListView(contacts);
+                    System.out.println("---->>>>>size is "+contacts.size());
+                }
+                return true;
+            }
+        });
     }
 
     public void setListViewItemListener(){
@@ -113,6 +142,13 @@ public class ContactsFragment extends Fragment {
 
     public ContactsListAdapter getContactsListAdapter() {
         return contactsListAdapter;
+    }
+
+    public void searchViewBussinesslogic(){
+        if(searchView.isFocused()){
+            System.out.println("----->>>>>>comes here");
+            lv_functions.setVisibility(View.GONE);
+        }
     }
 }
 
