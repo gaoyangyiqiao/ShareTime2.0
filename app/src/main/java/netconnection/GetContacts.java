@@ -28,7 +28,7 @@ public class GetContacts {
         parser=new CharacterParser();
     }
 
-    public void getContacts(String user_id, final BaseAdapter adapter,final List list){
+    public void getContacts(String user_id, final ContactsListAdapter adapter,final List list){
 
         final AjaxParams params = new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_GET_CONTACTS);
@@ -64,6 +64,7 @@ public class GetContacts {
                         }
 
                         list.add(contact);
+                        adapter.getLists().add(contact);
                         if(list.size()!=0)
                             adapter.notifyDataSetChanged();
                     }

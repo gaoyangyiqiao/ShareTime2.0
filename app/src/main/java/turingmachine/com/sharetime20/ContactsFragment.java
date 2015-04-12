@@ -18,7 +18,6 @@ import adapter.ContactsFunctionAdapter;
 import adapter.ContactsListAdapter;
 import businesslogic.contactbl.ContactsController;
 import netconnection.Config;
-import netconnection.GetContacts;
 import po.ContactPO;
 import turingmachine.com.sharetime20.subcontacts.ContactInfoActivity;
 import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
@@ -27,10 +26,13 @@ import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
  * Created by admin on 2015/3/28.
  */
 public class ContactsFragment extends Fragment {
+//    public static List<ContactPO> contacts =new ArrayList<>();
+
     private View contactsFragment;
     private SearchView searchView;
     private ListView lv_contactList;
     private ContactsListAdapter contactsListAdapter;
+    //包含所有联系人
     private List<ContactPO> contacts;
     private ListView lv_functions;
     private ContactsFunctionAdapter contactsFunctionAdapter;
@@ -101,12 +103,12 @@ public class ContactsFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 //选择联系人界面的list内容
-                if (newText.isEmpty()) {
+                if (newText.length()==0) {
                     contactsListAdapter.updateListView(contacts);
                 }
                 else {
-                    contactsListAdapter.updateListView(contacts);
-                    System.out.println("---->>>>>size is "+contacts.size());
+                    contactsListAdapter.updateListView(contactsController.searchContacts(newText, contacts));
+//                    System.out.println("---->>>>>size is "+contacts.size());
                 }
                 return true;
             }

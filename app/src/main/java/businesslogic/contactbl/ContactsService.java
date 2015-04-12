@@ -1,16 +1,14 @@
 package businesslogic.contactbl;
 
-import android.widget.BaseAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import po.ContactPO;
+import adapter.ContactsListAdapter;
 
 /**
  * Created by gaoyang on 15/4/5.
  */
 public interface ContactsService {
 
-    public void getContacts(String user_id,BaseAdapter adapter,List list);
+    public void getContacts(String user_id, ContactsListAdapter adapter,List list);
 }

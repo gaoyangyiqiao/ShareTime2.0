@@ -7,12 +7,9 @@ import android.content.SharedPreferences;
  * Created by gaoyang on 15/4/1.
  */
 public class Config {
-    //此时为仙1四楼ip地址
-//    public final static String URL="http://172.26.223.2:3306/sharetimedb/index.php";
-    //此时为大活5楼地址
-//    public final static String URL="http://192.168.1.110:3306/sharetimedb/index.php";
-    //红会
-    public final static String URL="http://192.168.1.191:3306/sharetimedb/index.php";
+
+    public final static String URL="http://192.168.1.141:3306/sharetimedb/index.php";
+
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
     public static final String KEY_ACCOUNT="account";

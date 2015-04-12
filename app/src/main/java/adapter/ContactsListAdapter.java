@@ -13,6 +13,7 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import po.ContactPO;
@@ -22,12 +23,15 @@ import turingmachine.com.sharetime20.R;
  * Created by gaoyang on 15/4/1.
  */
 public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
-    private List<ContactPO> lists;
+    private List<ContactPO> lists=new ArrayList<>();
     private Context context;
     private LinearLayout layout;
 
     public ContactsListAdapter(List<ContactPO> lists, Context context){
-        this.lists=lists;
+
+        lists.addAll(lists);
+//        this.lists=lists;
+//        notifyDataSetChanged();
         this.context=context;
 
     }
@@ -153,6 +157,9 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
             return -1;
     }
 
+    public List<ContactPO> getLists() {
+        return lists;
+    }
 
     private static class ViewHolder{
         ImageView imv_icon;

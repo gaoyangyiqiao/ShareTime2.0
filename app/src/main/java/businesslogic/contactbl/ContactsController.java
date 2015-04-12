@@ -1,10 +1,10 @@
 package businesslogic.contactbl;
 
-import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.ContactsListAdapter;
 import netconnection.GetContacts;
 import po.ContactPO;
 
@@ -14,7 +14,7 @@ import po.ContactPO;
 public class ContactsController implements ContactsService {
 
     @Override
-    public void getContacts(String user_id,final BaseAdapter adapter,final List list) {
+    public void getContacts(String user_id,final ContactsListAdapter adapter,final List list) {
         new GetContacts().getContacts(user_id,adapter,list);
     }
 
