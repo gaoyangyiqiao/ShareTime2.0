@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import turingmachine.com.sharetime20.Listener;
-
 /**
  * Created by admin on 2015/3/28.
  * 这个类用于管理schedule界面
@@ -27,23 +25,14 @@ public class ScheduleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View scheduleLayout = inflater.inflate(R.layout.activity_schedule,container,false);
-        this.view=scheduleLayout;
+
         init(null);
         return scheduleLayout;
     }
     public void init(String[] schedule){
-
         imageButtonLeft=(ImageButton)view.findViewById(R.id.imageButton);
         imageButtonRight=(ImageButton)view.findViewById(R.id.imageButton2);
-       Listener listener1=new Listener("up",tlist);
-        Listener listener2=new Listener("down",tlist);
-        imageButtonLeft.setOnClickListener(listener2);
-        imageButtonRight.setOnClickListener(listener1);
         listForTV=new ArrayList<TextView>();
-        tlist=new TextView[3];
-        tlist[0]=(TextView)view.findViewById(R.id.textView);
-        tlist[1]=(TextView)view.findViewById(R.id.textView2);
-        tlist[2]=(TextView)view.findViewById(R.id.textView3);
         listForTV.add((TextView)view.findViewById(R.id.TV11));
         listForTV.add((TextView)view.findViewById(R.id.TV12));
         listForTV.add((TextView)view.findViewById(R.id.TV13));
@@ -73,7 +62,6 @@ public class ScheduleFragment extends Fragment {
     //布置activity
     public void  assignSchedule(String[] schedule){
 listForTV.get(0).setText("Are you here.");
-        listForTV.get(1).setText("I am here.");
     }
     //新建活动
     public void newActivity(){
