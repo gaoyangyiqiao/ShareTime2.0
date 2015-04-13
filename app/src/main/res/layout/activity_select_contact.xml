@@ -11,7 +11,7 @@
         android:orientation="horizontal"
         android:padding="3dip" >
 
-        <app.java.businesslogic.matchChooseContacts.HorizontalListView
+        <app.java.matchBL.HorizontalListView
             android:id="@+id/imgList"
             android:layout_width="0dp"
             android:layout_height="40dp"

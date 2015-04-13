@@ -81,58 +81,17 @@ public class MatchFragment extends Fragment{
                             break;
                     }
                 }
-            })
+            });
             return true;
         }
 
         public void build(){
-
+            Intent i = new Intent(getActivity(),MatchChooseContactsActivity.class);
+            startActivity(i);
         }
 
         public void delete(int position){
-
+            GetMatchInfoList.getData().remove(position);
         }
-//        public boolean onItemLongClick(final AdapterView v,final View w,int a,long b){
-//            AlertDialog.Builder builder = new AlertDialog.Builder(ScheduleActivity.this);
-//
-//
-//            builder.setItems(new String[]{"删除","新建","邀请"},new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    switch(which){
-//                        case 0://dialog.dismiss();
-//                            w.getId();
-//                            delectForList((ArrayAdapter)v.getAdapter(),w.getId(),getData());
-//                            break;
-//                        case 1:newActivity();break;
-//                        case 2:contacts();break;
-//                    }
-//                }
-//            });
-//            builder.show();
-//
-//            return true;}
-//        public void build( AlertDialog.Builder builder){
-//            builder = new AlertDialog.Builder(ScheduleActivity.this);
-//        }
-//        public void contacts(){
-//            userController u=new userController();
-//            String[] namel=u.getContacts(scheduleConfig.user);
-//            AlertDialog.Builder buildContacts = new AlertDialog.Builder(ScheduleActivity.this);
-//            buildContacts.setTitle("选择联系人");
-//            buildContacts.setMultiChoiceItems(namel,null,null);
-//            buildContacts.setPositiveButton("确定",null);
-//            buildContacts.setNegativeButton("取消",null);
-//            buildContacts.show();
-//        }
-//        public void newActivity(){
-//            AlertDialog.Builder buildActivitys = new AlertDialog.Builder(ScheduleActivity.this);
-//            buildActivitys.setTitle("新建日程");
-//            buildActivitys.setView(new EditText(null));
-//            buildActivitys.setPositiveButton("确定",null);
-//            buildActivitys.setNegativeButton("取消",null);
-//            buildActivitys.show();
-//        }
-
     }
 }

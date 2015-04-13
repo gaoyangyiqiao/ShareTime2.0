@@ -90,7 +90,6 @@ public class MatchChooseContactsActivity extends Activity implements AdapterView
         checkedList = new ArrayList<CheckedImg>();
         initCheckedList();
         checkedAdapter = new CheckedIconAdapter(MatchChooseContactsActivity.this,checkedList);
-        ensureButton = (Button)findViewById(R.id.makesureBtn);
         checkedContact.setAdapter(checkedAdapter);
         checkedContact.setOnItemClickListener(new AdapterView.OnItemClickListener() {//添加项目单击事件，待完善
             @Override
@@ -105,6 +104,7 @@ public class MatchChooseContactsActivity extends Activity implements AdapterView
                 checkedAdapter.notifyDataSetChanged();
             }
         });
+        ensureButton = (Button)findViewById(R.id.makesureBtn);
     }
 
     //根据item查询对应的索引
