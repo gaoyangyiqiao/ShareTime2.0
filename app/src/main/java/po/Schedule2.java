@@ -35,10 +35,12 @@ public class Schedule2 {
     }
 
     public void setStartTime(TimeNode startTime) {
-        this.startTime = startTime;
+//        this.startTime = startTime;
+        return;
     }
 
     public TimeNode getStartTime() {
-        return startTime;
+//        return startTime;
+        return null;
     }
 }
