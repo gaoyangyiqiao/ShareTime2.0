@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
  */
 public class Config {
 
-    public final static String URL="http://192.168.1.141:3306/sharetimedb/index.php";
+    public final static String URL="http://172.28.61.64:3306/sharetimedb/index.php";
 
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
