@@ -22,11 +22,19 @@ public class ScheduleFragment extends Fragment {
     private ListView listview;//
     private View view;
     private ArrayList<TextView> listForTV;
+   public  void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+       View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.activity_schedule,null);
+
+
+    }
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View scheduleLayout = inflater.inflate(R.layout.activity_schedule,container,false);
         view=scheduleLayout;
         init(null);
+
         return scheduleLayout;
     }
     public void init(String[] schedule){
