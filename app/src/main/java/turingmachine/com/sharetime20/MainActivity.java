@@ -5,7 +5,9 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -199,14 +201,16 @@ public class MainActivity extends Activity implements OnClickListener{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
         return true;
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return true;
+        return super.onOptionsItemSelected(item);
     }
+
+
 }
