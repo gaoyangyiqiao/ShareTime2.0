@@ -1,21 +1,17 @@
 package turingmachine.com.sharetime20.subcontacts;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import businesslogic.contactbl.ContactsInfoController;
-import po.ContactPO;
 import turingmachine.com.sharetime20.R;
 
-public class ContactInfoActivity extends ActionBarActivity {
+public class ContactInfoActivity extends Activity {
 
     private ImageView icon;
     private TextView name,account,tip;
@@ -44,7 +40,7 @@ public class ContactInfoActivity extends ActionBarActivity {
 
 
         //左上角返回按钮
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 

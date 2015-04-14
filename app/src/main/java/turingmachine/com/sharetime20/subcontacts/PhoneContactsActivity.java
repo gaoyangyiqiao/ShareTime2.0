@@ -1,5 +1,6 @@
 package turingmachine.com.sharetime20.subcontacts;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -18,7 +19,7 @@ import tools.PinyinComparator;
 import turingmachine.com.sharetime20.R;
 
 //在推介联系人中推介电话簿中的联系人
-public class PhoneContactsActivity extends ActionBarActivity {
+public class PhoneContactsActivity extends Activity {
 
     private ListView lv_contacts;
     private SearchView sv_phonecontacts;
@@ -64,8 +65,8 @@ public class PhoneContactsActivity extends ActionBarActivity {
             }
 
         });
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+          getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     //为ListView填充数据

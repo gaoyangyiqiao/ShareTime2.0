@@ -3,6 +3,7 @@ package turingmachine.com.sharetime20;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -14,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+
+import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
 
 public class MainActivity extends Activity implements OnClickListener{
@@ -202,12 +205,21 @@ public class MainActivity extends Activity implements OnClickListener{
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.action_settings_add_friend:
+                Intent i=new Intent(MainActivity.this, PhoneContactsActivity.class);
+                startActivity(i);
+                break;
+            default:
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 
