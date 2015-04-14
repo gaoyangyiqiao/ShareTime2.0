@@ -1,12 +1,14 @@
 package turingmachine.com.sharetime20;
 
 import android.app.Fragment;
+import android.app.LocalActivityManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class ScheduleFragment extends Fragment {
     private ListView listview;//
     private View view;
     private ArrayList<TextView> listForTV;
+    private TabHost tabHost;
    public  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
@@ -33,6 +36,8 @@ public class ScheduleFragment extends Fragment {
                              Bundle savedInstanceState) {
         View scheduleLayout = inflater.inflate(R.layout.activity_schedule,container,false);
         view=scheduleLayout;
+        tabHost=(TabHost)view.findViewById(R.id.tabHost);
+        tabHost.setup();
         init(null);
 
         return scheduleLayout;

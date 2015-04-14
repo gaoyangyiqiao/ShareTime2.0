@@ -47,7 +47,7 @@
                             >
 
                             <ImageButton
-                                android:layout_width="63dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="48dp"
                                 android:id="@+id/imageButton"
                                 android:background="#fffffa0e"
@@ -57,7 +57,7 @@
                             <TextView
                                 android:text="周一"
                                 android:background="#ff3fff12"
-                                android:layout_width="63dp"
+                                android:layout_width="fill_parent"
                                 android:textAlignment="center"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
                                 android:layout_height="fill_parent"
@@ -111,10 +111,11 @@
                                 android:background="#ff298cff"
 
                                 android:clickable="true" />
-                            <ImageButton
+                            0.0302<ImageButton
                                 android:layout_width="63dp"
                                 android:layout_height="48dp"
                                 android:id="@+id/imageButton22"
+
                                 android:background="#ff298cff"
 
                                 android:clickable="true" />
