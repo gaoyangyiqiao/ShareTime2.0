@@ -4,6 +4,9 @@ public class User {
 	private Contacts contactsList;
 	private UserInf userBaseInf;
 	private Schedule schedule;
+    public User(){
+
+    }
 	public User(Contacts contactsList, Schedule schedule,int id,String name,String phoneNumber,String picturePath){
 		this.contactsList=contactsList;
 		this.schedule=schedule;
