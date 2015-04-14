@@ -35,7 +35,6 @@ public class MainActivity extends Activity implements OnClickListener{
     private TextView tv_message;
     private TextView tv_schedule;
     private TextView tv_setting;
-    private Button btn_update;
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -60,7 +59,6 @@ public class MainActivity extends Activity implements OnClickListener{
         tv_message = (TextView)findViewById(R.id.tv_main_message);
         tv_schedule = (TextView)findViewById(R.id.tv_main_schedule);
         tv_setting = (TextView)findViewById(R.id.tv_main_settings);
-       btn_update = (Button)findViewById(R.id.btn_main_update);//缺少相应的事件
         contactsLayout.setOnClickListener(this);
         matchLayout.setOnClickListener(this);
         messageLayout.setOnClickListener(this);
