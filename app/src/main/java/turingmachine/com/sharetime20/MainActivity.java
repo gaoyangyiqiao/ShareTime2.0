@@ -214,8 +214,8 @@ public class MainActivity extends Activity implements OnClickListener{
 
         switch(item.getItemId()){
             case R.id.action_settings_add_friend:
-                Intent i=new Intent(MainActivity.this, PhoneContactsActivity.class);
-                startActivity(i);
+//                Intent i=new Intent(MainActivity.this, PhoneContactsActivity.class);
+//                startActivity(i);
                 break;
             default:
                 break;
