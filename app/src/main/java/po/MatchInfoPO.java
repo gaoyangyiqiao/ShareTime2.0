@@ -1,5 +1,6 @@
 package po;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -9,11 +10,11 @@ public class MatchInfoPO {
 
     private int id;
     private Date time;
-    private LinkList<TimeNode> timeList;
+    private ArrayList<TimeNode> timeList;
     private User owner;
-    private Contacts parList;
+    private ArrayList<User> parList;
 
-    public MatchInfoPO(int id,Date time, LinkList<TimeNode> timeList, User owner, Contacts parList){
+    public MatchInfoPO(int id,Date time, ArrayList<TimeNode> timeList, User owner, ArrayList<User> parList){
         this.id = id;
         this.time = time;
         this.timeList = timeList;
@@ -25,12 +26,23 @@ public class MatchInfoPO {
         return id;
     }
 
-    public LinkList<TimeNode> getTimeList(){
+    public ArrayList<TimeNode> getTimeList(){
         return timeList;
     }
 
     public String getMatchTimeStr(){
-        return null;
+        String str = getTimeNodeStr(timeList.get(0));
+        if(timeList.size() > 2){
+            for(int i = 0;i <= timeList.size() - 1;i ++){
+                str += " ";
+                str += getTimeNodeStr(timeList.get(i));
+            }
+        }
+        return str;
+    }
+
+    private String getTimeNodeStr(TimeNode node){
+        return node.getStartTime().toString()+"~"+node.getEndTime();
     }
 
     public User getOwner(){
@@ -42,14 +54,22 @@ public class MatchInfoPO {
     }
 
     public String getHappenTimeStr(){
-        return null;//待实现
+        String str = time.toString();
+        return str;
     }
 
-    public Contacts getParList(){
+    public ArrayList<User> getParList(){
         return parList;
     }
 
     public String getMemberStr(){
-        return null;//待实现
+        String str = parList.get(0).getInf("name").toString();
+        if(parList.size() > 1){
+            for(int i = 1;i <= parList.size() - 1;i++){
+                str += ",";
+                str += parList.get(i).getInf("name");
+            }
+        }
+        return str;
     }
 }

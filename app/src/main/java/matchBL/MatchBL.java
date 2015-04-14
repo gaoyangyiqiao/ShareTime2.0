@@ -32,10 +32,13 @@ public class MatchBL {
         end.setHours(21);
         end.setMinutes(0);
         TimeNode node = new TimeNode(start,end);
-        LinkList<TimeNode> nodes = new LinkList<TimeNode>();
-        nodes.insert(node);
+        ArrayList<TimeNode> nodes = new ArrayList<TimeNode>();
+        nodes.add(node);
         User user = new User(null,null,1,"yindi","15850550557",null);
-        list.add(new MatchInfoPO(1,date,nodes,user,new Contacts()));
+        ArrayList<User> userList = new ArrayList<User>();
+        userList.add(new User(null,null,2,"hehe","100000",null));
+        userList.add(new User(null,null,3,"heheda","100000",null));
+        list.add(new MatchInfoPO(1,date,nodes,user,userList));
         return list;
     }
 
