@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -43,7 +44,13 @@ public class MatchFragment extends Fragment{
         lv_match_info.setOnItemLongClickListener(new ListItemLongClickListener());
 
         btn_new_match = (ImageButton) view.findViewById(R.id.btn_match);
-        btn_new_match.setOnClickListener(new ButtonClickListener());
+        btn_new_match.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), MatchChooseContactsActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
