@@ -20,6 +20,7 @@ public class Config {
     public static final String KEY_NAME="name";
     public static final String KEY_IMG="img";
     public static final String KEY_CONTACT_ID="contact_id";
+    public static final String KEY_USER_ID_ARRAY="user_id_array";
 
     //json中的key
     public static final String KEY_ID="id";
@@ -30,6 +31,7 @@ public class Config {
     public static final String KEY_CONTACTS_ID="contacts_id";
     public static final String KEY_INFO="info";
     public static final String KEY_USER_SCHEDULE="user_schedule";
+    public static final String KEY_COMMON_FREE_SCHEDULE="common_free_schedule";
 
 
     public static final String ACTION_GET_CONTACTS="get_contacts";
