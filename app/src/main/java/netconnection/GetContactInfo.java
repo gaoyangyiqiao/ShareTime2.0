@@ -28,9 +28,10 @@ public class GetContactInfo {
                public void onSuccess(String result) {
                    try {
                        JSONObject json_result=new JSONObject(result);
-                       ContactPO contactPO=new ContactPO(json_result.getString(Config.KEY_NAME));
-                       contactPO.setAccount(json_result.getString(Config.KEY_ACCOUNT));
-                       contactPO.setImageurl(json_result.getString(Config.KEY_IMG));
+                       JSONObject info=json_result.getJSONObject(Config.KEY_INFO);
+                       ContactPO contactPO=new ContactPO(info.getString(Config.KEY_NAME));
+                       contactPO.setAccount(info.getString(Config.KEY_ACCOUNT));
+                       contactPO.setImageurl(info.getString(Config.KEY_IMG));
 
                        contactInfoActivity.getName().setText(contactPO.getName());
                        contactInfoActivity.getAccount().setText(contactPO.getAccount());

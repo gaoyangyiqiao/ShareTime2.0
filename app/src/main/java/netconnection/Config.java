@@ -16,13 +16,32 @@ public class Config {
     public static final String KEY_CONTACTS="contacts";
     public static final String KEY_ACTION="action";
     public static final String KEY_USER_ID="user_id";
-    public static final String KEY_ID="id";
     public static final String KEY_PHONE="phone";
     public static final String KEY_NAME="name";
     public static final String KEY_IMG="img";
+    public static final String KEY_CONTACT_ID="contact_id";
+    public static final String KEY_USER_ID_ARRAY="user_id_array";
+
+    //json中的key
+    public static final String KEY_ID="id";
+    public static final String KEY_ACTIVITY="activity";
+    public static final String KEY_SIZE="size";
+    public static final String KEY_BEGIN_TIME="begin_time";
+    public static final String KEY_CONTENT="content";
+    public static final String KEY_CONTACTS_ID="contacts_id";
+    public static final String KEY_INFO="info";
+    public static final String KEY_USER_SCHEDULE="user_schedule";
+    public static final String KEY_COMMON_FREE_SCHEDULE="common_free_schedule";
+
 
     public static final String ACTION_GET_CONTACTS="get_contacts";
     public static final String ACTION_GET_CONTACT_INFO="get_contact_info";
+    public static final String ACTION_GET_USER_SCHEDULE="get_user_schedule";
+    public static final String ACTION_MATCH="match";
+    public static final String ACTION_ADD_CONTACT="add_contact";
+    public static final String ACTION_UPLOAD_CONTACTS="upload_contact";
+    public static final String ACTION_UPLOAD_MYINFO="upload_myInfo";
+    public static final String ACTION_INIT="init";
 
     public static final int RESULT_STATUS_SUCCESS = 1;
     public static final int RESULT_STATUS_FAIL = 0;
