@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
+import com.thinkland.sdk.util.CommonFun;
+
 import netconnection.Config;
 import turingmachine.com.sharetime20.captcha.RegisterActivity;
 
@@ -14,7 +16,6 @@ public class SelectionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         String token = Config.getCachedToken(this);
         String phone_num = Config.getCachedPhoneNum(this);
 

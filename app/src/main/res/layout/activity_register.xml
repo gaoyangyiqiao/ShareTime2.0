@@ -5,6 +5,10 @@
     android:background="#ffffff"
     android:orientation="vertical" >
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/smssdk_title_layout" />
 
 
     <LinearLayout

@@ -173,7 +173,7 @@ public class CaptchaActivity extends BaseActivity implements OnClickListener,
 				R.string.smssdk_resend_identify_code);
 		AlertDialog.Builder builder = new AlertDialog.Builder(
 				CaptchaActivity.this);
-		builder.setTitle("SMSSDK Demo")
+		builder.setTitle("SMSSDK")
 				.setIcon(R.drawable.ic_launcher)
 				.setCancelable(false)
 				.setMessage(strContent)
@@ -218,7 +218,7 @@ public class CaptchaActivity extends BaseActivity implements OnClickListener,
 				R.string.smssdk_close_identify_page_dialog);
 		AlertDialog.Builder builder = new AlertDialog.Builder(
 				CaptchaActivity.this);
-		builder.setTitle("Captcha Demo")
+		builder.setTitle("Captcha")
 				.setIcon(R.drawable.ic_launcher)
 				.setCancelable(false)
 				.setMessage(strContent)

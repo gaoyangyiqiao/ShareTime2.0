@@ -182,6 +182,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 		intent.putExtra("formatedPhone", fomatedPhone);
 		intent.putExtra("phone", phone);
 		startActivity(intent);
+        finish();
 	}
 
 	private String splitPhoneNum(String phone) {

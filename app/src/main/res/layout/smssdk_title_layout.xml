@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="48dp"
     android:layout_height="match_parent"
-    android:background="#ff303537"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -11,11 +10,11 @@
         android:paddingLeft="9dp"
         android:paddingRight="17dp" >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_launcher" />
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:background="@drawable/logo" />-->
 
         <TextView
             android:id="@+id/tv_title"
