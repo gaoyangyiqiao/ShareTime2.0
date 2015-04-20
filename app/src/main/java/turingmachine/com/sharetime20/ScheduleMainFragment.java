@@ -41,7 +41,7 @@ public class ScheduleMainFragment extends Fragment implements View.OnClickListen
         scheduleLayout.setOnClickListener(this);
     }
     private void setTabSelection(int index){
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        /*FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         switch(index){
             case 0:
                 if(toDoListFragment==null){
@@ -58,6 +58,7 @@ public class ScheduleMainFragment extends Fragment implements View.OnClickListen
                 else fragmentTransaction.show(scheduleFragment);
                 break;
         }
+        */
     }
     public void onClick(View view){
         switch (view.getId()){
