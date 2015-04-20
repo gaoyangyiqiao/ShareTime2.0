@@ -79,8 +79,8 @@ public class MatchChooseContactsActivity extends Activity implements AdapterView
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_select_contact);
+        System.out.println("System.out大法好");
         lvContact = (ListView)findViewById(R.id.lv_select_search_contact);
         adapter = new CheckedContactAdapter(matchBL.MatchChooseContactsActivity.this);
         lvContact.setAdapter(adapter);
