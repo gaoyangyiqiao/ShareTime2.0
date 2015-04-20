@@ -12,15 +12,18 @@ import android.view.Window;
 /**
  * Created by hello on 2015/4/20.
  */
-public class ScheduleMainFragment extends Fragment{
+public class ScheduleMainFragment extends Fragment implements View.OnClickListener{
     private ToDoListFragment toDoListFragment;
     private ScheduleFragment scheduleFragment;
+    private View todolistLayout;
+    private View scheduleLayout;
     private FragmentManager fragmentManager;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View settingLayout = inflater.inflate(R.layout.activity_schedulemain,
                 container, false);
         fragmentManager=getFragmentManager();
+        initViews();
         return settingLayout;
     }
     public  void onCreate(Bundle savedInstanceState){
@@ -32,7 +35,10 @@ public class ScheduleMainFragment extends Fragment{
 
     }
     public void initViews(){
-
+         todolistLayout=getActivity().findViewById(R.id.todolist_layout);
+        scheduleLayout=getActivity().findViewById(R.id.schedule_layout);
+        todolistLayout.setOnClickListener(this);
+        scheduleLayout.setOnClickListener(this);
     }
     private void setTabSelection(int index){
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
@@ -47,10 +53,22 @@ public class ScheduleMainFragment extends Fragment{
             case 1:
                 if(scheduleFragment==null){
                     scheduleFragment=new ScheduleFragment();
-                   fragmentTransaction.add(R.id.tabHost,scheduleFragment);
+                   fragmentTransaction.add(R.id.content,scheduleFragment);
                 }
                 else fragmentTransaction.show(scheduleFragment);
                 break;
         }
+    }
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.schedule_layout:
+                setTabSelection(0);
+            break;
+            case R.id.todolist_layout:
+                setTabSelection(1);
+            break;
+
+        }
+
     }
 }

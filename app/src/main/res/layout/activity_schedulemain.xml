@@ -18,7 +18,7 @@
         android:layout_gravity="center_horizontal">
 
         <RelativeLayout
-            android:id="@+id/message_layout"
+            android:id="@+id/todolist_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -38,7 +38,7 @@
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/contacts_layout"
+            android:id="@+id/schedule_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" >
