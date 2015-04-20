@@ -65,6 +65,7 @@ public class MatchItemAdapter extends BaseAdapter {
             holder.et_members.setText(po.getMemberStr());
             convertView.setTag(holder);
         }
+        System.out.println("heheheda");
         return convertView;
     }
 

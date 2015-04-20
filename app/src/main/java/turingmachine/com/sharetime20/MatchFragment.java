@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,26 +38,26 @@ public class MatchFragment extends Fragment{
         lv_match_info = (ListView) view.findViewById(R.id.lv_match_record);
         ArrayList<MatchInfoPO> data = MatchBL.getMatchInfoList();
         GetMatchInfoList.setMatchInfoList(data);
-        MatchItemAdapter adapter = new MatchItemAdapter(data,getActivity());
+        MatchItemAdapter adapter = new MatchItemAdapter(data,getActivity().getBaseContext());
+        System.out.println(data.size());
         lv_match_info.setAdapter(adapter);
         lv_match_info.setOnItemClickListener(new ListItemClickListener());
         lv_match_info.setOnItemLongClickListener(new ListItemLongClickListener());
 
         btn_new_match = (ImageButton) view.findViewById(R.id.btn_match);
-        btn_new_match.setOnClickListener(new ButtonClickListener());
+        btn_new_match.setOnClickListener(new ImageButton.OnClickListener(){
+            public void onClick(View view){
+                System.out.println("老子进来了！！！！");
+                Intent i = new Intent(getActivity(), MatchChooseContactsActivity.class);
+                getActivity().startActivity(i);
+            }
+        });
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View matchFragment = inflater.inflate(R.layout.activity_match,container,false);
         return matchFragment;
-    }
-
-    private class ButtonClickListener implements OnClickListener{
-        public void onClick(View view){
-            Intent i = new Intent(getActivity(), MatchChooseContactsActivity.class);
-            startActivity(i);
-        }
     }
 
     private class ListItemClickListener implements AdapterView.OnItemClickListener{
