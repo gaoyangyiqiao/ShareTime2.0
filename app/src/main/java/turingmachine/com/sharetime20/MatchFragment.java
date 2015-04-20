@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -45,11 +46,19 @@ public class MatchFragment extends Fragment{
         lv_match_info.setOnItemLongClickListener(new ListItemLongClickListener());
 
         btn_new_match = (ImageButton) view.findViewById(R.id.btn_match);
+<<<<<<< HEAD
         btn_new_match.setOnClickListener(new ImageButton.OnClickListener(){
             public void onClick(View view){
                 System.out.println("老子进来了！！！！");
                 Intent i = new Intent(getActivity(), MatchChooseContactsActivity.class);
                 getActivity().startActivity(i);
+=======
+        btn_new_match.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), MatchChooseContactsActivity.class);
+                startActivity(i);
+>>>>>>> origin/master
             }
         });
     }
