@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">ShareTime</string>
+    <string name="app_empty_name"> </string>
     <string name="action_settings">Settings</string>
     <string name="smssdk_country_num">+86</string>
     <string name="smssdk_write_mobile_phone">请填写手机号码</string>
