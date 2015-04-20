@@ -10,6 +10,6 @@ public class ContactsInfoController implements  ContactInfoService{
 
     @Override
     public void displayContactInfo(String id,ContactInfoActivity contactInfoActivity) {
-            new GetContactInfo().displayContactInfo(id,contactInfoActivity);
+//            new GetContactInfo().displayContactInfo(id,contactInfoActivity);
     }
 }
