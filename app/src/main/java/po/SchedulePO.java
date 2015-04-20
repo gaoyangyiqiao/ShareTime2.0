@@ -17,4 +17,28 @@ public class SchedulePO {
         this.activityList=activityList;
         this.length=length;
     }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public ArrayList<ActiviryPO> getActivityList() {
+        return activityList;
+    }
+
+    public void setActivityList(ArrayList<ActiviryPO> activityList) {
+        this.activityList = activityList;
+    }
 }

@@ -1,11 +1,14 @@
 package turingmachine.com.sharetime20;
 
 import android.content.Context;
-import android.support.v4.view.ActionProvider;
+import android.content.Intent;
+import android.view.ActionProvider;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.SubMenu;
 import android.view.View;
+
+import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
 //联系人列表加号弹出菜单
 public class ContactsActionPlusProvider extends ActionProvider {
@@ -46,19 +49,21 @@ public class ContactsActionPlusProvider extends ActionProvider {
         subMenu.add("添加朋友")
                 .setIcon(
                         mContext.getResources().getDrawable(
-                                R.drawable.tab_match_unpressed))
+                                R.drawable.tab_match_pressed))
                 .setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        return false;
+                        Intent i =new Intent(mContext,PhoneContactsActivity.class);
+                        mContext.startActivity(i);
+                        return true;
                     }
                 });
 
-        subMenu.add("扫一扫")
+        subMenu.add("个人设置")
                 .setIcon(
                         mContext.getResources().getDrawable(
-                                R.drawable.abc_ic_search_api_mtrl_alpha))
+                                R.drawable.tab_setting))
                 .setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
                     @Override

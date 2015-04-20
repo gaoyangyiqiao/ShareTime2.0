@@ -3,6 +3,7 @@ package turingmachine.com.sharetime20;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -15,12 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
+import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
+
 
 public class MainActivity extends Activity implements OnClickListener{
     private ContactsFragment contactsFragment;
     private MatchFragment matchFragment;
     private MessageFragment messageFragment;
-    private ScheduleFragment scheduleFragment;
+    private ScheduleMainFragment scheduleFragment;
     private SettingFragment settingFragment;
     public View contactsLayout;
     public View matchLayout;
@@ -105,7 +108,7 @@ public class MainActivity extends Activity implements OnClickListener{
                 tv_schedule.setTextColor(Color.WHITE);
                 if (scheduleFragment == null) {
                     // 如果ScheduleFragment为空，则创建一个并添加到界面上
-                    scheduleFragment = new ScheduleFragment();
+                    scheduleFragment = new ScheduleMainFragment();
                     transaction.add(R.id.main_content, scheduleFragment);
                 } else {
                     // 如果MScheduleFragment不为空，则直接将它显示出来
@@ -202,12 +205,21 @@ public class MainActivity extends Activity implements OnClickListener{
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.action_settings_add_friend:
+//                Intent i=new Intent(MainActivity.this, PhoneContactsActivity.class);
+//                startActivity(i);
+                break;
+            default:
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 
