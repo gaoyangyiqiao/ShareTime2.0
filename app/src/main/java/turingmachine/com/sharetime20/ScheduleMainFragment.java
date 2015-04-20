@@ -14,12 +14,13 @@ import android.view.Window;
  */
 public class ScheduleMainFragment extends Fragment{
     private ToDoListFragment toDoListFragment;
-    private Schedule2Fragment schedule2Fragment;
+    private ScheduleFragment scheduleFragment;
     private FragmentManager fragmentManager;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View settingLayout = inflater.inflate(R.layout.activity_schedulemain,
                 container, false);
+        fragmentManager=getFragmentManager();
         return settingLayout;
     }
     public  void onCreate(Bundle savedInstanceState){
@@ -27,6 +28,7 @@ public class ScheduleMainFragment extends Fragment{
 
         View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.activity_schedulemain,null);
         //(Window.FEATURE_NO_TITLE);
+        setTabSelection(0);
 
     }
     public void initViews(){
@@ -43,11 +45,11 @@ public class ScheduleMainFragment extends Fragment{
                 else fragmentTransaction.show(toDoListFragment);
                 break;
             case 1:
-                if(schedule2Fragment==null){
-                    schedule2Fragment=new Schedule2Fragment();
-                    fragmentTransaction.add(R.id.tabHost,schedule2Fragment);
+                if(scheduleFragment==null){
+                    scheduleFragment=new ScheduleFragment();
+                   fragmentTransaction.add(R.id.tabHost,scheduleFragment);
                 }
-                else fragmentTransaction.show(schedule2Fragment);
+                else fragmentTransaction.show(scheduleFragment);
                 break;
         }
     }
