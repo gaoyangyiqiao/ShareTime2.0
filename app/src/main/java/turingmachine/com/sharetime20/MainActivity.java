@@ -23,7 +23,7 @@ public class MainActivity extends Activity implements OnClickListener{
     private ContactsFragment contactsFragment;
     private MatchFragment matchFragment;
     private MessageFragment messageFragment;
-    private ScheduleMainFragment scheduleFragment;
+    private ScheduleFragment scheduleFragment;
     private SettingFragment settingFragment;
     public View contactsLayout;
     public View matchLayout;
@@ -108,7 +108,7 @@ public class MainActivity extends Activity implements OnClickListener{
                 tv_schedule.setTextColor(Color.WHITE);
                 if (scheduleFragment == null) {
                     // 如果ScheduleFragment为空，则创建一个并添加到界面上
-                    scheduleFragment = new ScheduleMainFragment();
+                    scheduleFragment = new ScheduleFragment();
                     transaction.add(R.id.main_content, scheduleFragment);
                 } else {
                     // 如果MScheduleFragment不为空，则直接将它显示出来

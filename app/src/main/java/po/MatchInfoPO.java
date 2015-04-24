@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by gaoyang on 15/3/25.
  */
 public class MatchInfoPO {
-
+/*
     private int id;
     private Date time;
     private ArrayList<TimeNode> timeList;
@@ -21,7 +21,11 @@ public class MatchInfoPO {
         this.owner = owner;
         this.parList = parList;
     }
+    */
+    public MatchInfoPO(){
 
+    }
+/*
     public int getId(){
         return id;
     }
@@ -72,4 +76,5 @@ public class MatchInfoPO {
         }
         return str;
     }
+    */
 }
