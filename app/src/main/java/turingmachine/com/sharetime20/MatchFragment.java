@@ -5,23 +5,20 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import adapter.MatchListItemAdapter;
 import matchBL.GetMatchInfoList;
 import matchBL.MatchBL;
-import matchBL.MatchChooseContactsActivity;
-import matchBL.MatchDetailActivity;
-import matchBL.MatchItemAdapter;
+import turingmachine.com.sharetime20.match_activity.MatchChooseContactsActivity;
+import turingmachine.com.sharetime20.match_activity.MatchDetailActivity;
 import po.MatchInfoPO;
 
 /**
@@ -39,7 +36,7 @@ public class MatchFragment extends Fragment{
         lv_match_info = (ListView) view.findViewById(R.id.lv_match_record);
         ArrayList<MatchInfoPO> data = MatchBL.getMatchInfoList();
         GetMatchInfoList.setMatchInfoList(data);
-        MatchItemAdapter adapter = new MatchItemAdapter(data,getActivity().getBaseContext());
+        MatchListItemAdapter adapter = new MatchListItemAdapter(data,getActivity().getBaseContext());
         System.out.println(data.size());
         lv_match_info.setAdapter(adapter);
         lv_match_info.setOnItemClickListener(new ListItemClickListener());

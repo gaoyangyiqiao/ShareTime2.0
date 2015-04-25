@@ -48,7 +48,7 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="112dp"
-            android:layout_height="58dp"
+            android:layout_height="48dp"
             android:gravity="left"
             android:text="活动主题"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -68,7 +68,7 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="112dp"
-            android:layout_height="58dp"
+            android:layout_height="48dp"
             android:text="活动时间"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:gravity="left"
@@ -79,6 +79,23 @@
             android:layout_height="wrap_content"
             android:text="内容为空"
             android:editable="false"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="112dp"
+            android:layout_height="48dp"
+            android:text="参与好友"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:gravity="left"
+            />
+        <app.java.matchBL.HorizontalListView
+            android:id="@+id/lv_event_list_item_memebers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             />
     </LinearLayout>
 </LinearLayout>

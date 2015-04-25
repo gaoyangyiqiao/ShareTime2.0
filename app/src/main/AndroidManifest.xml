@@ -51,7 +51,7 @@
             android:label="@string/app_empty_name" >
         </activity>
         <activity
-            android:name="matchBL.MatchChooseContactsActivity"
+            android:name=".match_activity.MatchChooseContactsActivity"
             android:label="@string/app_empty_name" >
         </activity>
         <activity

@@ -1,4 +1,4 @@
-package messageBL;
+package turingmachine.com.sharetime20.message_activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import adapter.EventDetailFriendItemAdapter;
+import messageBL.GetInvitationDetail;
+import messageBL.MessageBL;
 import po.InvitationPO;
 import turingmachine.com.sharetime20.R;
 
@@ -31,13 +34,13 @@ public class InvitationDetailActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message_invitation_detail);
         initViews();
-        et_invitation_sender.setText(invitation.getSender());
+        et_invitation_sender.setText(invitation.getSender().getName());
         et_invitation_event_id.setText(invitation.getDetail().getId());
         et_invitation_event_theme.setText(invitation.getDetail().getTheme());
-        et_invitation_event_founder.setText((String)invitation.getDetail().getUser().getInf("name"));
-        et_invitation_event_content.setText(invitation.getDetail().getEvent());
+        et_invitation_event_founder.setText((String)invitation.getDetail().getFounder().getName());
+        et_invitation_event_content.setText(invitation.getDetail().getContent());
         et_invitation_event_time.setText(invitation.getDetail().getTimeStr());
-        lv_members.setAdapter(new EventDetailFriendItemAdapter(this,invitation.getDetail().getMembersListInfo()));
+        lv_members.setAdapter(new EventDetailFriendItemAdapter(this,invitation.getDetail().getMembers()));
         ButtonClickListener listener = new ButtonClickListener();
         btn_accept.setOnClickListener(listener);
         btn_refuse.setOnClickListener(listener);

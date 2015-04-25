@@ -1,9 +1,8 @@
-package matchBL;
+package turingmachine.com.sharetime20.match_activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,7 +14,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import adapter.CheckedContactAdapter;
+import adapter.CheckedIconAdapter;
+import po.CheckedImgPO;
 import turingmachine.com.sharetime20.R;
+import ui_tools.HorizontalListView;
 
 /**
  * Created by admin on 2015/3/13.
@@ -26,10 +29,10 @@ public class MatchChooseContactsActivity extends Activity implements AdapterView
     private CheckedContactAdapter adapter;
     private CheckedIconAdapter checkedAdapter;
     private Button ensureButton;
-    private ArrayList<CheckedImg> checkedList;
+    private ArrayList<CheckedImgPO> checkedList;
 
     private void initCheckedList(){
-        CheckedImg img = new CheckedImg();
+        CheckedImgPO img = new CheckedImgPO();
         img.setId("default");
         img.setName("default");
         img.setImg("none");
@@ -50,7 +53,7 @@ public class MatchChooseContactsActivity extends Activity implements AdapterView
 
     //选择checkbox，添加水平图片
     private void addToCheckedList(String name,String id,String icon){
-        CheckedImg img = new CheckedImg();
+        CheckedImgPO img = new CheckedImgPO();
         img.setName(name);
         img.setId(id);
         img.setImg(icon);
@@ -80,21 +83,20 @@ public class MatchChooseContactsActivity extends Activity implements AdapterView
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_contact);
-        System.out.println("System.out大法好");
         lvContact = (ListView)findViewById(R.id.lv_select_search_contact);
-        adapter = new CheckedContactAdapter(matchBL.MatchChooseContactsActivity.this);
+        adapter = new CheckedContactAdapter(MatchChooseContactsActivity.this);
         lvContact.setAdapter(adapter);
         lvContact.setOnItemClickListener(this);
 
         checkedContact = (HorizontalListView)findViewById(R.id.imgList);
-        checkedList = new ArrayList<CheckedImg>();
+        checkedList = new ArrayList<CheckedImgPO>();
         initCheckedList();
         checkedAdapter = new CheckedIconAdapter(MatchChooseContactsActivity.this,checkedList);
         checkedContact.setAdapter(checkedAdapter);
         checkedContact.setOnItemClickListener(new AdapterView.OnItemClickListener() {//添加项目单击事件，待完善
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CheckedImg img = checkedList.get(position);
+                CheckedImgPO img = checkedList.get(position);
                 Map<Integer,Boolean> checkedMap = adapter.getCheckedMap();
                 if(!img.getId().equals("default")){
                     checkedMap.put(Integer.parseInt(img.getId()),false);
@@ -110,7 +112,7 @@ public class MatchChooseContactsActivity extends Activity implements AdapterView
     //根据item查询对应的索引
     private int findCheckedPositionByName(String name){
         int i = -1;
-        for (CheckedImg m : checkedList) {
+        for (CheckedImgPO m : checkedList) {
             i++;
             if (name.equals(m.getName())) {
                 return i;

@@ -1,4 +1,4 @@
-package matchBL;
+package ui_tools;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -13,7 +13,10 @@ import android.widget.ListAdapter;
 import android.widget.Scroller;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+
+import po.CheckedImgPO;
 
 /**
  * Created by admin on 2015/3/7.

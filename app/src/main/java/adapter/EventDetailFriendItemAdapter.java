@@ -1,4 +1,4 @@
-package messageBL;
+package adapter;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import po.EventDetailFriendItem;
+import po.ContactPO;
 import turingmachine.com.sharetime20.R;
 
 /**
@@ -20,11 +20,11 @@ import turingmachine.com.sharetime20.R;
  */
 public class EventDetailFriendItemAdapter extends BaseAdapter {
 
-    private List<EventDetailFriendItem> data;
+    private List<ContactPO> data;
     private Context context;
     private ListView listView;
 
-    public EventDetailFriendItemAdapter(Context context,List<EventDetailFriendItem> data){
+    public EventDetailFriendItemAdapter(Context context,List<ContactPO> data){
         this.data = data;
         this.context = context;
     }
@@ -54,7 +54,7 @@ public class EventDetailFriendItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        EventDetailFriendItem item = (EventDetailFriendItem)getItem(position);
+        ContactPO item = (ContactPO)getItem(position);
         ViewHolder holder = null;
         if(convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.message_event_friend_item,null);
@@ -65,7 +65,7 @@ public class EventDetailFriendItemAdapter extends BaseAdapter {
 
             holder.tv_name.setText(item.getName());
             holder.tv_phone.setText(item.getPhone());
-            holder.iv.setImageURI(Uri.parse(item.getPic_path()));
+            holder.iv.setImageURI(Uri.parse(item.getImageurl()));
 
             convertView.setTag(holder);
         }
@@ -73,7 +73,7 @@ public class EventDetailFriendItemAdapter extends BaseAdapter {
             holder = (ViewHolder)convertView.getTag();
             holder.tv_name.setText(item.getName());
             holder.tv_phone.setText(item.getPhone());
-            holder.iv.setImageURI(Uri.parse(item.getPic_path()));
+            holder.iv.setImageURI(Uri.parse(item.getImageurl()));
             convertView.setTag(holder);
         }
         return convertView;

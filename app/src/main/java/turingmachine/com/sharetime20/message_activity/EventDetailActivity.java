@@ -1,10 +1,12 @@
-package messageBL;
+package turingmachine.com.sharetime20.message_activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import adapter.EventDetailFriendItemAdapter;
+import messageBL.GetEventDetail;
 import po.ActivityDetailPO;
 import turingmachine.com.sharetime20.R;
 
@@ -27,11 +29,11 @@ public class EventDetailActivity extends Activity {
 
         ActivityDetailPO po = GetEventDetail.getActivityDetail();
         et_event_Id.setText(po.getId());
-        et_event_content.setText(po.getEvent());
+        et_event_content.setText(po.getContent());
         et_event_time.setText(po.getTimeStr());
         et_event_theme.setText(po.getTheme());
-        et_event_founder.setText((String)po.getUser().getInf("name"));
-        lv_event_members.setAdapter(new EventDetailFriendItemAdapter(this,po.getMembersListInfo()));
+        et_event_founder.setText((String)po.getFounder().getName());
+        lv_event_members.setAdapter(new EventDetailFriendItemAdapter(this,po.getMembers()));
     }
 
     private void initView(){

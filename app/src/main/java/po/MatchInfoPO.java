@@ -7,74 +7,53 @@ import java.util.Date;
  * Created by gaoyang on 15/3/25.
  */
 public class MatchInfoPO {
-/*
-    private int id;
-    private Date time;
-    private ArrayList<TimeNode> timeList;
-    private User owner;
-    private ArrayList<User> parList;
-
-    public MatchInfoPO(int id,Date time, ArrayList<TimeNode> timeList, User owner, ArrayList<User> parList){
+    private String id;
+    private ArrayList<TimeNodePO> timeList;
+    private ContactPO owner;
+    private Date receiveTime;//获取该匹配相关信息的时间
+    private ArrayList<ContactPO> members;
+    public MatchInfoPO(String id,ArrayList<TimeNodePO> timeList,ContactPO owner,Date receiveTime,ArrayList<ContactPO> members){
         this.id = id;
-        this.time = time;
         this.timeList = timeList;
         this.owner = owner;
-        this.parList = parList;
+        this.receiveTime = receiveTime;
+        this.members = members;
     }
-    */
-    public MatchInfoPO(){
-
-    }
-/*
-    public int getId(){
+    public String getId(){
         return id;
     }
-
-    public ArrayList<TimeNode> getTimeList(){
+    public ArrayList<TimeNodePO> getTimeList(){
         return timeList;
     }
-
-    public String getMatchTimeStr(){
-        String str = getTimeNodeStr(timeList.get(0));
-        if(timeList.size() > 2){
-            for(int i = 0;i <= timeList.size() - 1;i ++){
-                str += " ";
-                str += getTimeNodeStr(timeList.get(i));
-            }
-        }
-        return str;
-    }
-
-    private String getTimeNodeStr(TimeNode node){
-        return node.getStartTime().toString()+"~"+node.getEndTime();
-    }
-
-    public User getOwner(){
+    public ContactPO getOwner(){
         return owner;
     }
-
-    public Date getMatchHappenTime(){
-        return time;
+    public Date getReceiveTime(){
+        return receiveTime;
     }
-
-    public String getHappenTimeStr(){
-        String str = time.toString();
-        return str;
+    public ArrayList<ContactPO> getMembers(){
+        return members;
     }
-
-    public ArrayList<User> getParList(){
-        return parList;
+    public String getReceiveTimeStr(){
+        return String.format("%d/%d/%d %2d:%2d:&2d",receiveTime.getYear(),receiveTime.getMonth(),
+                receiveTime.getDay(),receiveTime.getHours(),receiveTime.getMinutes(),receiveTime.getSeconds());
     }
-
-    public String getMemberStr(){
-        String str = parList.get(0).getInf("name").toString();
-        if(parList.size() > 1){
-            for(int i = 1;i <= parList.size() - 1;i++){
-                str += ",";
-                str += parList.get(i).getInf("name");
+    public String getTimeListStr(){
+        if(timeList.size() == 0){
+            return "-";
+        }
+        else{
+            if(timeList.size() == 1){
+                return timeList.get(0).getStr();
+            }
+            else{
+                String result = timeList.get(0).getStr();
+                for(int i = 1;i < timeList.size();i++){
+                    result += ";";
+                    result += timeList.get(i).getStr();
+                }
+                return result;
             }
         }
-        return str;
     }
-    */
 }

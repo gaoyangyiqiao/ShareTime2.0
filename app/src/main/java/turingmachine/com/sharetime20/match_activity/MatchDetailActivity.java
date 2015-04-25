@@ -1,4 +1,4 @@
-package matchBL;
+package turingmachine.com.sharetime20.match_activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,8 +7,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import turingmachine.com.sharetime20.R;
 
 /**
  * Created by admin on 2015/3/15.

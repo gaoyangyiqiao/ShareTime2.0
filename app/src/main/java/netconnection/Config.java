@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 public class Config {
 
     public final static String URL="http://172.168.61.112:3306/sharetimedb2.0/index.php";
-
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
     public static final String KEY_ACCOUNT="account";

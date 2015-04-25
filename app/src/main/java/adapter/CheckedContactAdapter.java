@@ -1,4 +1,4 @@
-package matchBL;
+package adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -18,9 +18,9 @@ import java.util.Map;
 import turingmachine.com.sharetime20.R;
 
 /**
- * Created by admin on 2015/3/15.
+ * Created by admin on 2015/4/24.
  */
-public class CheckedContactAdapter extends BaseAdapter {
+public class CheckedContactAdapter extends BaseAdapter{
     private Context ct;
     private ListView lvContact;
     private ArrayList<HashMap<String, Object>> data;

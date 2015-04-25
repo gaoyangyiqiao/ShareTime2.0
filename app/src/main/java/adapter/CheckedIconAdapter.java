@@ -1,4 +1,4 @@
-package matchBL;
+package adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,23 +10,24 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+import po.CheckedImgPO;
 import turingmachine.com.sharetime20.R;
 
 /**
- * Created by admin on 2015/3/7.
+ * Created by admin on 2015/4/24.
  */
 public class CheckedIconAdapter extends BaseAdapter {
     private Context context;
-    private ArrayList<CheckedImg> data;
+    private ArrayList<CheckedImgPO> data;
     private static class ViewHolder{
         ImageView icon;
         String id;
     }
-    public CheckedIconAdapter(Context context,ArrayList<CheckedImg> data){
+    public CheckedIconAdapter(Context context,ArrayList<CheckedImgPO> data){
         this.context = context;
         this.data = data;
     }
-    public ArrayList<CheckedImg> getData(){
+    public ArrayList<CheckedImgPO> getData(){
         return data;
     }
     public int getCount() {
@@ -39,7 +40,7 @@ public class CheckedIconAdapter extends BaseAdapter {
         return 0;
     }
     public void addImg(String img,String name,String id){
-        CheckedImg icon = new CheckedImg();
+        CheckedImgPO icon = new CheckedImgPO();
         icon.setId(id);
         icon.setImg(img);
         icon.setName(name);
@@ -47,7 +48,7 @@ public class CheckedIconAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
     public View getView(int position, View convertView, ViewGroup parent){
-        CheckedImg map = data.get(position);
+        CheckedImgPO map = data.get(position);
         final String img = map.getImg();
 
         ViewHolder holder = null;

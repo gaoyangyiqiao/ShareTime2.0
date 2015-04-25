@@ -1,19 +1,18 @@
-package matchBL;
-
+package po;
 
 /**
- * Created by admin on 2015/3/7.
+ * Created by admin on 2015/4/24.
  */
-public class CheckedImg {
+public class CheckedImgPO {
     private String img;
     private String name;
     private String id;
-    public  CheckedImg(){
+    public  CheckedImgPO(){
         this.img = null;
         this.name = null;
         this.id = null;
     }
-    public CheckedImg(String img,String name,String id){
+    public CheckedImgPO(String img,String name,String id){
         this.id = id;
         this.name = name;
         this.img = img;
