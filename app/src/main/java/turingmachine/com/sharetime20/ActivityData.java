@@ -15,6 +15,35 @@ public class ActivityData {
     //以下的坐标反应的是该活动在表格里的位置,从1开始编号
     private int startx;
     private int starty;
+    private int scoorx;
+    private int scoory;
+    private int ecoorx;
+    private int ecoory;
+    public int getScoorx(){
+        return scoorx;
+    }
+    public int getScoory(){
+        return scoory;
+    }
+    public int getEcoorx(){
+        return ecoorx;
+    }
+    public int getEcoory(){
+        return ecoory;
+    }
+    public void setScoorx(int x){
+        scoorx=x;
+    }
+    public void setScoory(int x){
+        scoory=x;
+    }
+    public void setEcoorx(int x){
+        ecoorx=x;
+    }
+    public void setEcoory(int x){
+        ecoory=x;
+    }
+
 
     public int getStartx() {
         return startx;
@@ -40,7 +69,10 @@ public class ActivityData {
         this.length=0;
     }
     public String getContent(){
-        return content;
+
+       String result=activiryPO.getContent();
+
+        return result;
     }
 
 }

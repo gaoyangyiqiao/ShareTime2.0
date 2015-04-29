@@ -12,105 +12,218 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-import po.ActiviryPO;
-import po.ScheduleConfig;
+//import po.ActiviryPO;
+//import po.ScheduleConfig;
 
-public class ScheduleView extends View implements View.OnTouchListener{
+public class ScheduleView extends View  implements View.OnTouchListener {
     //颜色
     //画笔
-    private Paint mPaint; // 画笔,包含了画几何图形、文本等的样式和颜色信息
-    private int startX = ScheduleViewSize.startX;//画布的原点X（所有的画图操作，都是基于这个原点的，touch中只要修改这个值）
-    private int startY = ScheduleViewSize.startY;//画布的原点Y（所有的画图操作，都是基于这个原点的，touch中只要修改这个值）
-    private static final int sideBar = ScheduleViewSize.topBarHeight;//左边，上面bar的宽度
-    private static final int boxHeight = ScheduleViewSize.boxHeight;//每个格子的高度
-    private static final int boxWeight=ScheduleViewSize.boxWeight;
-    private static int eachBoxW = 120;//每个格子的宽度，后面根据屏幕对它做了均分
-    private int focusX = -1;//当前手指焦点的位置坐标
-    private int focusY = -1;//当前手指焦点的位置坐标
-    private static int leftBarNum = ScheduleViewSize.leftBarNum;//左边栏总格子数
-    private static int topBarNmu = ScheduleViewSize.topBarNum;//顶部栏总共格子数
-    private String[] weekdays;//星期
-    public static final int classBorder = Color.argb(180, 150, 150, 150);
-    private boolean isMove = false; // 判断是否移动
+    public  static int topBarNum= 3;
+    public  static int leftBarNum=8;
+    public static int sideBar=70;//上边条目的高度
+    public static int boxHeight=130;//每个格子的高度
+    public static int boxWeight=150;
+    public static int startX=0;//画布开始x
+    public static int startY=0;//画布开始y
+    public static int foucuseX=-1;//手的焦点x
+    public static int foucuseY=-1;//手的焦点y
+    public ActivityPre lastActivityPre;//上一次的位置
+    public static int[] boxColor= { Color.argb(200, 71, 154, 199),
+            Color.argb(200, 230, 91, 62), Color.argb(200, 50, 178, 93),
+            Color.argb(200, 255, 225, 0), Color.argb(200, 102, 204, 204),
+            Color.argb(200, 51, 102, 153), Color.argb(200, 102, 153, 204)
+    };//格子背景色
+
+    public static final int contentBg = Color.argb(255, 255, 255, 255);
+    public static final int barBg = Color.argb(255, 225, 225, 225);
+    public static final int bayText = Color.argb(255, 150, 150, 150);
+    public static final int barBgHrLine = Color.argb(255, 150, 150, 150);
+    public static final int boxBorder = Color.argb(180, 150, 150, 150);//格子边界颜色
+    public static final int markerBorder = Color.argb(100, 150, 150, 150);//中间十字的颜色
+    //public static final int[] hours={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
     private Context context;
-    private int [] boxColor=ScheduleViewSize.boxColor;
-    private ArrayList<ActivityData> activityInfo;
-    public ScheduleView(Context context){
+    private String[] weekdays={"周一","周二","周三","周四","周五","周六","周日"};
+    private String[] hours={"1","2","3","4","5","6","7","8","9","10","12","13",};
+    private Paint paint;
+    private Canvas canvas;
+    private long eventStartTime=0;
+    private ArrayList<ActivityPre> activityInfo=new ArrayList<>();
+    private ScheduleViewConfig scheduleViewConfig;
+
+    public ScheduleView(Context context) {
         super(context);
+        paint=new Paint();
+        scheduleViewConfig=new ScheduleViewConfig(context);
+        this.setOnTouchListener(this);
+        boxWeight=(getWidth()-sideBar)/topBarNum;
+        activityInfo.add(new ActivityPre("lxy",1,2));
+        activityInfo.add(new ActivityPre("zfy",3,2));
+        //activityInfo.add(new ActivityPre("i love you" ,11,3));
+        activityInfo.add(new ActivityPre("hhh",23,2));
     }
-    public ScheduleView(Context context,AttributeSet set){
-        super(context,set);
+
+    public ScheduleView(Context context, AttributeSet set) {
+        super(context, set);
+        paint=new Paint();
+        this.setOnTouchListener(this);
+        scheduleViewConfig=new ScheduleViewConfig(context);
+        boxWeight=(getWidth()-sideBar)/topBarNum;
+        activityInfo.add(new ActivityPre("lxy",1,2));
+        activityInfo.add(new ActivityPre("zfy",3,2));
+        activityInfo.add(new ActivityPre("i love you" ,11,2));
+        activityInfo.add(new ActivityPre("hhh",23,2));
     }
-    public boolean onTouch(View view,MotionEvent event){
+
+
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        this.canvas=canvas;
+        boxWeight=(getWidth()-sideBar)/topBarNum;
+        drawBox();
+        drawLeftBar();
+        drawMarker();
+        drawTopBar();
+    }
+
+    //画相交处的十字线
+    public void drawMarker() {
+
+        paint.setColor(markerBorder);
+        for (int i = 0; i < topBarNum - 1; i++) {
+            for (int j = 0; j < leftBarNum - 1; j++) {
+                paint.setStyle(Paint.Style.STROKE);
+                canvas.drawRect(startX + sideBar + boxWeight * (i + 1) - boxWeight / 20, startY + sideBar + boxHeight * (j + 1) - 1, startX + sideBar + boxWeight * (i + 1) + boxWeight / 20, startY + sideBar + boxHeight * (j + 1) + 1,paint);
+                canvas.drawRect(startX + sideBar + boxWeight * (i + 1) - 1, startY + sideBar + boxHeight * (j + 1) - boxHeight / 20, startX + sideBar + boxWeight * (i + 1) + 1, startY + sideBar + boxHeight * (j + 1) + boxHeight / 20,paint);
+            }
+        }
+    }
+
+    //画格子
+
+    public void drawBox() {
+        int length = activityInfo.size();
+        for(int i=0;i<length;i++){
+            ActivityPre activityPre=activityInfo.get(i);
+            int startx=activityPre.getStartX();
+            int starty=activityPre.getStartY();
+            int endx=activityPre.getEndX();
+            int endy=activityPre.getEndY();
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(boxColor[i % boxColor.length]);
+            canvas.drawRect(startx, starty, endx,endy,paint);
+            paint.setColor(boxBorder);
+            paint.setStyle(Paint.Style.STROKE);
+            canvas.drawRect(startx, starty, endx,endy,paint);
+            paint.setColor(Color.BLACK);
+            String inf =activityPre.getContent();
+            Rect textRect = new Rect();
+            paint.getTextBounds(inf, 0, inf.length(), textRect);
+            paint.setTextSize(30);
+            int th = textRect.bottom - textRect.top;
+            int tw = textRect.right - textRect.left;
+            int row = (int) ((tw + 30) / boxWeight + 1);
+            int len = inf.length() / row;
+            canvas.drawText(inf,startx+20,starty+(endy-starty)/2,paint);
+            for (int j = 0; j < row - 1; j++) {
+                canvas.drawText(inf, len * j, len * (j + 1), startx + 5, starty + 10 + th * (j + 1), paint);
+            }
+        }
+    }
+
+
+    public void drawTopBar() {
+
+        paint.setColor(barBg);
+        paint.setStyle(Paint.Style.FILL);
+        //画第一个边框线
+        canvas.drawRect(startX + sideBar, 0, startX + sideBar + boxWeight * topBarNum, sideBar, paint);
+        paint.setColor(barBgHrLine);
+        paint.setTextSize(25);
+        canvas.drawRect(startX + sideBar + boxWeight - 1, 0, startX + sideBar + boxWeight, sideBar,paint);
+        //画第一个文字
+        Rect textBounds = new Rect();
+        paint.getTextBounds(weekdays[0], 0, weekdays[0].length(), textBounds);
+        int textHeight = textBounds.bottom - textBounds.top;
+        int textWeight = textBounds.right - textBounds.left;
+        canvas.drawText(weekdays[0], startX + sideBar + boxWeight / 2 - textWeight / 2, sideBar / 2 + textHeight / 2, paint);
+        //画剩下的边框线和文字
+        for (int m = 0; m < topBarNum - 1; m++) {
+            canvas.drawRect(startX + sideBar + (m + 2) * boxWeight - 1, 0, startX + sideBar + (m + 2) * boxWeight, sideBar, paint);
+            canvas.drawText(weekdays[m + 1], startX + sideBar + (m + 1) * boxWeight + boxWeight / 2 - textWeight / 2, sideBar / 2 + textHeight / 2,paint);
+        }
+
+    }
+
+    public void drawLeftBar() {
+
+        paint.setColor(barBg);
+        paint.setStyle(Paint.Style.FILL);
+        //画背景
+        canvas.drawRect(startX + 0, startY + sideBar, startX + sideBar, startY + boxHeight * leftBarNum + sideBar, paint);
+        //画第一个边线
+        paint.setColor(barBgHrLine);
+        canvas.drawRect(startX + 0, startY + sideBar + boxHeight - 1, startX + sideBar, startY+sideBar + boxHeight,paint);
+        //画第一个文字
+        Rect textRect = new Rect();
+        paint.getTextBounds(hours[0] + "", 0, (hours[0] + "").length(), textRect);
+        int textHeight = textRect.bottom - textRect.top;
+        int textWight = textRect.right - textRect.left;
+        canvas.drawText(hours[0] + "", startX + sideBar / 2 - textWight / 2, startY + sideBar + boxHeight / 2 + textHeight / 2,paint);
+        //画剩下的边线和文字
+        for (int i = 0; i < leftBarNum - 1; i++) {
+            //画边线
+            canvas.drawRect(startX + 0, startY + sideBar + (i + 2) * boxHeight - 1, startX + sideBar, startY + sideBar + (i + 2) * boxHeight, paint);
+            //画文字
+            Rect textRebounds = new Rect();
+            paint.getTextBounds(hours[i + 1] + "", 0, (hours[i + 1] + "").length(), textRebounds);
+            int th = textRebounds.height();
+            int tw = textRebounds.width();
+            canvas.drawText(hours[i + 1] + "", startX + sideBar / 2 - textWight / 2, startY + (i + 1) * boxHeight + boxHeight + textHeight / 2, paint);
+        }
+
+    }
+    public boolean onTouch(View v, MotionEvent event) {
+        Long startTime=event.getDownTime();
+        int x=(int)event.getX();
+        int y=(int)event.getY();
+        x=x-sideBar;
+        y=y-sideBar;
+        x=x/boxWeight;
+        y=y/boxHeight;
+        ActivityPre activityPre=new ActivityPre(x*boxWeight+sideBar+startX,y*boxHeight+sideBar+startY,x*boxWeight+sideBar+startX+boxWeight,y*boxHeight+sideBar+startY+boxHeight);
+        switch(event.getAction()){
+            case MotionEvent.ACTION_MOVE:
+                if(lastActivityPre==null){
+                    lastActivityPre=activityPre;
+                }
+                else{
+                    int index1=lastActivityPre.getIndex();
+                    int index2=activityPre.getIndex();
+                    if(index1==(index2+1)||index1==(index2-1)){
+                        activityInfo.add(activityPre);
+                        activityInfo.add(lastActivityPre);paint.setStyle(Paint.Style.STROKE);
+                        canvas.drawRect(activityPre.getStartX(),activityPre.getStartY(),activityPre.getEndX(),activityPre.getEndY(),paint);
+                        canvas.drawRect(lastActivityPre.getStartX(),lastActivityPre.getStartY(),lastActivityPre.getEndX(),lastActivityPre.getEndY(),paint);
+                        lastActivityPre=null;
+                    }
+                }
+                break;
+            case MotionEvent.ACTION_DOWN:
+
+                //paint.setColor(Color.BLUE);
+                //  canvas.drawRect(x+sideBar+startX,y+sideBar+startY,x+sideBar+startX+boxWeight,y+sideBar+startY+boxHeight,paint);
+                // canvas.drawRect(x+sideBar+startX+boxWeight,y+sideBar+startY+boxHeight,x+sideBar+startX+2*boxWeight,y+sideBar+startY+2*boxHeight,paint);
+                //  activityInfo.add(activityPre);
+                break;
+            case MotionEvent.ACTION_UP:
+                lastActivityPre=null;
+                break;
+        }
+        invalidate();
         return true;
     }
-    public void onDraw(Canvas canvas){
-        super.onDraw(canvas);
-        drawBox(canvas);
-        drawLeftBar(canvas);
-        drawMarker(canvas);
-        drawTopBar(canvas);
-    }
-    //画相交处的十字线
-    public void drawMarker(Canvas canvas){
-         mPaint.setColor(ScheduleViewSize.markerBorder);
-        for(int i=0;i<topBarNmu-1;i++){
-            for(int j=0;j<leftBarNum-1;j++){
-                mPaint.setStyle(Paint.Style.STROKE);
-                canvas.drawRect(startX+sideBar+boxWeight*(i+1)-boxWeight/20,startY+sideBar+boxHeight*(j+1)-1,startX+sideBar+boxWeight*(i+1)+boxWeight/20,startY+sideBar+boxHeight*(j+1)+1,mPaint);
-                canvas.drawRect(startX+sideBar+boxWeight*(i+1)-1,startY+sideBar+boxHeight*(j+1)-boxHeight/20,startX+sideBar+boxWeight*(i+1)+1,startY+sideBar+boxHeight*(j+1)+boxHeight/20,mPaint);
-            }
-        }
-    }
-    //画格子
-    public void drawBox(Canvas canvas){
-         int length=activityInfo.size();
-        for(int i=0;i<length;i++){
-            ActivityData activityData=activityInfo.get(i);
-            int sx=activityData.getStartx();
-            int sy=activityData.getStarty();
-            int ex=activityData.getEndx();
-            int ey=activityData.getEndy();
-            int stx=startX+sideBar+(sx-1)*boxWeight;
-            int sty=startY+sideBar+(sy-1)*boxHeight;
-            int enx=startX+sideBar+ex*boxWeight;
-            int eny=startY+sideBar+ey*boxHeight;
 
-
-            mPaint.setStyle(Paint.Style.FILL);
-            mPaint.setColor(boxColor[i%boxColor.length]);
-            canvas.drawRect(stx,sty,enx,eny,mPaint);
-
-            mPaint.setColor(Color.WHITE);
-            String inf=activityData.getContent();
-            Rect textRect=new Rect();
-            mPaint.getTextBounds(inf,0,inf.length(),textRect);
-            int th=textRect.bottom-textRect.top;
-            int tw=textRect.right-textRect.left;
-            int row=(int)((tw+30)/boxWeight+1);
-            int len=inf.length()/row;
-            for(int j=0;j<row-1;j++){
-                canvas.drawText(inf,len*j,len*(j+1),stx+5,sty+10+th*(j+1),mPaint);
-            }
-
-            //边框
-            mPaint.setColor(classBorder);
-            mPaint.setStyle(Paint.Style.STROKE);
-            canvas.drawRect(stx,sty,enx,eny,mPaint);
-
-        }
-    }
-    public void drawTopBar(Canvas canvas){
-
-    }
-    public void drawLeftBar(Canvas canvas){
-
-    }
-    public void setActivityInfo(ArrayList<ActivityData> list){
-        this.activityInfo=list;
-        invalidate();
-    }
-
+}
 
 
 }

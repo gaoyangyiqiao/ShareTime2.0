@@ -29,4 +29,5 @@ public final class ScheduleViewSize {
     public static final int barBgHrLine = Color.argb(255, 150, 150, 150);
     public static final int boxBorder = Color.argb(180, 150, 150, 150);//格子边界颜色
     public static final int markerBorder = Color.argb(100, 150, 150, 150);//中间十字的颜色
+    public static final int[] hours={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 }
