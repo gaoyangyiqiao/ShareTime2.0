@@ -17,6 +17,8 @@ public class ActivityPO {
     private String contacts;
     private int right;//对外可见的权限
 
+    public ActivityPO(){}
+
     public ActivityPO(String id,String theme,String content,String founder,Date receiveTime,
                       Date startTime,Date endTime,String contacts,int right){
         this.id = id;
