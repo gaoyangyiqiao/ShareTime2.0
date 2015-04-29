@@ -2,14 +2,14 @@ package turingmachine.com.sharetime20;
 
 import java.util.ArrayList;
 
-import po.ActiviryPO;
 import po.ActivityDetailPO;
+import po.ActivityPO;
 
 /**
  * Created by hello on 2015/4/24.
  */
 public class ActivityData {
-    private ActiviryPO activiryPO;
+    private ActivityPO activiryPO;
     private int length;
     private String content;
     //以下的坐标反应的是该活动在表格里的位置,从1开始编号
@@ -64,7 +64,7 @@ public class ActivityData {
     public int getEndy(){
         return endy;
     }
-    public ActivityData(ActiviryPO activityPO,int length){
+    public ActivityData(ActivityPO activityPO,int length){
         this.activiryPO=activityPO;
         this.length=0;
     }

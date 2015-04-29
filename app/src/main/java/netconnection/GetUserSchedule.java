@@ -12,7 +12,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import po.ActiviryPO;
 import po.ActivityPO;
 import po.SchedulePO;
 
@@ -44,8 +43,8 @@ public class GetUserSchedule {
                         JSONObject json_activity=activities.getJSONObject(i);
 
 
-                        String theme=json_activity.getString(Config.KEY_THEME);
-                        String founder=
+//                        String theme=json_activity.getString(Config.KEY_THEME);
+//                        String founder=
                         String content=json_activity.getString(Config.KEY_CONTENT);
                         String id=json_activity.getString(Config.KEY_ID);
                         String contacts_id=json_activity.getString(Config.KEY_CONTACTS_ID);

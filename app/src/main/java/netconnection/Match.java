@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import po.ActivityPO;
 import po.SchedulePO;
 
 /**
@@ -42,8 +43,8 @@ public class Match {
                         String content=json_activity.getString(Config.KEY_CONTENT);
                         String id=json_activity.getString(Config.KEY_ID);
                         String contacts_id=json_activity.getString(Config.KEY_CONTACTS_ID);
-                        ActiviryPO activity=new ActiviryPO(content,id,contacts_id);
-                        schedule.getActivityList().add(activity);
+//                        ActivityPO activity=new ActivityPO(content,id,contacts_id);
+//                        schedule.getActivityList().add(activity);
                     }
 
                     SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM");
