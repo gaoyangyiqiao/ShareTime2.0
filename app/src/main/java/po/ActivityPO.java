@@ -10,15 +10,17 @@ public class ActivityPO {
     private String id;
     private String theme;
     private String content;
-    private ContactPO founder;
+    private String founder;
     private Date receiveTime;
     private Date startTime;
     private Date endTime;
-    private ArrayList<ContactPO> contacts;
+    private String contacts;
     private int right;//对外可见的权限
 
-    public ActivityPO(String id,String theme,String content,ContactPO founder,Date receiveTime,
-                      Date startTime,Date endTime,ArrayList<ContactPO> contacts,int right){
+    public ActivityPO(){}
+
+    public ActivityPO(String id,String theme,String content,String founder,Date receiveTime,
+                      Date startTime,Date endTime,String contacts,int right){
         this.id = id;
         this.contacts = contacts;
         this.content = content;
@@ -38,10 +40,10 @@ public class ActivityPO {
     public String getContent(){
         return content;
     }
-    public ContactPO getFounder(){
+    public String getFounder(){
         return founder;
     }
-    public ArrayList<ContactPO> getContacts(){
+    public String getContacts(){
         return contacts;
     }
     public int getRight(){

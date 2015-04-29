@@ -226,4 +226,3 @@ public class ScheduleView extends View  implements View.OnTouchListener {
 }
 
 
-}

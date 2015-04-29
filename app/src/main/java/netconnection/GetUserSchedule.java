@@ -12,7 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import po.ActiviryPO;
+import po.ActivityPO;
 import po.SchedulePO;
 
 /**
@@ -41,14 +41,18 @@ public class GetUserSchedule {
                     JSONArray activities=userSchedule.getJSONArray(Config.KEY_ACTIVITY);
                     for(int i=0;i<activities.length();i++){
                         JSONObject json_activity=activities.getJSONObject(i);
+
+
+//                        String theme=json_activity.getString(Config.KEY_THEME);
+//                        String founder=
                         String content=json_activity.getString(Config.KEY_CONTENT);
                         String id=json_activity.getString(Config.KEY_ID);
                         String contacts_id=json_activity.getString(Config.KEY_CONTACTS_ID);
-                        ActiviryPO activity=new ActiviryPO(content,id,contacts_id);
+                        ActivityPO activity=new ActivityPO();
                         schedule.getActivityList().add(activity);
                     }
 
-                    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM");
+                    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
                     schedule.setStartTime(dateFormat.parse(userSchedule.getString(Config.KEY_BEGIN_TIME)));
                     schedule.setLength(userSchedule.getInt(Config.KEY_SIZE));
 
