@@ -1,5 +1,7 @@
 package turingmachine.com.sharetime20;
 
+import po.ActivityPO;
+
 /**
  * Created by hello on 2015/4/29.
  */
@@ -22,6 +24,9 @@ public class ActivityPre {
         this.last=1;
         this.content="";
 
+    }
+    public ActivityPre(ActivityPO po){
+        
     }
     public ActivityPre(String inf,int index,int last){
         this.content=inf;
