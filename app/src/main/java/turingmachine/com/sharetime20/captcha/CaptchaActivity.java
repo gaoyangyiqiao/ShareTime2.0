@@ -19,6 +19,7 @@ import com.thinkland.sdk.sms.SMSCaptcha;
 import com.thinkland.sdk.util.BaseData.ResultCallBack;
 
 import netconnection.Config;
+import netconnection.Register;
 import turingmachine.com.sharetime20.MainActivity;
 import turingmachine.com.sharetime20.R;
 
@@ -149,6 +150,9 @@ public class CaptchaActivity extends BaseActivity implements OnClickListener,
 					if (code == 0) {
                         Config.cacheToken(CaptchaActivity.this, captcha);
                         Config.cachePhoneNum(CaptchaActivity.this, phone);
+
+                        //注册
+                        new Register(phone,CaptchaActivity.this);
 
                         Intent i=new Intent(CaptchaActivity.this, MainActivity.class);
                         startActivity(i);

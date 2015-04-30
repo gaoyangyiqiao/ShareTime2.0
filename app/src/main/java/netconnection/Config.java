@@ -32,7 +32,7 @@ public class Config {
     public static final String KEY_USER_SCHEDULE="user_schedule";
     public static final String KEY_COMMON_FREE_SCHEDULE="common_free_schedule";
 
-
+    public static final String ACTION_REGISTER="register";
     public static final String ACTION_GET_CONTACTS="get_contacts";
     public static final String ACTION_GET_CONTACT_INFO="get_contact_info";
     public static final String ACTION_GET_USER_SCHEDULE="get_user_schedule";
