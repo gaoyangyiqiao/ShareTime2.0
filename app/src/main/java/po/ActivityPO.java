@@ -25,6 +25,15 @@ public class ActivityPO {
     public Date getReceiveTime(){
         return  receiveTime;
     }
+    public void setStartTime(Date  startTime){
+        this.startTime=startTime;
+    }
+    public void setEndTime(Date endTime){
+        this.endTime=endTime;
+    }
+    public void setContent(String content){
+        this.content=content;
+    }
     public ActivityPO(){}
 
     public ActivityPO(String id,String theme,String content,String founder,Date receiveTime,

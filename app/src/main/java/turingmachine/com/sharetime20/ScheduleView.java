@@ -11,6 +11,10 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import po.ActivityPO;
+import po.SchedulePO;
 
 //import po.ActiviryPO;
 //import po.ScheduleConfig;
@@ -56,10 +60,15 @@ public class ScheduleView extends View  implements View.OnTouchListener {
         scheduleViewConfig=new ScheduleViewConfig(context);
         this.setOnTouchListener(this);
         boxWeight=(getWidth()-sideBar)/topBarNum;
-        activityInfo.add(new ActivityPre("lxy",1,2));
-        activityInfo.add(new ActivityPre("zfy",3,2));
-        //activityInfo.add(new ActivityPre("i love you" ,11,3));
-        activityInfo.add(new ActivityPre("hhh",23,2));
+       // activityInfo.add(new ActivityPre("lxy",1,2));
+       activityInfo.add(new ActivityPre("zfy",3,2));
+        activityInfo.add(new ActivityPre("i love you" ,11,3));
+      activityInfo.add(new ActivityPre("hhh",23,2));
+        ActivityPO activityPO= new ActivityPO();
+        activityPO.setContent("Give you promiss");
+        activityPO.setStartTime(new Date(2015, 5, 2, 23, 0, 0));
+        activityPO.setEndTime(new Date(2015,5,2,24,0,0));
+        activityInfo.add(new ActivityPre(activityPO));
     }
 
     public ScheduleView(Context context, AttributeSet set) {
@@ -68,10 +77,15 @@ public class ScheduleView extends View  implements View.OnTouchListener {
         this.setOnTouchListener(this);
         scheduleViewConfig=new ScheduleViewConfig(context);
         boxWeight=(getWidth()-sideBar)/topBarNum;
-        activityInfo.add(new ActivityPre("lxy",1,2));
+       // activityInfo.add(new ActivityPre("lxy",1,2));
         activityInfo.add(new ActivityPre("zfy",3,2));
         activityInfo.add(new ActivityPre("i love you" ,11,2));
         activityInfo.add(new ActivityPre("hhh",23,2));
+       ActivityPO activityPO= new ActivityPO();
+        activityPO.setContent("Give you promiss");
+        activityPO.setStartTime(new Date(2015, 5, 2, 23, 0, 0));
+        activityPO.setEndTime(new Date(2015,5,2,24,0,0));
+        activityInfo.add(new ActivityPre(activityPO));
     }
 
 
@@ -109,8 +123,11 @@ public class ScheduleView extends View  implements View.OnTouchListener {
             int endx=activityPre.getEndX();
             int endy=activityPre.getEndY();
             paint.setStyle(Paint.Style.FILL);
-            paint.setColor(boxColor[i % boxColor.length]);
+
+           if(activityPre.getId()==1) paint.setColor(boxColor[i % boxColor.length]);
+            if(activityPre.getId()==2)paint.setColor(boxColor[1 % boxColor.length]);
             canvas.drawRect(startx, starty, endx,endy,paint);
+
             paint.setColor(boxBorder);
             paint.setStyle(Paint.Style.STROKE);
             canvas.drawRect(startx, starty, endx,endy,paint);
@@ -199,7 +216,7 @@ public class ScheduleView extends View  implements View.OnTouchListener {
                 else{
                     int index1=lastActivityPre.getIndex();
                     int index2=activityPre.getIndex();
-                    if(index1==(index2+1)||index1==(index2-1)){
+                    if((index1==(index2+1)||index1==(index2-1))&&!ifExit(lastActivityPre)){
                         activityInfo.add(activityPre);
                         activityInfo.add(lastActivityPre);paint.setStyle(Paint.Style.STROKE);
                         canvas.drawRect(activityPre.getStartX(),activityPre.getStartY(),activityPre.getEndX(),activityPre.getEndY(),paint);
@@ -221,6 +238,22 @@ public class ScheduleView extends View  implements View.OnTouchListener {
         }
         invalidate();
         return true;
+    }
+    public ArrayList<ActivityPre> getTestData(){
+        SchedulePO schedulePO=new SchedulePO();
+       // schedulePO.setActivityList();
+        SchedulePre schedulePre=new SchedulePre(schedulePO);
+        return null;
+    }
+    public boolean ifExit(ActivityPre activityPre){
+        int length=activityInfo.size();
+        for(int i=0;i<length;i++){
+            ActivityPre activityPre1=activityInfo.get(i);
+            if(activityPre1.getStartX()==activityPre.getStartX()&&activityPre1.getStartY()==activityPre.getStartY()){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

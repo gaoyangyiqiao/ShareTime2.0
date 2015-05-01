@@ -16,7 +16,9 @@ public class ActivityPre {
     private int endY;
     private String content;
     private ActivityPO po;
+    private int id=1;//这个id用于区分当前activitypre是哪种类型 1 activity 2 设置的有空
     public ActivityPre(int startX,int startY,int endX,int endY){
+        this.index=2;
         this.startX=startX;
         this.startY=startY;
         this.endX=endX;
@@ -29,6 +31,7 @@ public class ActivityPre {
 
     }
     public ActivityPre(ActivityPO po){
+        this.index=1;
         this.po=po;
         this.content=po.getContent();
         Date startTime=po.getStartTime();
@@ -37,7 +40,7 @@ public class ActivityPre {
         long end=endTime.getTime();
         long gap=end-start;
         int last=(int)gap/(1000*60*60);
-       this.index=index;
+        this.index=1;
         this.last=last;
         int row=(index-1)%ScheduleView.leftBarNum;
         int col=index/ScheduleView.leftBarNum;
@@ -48,6 +51,7 @@ public class ActivityPre {
 
     }
     public ActivityPre(String inf,int index,int last){
+        this.id=1;
         this.content=inf;
         this.index=index;
         this.last=last;
@@ -76,6 +80,9 @@ public class ActivityPre {
     }
     public int getEndY(){
         return endY;
+    }
+    public int getId(){
+        return id;
     }
 }
 
