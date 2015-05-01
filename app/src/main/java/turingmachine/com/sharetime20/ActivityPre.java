@@ -33,8 +33,12 @@ public class ActivityPre {
         this.content=po.getContent();
         Date startTime=po.getStartTime();
         Date endTime=po.getEndTime();
-       this.index=1;
-        this.last=1;
+        long start=startTime.getTime();
+        long end=endTime.getTime();
+        long gap=end-start;
+        int last=(int)gap/(1000*60*60);
+       this.index=index;
+        this.last=last;
         int row=(index-1)%ScheduleView.leftBarNum;
         int col=index/ScheduleView.leftBarNum;
         startX=ScheduleView.startX+ScheduleView.sideBar+(col)*ScheduleView.boxWeight;
