@@ -177,7 +177,7 @@ public class CaptchaActivity extends BaseActivity implements OnClickListener,
 				R.string.smssdk_resend_identify_code);
 		AlertDialog.Builder builder = new AlertDialog.Builder(
 				CaptchaActivity.this);
-		builder.setTitle("SMSSDK")
+		builder.setTitle("ShareTime")
 				.setIcon(R.drawable.ic_launcher)
 				.setCancelable(false)
 				.setMessage(strContent)
