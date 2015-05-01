@@ -24,5 +24,6 @@ public class SchedulePre {
             ActivityPO activityPO=list.get(i);
             result.add(new ActivityPre(activityPO));
         }
+        return result;
     }
 }
