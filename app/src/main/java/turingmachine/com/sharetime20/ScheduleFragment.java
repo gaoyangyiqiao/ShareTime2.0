@@ -30,6 +30,7 @@ public class ScheduleFragment extends Fragment {
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         scheduleView=new ScheduleView(this.getActivity());
         View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.scheduleview,null);
 
