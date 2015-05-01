@@ -22,7 +22,7 @@ public class SchedulePre {
         ArrayList<ActivityPre> result=new ArrayList<>();
         for(int i=0;i<length;i++){
             ActivityPO activityPO=list.get(i);
-            result.add(new ActivityPre());
+            result.add(new ActivityPre(activityPO));
         }
     }
 }

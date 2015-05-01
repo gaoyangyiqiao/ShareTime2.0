@@ -1,5 +1,7 @@
 package turingmachine.com.sharetime20;
 
+import java.util.Date;
+
 import po.ActivityPO;
 
 /**
@@ -13,6 +15,7 @@ public class ActivityPre {
     private int endX;
     private int endY;
     private String content;
+    private ActivityPO po;
     public ActivityPre(int startX,int startY,int endX,int endY){
         this.startX=startX;
         this.startY=startY;
@@ -26,7 +29,19 @@ public class ActivityPre {
 
     }
     public ActivityPre(ActivityPO po){
-        
+        this.po=po;
+        this.content=po.getContent();
+        Date startTime=po.getStartTime();
+        Date endTime=po.getEndTime();
+       this.index=1;
+        this.last=1;
+        int row=(index-1)%ScheduleView.leftBarNum;
+        int col=index/ScheduleView.leftBarNum;
+        startX=ScheduleView.startX+ScheduleView.sideBar+(col)*ScheduleView.boxWeight;
+        startY=ScheduleView.startY+ScheduleView.sideBar+(row)*ScheduleView.boxHeight;
+        endX=ScheduleView.startX+ScheduleView.sideBar+(col+1)* ScheduleView.boxWeight;
+        endY=ScheduleView.startY+ScheduleView.sideBar+(row+1+last-1)*ScheduleView.boxHeight;
+
     }
     public ActivityPre(String inf,int index,int last){
         this.content=inf;

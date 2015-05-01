@@ -16,7 +16,15 @@ public class ActivityPO {
     private Date endTime;
     private String contacts;
     private int right;//对外可见的权限
-
+    public Date getStartTime(){
+        return startTime;
+    }
+    public Date getEndTime(){
+        return endTime;
+    }
+    public Date getReceiveTime(){
+        return  receiveTime;
+    }
     public ActivityPO(){}
 
     public ActivityPO(String id,String theme,String content,String founder,Date receiveTime,
