@@ -38,12 +38,13 @@ public class ScheduleFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         scheduleView=new ScheduleView(this.getActivity());
-        View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.scheduleview,null);
+        View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.tabhost,null);
         Activity activity=getActivity();
-        textView1=(TextView)activity.findViewById(R.id.changepanel1);
-        textView2=(TextView)activity.findViewById(R.id.changepanel2);
+        textView1=(TextView)activity.findViewById(R.id.textview1);
+        textView2=(TextView)activity.findViewById(R.id.textView2);
         frameLayout=(FrameLayout)activity.findViewById(R.id.frame);
-        listView=(ListView)activity.findViewById(R.id.listView);
+       // listView=(ListView)activity.findViewById(R.id.listView);
+       //frameLayout.addView(scheduleView);
         return scheduleLayout;
     }
     public void initView(){

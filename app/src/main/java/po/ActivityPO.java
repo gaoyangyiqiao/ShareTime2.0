@@ -7,6 +7,7 @@ import java.util.Date;
  * Created by admin on 2015/4/29.
  */
 public class ActivityPO {
+    private ArrayList<String> perName;
     private String id;
     private String theme;
     private String content;
@@ -83,5 +84,8 @@ public class ActivityPO {
         String result = String.format("%d/%d %d:%d",endTime.getMonth(),endTime.getDay(),
                 endTime.getHours(),endTime.getMinutes());
         return result;
+    }
+    public int getNumOfPer(){
+        return perName.size();
     }
 }

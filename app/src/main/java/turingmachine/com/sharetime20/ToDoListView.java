@@ -12,10 +12,11 @@ import java.util.ArrayList;
  * Created by hello on 2015/5/2.
  */
 public class ToDoListView extends ListView {
-    private ArrayList<ActivityPre> list;
+    private ArrayList<ActivityPreForList> list;
     private ArrayList<TextView> textViews;
-    public void setActivity(ArrayList<ActivityPre> list){
+    public void setActivity(ArrayList<ActivityPreForList> list){
         this.list=list;
+        invalidate();
     }
     public ToDoListView(Context context){
         super(context);
