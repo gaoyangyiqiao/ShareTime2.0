@@ -24,13 +24,16 @@ public class ScheduleFragment extends Fragment {
     private TextView textView1;
     private TextView textView2;
     private FrameLayout frameLayout;
-    private ToDoListView toDoListView;
-    private ListView listView;
+  //  private ToDoListView toDoListView;
+    private TextView listView;
    public  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
        scheduleView=new ScheduleView(this.getActivity());
         View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.scheduleview,null);
-
+       Activity activity=getActivity();
+       textView1=(TextView)activity.findViewById(R.id.textview1);
+       textView2=(TextView)activity.findViewById(R.id.textview2);
+       frameLayout=(FrameLayout)activity.findViewById(R.id.frame);
 
 
     }
@@ -39,12 +42,17 @@ public class ScheduleFragment extends Fragment {
 
         scheduleView=new ScheduleView(this.getActivity());
         View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.tabhost,null);
-        Activity activity=getActivity();
-        textView1=(TextView)activity.findViewById(R.id.textview1);
-        textView2=(TextView)activity.findViewById(R.id.textView2);
-        frameLayout=(FrameLayout)activity.findViewById(R.id.frame);
-       // listView=(ListView)activity.findViewById(R.id.listView);
+
+        textView1=(TextView)scheduleLayout.findViewById(R.id.textview1);
+        textView2=(TextView)scheduleLayout.findViewById(R.id.textview2);
+        frameLayout=(FrameLayout)scheduleLayout.findViewById(R.id.frame);
+
+        System.out.println(textView1.getText());
+        //textView1.setOnClickListener(null);
+        //textView2.setOnClickListener(null);
+        listView=(TextView)scheduleLayout.findViewById(R.id.listview2);
        //frameLayout.addView(scheduleView);
+       initView();
         return scheduleLayout;
     }
     public void initView(){
@@ -55,10 +63,14 @@ public class ScheduleFragment extends Fragment {
     public class Listener implements View.OnClickListener {
         public void onClick(View view){
             if(view.equals(textView1)){
-                frameLayout.addView(scheduleView);frameLayout.removeView(toDoListView);
+               scheduleView.setVisibility(View.VISIBLE);
+                listView.setVisibility(View.GONE);
+
             }
             if(view.equals(textView2)){
-                frameLayout.addView(toDoListView);frameLayout.removeView(scheduleView);
+                scheduleView.setVisibility(View.GONE);
+                listView.setVisibility(View.VISIBLE);
+
             }
 
         }

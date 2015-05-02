@@ -29,6 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Schedule"
+                    android:textSize="40dp"
                     android:textColor="#82858b" />
             </LinearLayout>
         </RelativeLayout>
@@ -48,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="ToDoList"
+                    android:textSize="40dp"
                     android:textColor="#82858b" />
             </LinearLayout>
         </RelativeLayout>
@@ -59,11 +61,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/listview2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="hello word"
+                android:background="#ff41ff17"
+                android:alpha="200" />
+
      <turingmachine.com.sharetime20.ScheduleView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content" />
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></ListView>
+
     </FrameLayout>
 </LinearLayout>
