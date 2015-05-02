@@ -1,5 +1,6 @@
 package adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,11 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
+import net.tsz.afinal.FinalBitmap;
+
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import po.ContactPO;
+import turingmachine.com.sharetime20.MainActivity;
 import turingmachine.com.sharetime20.R;
 
 /**
@@ -63,12 +67,16 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
             holder.tv_name= (TextView) convertView.findViewById(R.id.contacts_view_cell_tv_name);
             holder.tv_name.setText(lists.get(position).getName());
             holder.imv_icon= (ImageView) convertView.findViewById(R.id.contacts_view_cell_imv_icon);
-            holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.contact_img));
-            if(lists.get(position).getImageurl()!=null){
+            holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.logo));
+            if(lists.get(position).getImageurl().contains("http")){
                 try {
-                    FileInputStream fileInputStream=new FileInputStream(lists.get(position).getImageurl());
-                    Bitmap bitmap= BitmapFactory.decodeStream(fileInputStream);
-                    holder.imv_icon.setImageBitmap(bitmap);
+                    //本地做法
+//                    FileInputStream fileInputStream=new FileInputStream(lists.get(position).getImageurl());
+//                    Bitmap bitmap= BitmapFactory.decodeStream(fileInputStream);
+//                    holder.imv_icon.setImageBitmap(bitmap);
+                    //网络做法
+                    FinalBitmap finalBitMap=FinalBitmap.create(context);
+                    finalBitMap.display(holder.imv_icon, lists.get(position).getImageurl());
                 }catch (Exception e){
                     e.printStackTrace();
                 }

@@ -20,11 +20,11 @@ import tools.CharacterParser;
 public class SearchUser {
 
 
-    public SearchUser(String user_id,String key_words,final ContactsListAdapter adapter,final List<ContactPO> list){
+    public SearchUser(String user_id, final String key_words,final ContactsListAdapter adapter,final List<ContactPO> list){
         final AjaxParams params = new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_SEARCH_USER);
         params.put(Config.KEY_USER_ID,user_id);
-        params.put(Config.KEY_KEYWORDS,key_words);
+        params.put(Config.KEY_KEYWORDS, key_words);
         FinalHttp fh = new FinalHttp();
         fh.post(Config.URL, params, new AjaxCallBack<String>() {
             @Override
@@ -34,8 +34,9 @@ public class SearchUser {
 
             @Override
             public void onSuccess(String o) {
-                System.out.println("----->>>>>success"+o);
+//                System.out.println("----->>>>>success"+o);
                 try {
+                    list.clear();
                     JSONObject jsonObject=new JSONObject(o);
                     JSONArray users=jsonObject.getJSONArray(Config.KEY_USERS);
                     for (int i = 0; i < users.length(); i++) {
@@ -43,7 +44,7 @@ public class SearchUser {
                         ContactPO contact=new ContactPO(user.getString(Config.KEY_NAME));
                         contact.setId(user.getInt(Config.KEY_ID));
                         //TODO 此时存储的为服务器地址，后期需要下载到本地
-                        contact.setImageurl(user.getString(Config.KEY_IMG));
+                        contact.setImageurl(user.getString(Config.KEY_PHOTO_PATH));
                         contact.setPhone(user.getString(Config.KEY_PHONE));
                         //设置首字母
                         String pinyin = new CharacterParser().getSelling(contact.getName());
@@ -54,11 +55,10 @@ public class SearchUser {
                         }else{
                             contact.setSortLetters("#");
                         }
+                        if(key_words!="")
+                            list.add(contact);
+                        adapter.updateListView(list);
 
-                        list.add(contact);
-                        adapter.getLists().add(contact);
-                        if(list.size()!=0)
-                            adapter.notifyDataSetChanged();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
