@@ -59,7 +59,7 @@ public class PhoneContactsAdapter extends BaseAdapter{
             holder.tv_name.setText(lists.get(position).getName());
             holder.imv_icon= (ImageView) convertView.findViewById(R.id.phonecontacts_view_cell_iv);
             holder.btn_add= (Button) convertView.findViewById(R.id.phonecontacts_view_cell_add_btn);
-            holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.contact_img));
+            holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.o));
             if(lists.get(position).getImageurl()!=null){
                 try {
                     FileInputStream fileInputStream=new FileInputStream(lists.get(position).getImageurl());
