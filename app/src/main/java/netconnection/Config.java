@@ -8,7 +8,10 @@ import android.content.SharedPreferences;
  */
 public class Config {
 
-    public final static String URL="http://172.168.61.112:3306/sharetimedb2.0/index.php";
+    //日期的格式
+    public static final String DATE_PATTERN="yyyy-MM-dd hh:mm:ss";
+
+    public final static String URL="http://192.168.1.141:3306/sharetimedb/index.php";
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
     public static final String KEY_ACCOUNT="account";
@@ -20,6 +23,7 @@ public class Config {
     public static final String KEY_IMG="img";
     public static final String KEY_CONTACT_ID="contact_id";
     public static final String KEY_USER_ID_ARRAY="user_id_array";
+    public static final String KEY_KEYWORDS="keywords";
 
     //json中的key
     public static final String KEY_ID="id";
@@ -31,6 +35,13 @@ public class Config {
     public static final String KEY_INFO="info";
     public static final String KEY_USER_SCHEDULE="user_schedule";
     public static final String KEY_COMMON_FREE_SCHEDULE="common_free_schedule";
+    public static final String KEY_THEME="theme";
+    public static final String KEY_RECEIVE_TIME="receive_time";
+    public static final String KEY_START_TIME="start_time";
+    public static final String KEY_END_TIME="end_time";
+    public static final String KEY_FOUNDER_ID="founder_id";
+    public static final String KEY_RIGHT="right";
+    public static final String KEY_USERS="users";
 
     public static final String ACTION_REGISTER="register";
     public static final String ACTION_GET_CONTACTS="get_contacts";
@@ -41,6 +52,7 @@ public class Config {
     public static final String ACTION_UPLOAD_CONTACTS="upload_contact";
     public static final String ACTION_UPLOAD_MYINFO="upload_myInfo";
     public static final String ACTION_INIT="init";
+    public static final String ACTION_SEARCH_USER="search_user";
 
     public static final int RESULT_STATUS_SUCCESS = 1;
     public static final int RESULT_STATUS_FAIL = 0;

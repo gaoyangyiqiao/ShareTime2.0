@@ -42,13 +42,22 @@ public class GetUserSchedule {
                     for(int i=0;i<activities.length();i++){
                         JSONObject json_activity=activities.getJSONObject(i);
 
-
-//                        String theme=json_activity.getString(Config.KEY_THEME);
-//                        String founder=
+                        String theme=json_activity.getString(Config.KEY_THEME);
+                        String founder=json_activity.getString(Config.KEY_FOUNDER_ID);
                         String content=json_activity.getString(Config.KEY_CONTENT);
                         String id=json_activity.getString(Config.KEY_ID);
                         String contacts_id=json_activity.getString(Config.KEY_CONTACTS_ID);
-                        ActivityPO activity=new ActivityPO();
+                        String receive_time_str=json_activity.getString(Config.KEY_RECEIVE_TIME);
+                        String start_time_str=json_activity.getString(Config.KEY_START_TIME);
+                        String end_time_str=json_activity.getString(Config.KEY_END_TIME);
+                        SimpleDateFormat sdf=new SimpleDateFormat(Config.DATE_PATTERN);
+                        Date receive_time=sdf.parse(receive_time_str);
+                        Date start_time=sdf.parse(start_time_str);
+                        Date end_time=sdf.parse(end_time_str);
+                        int right=json_activity.getInt(Config.KEY_RIGHT);
+
+                        ActivityPO activity=new ActivityPO(id,theme,content,founder,receive_time,
+                                start_time,end_time,contacts_id,right);
                         schedule.getActivityList().add(activity);
                     }
 

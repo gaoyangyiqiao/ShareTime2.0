@@ -165,7 +165,6 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
         ImageView imv_icon;
         TextView tv_catalog;
         TextView tv_name;
-        TextView tv_number;
     }
 }
 

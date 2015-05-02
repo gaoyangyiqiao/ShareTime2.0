@@ -8,6 +8,7 @@ import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.SubMenu;
 import android.view.View;
 
+import turingmachine.com.sharetime20.subcontacts.AddContactActivity;
 import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
 //联系人列表加号弹出菜单
@@ -47,6 +48,19 @@ public class ContactsActionPlusProvider extends ActionProvider {
                     }
                 });
         subMenu.add("添加朋友")
+                .setIcon(
+                        mContext.getResources().getDrawable(
+                                R.drawable.tab_match_pressed))
+                .setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Intent i =new Intent(mContext, AddContactActivity.class);
+                        mContext.startActivity(i);
+                        return true;
+                    }
+                });
+        subMenu.add("朋友推介")
                 .setIcon(
                         mContext.getResources().getDrawable(
                                 R.drawable.tab_match_pressed))
