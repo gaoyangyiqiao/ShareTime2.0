@@ -67,7 +67,8 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
             holder.tv_name= (TextView) convertView.findViewById(R.id.contacts_view_cell_tv_name);
             holder.tv_name.setText(lists.get(position).getName());
             holder.imv_icon= (ImageView) convertView.findViewById(R.id.contacts_view_cell_imv_icon);
-            holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.logo));
+            if(!lists.get(position).getImageurl().contains("http"))
+                holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.logo));
             if(lists.get(position).getImageurl().contains("http")){
                 try {
                     //本地做法

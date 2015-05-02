@@ -13,8 +13,8 @@ public class SearchContactController {
 
     public SearchContactController(){}
 
-    public void searchUser(String user_id,String keywords, final ContactsListAdapter adapter,final List<ContactPO> list){
-        new SearchUser(user_id,keywords,adapter,list);
+    public void searchUser(String user_id,String keywords, final ContactsListAdapter adapter){
+        new SearchUser(user_id,keywords,adapter);
 
     }
 }
