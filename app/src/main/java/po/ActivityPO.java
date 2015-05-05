@@ -12,7 +12,6 @@ public class ActivityPO {
     private String theme;
     private String content;
     private String founder;
-    private Date receiveTime;
     private Date startTime;
     private Date endTime;
     private String contacts;
@@ -22,9 +21,6 @@ public class ActivityPO {
     }
     public Date getEndTime(){
         return endTime;
-    }
-    public Date getReceiveTime(){
-        return  receiveTime;
     }
     public void setStartTime(Date  startTime){
         this.startTime=startTime;
@@ -37,14 +33,13 @@ public class ActivityPO {
     }
     public ActivityPO(){}
 
-    public ActivityPO(String id,String theme,String content,String founder,Date receiveTime,
+    public ActivityPO(String id,String theme,String content,String founder,
                       Date startTime,Date endTime,String contacts,int right){
         this.id = id;
         this.contacts = contacts;
         this.content = content;
         this.theme = theme;
         this.founder = founder;
-        this.receiveTime = receiveTime;
         this.startTime = startTime;
         this.endTime = endTime;
         this.right = right;
@@ -70,11 +65,7 @@ public class ActivityPO {
     public void setRight(int right){
         this.right = right;
     }
-    public String getReceiveTimeStr(){
-        String result = String.format("%d/%d %d:%d",receiveTime.getMonth(),
-                receiveTime.getDay(),receiveTime.getHours(),receiveTime.getMinutes());
-        return result;
-    }
+
     public String getStartTimeStr(){
         String result = String.format("%d/%d %d:%d",startTime.getMonth(),
                 startTime.getDay(),startTime.getHours(),startTime.getMinutes());

@@ -52,16 +52,14 @@ public class GetUserSchedule {
                         String content=json_activity.getString(Config.KEY_CONTENT);
                         String id=json_activity.getString(Config.KEY_ID);
                         String contacts_id=json_activity.getString(Config.KEY_CONTACTS_ID);
-                        String receive_time_str=json_activity.getString(Config.KEY_RECEIVE_TIME);
                         String start_time_str=json_activity.getString(Config.KEY_START_TIME);
                         String end_time_str=json_activity.getString(Config.KEY_END_TIME);
                         SimpleDateFormat sdf=new SimpleDateFormat(Config.DATE_PATTERN);
-                        Date receive_time=sdf.parse(receive_time_str);
                         Date start_time=sdf.parse(start_time_str);
                         Date end_time=sdf.parse(end_time_str);
                         int right=json_activity.getInt(Config.KEY_RIGHT);
 
-                        ActivityPO activity=new ActivityPO(id,theme,content,founder,receive_time,
+                        ActivityPO activity=new ActivityPO(id,theme,content,founder,
                                 start_time,end_time,contacts_id,right);
                         schedule.getActivityList().add(activity);
                     }

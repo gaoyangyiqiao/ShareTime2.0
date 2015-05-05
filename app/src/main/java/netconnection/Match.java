@@ -55,7 +55,7 @@ public class Match {
                         Date end_time=sdf.parse(end_time_str);
                         int right=json_activity.getInt(Config.KEY_RIGHT);
 
-                        ActivityPO activity=new ActivityPO(id,theme,content,founder,receive_time,
+                        ActivityPO activity=new ActivityPO(id,theme,content,founder,
                                 start_time,end_time,contacts_id,right);
                         schedule.getActivityList().add(activity);
                     }

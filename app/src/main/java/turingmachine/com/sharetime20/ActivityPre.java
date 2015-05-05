@@ -40,7 +40,8 @@ public class ActivityPre {
         long end=endTime.getTime();
         long gap=end-start;
         long s=start-scheduleTime.getTime();
-        this.index=(int)s/(1000*60*60);
+        this.index=((int)s/(1000*60*60));
+        System.out.println(scheduleTime.getHours());
         int last=(int)gap/(1000*60*60);
         this.index=1;
         this.last=last;
