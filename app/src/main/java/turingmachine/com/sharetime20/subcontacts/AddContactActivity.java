@@ -48,8 +48,13 @@ public class AddContactActivity extends Activity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if(newText!=null){
-                    searchContactController.searchUser(Config.getCachedId(getApplicationContext()),newText,contactsListAdapter,contactPOList);
+                if(newText.length()==0||newText==null){
+//                    System.out.println("--->>>empty input");
+                    contactsListAdapter.clear();
+                }
+                if(newText.length()!=0){
+//                    System.out.println("--->>>>"+newText.length());
+                    searchContactController.searchUser(Config.getCachedId(getApplicationContext()),newText,contactsListAdapter);
                 }
                 return true;
             }

@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import adapter.ContactsListAdapter;
@@ -20,7 +21,7 @@ import tools.CharacterParser;
 public class SearchUser {
 
 
-    public SearchUser(String user_id, final String key_words,final ContactsListAdapter adapter,final List<ContactPO> list){
+    public SearchUser(String user_id, final String key_words,final ContactsListAdapter adapter){
         final AjaxParams params = new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_SEARCH_USER);
         params.put(Config.KEY_USER_ID,user_id);
@@ -35,6 +36,7 @@ public class SearchUser {
             @Override
             public void onSuccess(String o) {
 //                System.out.println("----->>>>>success"+o);
+                List<ContactPO> list=new ArrayList<>();
                 try {
                     list.clear();
                     JSONObject jsonObject=new JSONObject(o);
@@ -55,11 +57,11 @@ public class SearchUser {
                         }else{
                             contact.setSortLetters("#");
                         }
-                        if(key_words!="")
-                            list.add(contact);
-                        adapter.updateListView(list);
-
+                        list.add(contact);
                     }
+                    if(key_words==""||key_words==null)
+                        list.clear();
+                    adapter.updateListView(list);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
