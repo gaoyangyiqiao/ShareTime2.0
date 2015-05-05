@@ -13,6 +13,8 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Date;
 
+import netconnection.Config;
+import netconnection.GetUserSchedule;
 import po.ActivityPO;
 import po.SchedulePO;
 
@@ -51,7 +53,7 @@ public class ScheduleView extends View  implements View.OnTouchListener {
     private Paint paint;
     private Canvas canvas;
     private long eventStartTime=0;
-    private ArrayList<ActivityPre> activityInfo=new ArrayList<>();
+    public ArrayList<ActivityPre> activityInfo=new ArrayList<>();
     private ScheduleViewConfig scheduleViewConfig;
 
     public ScheduleView(Context context) {
@@ -86,6 +88,8 @@ public class ScheduleView extends View  implements View.OnTouchListener {
         activityPO.setStartTime(new Date(2015, 5, 2, 23, 0, 0));
         activityPO.setEndTime(new Date(2015,5,2,24,0,0));
         activityInfo.add(new ActivityPre(activityPO));
+
+        new GetUserSchedule("0","0",this);
     }
 
 

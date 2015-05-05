@@ -11,7 +11,7 @@ public class Config {
     //日期的格式
     public static final String DATE_PATTERN="yyyy-MM-dd hh:mm:ss";
 
-    public final static String URL="http://192.168.1.111:3306/sharetimedb/index.php";
+    public final static String URL="http://172.26.211.67:3306/sharetimedb/index.php";
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
     public static final String KEY_ACCOUNT="account";
@@ -54,6 +54,7 @@ public class Config {
     public static final String ACTION_UPLOAD_MYINFO="upload_myInfo";
     public static final String ACTION_INIT="init";
     public static final String ACTION_SEARCH_USER="search_user";
+    public static final String ACTION_ADD_ACTIVITY="add_activity";
 
     public static final int RESULT_STATUS_SUCCESS = 1;
     public static final int RESULT_STATUS_FAIL = 0;

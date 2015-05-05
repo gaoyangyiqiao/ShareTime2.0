@@ -9,8 +9,9 @@ import java.util.Date;
 public class SchedulePO {
     private Date startTime;
     private int length;
-    private ArrayList<ActivityPO> activityList;
+    private ArrayList<ActivityPO> activityList=new ArrayList<>();
     public SchedulePO(){
+
     }
     public SchedulePO(Date startTime,int length,ArrayList<ActivityPO> activityList){
         this.startTime=startTime;

@@ -1,5 +1,7 @@
 package netconnection;
 
+import android.content.Context;
+
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
@@ -14,13 +16,15 @@ import java.util.Date;
 
 import po.ActivityPO;
 import po.SchedulePO;
+import turingmachine.com.sharetime20.SchedulePre;
+import turingmachine.com.sharetime20.ScheduleView;
 
 /**
  * Created by gaoyang on 15/4/16.
  */
 public class GetUserSchedule {
 
-    public GetUserSchedule(String userId,String contactId,final SchedulePO schedule){
+    public GetUserSchedule(String userId,String contactId,final ScheduleView scheduleView){
         final AjaxParams params=new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_GET_USER_SCHEDULE);
         params.put(Config.KEY_USER_ID,userId);
@@ -35,6 +39,7 @@ public class GetUserSchedule {
 
             @Override
             public void onSuccess(String result) {
+                SchedulePO schedule=new SchedulePO();
                 try {
                     JSONObject jsonObject=new JSONObject(result);
                     JSONObject userSchedule=jsonObject.getJSONObject(Config.KEY_USER_SCHEDULE);
@@ -64,6 +69,9 @@ public class GetUserSchedule {
                     SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
                     schedule.setStartTime(dateFormat.parse(userSchedule.getString(Config.KEY_BEGIN_TIME)));
                     schedule.setLength(userSchedule.getInt(Config.KEY_SIZE));
+
+                    SchedulePre schedulePre=new SchedulePre(schedule);
+                    scheduleView.activityInfo=schedulePre.getActivityPre();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
