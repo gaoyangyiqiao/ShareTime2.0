@@ -30,8 +30,8 @@ public class ActivityPre {
         this.content="";
 
     }
-    public ActivityPre(ActivityPO po){
-        this.index=1;
+    public ActivityPre(ActivityPO po,Date scheduleTime){
+
         this.po=po;
         this.content=po.getContent();
         Date startTime=po.getStartTime();
@@ -39,6 +39,8 @@ public class ActivityPre {
         long start=startTime.getTime();
         long end=endTime.getTime();
         long gap=end-start;
+        long s=start-scheduleTime.getTime();
+        this.index=(int)s/(1000*60*60);
         int last=(int)gap/(1000*60*60);
         this.index=1;
         this.last=last;
