@@ -25,7 +25,7 @@ public class ScheduleFragment extends Fragment {
     private TextView textView2;
     private FrameLayout frameLayout;
   //  private ToDoListView toDoListView;
-    private TextView listView;
+    private ListView listView;
    public  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
        scheduleView=new ScheduleView(this.getActivity());
@@ -50,7 +50,7 @@ public class ScheduleFragment extends Fragment {
         System.out.println(textView1.getText());
         //textView1.setOnClickListener(null);
         //textView2.setOnClickListener(null);
-        listView=(TextView)scheduleLayout.findViewById(R.id.listview2);
+        listView=(ListView)scheduleLayout.findViewById(R.id.listview2);
        //frameLayout.addView(scheduleView);
        initView();
         return scheduleLayout;
