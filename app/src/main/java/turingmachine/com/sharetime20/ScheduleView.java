@@ -70,7 +70,7 @@ public class ScheduleView extends View  implements View.OnTouchListener {
         activityPO.setContent("Give you promiss");
         activityPO.setStartTime(new Date(2015, 5, 2, 23, 0, 0));
         activityPO.setEndTime(new Date(2015,5,2,24,0,0));
-        activityInfo.add(new ActivityPre(activityPO,new Date()));
+        activityInfo.add(new ActivityPre(activityPO,new Date(),0));
     }
 
     public ScheduleView(Context context, AttributeSet set) {
@@ -88,7 +88,7 @@ public class ScheduleView extends View  implements View.OnTouchListener {
         activityPO.setStartTime(new Date(2015, 5, 2, 23, 0, 0));
         activityPO.setEndTime(new Date(2015,5,2,24,0,0));
         new GetUserSchedule("0","0",this);
-        activityInfo.add(new ActivityPre(activityPO,new Date()));
+        activityInfo.add(new ActivityPre(activityPO,new Date(),0));
     }
 
 

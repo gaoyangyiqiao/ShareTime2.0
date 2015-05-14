@@ -62,13 +62,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-            <TextView
-                android:id="@+id/listview2"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="hello word"
-                android:background="#ff41ff17"
-                android:alpha="200" />
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="#f00"
+            android:dividerHeight="2px"
+            >
+
+        </ListView>
 
      <turingmachine.com.sharetime20.ScheduleView
          android:layout_width="wrap_content"

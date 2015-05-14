@@ -30,8 +30,7 @@ public class ActivityPre {
         this.content="";
 
     }
-    public ActivityPre(ActivityPO po,Date scheduleTime){
-
+    public ActivityPre(ActivityPO po,Date scheduleTime,int index){
         this.po=po;
         this.content=po.getContent();
         Date startTime=po.getStartTime();
@@ -51,7 +50,7 @@ public class ActivityPre {
         startY=ScheduleView.startY+ScheduleView.sideBar+(row)*ScheduleView.boxHeight;
         endX=ScheduleView.startX+ScheduleView.sideBar+(col+1)* ScheduleView.boxWeight;
         endY=ScheduleView.startY+ScheduleView.sideBar+(row+1+last-1)*ScheduleView.boxHeight;
-
+        this.index=index;
     }
     public ActivityPre(String inf,int index,int last){
         this.id=1;

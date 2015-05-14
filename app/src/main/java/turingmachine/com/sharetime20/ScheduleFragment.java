@@ -29,11 +29,12 @@ public class ScheduleFragment extends Fragment {
    public  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
        scheduleView=new ScheduleView(this.getActivity());
-        View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.scheduleview,null);
+        View scheduleLayout = LayoutInflater.from(getActivity()).inflate(R.layout.tabhost,null);
        Activity activity=getActivity();
        textView1=(TextView)activity.findViewById(R.id.textview1);
        textView2=(TextView)activity.findViewById(R.id.textview2);
        frameLayout=(FrameLayout)activity.findViewById(R.id.frame);
+       listView=(ListView)scheduleLayout.findViewById(R.id.listView);
 
 
     }
@@ -50,7 +51,8 @@ public class ScheduleFragment extends Fragment {
         System.out.println(textView1.getText());
         //textView1.setOnClickListener(null);
         //textView2.setOnClickListener(null);
-        listView=(ListView)scheduleLayout.findViewById(R.id.listview2);
+        listView=(ListView)scheduleLayout.findViewById(R.id.listView);
+
        //frameLayout.addView(scheduleView);
        initView();
         return scheduleLayout;

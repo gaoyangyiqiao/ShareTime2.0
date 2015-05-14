@@ -11,16 +11,11 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-            <item>
-                Activity1
-            </item>
-            <item>
-                Activity2
-            </item>
-            <item>
-                Activity3
-            </item>
+            android:layout_height="fill_parent"
+            android:divider="#f00"
+            android:dividerHeight="2px"
+            >
+
             </ListView>
         </LinearLayout>
 
