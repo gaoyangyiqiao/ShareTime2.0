@@ -69,7 +69,10 @@
             android:divider="#f00"
             android:dividerHeight="2px"
             >
-
+<TextView
+    android:id="@+id/test"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" />
         </ListView>
 
      <turingmachine.com.sharetime20.ScheduleView
