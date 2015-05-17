@@ -53,9 +53,9 @@ public class ScheduleFragment extends Fragment {
         //textView1.setOnClickListener(null);
         //textView2.setOnClickListener(null);
         listView=(ListView)scheduleLayout.findViewById(R.id.listView);
-        String [] arr={"a","b","c","d"};
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1,arr);
-        listView.setAdapter(adapter);
+       // String [] arr={"a","b","c","d"};
+      //  ArrayAdapter<String> adapter=new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1,arr);
+        //listView.setAdapter(adapter);
        //frameLayout.addView(scheduleView);
        initView();
         return scheduleLayout;
