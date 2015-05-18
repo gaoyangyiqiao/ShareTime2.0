@@ -25,7 +25,7 @@ public class ScheduleFragment extends Fragment {
     private TextView textView1;
     private TextView textView2;
     private FrameLayout frameLayout;
-  //  private ToDoListView toDoListView;
+     //  private ToDoListView toDoListView;
     private ListView listView;
    public  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -36,8 +36,6 @@ public class ScheduleFragment extends Fragment {
        textView2=(TextView)activity.findViewById(R.id.textview2);
        frameLayout=(FrameLayout)activity.findViewById(R.id.frame);
        listView=(ListView)scheduleLayout.findViewById(R.id.listView);
-
-
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
