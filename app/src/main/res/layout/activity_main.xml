@@ -32,12 +32,12 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/tab_schedule_unpressed"
                     />
-                <TextView
-                    android:id="@+id/tv_main_schedule"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="日程"/>
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_main_schedule"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:text="日程"/>-->
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
@@ -57,13 +57,13 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/tab_match"
                     />
-                <TextView
-                    android:id="@+id/tv_main_match"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="匹配"
-                    />
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_main_match"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:text="匹配"-->
+                    <!--/>-->
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
@@ -83,13 +83,13 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/tab_contacts"
                     />
-                <TextView
-                    android:id="@+id/tv_main_contacts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="好友"
-                    />
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_main_contacts"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:text="好友"-->
+                    <!--/>-->
             </LinearLayout>
         </RelativeLayout>
 

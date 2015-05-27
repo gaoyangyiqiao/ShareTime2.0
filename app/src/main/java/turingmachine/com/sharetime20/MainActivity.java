@@ -25,9 +25,9 @@ public class MainActivity extends Activity implements OnClickListener{
     private ImageView iv_contacts;
     private ImageView iv_match;
     private ImageView iv_schedule;
-    private TextView tv_contacts;
-    private TextView tv_match;
-    private TextView tv_schedule;
+//    private TextView tv_contacts;
+//    private TextView tv_match;
+//    private TextView tv_schedule;
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -43,9 +43,9 @@ public class MainActivity extends Activity implements OnClickListener{
         iv_contacts = (ImageView)findViewById(R.id.img_contacts);
         iv_match = (ImageView)findViewById(R.id.img_match);
         iv_schedule = (ImageView)findViewById(R.id.img_schedule);
-        tv_contacts = (TextView)findViewById(R.id.tv_main_contacts);
-        tv_match = (TextView)findViewById(R.id.tv_main_match);
-        tv_schedule = (TextView)findViewById(R.id.tv_main_schedule);
+//        tv_contacts = (TextView)findViewById(R.id.tv_main_contacts);
+//        tv_match = (TextView)findViewById(R.id.tv_main_match);
+//        tv_schedule = (TextView)findViewById(R.id.tv_main_schedule);
         contactsLayout.setOnClickListener(this);
         matchLayout.setOnClickListener(this);
         scheduleLayout.setOnClickListener(this);
@@ -78,7 +78,7 @@ public class MainActivity extends Activity implements OnClickListener{
             case 0:
                 // 当点击了日程tab时，改变控件的图片和文字颜色
                 iv_schedule.setImageResource(R.drawable.tab_schedule_pressed);
-                tv_schedule.setTextColor(Color.WHITE);
+//                tv_schedule.setTextColor(Color.WHITE);
                 if (scheduleFragment == null) {
                     // 如果ScheduleFragment为空，则创建一个并添加到界面上
                     scheduleFragment = new ScheduleFragment();
@@ -91,7 +91,7 @@ public class MainActivity extends Activity implements OnClickListener{
             case 1:
                 // 当点击了匹配tab时，改变控件的图片和文字颜色
                 iv_match.setImageResource(R.drawable.tab_match_pressed);
-                tv_match.setTextColor(Color.WHITE);
+//                tv_match.setTextColor(Color.WHITE);
                 if (matchFragment == null) {
                     // 如果MatchFragment为空，则创建一个并添加到界面上
                     matchFragment = new MatchFragment();
@@ -104,7 +104,7 @@ public class MainActivity extends Activity implements OnClickListener{
             case 2:
                 // 当点击了联系人tab时，改变控件的图片和文字颜色
                 iv_contacts.setImageResource(R.drawable.tab_contacts_pressed);
-                tv_contacts.setTextColor(Color.WHITE);
+//                tv_contacts.setTextColor(Color.WHITE);
                 if (contactsFragment == null) {
                     // 如果ContactsFragment为空，则创建一个并添加到界面上
                     contactsFragment = new ContactsFragment();
