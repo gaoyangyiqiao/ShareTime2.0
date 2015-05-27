@@ -48,9 +48,7 @@ public class MainActivity extends Activity implements OnClickListener{
         tv_schedule = (TextView)findViewById(R.id.tv_main_schedule);
         contactsLayout.setOnClickListener(this);
         matchLayout.setOnClickListener(this);
-//        messageLayout.setOnClickListener(this);
         scheduleLayout.setOnClickListener(this);
-//        settingLayout.setOnClickListener(this);
     }
 
     public void onClick(View v){
@@ -58,7 +56,6 @@ public class MainActivity extends Activity implements OnClickListener{
             case R.id.tab_main_schedule:
                 setTabSelection(0);
                 break;
-
             case R.id.tab_main_match:
                 setTabSelection(1);
                 break;
@@ -91,19 +88,6 @@ public class MainActivity extends Activity implements OnClickListener{
                     transaction.show(scheduleFragment);
                 }
                 break;
-//            case 1:
-//                // 当点击了消息tab时，改变控件的图片和文字颜色
-//                iv_message.setImageResource(R.drawable.tab_news_pressed);
-//                tv_message.setTextColor(Color.WHITE);
-//                if (messageFragment == null) {
-//                    // 如果MessageFragment为空，则创建一个并添加到界面上
-//                    messageFragment = new MessageFragment();
-//                    transaction.add(R.id.main_content, messageFragment);
-//                } else {
-//                    // 如果MessageFragment不为空，则直接将它显示出来
-//                    transaction.show(messageFragment);
-//                }
-//                break;
             case 1:
                 // 当点击了匹配tab时，改变控件的图片和文字颜色
                 iv_match.setImageResource(R.drawable.tab_match_pressed);
@@ -130,19 +114,6 @@ public class MainActivity extends Activity implements OnClickListener{
                     transaction.show(contactsFragment);
                 }
                 break;
-//            case 4:
-//                // 当点击了设置tab时，改变控件的图片和文字颜色
-//                iv_setting.setImageResource(R.drawable.tab_setting_pressed);
-//                tv_setting.setTextColor(Color.WHITE);
-//                if (settingFragment == null) {
-//                    // 如果SettingFragment为空，则创建一个并添加到界面上
-//                    settingFragment = new SettingFragment();
-//                    transaction.add(R.id.main_content, settingFragment);
-//                } else {
-//                    // 如果SettingFragment不为空，则直接将它显示出来
-//                    transaction.show(settingFragment);
-//                }
-//                break;
             default:
                 break;
         }

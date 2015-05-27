@@ -1,9 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'TuringMachine'
+            keyPassword '123456'
+            storeFile file('/Users/gaoyang/AndroidStudioProjects/android.jks')
+            storePassword '19941026'
+        }
+        config1 {
+            keyAlias 'gaoyang'
+            keyPassword '123456'
+            storeFile file('/Users/gaoyang/AndroidStudioProjects/android1.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
-
     defaultConfig {
         applicationId "turingmachine.com.sharetime20"
         minSdkVersion 14
@@ -15,6 +28,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config1
         }
     }
 }
