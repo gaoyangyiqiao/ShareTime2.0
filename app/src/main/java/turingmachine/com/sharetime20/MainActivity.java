@@ -3,18 +3,33 @@ package turingmachine.com.sharetime20;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.view.View.OnClickListener;
+
+import com.nineoldandroids.view.ViewHelper;
+
+
+import java.util.ArrayList;
+
+import adapter.InfoAdapter;
+import turingmachine.com.sharetime20.view.DragLayout;
 
 
 public class MainActivity extends Activity implements OnClickListener{
+    private DragLayout dl;
+    private FrameLayout maincontent;
     private ContactsFragment contactsFragment;
     private MatchFragment matchFragment;
     private ScheduleFragment scheduleFragment;
@@ -25,13 +40,13 @@ public class MainActivity extends Activity implements OnClickListener{
     private ImageView iv_contacts;
     private ImageView iv_match;
     private ImageView iv_schedule;
-//    private TextView tv_contacts;
-//    private TextView tv_match;
-//    private TextView tv_schedule;
+    private ImageView iv_icon;
+    private ListView info_list;
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        initDragLayout();
         fragmentManager = getFragmentManager();
         setTabSelection(0);
     }
@@ -40,16 +55,64 @@ public class MainActivity extends Activity implements OnClickListener{
         contactsLayout = findViewById(R.id.tab_main_contact);
         matchLayout = findViewById(R.id.tab_main_match);
         scheduleLayout = findViewById(R.id.tab_main_schedule);
+        maincontent= (FrameLayout) findViewById(R.id.main_content);
         iv_contacts = (ImageView)findViewById(R.id.img_contacts);
         iv_match = (ImageView)findViewById(R.id.img_match);
         iv_schedule = (ImageView)findViewById(R.id.img_schedule);
-//        tv_contacts = (TextView)findViewById(R.id.tv_main_contacts);
-//        tv_match = (TextView)findViewById(R.id.tv_main_match);
-//        tv_schedule = (TextView)findViewById(R.id.tv_main_schedule);
+        iv_icon= (ImageView) findViewById(R.id.iv_bottom);
         contactsLayout.setOnClickListener(this);
         matchLayout.setOnClickListener(this);
         scheduleLayout.setOnClickListener(this);
+
+        dl= (DragLayout) findViewById(R.id.dl);
+        info_list= (ListView) findViewById(R.id.lv_infolist);
+        ArrayList info=new ArrayList();
+        info.add("姓名");
+        info.add("gaoyang");
+        info.add("账号");
+        info.add("001");
+        info.add("对外权限");
+        info.add("可见");
+        info.add("学号");
+        info.add("131250043");
+        info.add("导入教务网");
+        info.add("");
+        info_list.setAdapter(new InfoAdapter(info,this));
+        info_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1,
+                                    int position, long arg3) {
+
+            }
+        });
+
+       }
+
+    private void initDragLayout() {
+        dl = (DragLayout) findViewById(R.id.dl);
+        dl.setDragListener(new DragLayout.DragListener() {
+            @Override
+            public void onOpen() {
+//                info_list.smoothScrollToPosition(new Random().nextInt(30));
+            }
+
+            @Override
+            public void onClose() {
+                shake();
+            }
+
+            @Override
+            public void onDrag(float percent) {
+                ViewHelper.setAlpha(iv_icon, 1 - percent);
+            }
+        });
+
     }
+
+    private void shake() {
+        iv_icon.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
+    }
+
 
     public void onClick(View v){
         switch(v.getId()){
@@ -157,6 +220,7 @@ public class MainActivity extends Activity implements OnClickListener{
 //                startActivity(i);
                 break;
             default:
+                dl.open();
                 break;
         }
         return super.onOptionsItemSelected(item);

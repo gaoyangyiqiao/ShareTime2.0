@@ -18,7 +18,7 @@
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="St"
-        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" >
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
 
         <meta-data
             android:name="JUHE_KEY"

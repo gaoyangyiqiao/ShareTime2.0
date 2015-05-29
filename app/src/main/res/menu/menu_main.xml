@@ -10,15 +10,5 @@
         android:orderInCategory="1"
         android:showAsAction="always"
        />
-    <!--<item-->
-        <!--android:id="@+id/action_creat_match"-->
-        <!--android:title="创建匹配"-->
-        <!--app:showAsAction="always"-->
-        <!--/>-->
 
-    <!--<item-->
-        <!--android:id="@+id/action_self_setting"-->
-        <!--android:title="个人设置"-->
-        <!--app:showAsAction="always"-->
-        <!--/>-->
 </menu>
