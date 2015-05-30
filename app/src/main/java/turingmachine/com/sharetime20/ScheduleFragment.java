@@ -16,16 +16,19 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import weekview.WeekView;
+
 /**
  * Created by admin on 2015/3/28.
  * 这个类用于管理schedule界面
  */
 public class ScheduleFragment extends Fragment {
-
+    private WeekView weekView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View scheduleFragment = inflater.inflate(R.layout.activity_schedule,container,false);
+        weekView=(WeekView)getActivity().findViewById(R.id.weekView);
         return scheduleFragment;
     }
 
