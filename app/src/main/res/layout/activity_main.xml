@@ -1,4 +1,4 @@
-<turingmachine.com.sharetime20.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<turingmachine.com.sharetime20.draglayout.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -55,7 +55,7 @@
             android:textColor="#ffffff" />
     </RelativeLayout>
 
-    <turingmachine.com.sharetime20.view.MyRelativeLayout
+    <turingmachine.com.sharetime20.draglayout.MyRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:background="@color/white" >
@@ -82,6 +82,17 @@
                 android:text="St"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/title_function_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:background="@drawable/tab_match_unpressed"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                 />
         </RelativeLayout>
 
     <LinearLayout
@@ -157,5 +168,5 @@
             android:layout_below="@id/rl_title"
             android:layout_above="@id/tabs"
             />
-    </turingmachine.com.sharetime20.view.MyRelativeLayout>
-</turingmachine.com.sharetime20.view.DragLayout>
+    </turingmachine.com.sharetime20.draglayout.MyRelativeLayout>
+</turingmachine.com.sharetime20.draglayout.DragLayout>

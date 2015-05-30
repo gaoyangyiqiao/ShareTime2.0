@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,9 +11,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.view.View.OnClickListener;
 
@@ -22,9 +19,9 @@ import com.nineoldandroids.view.ViewHelper;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
-import adapter.InfoAdapter;
-import turingmachine.com.sharetime20.view.DragLayout;
+import turingmachine.com.sharetime20.draglayout.DragLayout;
 
 
 public class MainActivity extends Activity implements OnClickListener{
@@ -34,7 +31,6 @@ public class MainActivity extends Activity implements OnClickListener{
     private ScheduleFragment scheduleFragment2;
     private ToDoListFragment toDoListFragment2;
     private DragLayout dl;
-    private FrameLayout maincontent;
     private ContactsFragment contactsFragment;
     private MatchFragment matchFragment;
     private TabHostFragment scheduleFragment;
@@ -47,7 +43,8 @@ public class MainActivity extends Activity implements OnClickListener{
     private ImageView iv_contacts;
     private ImageView iv_match;
     private ImageView iv_schedule;
-    private ImageView iv_icon;
+    private ImageView iv_head_icon;
+    private ImageView iv_drag_icon;
     private ListView info_list;
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -62,11 +59,11 @@ public class MainActivity extends Activity implements OnClickListener{
         contactsLayout = findViewById(R.id.tab_main_contact);
         matchLayout = findViewById(R.id.tab_main_match);
         scheduleLayout = findViewById(R.id.tab_main_schedule);
-        maincontent= (FrameLayout) findViewById(R.id.main_content);
         iv_contacts = (ImageView)findViewById(R.id.img_contacts);
         iv_match = (ImageView)findViewById(R.id.img_match);
         iv_schedule = (ImageView)findViewById(R.id.img_schedule);
-        iv_icon= (ImageView) findViewById(R.id.iv_bottom);
+        iv_head_icon = (ImageView) findViewById(R.id.iv_bottom);
+        iv_drag_icon= (ImageView) findViewById(R.id.iv_icon);
         contactsLayout.setOnClickListener(this);
         matchLayout.setOnClickListener(this);
         scheduleLayout.setOnClickListener(this);
@@ -84,12 +81,20 @@ public class MainActivity extends Activity implements OnClickListener{
         info.add("131250043");
         info.add("导入教务网");
         info.add("");
-        info_list.setAdapter(new InfoAdapter(info,this));
+        info_list.setAdapter(new ArrayAdapter<String>(MainActivity.this,
+                R.layout.item_text, new String[]{"NewBee", "gaoyang", "131250043", "right"}));
         info_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1,
                                     int position, long arg3) {
 
+            }
+        });
+
+        iv_drag_icon.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dl.open();
             }
         });
 
@@ -100,7 +105,7 @@ public class MainActivity extends Activity implements OnClickListener{
         dl.setDragListener(new DragLayout.DragListener() {
             @Override
             public void onOpen() {
-//                info_list.smoothScrollToPosition(new Random().nextInt(30));
+                info_list.smoothScrollToPosition(new Random().nextInt(30));
             }
 
             @Override
@@ -110,14 +115,14 @@ public class MainActivity extends Activity implements OnClickListener{
 
             @Override
             public void onDrag(float percent) {
-                ViewHelper.setAlpha(iv_icon, 1 - percent);
+                ViewHelper.setAlpha(iv_head_icon,percent);
             }
         });
 
     }
 
     private void shake() {
-        iv_icon.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
+        iv_drag_icon.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
     }
 
 

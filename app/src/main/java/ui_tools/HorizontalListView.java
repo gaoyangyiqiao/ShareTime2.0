@@ -709,13 +709,13 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         public final static int SCROLL_FLING = 2;
 
         /**
-         * Callback method to be invoked while the list view is being scrolled or flown. If the
-         * view is being scrolled, this method will be called before the next frame of the scroll is
+         * Callback method to be invoked while the list draglayout is being scrolled or flown. If the
+         * draglayout is being scrolled, this method will be called before the next frame of the scroll is
          * rendered. if it's being flying, it will be invoked at flying finish.</br>
          * In particular, it will be called before any calls to
          * {@link android.widget.BaseAdapter#getView(int, android.view.View, android.view.ViewGroup)}.
          *
-         * @param view        The view whose scroll state is being reported
+         * @param view        The draglayout whose scroll state is being reported
          * @param status The current scroll state. One of {@link #SCROLL_IDLE},
          *                    {@link #SCROLL_TOUCH_SCROLL} or {@link #SCROLL_FLING}.
          */
@@ -725,7 +725,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
          * Callback method to be invoked when the list has been scrolled or flown. This will be
          * called after the scroll or fly has completed
          *
-         * @param view             The view whose scroll state is being reported
+         * @param view             The draglayout whose scroll state is being reported
          * @param firstVisibleItem the index of the first visible cell (ignore if
          *                         visibleItemCount == 0)
          * @param visibleItemCount the number of visible cells

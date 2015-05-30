@@ -4,10 +4,10 @@
     tools:context="turingmachine.com.sharetime.MatchActivity">
 
 
-    <ListView
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
+    <turingmachine.com.sharetime20.customswipelistview.CustomSwipeListView
         android:id="@+id/lv_match_record"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         />
 
     <ImageButton

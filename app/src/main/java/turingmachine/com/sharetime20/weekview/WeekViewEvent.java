@@ -21,7 +21,7 @@ public class WeekViewEvent {
     }
 
     /**
-     * Initializes the event for week view.
+     * Initializes the event for week draglayout.
      * @param id The id of the event.
      * @param name Name of the event.
      * @param startYear Year when the event starts.
@@ -56,7 +56,7 @@ public class WeekViewEvent {
     }
 
     /**
-     * Initializes the event for week view.
+     * Initializes the event for week draglayout.
      * @param id The id of the event.
      * @param name Name of the event.
      * @param startTime The time when the event starts.

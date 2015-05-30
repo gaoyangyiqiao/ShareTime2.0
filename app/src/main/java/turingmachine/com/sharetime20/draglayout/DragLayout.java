@@ -1,4 +1,4 @@
-package turingmachine.com.sharetime20.view;
+package turingmachine.com.sharetime20.draglayout;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 
 import com.nineoldandroids.view.ViewHelper;
 
+import turingmachine.com.sharetime20.MainActivity;
 import turingmachine.com.sharetime20.R;
 
 public class DragLayout extends FrameLayout {
@@ -78,7 +79,11 @@ public class DragLayout extends FrameLayout {
 
         @Override
         public int getViewHorizontalDragRange(View child) {
-            return width;
+            //TODO 在此处判断拖动的位置，如果是title则可行
+//            if(child== MainActivity.iv_drag_icon)
+//                return width;
+//            else
+                return 0;
         }
 
         @Override

@@ -361,7 +361,7 @@ public class WeekView extends View {
     }
 
     private void drawTimeColumnAndAxes(Canvas canvas) {
-        // Do not let the view go above/below the limit due to scrolling. Set the max and min limit of the scroll.
+        // Do not let the draglayout go above/below the limit due to scrolling. Set the max and min limit of the scroll.
         if (mCurrentScrollDirection == Direction.VERTICAL) {
             if (mCurrentOrigin.y - mDistanceY > 0) mCurrentOrigin.y = 0;
             else if (mCurrentOrigin.y - mDistanceY < -(mHourHeight * 24 + mHeaderTextHeight + mHeaderRowPadding * 2 - getHeight())) mCurrentOrigin.y = -(mHourHeight * 24 + mHeaderTextHeight + mHeaderRowPadding * 2 - getHeight());
@@ -404,7 +404,7 @@ public class WeekView extends View {
         if (mIsFirstDraw){
             mIsFirstDraw = false;
 
-            // If the week view is being drawn for the first time, then consider the first day of the week.
+            // If the week draglayout is being drawn for the first time, then consider the first day of the week.
             if(mNumberOfVisibleDays >= 7 && mToday.get(Calendar.DAY_OF_WEEK) != mFirstDayOfWeek) {
                 int difference = 7 + (mToday.get(Calendar.DAY_OF_WEEK) - mFirstDayOfWeek);
                 mCurrentOrigin.x += (mWidthPerDay + mColumnGap) * difference;
@@ -667,7 +667,7 @@ public class WeekView extends View {
 
     /**
      * Gets more events of one/more month(s) if necessary. This method is called when the user is
-     * scrolling the week view. The week view stores the events of three months: the visible month,
+     * scrolling the week draglayout. The week draglayout stores the events of three months: the visible month,
      * the previous month, the next month.
      * @param day The day where the user is currently is.
      */
@@ -1076,10 +1076,10 @@ public class WeekView extends View {
     }
 
     /**
-     * Set the first day of the week. First day of the week is used only when the week view is first
+     * Set the first day of the week. First day of the week is used only when the week draglayout is first
      * drawn. It does not of any effect after user starts scrolling horizontally.
      * <p>
-     *     <b>Note:</b> This method will only work if the week view is set to display more than 6 days at
+     *     <b>Note:</b> This method will only work if the week draglayout is set to display more than 6 days at
      *     once.
      * </p>
      * @param firstDayOfWeek The supported values are {@link java.util.Calendar#SUNDAY},
@@ -1286,16 +1286,16 @@ public class WeekView extends View {
     }
 
     /**
-     * Returns the first visible day in the week view.
-     * @return The first visible day in the week view.
+     * Returns the first visible day in the week draglayout.
+     * @return The first visible day in the week draglayout.
      */
     public Calendar getFirstVisibleDay() {
         return mFirstVisibleDay;
     }
 
     /**
-     * Returns the last visible day in the week view.
-     * @return The last visible day in the week view.
+     * Returns the last visible day in the week draglayout.
+     * @return The last visible day in the week draglayout.
      */
     public Calendar getLastVisibleDay() {
         return mLastVisibleDay;
@@ -1373,7 +1373,7 @@ public class WeekView extends View {
     /////////////////////////////////////////////////////////////////
 
     /**
-     * Show today on the week view.
+     * Show today on the week draglayout.
      */
     public void goToToday() {
         Calendar today = Calendar.getInstance();
@@ -1381,7 +1381,7 @@ public class WeekView extends View {
     }
 
     /**
-     * Show a specific day on the week view.
+     * Show a specific day on the week draglayout.
      * @param date The date to show.
      */
     public void goToDate(Calendar date) {
@@ -1414,7 +1414,7 @@ public class WeekView extends View {
     }
 
     /**
-     * Refreshes the view and loads the events again.
+     * Refreshes the draglayout and loads the events again.
      */
     public void notifyDatasetChanged(){
         mRefreshEvents = true;
@@ -1422,7 +1422,7 @@ public class WeekView extends View {
     }
 
     /**
-     * Vertically scroll to a specific hour in the week view.
+     * Vertically scroll to a specific hour in the week draglayout.
      * @param hour The hour to scroll to in 24-hour format. Supported values are 0-24.
      */
     public void goToHour(double hour){

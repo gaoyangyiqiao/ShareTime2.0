@@ -53,15 +53,15 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
         mWeekView.setOnEventClickListener(this);
 
-        // The week view has infinite scrolling horizontally. We have to provide the events of a
-        // month every time the month changes on the week view.
+        // The week draglayout has infinite scrolling horizontally. We have to provide the events of a
+        // month every time the month changes on the week draglayout.
         mWeekView.setMonthChangeListener(this);
 
         // Set long press listener for events.
         mWeekView.setEventLongPressListener(this);
 
         // Set up a date time interpreter to interpret how the date and time will be formatted in
-        // the week view. This is optional.
+        // the week draglayout. This is optional.
         setupDateTimeInterpreter(false);
     }
 
@@ -84,7 +84,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
                     mWeekViewType = TYPE_DAY_VIEW;
                     mWeekView.setNumberOfVisibleDays(1);
 
-                    // Lets change some dimensions to best fit the view.
+                    // Lets change some dimensions to best fit the draglayout.
                     mWeekView.setColumnGap((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()));
                     mWeekView.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
                     mWeekView.setEventTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
@@ -96,7 +96,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
                     mWeekViewType = TYPE_THREE_DAY_VIEW;
                     mWeekView.setNumberOfVisibleDays(3);
 
-                    // Lets change some dimensions to best fit the view.
+                    // Lets change some dimensions to best fit the draglayout.
                     mWeekView.setColumnGap((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()));
                     mWeekView.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
                     mWeekView.setEventTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
@@ -108,7 +108,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
                     mWeekViewType = TYPE_WEEK_VIEW;
                     mWeekView.setNumberOfVisibleDays(7);
 
-                    // Lets change some dimensions to best fit the view.
+                    // Lets change some dimensions to best fit the draglayout.
                     mWeekView.setColumnGap((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics()));
                     mWeekView.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
                     mWeekView.setEventTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
@@ -120,7 +120,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
     }
 
     /**
-     * Set up a date time interpreter which will show short date values when in week view and long
+     * Set up a date time interpreter which will show short date values when in week draglayout and long
      * date values otherwise.
      * @param shortDate True if the date values should be short.
      */
@@ -150,7 +150,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
     @Override
     public List<WeekViewEvent> onMonthChange(int newYear, int newMonth) {
 
-        // Populate the week view with some events.
+        // Populate the week draglayout with some events.
         List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
 
         Calendar startTime = Calendar.getInstance();

@@ -1,4 +1,4 @@
-package turingmachine.com.sharetime20.view;
+package turingmachine.com.sharetime20.draglayout;
 
 import android.content.Context;
 import android.util.AttributeSet;
