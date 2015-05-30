@@ -21,5 +21,9 @@
     <string name="smssdk_wait">等待 </string>
     <string name="title_activity_selection">SelectionActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="action_today">Today</string>
+    <string name="action_day_view">Day view</string>
+    <string name="action_three_day_view">3 day view</string>
+    <string name="action_week_view">Week view</string>
 
 </resources>

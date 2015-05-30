@@ -3,15 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'TuringMachine'
+            keyAlias 'zfy'
             keyPassword '123456'
-            storeFile file('/Users/gaoyang/AndroidStudioProjects/android.jks')
-            storePassword '19941026'
-        }
-        config1 {
-            keyAlias 'gaoyang'
-            keyPassword '123456'
-            storeFile file('/Users/gaoyang/AndroidStudioProjects/android1.jks')
+            storeFile file('K:/users/Android-Week-View-master/zfy.jks')
             storePassword '123456'
         }
     }
@@ -28,7 +22,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config1
+            signingConfig signingConfigs.config
         }
     }
 }
