@@ -28,14 +28,21 @@ import turingmachine.com.sharetime20.view.DragLayout;
 
 
 public class MainActivity extends Activity implements OnClickListener{
+    private FragmentTransaction fragmentTransaction;
+    private FragmentManager fragmentManager2;
+    private FrameLayout frame2;
+    private ScheduleFragment scheduleFragment2;
+    private ToDoListFragment toDoListFragment2;
     private DragLayout dl;
     private FrameLayout maincontent;
     private ContactsFragment contactsFragment;
     private MatchFragment matchFragment;
-    private ScheduleFragment scheduleFragment;
+    private TabHostFragment scheduleFragment;
+    private ToDoListFragment toDoListFragment;
     public View contactsLayout;
     public View matchLayout;
     public View scheduleLayout;
+    public View todo;
     private FragmentManager fragmentManager;
     private ImageView iv_contacts;
     private ImageView iv_match;
@@ -144,7 +151,8 @@ public class MainActivity extends Activity implements OnClickListener{
 //                tv_schedule.setTextColor(Color.WHITE);
                 if (scheduleFragment == null) {
                     // 如果ScheduleFragment为空，则创建一个并添加到界面上
-                    scheduleFragment = new ScheduleFragment();
+                    //scheduleFragment = new ScheduleFragment();
+                    scheduleFragment=new TabHostFragment();
                     transaction.add(R.id.main_content, scheduleFragment);
                 } else {
                     // 如果MScheduleFragment不为空，则直接将它显示出来
@@ -190,7 +198,18 @@ public class MainActivity extends Activity implements OnClickListener{
         iv_schedule.setImageResource(R.drawable.tab_schedule);
         //以下缺少字体颜色的设定
     }
-
+    public void  b(View view) {
+        toDoListFragment2=new ToDoListFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame,toDoListFragment2);
+        fragmentTransaction.commit();
+    }
+    public void a(View view) {
+        scheduleFragment2=new ScheduleFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame,scheduleFragment2);
+        fragmentTransaction.commit();
+    }
     private void hideFragments(FragmentTransaction fragmentTransaction){
         if(contactsFragment != null){
             fragmentTransaction.hide(contactsFragment);
