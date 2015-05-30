@@ -1,32 +1,23 @@
 package turingmachine.com.sharetime20;
-import turingmachine.com.sharetime20.R;
-import android.app.Activity;
 import android.util.TypedValue;
 import android.app.Fragment;
-import android.app.LocalActivityManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.TabHost;
-import android.widget.TextView;
 import android.graphics.RectF;
-import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import weekview.DateTimeInterpreter;
-import weekview.WeekView;
-import weekview.WeekViewEvent;
+import turingmachine.com.sharetime20.weekview.DateTimeInterpreter;
+import turingmachine.com.sharetime20.weekview.WeekView;
+import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 /**
  * Created by admin on 2015/3/28.
@@ -44,7 +35,9 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
                              Bundle savedInstanceState) {
 
         View scheduleFragment = inflater.inflate(R.layout.activity_schedule,container,false);
-        mWeekView=(WeekView)getActivity().findViewById(R.id.weekView);
+        mWeekView=(WeekView)getActivity().findViewById(R.id.weekView2);
+      //  mWeekView=new WeekView();
+       this.getActivity().setContentView(mWeekView);
         mWeekView.setOnEventClickListener(this);
 
         // The week view has infinite scrolling horizontally. We have to provide the events of a
