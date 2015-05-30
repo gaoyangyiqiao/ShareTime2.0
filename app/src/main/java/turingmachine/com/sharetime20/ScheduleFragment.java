@@ -35,10 +35,15 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
                              Bundle savedInstanceState) {
 
         View scheduleFragment = inflater.inflate(R.layout.activity_schedule,container,false);
+
+        return scheduleFragment;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         mWeekView=(WeekView)getActivity().findViewById(R.id.weekView);
-      //  mWeekView=new WeekView();
-      // this.getActivity().setContentView(mWeekView);
-        System.out.println(mWeekView);
+        //  mWeekView=new WeekView();
+        // this.getActivity().setContentView(mWeekView);
         mWeekView.setOnEventClickListener(this);
 
         // The week view has infinite scrolling horizontally. We have to provide the events of a
@@ -51,11 +56,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         // Set up a date time interpreter to interpret how the date and time will be formatted in
         // the week view. This is optional.
         setupDateTimeInterpreter(false);
-        return scheduleFragment;
     }
-
-
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
       //  getMenuInflater().inflate(R.menu.main, menu);
