@@ -35,7 +35,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
                              Bundle savedInstanceState) {
 
         View scheduleFragment = inflater.inflate(R.layout.activity_schedule,container,false);
-        mWeekView=(WeekView)getActivity().findViewById(R.id.weekView);
+        mWeekView=(WeekView)getActivity().findViewById(R.id.weekView11111);
       //  mWeekView=new WeekView();
       // this.getActivity().setContentView(mWeekView);
         System.out.println(mWeekView);
