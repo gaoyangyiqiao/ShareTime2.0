@@ -5,4 +5,4 @@
 .DS_Store
 /build
 /app/build/intermediates/tmp/dex/release/inputList.txt
-/app/build.gradle
+app/build.gradle
