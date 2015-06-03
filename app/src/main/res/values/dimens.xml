@@ -1,10 +1,18 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">0dp</dimen>
-    <dimen name="activity_vertical_margin">0dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="undo_dialog_height">45dp</dimen>
     <dimen name="undo_dialog_padding">10dp</dimen>
     <dimen name="undo_dialog_layout_margin_bottom">10dp</dimen>
     <dimen name="undo_dialog_horizontal_line_margin">10dp</dimen>
     <dimen name="undo_dialog_textview_size">18sp</dimen>
+    <dimen name="bbuton_rounded_corner_radius">5dp</dimen>
+
+    <dimen name="bthumbnail_rounded_corner_radius">3dp</dimen>
+
+    <dimen name="padding_micro">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">12dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
 </resources>

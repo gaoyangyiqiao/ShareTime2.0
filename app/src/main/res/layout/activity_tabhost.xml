@@ -7,16 +7,18 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         android:orientation="horizontal">
-        <Button
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
             android:id="@+id/button1"
+            android:padding="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="a"
             android:text="todolist" />
 
-        <Button
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
             android:id="@+id/button2"
+            android:padding="0dp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
