@@ -26,5 +26,11 @@
     <string name="action_three_day_view">3 day view</string>
     <string name="action_week_view">Week view</string>
     <string name="undodialog_undo_action_str">Undo</string>
+    <string name="login_register_link">login_register_link</string>
+    <string name="login_label_signin">login_label_signin</string>
+    <string name="login_label_password">login_label_password</string>
+    <string name="login_username_hint">login_username_hint</string>
+    <string name="login_label_username">login_label_username</string>
+
 
 </resources>
