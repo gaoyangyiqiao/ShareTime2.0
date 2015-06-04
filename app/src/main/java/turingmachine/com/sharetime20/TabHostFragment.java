@@ -43,7 +43,7 @@ public class TabHostFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                swipeMenuListView.setEnabled(false);
+               // swipeMenuListView.setEnabled(false);
                 newEvent();
                 swipeMenuListView.setEnabled(true);
             }
