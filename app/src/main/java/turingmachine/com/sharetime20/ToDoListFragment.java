@@ -1,5 +1,6 @@
 package turingmachine.com.sharetime20;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.pm.ApplicationInfo;
@@ -31,7 +33,8 @@ public class ToDoListFragment extends Fragment{
     private AppAdapter mAdapter;
     private Context context;
     SwipeMenuListView listView;
-
+    private Button button;
+    private SwipeMenuListView swipeMenuListView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View matchFragment = inflater.inflate(R.layout.activity_todolist,container,false);
@@ -46,11 +49,30 @@ public class ToDoListFragment extends Fragment{
 
         return matchFragment;
     }
+    public void newEvent(){
 
+        LayoutInflater li = LayoutInflater.from(this.getActivity());
+        View view = li.inflate(R.layout.activity_add_event, null);
+        new AlertDialog.Builder(this.getActivity()).setTitle("新建活动").setIcon(
+                android.R.drawable.ic_dialog_info).setView(
+                view).setPositiveButton("确定", null)
+                .setNegativeButton("取消", null).show();
+    }
     public void onViewCreated(View view, Bundle savedInstanceState) {
-       listView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
+        listView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
         listView.setAdapter(mAdapter);
+       // newEvent();
+        button=(Button)getActivity().findViewById(R.id.ss2);
 
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listView.setEnabled(false);
+                newEvent();
+                listView.setEnabled(true);
+            }
+        });
         // step 1. create a MenuCreator
         SwipeMenuCreator creator = new SwipeMenuCreator() {
 
@@ -132,6 +154,7 @@ public class ToDoListFragment extends Fragment{
         listView.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
             public boolean onMenuItemClick(int position, SwipeMenu  menu, int index){
+
                 ApplicationInfo item = mAppList.get(position);
                 switch (index) {
                     case 0:

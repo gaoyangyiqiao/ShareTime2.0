@@ -23,8 +23,6 @@ public class TabHostFragment extends Fragment {
     private FrameLayout frame;
     private ScheduleFragment scheduleFragment;
     private ToDoListFragment toDoListFragment;
-    private Button button;
-    private SwipeMenuListView swipeMenuListView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View matchFragment = inflater.inflate(R.layout.activity_tabhost,container,false);
@@ -38,16 +36,7 @@ public class TabHostFragment extends Fragment {
         scheduleFragment=new ScheduleFragment();
         toDoListFragment=new ToDoListFragment();
 
-        button=(Button)getActivity().findViewById(R.id.ss2);
-        swipeMenuListView=(SwipeMenuListView)getActivity().findViewById(R.id.listView);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // swipeMenuListView.setEnabled(false);
-                newEvent();
-                swipeMenuListView.setEnabled(true);
-            }
-        });
+
         //newEvent();
     }
     public void  b(View view) {
