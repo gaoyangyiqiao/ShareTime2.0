@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="turingmachine.com.sharetime.MatchActivity">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <turingmachine.com.sharetime20.swipeview.SwipeMenuListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" ></turingmachine.com.sharetime20.swipeview.SwipeMenuListView>
+
+   <RelativeLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+
+       <Button
+           android:id="@+id/ss2"
+
+           android:layout_above="@+id/listView"
+           android:layout_width="56dp"
+           android:layout_height="56dp"
+           android:src="@android:drawable/ic_input_add"
+           android:layout_alignParentBottom="true"
+           android:layout_alignParentRight="true"
+           android:layout_marginRight="16dp"
+           android:layout_marginBottom="16dp"
+
+           android:tint="@android:color/white"
+
+           />
+
+        <turingmachine.com.sharetime20.swipeview.SwipeMenuListView
+            android:id="@+id/listView"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" > </turingmachine.com.sharetime20.swipeview.SwipeMenuListView>
+   </RelativeLayout>
+
 
 </LinearLayout>
 </RelativeLayout>

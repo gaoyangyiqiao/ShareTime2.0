@@ -9,6 +9,9 @@
     <dimen name="undo_dialog_textview_size">18sp</dimen>
     <dimen name="bbuton_rounded_corner_radius">5dp</dimen>
 
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="start_z">2dp</dimen>
+    <dimen name="end_z">5dp</dimen>
     <dimen name="bthumbnail_rounded_corner_radius">3dp</dimen>
 
     <dimen name="padding_micro">4dp</dimen>
