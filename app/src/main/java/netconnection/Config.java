@@ -43,6 +43,8 @@ public class Config {
     public static final String KEY_FOUNDER_ID="founder_id";
     public static final String KEY_RIGHT="right";
     public static final String KEY_USERS="users";
+    public static final String KEY_STUDENT_ID="student_id";
+    public static final String KEY_STUDENT_PASSWORD="student_password";
 
     public static final String ACTION_REGISTER="register";
     public static final String ACTION_GET_CONTACTS="get_contacts";
@@ -89,6 +91,26 @@ public class Config {
     public static void cachePhoneNum(Context context,String phoneNum){
         SharedPreferences.Editor e = context.getSharedPreferences(APP_ID, Context.MODE_PRIVATE).edit();
         e.putString(KEY_PHONE_NUM, phoneNum);
+        e.commit();
+    }
+
+    public static String getCachedStudentId(Context context){
+        return context.getSharedPreferences(APP_ID,Context.MODE_PRIVATE).getString(KEY_STUDENT_ID,null);
+    }
+
+    public static void cacheStudentId(Context context,String student_id){
+        SharedPreferences.Editor e=context.getSharedPreferences(APP_ID, Context.MODE_PRIVATE).edit();
+        e.putString(KEY_ID,student_id);
+        e.commit();
+    }
+
+    public static String getCachedStudentPassword(Context context){
+        return context.getSharedPreferences(APP_ID,Context.MODE_PRIVATE).getString(KEY_STUDENT_PASSWORD,null);
+    }
+
+    public static void cacheStudentPassword(Context context,String user_id){
+        SharedPreferences.Editor e=context.getSharedPreferences(APP_ID, Context.MODE_PRIVATE).edit();
+        e.putString(KEY_STUDENT_PASSWORD,user_id);
         e.commit();
     }
 
