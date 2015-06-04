@@ -62,7 +62,7 @@ public class ToDoListFragment extends Fragment{
         listView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
         listView.setAdapter(mAdapter);
        // newEvent();
-       
+
         // step 1. create a MenuCreator
         SwipeMenuCreator creator = new SwipeMenuCreator() {
 

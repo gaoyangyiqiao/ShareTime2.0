@@ -54,4 +54,7 @@
         <item name="@android:windowEnterAnimation">@anim/undodialog_enter</item>
         <item name="@android:windowExitAnimation">@anim/undodialog_exit</item>
     </style>
+    <style name="floatlabelededittext">
+        <item name="android:textColor">#FF0000</item>
+    </style>
 </resources>

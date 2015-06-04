@@ -216,6 +216,12 @@ public class MainActivity extends Activity implements OnClickListener{
         fragmentTransaction.replace(R.id.frame,scheduleFragment2);
         fragmentTransaction.commit();
     }
+    public void c(View view) {
+        SignupFragment s=new SignupFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame,s);
+        fragmentTransaction.commit();
+    }
     private void hideFragments(FragmentTransaction fragmentTransaction){
         if(contactsFragment != null){
             fragmentTransaction.hide(contactsFragment);
