@@ -1,6 +1,7 @@
 package turingmachine.com.sharetime20;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
@@ -53,8 +54,7 @@ public class ToDoListFragment extends Fragment{
 
         LayoutInflater li = LayoutInflater.from(this.getActivity());
         View view = li.inflate(R.layout.activity_add_event, null);
-        new AlertDialog.Builder(this.getActivity()).setTitle("新建活动").setIcon(
-                android.R.drawable.ic_dialog_info).setView(
+        new AlertDialog.Builder(this.getActivity()).setView(
                 view).setPositiveButton("确定", null)
                 .setNegativeButton("取消", null).show();
     }
@@ -62,17 +62,7 @@ public class ToDoListFragment extends Fragment{
         listView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
         listView.setAdapter(mAdapter);
        // newEvent();
-        button=(Button)getActivity().findViewById(R.id.ss2);
-
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listView.setEnabled(false);
-                newEvent();
-                listView.setEnabled(true);
-            }
-        });
+       
         // step 1. create a MenuCreator
         SwipeMenuCreator creator = new SwipeMenuCreator() {
 
