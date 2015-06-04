@@ -152,7 +152,7 @@ public class CaptchaActivity extends BaseActivity implements OnClickListener,
                         Config.cachePhoneNum(CaptchaActivity.this, phone);
 
                         //注册
-                        new Register(phone,CaptchaActivity.this);
+//                        new Register(phone,CaptchaActivity.this);
 
                         Intent i=new Intent(CaptchaActivity.this, MainActivity.class);
                         startActivity(i);
