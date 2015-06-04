@@ -9,10 +9,11 @@ import net.tsz.afinal.http.AjaxParams;
  */
 public class AddActivity {
 
-    public AddActivity(String user_id){
+    public AddActivity(String user_id,int a){
         final AjaxParams params = new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_ADD_ACTIVITY);
         params.put("user_id",user_id);
+
         FinalHttp fh = new FinalHttp();
         fh.post(Config.URL, params, new AjaxCallBack<String>() {
             @Override
