@@ -4,54 +4,60 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <turingmachine.com.sharetime20.floatlabel.FloatLabeledEditText
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:layout_width="match_parent"
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="选择日期"
+         />
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="This is the hint" />
-    </turingmachine.com.sharetime20.floatlabel.FloatLabeledEditText>
+            android:id="@+id/choosedate"
+            />
 
-    <!-- add some padding -->
-    <turingmachine.com.sharetime20.floatlabel.FloatLabeledEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        float:fletPadding="10dp">
 
-        <EditText
-            android:layout_width="match_parent"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Get time"
+
+           android:id="@+id/choosetime1"
+           android:background="#ff2d32ff" />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Username" />
-    </turingmachine.com.sharetime20.floatlabel.FloatLabeledEditText>
-
-    <!-- password input -->
-    <turingmachine.com.sharetime20.floatlabel.FloatLabeledEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        float:fletPaddingBottom="10dp">
-
-        <EditText
-            android:layout_width="match_parent"
+            android:text="到"
+            />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword" />
-    </turingmachine.com.sharetime20.floatlabel.FloatLabeledEditText>
-
-    <!-- change color of hint text-->
-    <turingmachine.com.sharetime20.floatlabel.FloatLabeledEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        float:fletPaddingBottom="10dp"
-        float:fletTextAppearance="@style/floatlabelededittext">
-
-        <EditText
-            android:layout_width="match_parent"
+            android:text="Get time"
+            android:id="@+id/choosetime2"
+            android:background="#ff5cff38" />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Styled Hint"
-            android:inputType="textPassword" />
-    </turingmachine.com.sharetime20.floatlabel.FloatLabeledEditText>
+            android:text="活动类型"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_get"/>
+        </LinearLayout>
 
 
 </LinearLayout>
