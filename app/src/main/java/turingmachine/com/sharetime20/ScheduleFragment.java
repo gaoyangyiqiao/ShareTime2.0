@@ -251,7 +251,6 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         event = new WeekViewEvent(5, getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_02));
         events.add(event);
-
         return list;
     }
 
@@ -269,7 +268,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
        // Toast.makeText(MainActivity.this, "Long pressed event: " + event.getName(), Toast.LENGTH_SHORT).show();
     }
     public void addEvent(ArrayList<WeekViewEvent> weekViewEvent){
-        GetUserSchedule getUserSchedule=new GetUserSchedule(null,null);
+
         int length=weekViewEvent.size();
         for(int i=0;i<length;i++){
             list.add(weekViewEvent.get(i));
