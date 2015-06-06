@@ -6,6 +6,8 @@ import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.pm.ApplicationInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import turingmachine.com.sharetime20.swipeview.SwipeMenu;
@@ -89,14 +92,14 @@ public class ToDoListFragment extends Fragment{
                         0x5E)));
                 item1.setWidth(dp2px(90));
                 item1.setIcon(R.drawable.ic_action_favorite);
-                menu.addMenuItem(item1);
+             //   menu.addMenuItem(item1);
                 SwipeMenuItem item2 = new SwipeMenuItem(
                         getActivity().getApplicationContext());
                 item2.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,
                         0xCE)));
                 item2.setWidth(dp2px(90));
                 item2.setIcon(R.drawable.ic_action_good);
-              menu.addMenuItem(item2);
+           //   menu.addMenuItem(item2);
             }
             public int dp2px( float dp) {
                 final float scale = getActivity().getResources().getDisplayMetrics().density;
@@ -110,14 +113,14 @@ public class ToDoListFragment extends Fragment{
                         0x3F)));
                 item1.setWidth(dp2px(90));
                 item1.setIcon(R.drawable.ic_action_important);
-                menu.addMenuItem(item1);
+              //  menu.addMenuItem(item1);
                 SwipeMenuItem item2 = new SwipeMenuItem(
                         getActivity().getApplicationContext());
                 item2.setBackground(new ColorDrawable(Color.rgb(0xF9,
                         0x3F, 0x25)));
                 item2.setWidth(dp2px(90));
                 item2.setIcon(R.drawable.ic_action_discard);
-                menu.addMenuItem(item2);
+             //   menu.addMenuItem(item2);
             }
 
             private void createMenu3(SwipeMenu menu) {
@@ -127,14 +130,14 @@ public class ToDoListFragment extends Fragment{
                         0xF5)));
                 item1.setWidth(dp2px(90));
                 item1.setIcon(R.drawable.ic_action_about);
-                menu.addMenuItem(item1);
+              //  menu.addMenuItem(item1);
                 SwipeMenuItem item2 = new SwipeMenuItem(
                         getActivity().getApplicationContext());
                 item2.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,
                         0xCE)));
                 item2.setWidth(dp2px(90));
                 item2.setIcon(R.drawable.ic_action_share);
-                menu.addMenuItem(item2);
+           //     menu.addMenuItem(item2);
             }
         };
         // set creator
@@ -166,17 +169,20 @@ public class ToDoListFragment extends Fragment{
         mAdapter.notifyDataSetChanged();
     }
 class AppAdapter extends BaseAdapter {
-
+    public ArrayList<Item> itemlist;
+    public void setItemlist(ArrayList<Item> itemlist){
+        this.itemlist=itemlist;
+    }
     @Override
     public int getCount() {
         return mAppList.size();
     }
 
-    @Override
-    public ApplicationInfo getItem(int position) {
+
+    public Item getItem(int position) {
         TextView textView=new TextView(getActivity());
         textView.setText("hello");
-        return mAppList.get(position);
+        return itemlist.get(position);
     }
 
     @Override
@@ -204,11 +210,10 @@ class AppAdapter extends BaseAdapter {
             new ViewHolder(convertView);
         }
         ViewHolder holder = (ViewHolder) convertView.getTag();
-        ApplicationInfo item = getItem(position);
-        holder.iv_icon.setImageDrawable(item.loadIcon(getActivity().getPackageManager()));
-        holder.tv_name.setText(item.loadLabel(getActivity().getPackageManager()));
-        TextView textView=new TextView(getActivity());
-        textView.setText("hello");
+       Item item = getItem(position);
+        holder.iv_icon.setImageDrawable(item.getImage());
+        holder.tv_name.setText(item.getText());
+
 
         return convertView;
     }
@@ -227,6 +232,20 @@ class AppAdapter extends BaseAdapter {
     private int dp2px(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 getResources().getDisplayMetrics());
+    }
+    public class Item{
+        private Drawable image;
+        private String text;
+        public Item(Drawable image,String text){
+            this.image=image;
+            this.text=text;
+        }
+        public Drawable getImage(){
+            return image;
+        }
+        public String getText(){
+            return text;
+        }
     }
 }
 
