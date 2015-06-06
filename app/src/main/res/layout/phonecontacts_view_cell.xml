@@ -24,7 +24,6 @@
                 android:id="@+id/phonecontacts_view_cell_iv"
                 android:layout_width="45dip"
                 android:layout_height="45dip"
-                android:background="@drawable/contact_img"
                 android:adjustViewBounds="false" />
 
             <TextView

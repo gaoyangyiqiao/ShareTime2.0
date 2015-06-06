@@ -6,26 +6,53 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="businesslogic.contactsbl.PhoneContactsActivity">
 
-    <SearchView
+    <RelativeLayout
+        android:id="@+id/phonecontacts_title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#009990" >
+
+        <TextView
+            android:id="@+id/tv_back_in_phonecontacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/textview_back"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="St"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/phonecontacts_title"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:queryHint="搜索联系人"
-        android:id="@+id/sv_phone_contact_search"
-        android:clickable="true"
-        android:focusable="true"/>
+        android:layout_height="wrap_content">
+        <SearchView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="搜索联系人"
+            android:id="@+id/sv_phone_contact_search"
+            android:clickable="true"
+            android:focusable="true"/>
 
 
-    <ListView
-        android:id="@+id/lv_phone_contact"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/sv_phone_contact_search"
+        <ListView
+            android:id="@+id/lv_phone_contact"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/sv_phone_contact_search"
 
-        android:fastScrollAlwaysVisible="false"
-        android:fastScrollEnabled="true">
+            android:fastScrollAlwaysVisible="false"
+            android:fastScrollEnabled="true">
 
-    </ListView>
-
-
+        </ListView>
+        </RelativeLayout>
 
 </RelativeLayout>
