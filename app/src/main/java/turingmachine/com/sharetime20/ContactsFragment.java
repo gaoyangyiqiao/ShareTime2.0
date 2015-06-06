@@ -82,8 +82,14 @@ public class ContactsFragment extends Fragment {
                 startActivity(i);
             }
         });
+        btn_createGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),PhoneContactsActivity.class);
+                startActivity(i);
+            }
+        });
     }
-
 
     //TODO
     public void initContactListLv(){

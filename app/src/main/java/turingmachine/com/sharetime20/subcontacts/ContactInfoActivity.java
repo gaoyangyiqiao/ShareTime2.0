@@ -40,7 +40,6 @@ public class ContactInfoActivity extends Activity {
 
 
         //左上角返回按钮
-        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 

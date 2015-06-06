@@ -216,10 +216,6 @@ public class MainActivity extends Activity implements OnClickListener{
     //从match界面跳转到match add界面
     public void d(View view) {
 
-
-
-
-
     }
     public void e(View view) {
 

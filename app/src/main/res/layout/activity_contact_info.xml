@@ -4,6 +4,31 @@
     android:orientation="vertical"
     tools:context="businesslogic.contactsbl.ContactInfoActivity">
 
+    <RelativeLayout
+        android:id="@+id/contactinfo_friend_title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#009990" >
+
+        <TextView
+            android:id="@+id/tv_back_in_contactinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/textview_back"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="St"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
