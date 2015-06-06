@@ -46,7 +46,6 @@ public class GetUserSchedule {
                     JSONArray activities=userSchedule.getJSONArray(Config.KEY_ACTIVITY);
                     for(int i=0;i<activities.length();i++){
                         JSONObject json_activity=activities.getJSONObject(i);
-
                         String theme=json_activity.getString(Config.KEY_THEME);
                         String founder=json_activity.getString(Config.KEY_FOUNDER_ID);
                         String content=json_activity.getString(Config.KEY_CONTENT);
@@ -65,12 +64,17 @@ public class GetUserSchedule {
                         ActivityPO activity=new ActivityPO(id,theme,content,founder,
                                 start_time,end_time,contacts_id,right);
                         schedule.getActivityList().add(activity);
-                        eventlist.add(new WeekViewEvent(Integer.parseInt(id),content,c1,c2));
+                        eventlist.add(new WeekViewEvent(Integer.parseInt(id), content, c1, c2));
+                       // System.out.println("Add weekevent " + content);
+                       // System.out.println("start time : "+start_time_str);
+                       // System.out.println("end time : "+end_time_str);
                     }
 
                     SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
                     schedule.setStartTime(dateFormat.parse(userSchedule.getString(Config.KEY_BEGIN_TIME)));
                     schedule.setLength(userSchedule.getInt(Config.KEY_SIZE));
+                    System.out.println("start addEvent!");
+
                     fragment.addEvent(eventlist);
 //                    SchedulePre schedulePre=new SchedulePre(schedule);
 //                    scheduleView.activityInfo=schedulePre.getActivityPre();
@@ -86,6 +90,7 @@ public class GetUserSchedule {
             public void onFailure(Throwable t, String strMsg) {
                 System.out.println("---->>>>>>net.error in getUserSchedule");
             }
+
 
             @Override
             public void onLoading(long count, long current) {
