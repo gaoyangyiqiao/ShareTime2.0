@@ -671,7 +671,7 @@ public class WeekView extends View {
      * the previous month, the next month.
      * @param day The day where the user is currently is.
      */
-    private void getMoreEvents(Calendar day) {
+   public void getMoreEvents(Calendar day) {
 
         // Delete all events if its not current month +- 1.
         deleteFarMonths(day);

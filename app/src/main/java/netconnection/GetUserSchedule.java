@@ -69,9 +69,9 @@ public class GetUserSchedule {
                       //  c1.set(Calendar.MONTH, newMonth-1);
                     //    c1.set(Calendar.YEAR, newYear);
                         eventlist.add(new WeekViewEvent(Integer.parseInt(id), content, c1, c2));
-                       // System.out.println("Add weekevent " + content);
+                       System.out.println("Add weekevent " + content);
                         System.out.println("start time : "+start_time);
-                       // System.out.println("end time : "+end_time_str);
+                        System.out.println("end time : "+end_time_str);
                     }
 
                     SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");

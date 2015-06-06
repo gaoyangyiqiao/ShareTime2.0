@@ -197,7 +197,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
             list.add(weekViewEvent.get(i));
             System.out.println("list add event "+weekViewEvent.get(i).getName());
         }
-        mWeekView.invalidate();
+        mWeekView.notifyDatasetChanged();
 
 
 
