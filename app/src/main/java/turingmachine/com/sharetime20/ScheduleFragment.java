@@ -174,7 +174,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
 
 
-        return list;
+        return events;
     }
 
     private String getEventTitle(Calendar time) {
