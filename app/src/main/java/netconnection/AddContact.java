@@ -7,6 +7,8 @@ import net.tsz.afinal.http.AjaxParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import po.ContactPO;
+
 /**
  * Created by gaoyang on 15/4/16.
  */
@@ -24,6 +26,9 @@ public class AddContact {
                 try {
                     JSONObject object=new JSONObject(o);
                     JSONObject contactinfo=object.getJSONObject(Config.KEY_USER_INFO);
+
+//                    ContactPO contactPO=new ContactPO();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
