@@ -10,6 +10,8 @@ import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import po.ActivityPO;
@@ -34,7 +36,7 @@ public class GetUserSchedule {
             public boolean isProgress() {
                 return super.isProgress();
             }
-
+           ArrayList<WeekViewEvent> eventlist=new ArrayList<WeekViewEvent>();
             @Override
             public void onSuccess(String result) {
                 SchedulePO schedule=new SchedulePO();
@@ -56,16 +58,20 @@ public class GetUserSchedule {
                         Date start_time=sdf.parse(start_time_str);
                         Date end_time=sdf.parse(end_time_str);
                         int right=json_activity.getInt(Config.KEY_RIGHT);
-
+                        Calendar c1=Calendar.getInstance();
+                        Calendar c2=Calendar.getInstance();
+                        c1.setTime(start_time);
+                        c2.setTime(end_time);
                         ActivityPO activity=new ActivityPO(id,theme,content,founder,
                                 start_time,end_time,contacts_id,right);
                         schedule.getActivityList().add(activity);
+                        eventlist.add(new WeekViewEvent(Integer.parseInt(id),content,c1,c2));
                     }
 
                     SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
                     schedule.setStartTime(dateFormat.parse(userSchedule.getString(Config.KEY_BEGIN_TIME)));
                     schedule.setLength(userSchedule.getInt(Config.KEY_SIZE));
-
+                    fragment.addEvent(eventlist);
 //                    SchedulePre schedulePre=new SchedulePre(schedule);
 //                    scheduleView.activityInfo=schedulePre.getActivityPre();
 

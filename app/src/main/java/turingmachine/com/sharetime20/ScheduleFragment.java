@@ -64,6 +64,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         // Set up a date time interpreter to interpret how the date and time will be formatted in
         // the week draglayout. This is optional.
         setupDateTimeInterpreter(false);
+        GetUserSchedule getUserSchedule=new GetUserSchedule(1+"",1+"",this);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -273,7 +274,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         for(int i=0;i<length;i++){
             list.add(weekViewEvent.get(i));
         }
-      mWeekView.invalidate();
+     mWeekView.invalidate();
 
     }
 }
