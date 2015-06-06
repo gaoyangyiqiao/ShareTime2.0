@@ -45,6 +45,9 @@ public class Config {
     public static final String KEY_USERS="users";
     public static final String KEY_STUDENT_ID="student_id";
     public static final String KEY_STUDENT_PASSWORD="student_password";
+    public static final String KEY_ACTIVITY_ID="activity_id";
+    public static final String KEY_FRIEND_ID="friend_id";
+    public static final String KEY_USER_INFO="user_info";
 
     public static final String ACTION_REGISTER="register";
     public static final String ACTION_GET_CONTACTS="get_contacts";

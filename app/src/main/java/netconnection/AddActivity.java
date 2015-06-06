@@ -4,6 +4,9 @@ import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by gaoyang on 15/5/5.
  */
@@ -22,7 +25,13 @@ public class AddActivity {
         fh.post(Config.URL, params, new AjaxCallBack<String>() {
             @Override
             public void onSuccess(String o) {
-                super.onSuccess(o);
+                try {
+                    JSONObject result=new JSONObject(o);
+                    String activity_id=result.getString(Config.KEY_ACTIVITY_ID);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
