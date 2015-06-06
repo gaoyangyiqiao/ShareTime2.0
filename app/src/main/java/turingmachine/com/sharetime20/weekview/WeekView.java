@@ -1412,7 +1412,6 @@ public class WeekView extends View {
         // mStickyScroller.startScroll((int) mCurrentOrigin.x, 0, (int) (-dateDifference*(mWidthPerDay + mColumnGap)-mCurrentOrigin.x), 0);
         invalidate();
     }
-
     /**
      * Refreshes the draglayout and loads the events again.
      */
