@@ -29,13 +29,16 @@ public class MainActivity extends Activity implements OnClickListener{
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager2;
     private FrameLayout frame2;
+    int index=1;
     private ScheduleFragment scheduleFragment2;
     private ToDoListFragment toDoListFragment2;
     private DragLayout dl;
     private ContactsFragment contactsFragment;
-    private MatchFragment matchFragment;
+    private MatchFragment matchFragment2;
+    private MatchChoose matchFragment;
     private TabHostFragment scheduleFragment;
     private ToDoListFragment toDoListFragment;
+    private MatchAddFragmet matchAddFragmet=new MatchAddFragmet();
     public View contactsLayout;
     public View matchLayout;
     public View scheduleLayout;
@@ -171,7 +174,7 @@ public class MainActivity extends Activity implements OnClickListener{
 //                tv_match.setTextColor(Color.WHITE);
                 if (matchFragment == null) {
                     // 如果MatchFragment为空，则创建一个并添加到界面上
-                    matchFragment = new MatchFragment();
+                    matchFragment = new MatchChoose();
                     transaction.add(R.id.main_content, matchFragment);
                 } else {
                     // 如果MatchFragment不为空，则直接将它显示出来
@@ -212,15 +215,30 @@ public class MainActivity extends Activity implements OnClickListener{
     }
     //从match界面跳转到match add界面
     public void d(View view) {
+<<<<<<< HEAD
+
+=======
         MatchAddFragmet m=new MatchAddFragmet();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.matchframe,m);
         fragmentTransaction.commit();
+>>>>>>> origin/master
     }
     public void e(View view) {
-         matchFragment=new MatchFragment();
+
+    }
+    public void f(View view) {
+        matchFragment2=new MatchFragment();
+        matchAddFragmet=new MatchAddFragmet();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.matchframe,matchFragment);
+        if(index==1) {
+            fragmentTransaction.replace(R.id.matchchoose, matchFragment2);
+            index=2;
+        }
+        else{
+            fragmentTransaction.replace(R.id.matchchoose, matchAddFragmet);
+            index=1;
+        }
         fragmentTransaction.commit();
     }
     public void a(View view) {
