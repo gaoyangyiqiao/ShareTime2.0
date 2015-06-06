@@ -24,16 +24,18 @@ import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 public class GetClassTable {
 
     public GetClassTable(String student_id,String student_password, final ScheduleFragment fragment){
-        AjaxParams params=new AjaxParams();
+        final AjaxParams params=new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_GET_CLASSTABLE);
         params.put(Config.KEY_STUDENT_ID,student_id);
-        params.put(Config.KEY_STUDENT_PASSWORD,student_password);
-final ArrayList<WeekViewEvent> listclass=new ArrayList<>();
+        params.put(Config.KEY_STUDENT_PASSWORD, student_password);
+        final ArrayList<WeekViewEvent> listclass=new ArrayList<>();
         FinalHttp finalHttp=new FinalHttp();
         finalHttp.post(Config.URL,params,new AjaxCallBack<String>() {
             @Override
             public void onSuccess(String o) {
                 try {
+//                    System.out.println(params);
+//                    System.out.println("-->>>"+o);
                     ArrayList<ClassPO> all_classes=new ArrayList<ClassPO>();
                     JSONObject object=new JSONObject(o);
                     JSONArray classes=object.getJSONArray(Config.KEY_CLASSES);

@@ -11,9 +11,9 @@ public class Config {
     //日期的格式
     public static final String DATE_PATTERN="yyyy-MM-dd hh:mm:ss";
     //the test server url
-//    public final static String URL="http://192.168.1.105:3306/sharetimedb/index.php";
+    public final static String URL="http://192.168.1.105:3306/sharetimedb/real_index.php";
     //the SAE server url
-    public final static String URL="http://sharetime.sinaapp.com";
+//    public final static String URL="http://sharetime.sinaapp.com";
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
     public static final String KEY_ACCOUNT="account";
@@ -40,7 +40,7 @@ public class Config {
     public static final String KEY_COMMON_FREE_SCHEDULE="common_free_schedule";
     public static final String KEY_THEME="theme";
     public static final String KEY_RECEIVE_TIME="receive_time";
-    public static final String KEY_START_TIME="start_time";
+    public static final String KEY_START_TIME="begin_time";
     public static final String KEY_END_TIME="end_time";
     public static final String KEY_FOUNDER_ID="founder_id";
     public static final String KEY_RIGHT="right";
@@ -110,7 +110,7 @@ public class Config {
 
     public static void cacheStudentId(Context context,String student_id){
         SharedPreferences.Editor e=context.getSharedPreferences(APP_ID, Context.MODE_PRIVATE).edit();
-        e.putString(KEY_ID,student_id);
+        e.putString(KEY_STUDENT_ID,student_id);
         e.commit();
     }
 

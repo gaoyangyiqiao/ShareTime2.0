@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.thinkland.sdk.sms.SMSCaptcha;
 import com.thinkland.sdk.util.BaseData.ResultCallBack;
 
+import netconnection.Config;
 import netconnection.Register;
 import turingmachine.com.sharetime20.R;
 
@@ -188,6 +189,8 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
         String name=username.getText().toString();
         String id=student_id.getText().toString();
         String password=student_password.getText().toString();
+        Config.cacheStudentId(this,id);
+        Config.cacheStudentPassword(this,password);
         new Register(phone,name,id,password,this);
 
 		Intent intent = new Intent(RegisterActivity.this, CaptchaActivity.class);

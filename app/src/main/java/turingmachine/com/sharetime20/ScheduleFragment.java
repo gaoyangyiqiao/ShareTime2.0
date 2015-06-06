@@ -53,8 +53,8 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         mWeekView=(WeekView)getActivity().findViewById(R.id.weekView);
         //  mWeekView=new WeekView();
         // this.getActivity().setContentView(mWeekView);
-        GetUserSchedule getUserSchedule=new GetUserSchedule(1+"",1+"",this);
-        GetClassTable getClassTable=new GetClassTable(Config.getCachedStudentId(this.getActivity()),Config.getCachedStudentPassword(getActivity()),this);
+        GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(getActivity()),Config.getCachedId(getActivity()),this);
+        GetClassTable getClassTable=new GetClassTable(Config.getCachedStudentId(getActivity()),Config.getCachedStudentPassword(getActivity()),this);
         mWeekView.setOnEventClickListener(this);
 
         // The week draglayout has infinite scrolling horizontally. We have to provide the events of a
