@@ -35,7 +35,7 @@ public class ToDoListFragment extends Fragment{
     private Context context;
     SwipeMenuListView listView;
     private Button button;
-    private SwipeMenuListView swipeMenuListView;
+   // private SwipeMenuListView swipeMenuListView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View matchFragment = inflater.inflate(R.layout.activity_todolist,container,false);
@@ -96,7 +96,7 @@ public class ToDoListFragment extends Fragment{
                         0xCE)));
                 item2.setWidth(dp2px(90));
                 item2.setIcon(R.drawable.ic_action_good);
-                menu.addMenuItem(item2);
+              menu.addMenuItem(item2);
             }
             public int dp2px( float dp) {
                 final float scale = getActivity().getResources().getDisplayMetrics().density;
@@ -161,6 +161,10 @@ public class ToDoListFragment extends Fragment{
             }
         });
     }
+    public void update(){
+        mAppList.add(new ApplicationInfo());
+        mAdapter.notifyDataSetChanged();
+    }
 class AppAdapter extends BaseAdapter {
 
     @Override
@@ -170,6 +174,8 @@ class AppAdapter extends BaseAdapter {
 
     @Override
     public ApplicationInfo getItem(int position) {
+        TextView textView=new TextView(getActivity());
+        textView.setText("hello");
         return mAppList.get(position);
     }
 
@@ -201,9 +207,11 @@ class AppAdapter extends BaseAdapter {
         ApplicationInfo item = getItem(position);
         holder.iv_icon.setImageDrawable(item.loadIcon(getActivity().getPackageManager()));
         holder.tv_name.setText(item.loadLabel(getActivity().getPackageManager()));
+        TextView textView=new TextView(getActivity());
+        textView.setText("hello");
+
         return convertView;
     }
-
     class ViewHolder {
         ImageView iv_icon;
         TextView tv_name;

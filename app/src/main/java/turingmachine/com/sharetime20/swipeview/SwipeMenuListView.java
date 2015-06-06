@@ -56,15 +56,17 @@ public class SwipeMenuListView extends ListView {
 		MAX_Y = dp2px(MAX_Y);
 		mTouchState = TOUCH_STATE_NONE;
 	}
+    public void update(){
 
+    }
 	@Override
 	public void setAdapter(ListAdapter adapter) {
 		super.setAdapter(new SwipeMenuAdapter(getContext(), adapter) {
 			@Override
 			public void createMenu(SwipeMenu menu) {
 				if (mMenuCreator != null) {
-					mMenuCreator.create(menu);
-				}
+                    mMenuCreator.create(menu);
+                }
 			}
 
 			@Override
