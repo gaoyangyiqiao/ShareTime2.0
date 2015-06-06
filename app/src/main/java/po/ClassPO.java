@@ -1,22 +1,30 @@
 package po;
 
+import java.util.Date;
+
 /**
  * Created by gaoyang on 15/5/18.
  */
 public class ClassPO {
 
-    private String className;
-    private String place;
-    private String whichDay;//Monday
-    private String section;//5-7
-    private String whichWeek;//0||1||1-16
+    public String name;
+    public String place;
+    public Date begin_time;
+    public Date end_time;
 
-    public String getClassName() {
-        return className;
+    public ClassPO(String name,String place,Date begin_time,Date end_time){
+        setName(name);
+        setPlace(place);
+        setBegin_time(begin_time);
+        setEnd_time(end_time);
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPlace() {
@@ -27,27 +35,19 @@ public class ClassPO {
         this.place = place;
     }
 
-    public String getWhichDay() {
-        return whichDay;
+    public Date getBegin_time() {
+        return begin_time;
     }
 
-    public void setWhichDay(String whichDay) {
-        this.whichDay = whichDay;
+    public void setBegin_time(Date begin_time) {
+        this.begin_time = begin_time;
     }
 
-    public String getSection() {
-        return section;
+    public Date getEnd_time() {
+        return end_time;
     }
 
-    public void setSection(String section) {
-        this.section = section;
-    }
-
-    public String getWhichWeek() {
-        return whichWeek;
-    }
-
-    public void setWhichWeek(String whichWeek) {
-        this.whichWeek = whichWeek;
+    public void setEnd_time(Date end_time) {
+        this.end_time = end_time;
     }
 }
