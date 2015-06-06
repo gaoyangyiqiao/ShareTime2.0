@@ -165,7 +165,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         endTime.add(Calendar.HOUR, 1);
         endTime.set(Calendar.MONTH, newMonth-1);
         WeekViewEvent event = new WeekViewEvent(1,"activity1", startTime, endTime);
-        System.out.println("starttime normal : "+startTime);
+        System.out.println("starttime normal : "+startTime.getTime());
         event.setColor(getResources().getColor(R.color.event_color_01));
         events.add(event);
 
@@ -195,7 +195,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         int length=weekViewEvent.size();
         for(int i=0;i<length;i++){
             list.add(weekViewEvent.get(i));
-           // System.out.println("list add event "+weekViewEvent.get(i).getName());
+            System.out.println("list add event "+weekViewEvent.get(i).getName());
         }
         mWeekView.invalidate();
 
