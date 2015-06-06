@@ -9,10 +9,14 @@ import net.tsz.afinal.http.AjaxParams;
  */
 public class AddActivity {
 
-    public AddActivity(String user_id,int a){
+    public AddActivity(String user_id,String theme,String content,String begin_time,String end_time,int a){
         final AjaxParams params = new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_ADD_ACTIVITY);
-        params.put("user_id",user_id);
+        params.put(Config.KEY_USER_ID,user_id);
+        params.put(Config.KEY_THEME,theme);
+        params.put(Config.KEY_CONTENT,content);
+        params.put(Config.KEY_BEGIN_TIME,begin_time);
+        params.put(Config.KEY_END_TIME,end_time);
 
         FinalHttp fh = new FinalHttp();
         fh.post(Config.URL, params, new AjaxCallBack<String>() {

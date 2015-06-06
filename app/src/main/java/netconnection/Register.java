@@ -14,9 +14,10 @@ import org.json.JSONObject;
  */
 public class Register {
 
-    public Register(String phone,String student_id,String student_password,final Context context){
+    public Register(String phone,String name,String student_id,String student_password,final Context context){
         final AjaxParams params=new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_REGISTER);
+        params.put(Config.KEY_NAME,name);
         params.put(Config.KEY_PHONE,phone);
         params.put(Config.KEY_STUDENT_ID,student_id);
         params.put(Config.KEY_STUDENT_PASSWORD,student_password);

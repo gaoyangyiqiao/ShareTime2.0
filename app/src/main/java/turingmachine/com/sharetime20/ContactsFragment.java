@@ -19,6 +19,7 @@ import adapter.ContactsListAdapter;
 import businesslogic.contactbl.ContactsController;
 import netconnection.Config;
 import po.ContactPO;
+import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
 import turingmachine.com.sharetime20.subcontacts.ContactInfoActivity;
 import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
@@ -34,13 +35,11 @@ public class ContactsFragment extends Fragment {
     private ContactsListAdapter contactsListAdapter;
     //包含所有联系人
     private List<ContactPO> contacts;
-    private ListView lv_functions;
-    private ContactsFunctionAdapter contactsFunctionAdapter;
 
     private ContactsController contactsController;
 
-    private Button btn_contacts_promotion;
-    private Button btn_createGroup;
+    private BootstrapButton btn_contacts_promotion;
+    private BootstrapButton btn_createGroup;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,7 +52,6 @@ public class ContactsFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews();
-        initFunctionLv();
         initContactListLv();
     }
 
@@ -70,19 +68,14 @@ public class ContactsFragment extends Fragment {
 
     public void initViews(){
         searchView= (SearchView) getActivity().findViewById(R.id.sv_contacts);
-        lv_functions= (ListView) getActivity().findViewById(R.id.contacts_lv_functions);
         lv_contactList = (ListView) getActivity().findViewById(R.id.contacts_lv_contactlist);
+        btn_contacts_promotion= (BootstrapButton) getActivity().findViewById(R.id.btn_add_friend);
+        btn_createGroup= (BootstrapButton) getActivity().findViewById(R.id.btn_create_group);
         setListViewItemListener();
         setSearchViewListener();
     }
 
-    public void initFunctionLv(){
-        List<String> functions=new ArrayList<String>();
-        functions.add("创建群组");
-        functions.add("新的朋友");
-        contactsFunctionAdapter=new ContactsFunctionAdapter(functions,getActivity());
-        lv_functions.setAdapter(contactsFunctionAdapter);
-    }
+
     //TODO
     public void initContactListLv(){
         contacts=new ArrayList<>();
@@ -116,17 +109,6 @@ public class ContactsFragment extends Fragment {
     }
 
     public void setListViewItemListener(){
-        lv_functions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                       if(position==0){
-
-                       }if(position==1){
-                            Intent i=new Intent(getActivity(),PhoneContactsActivity.class);
-                            startActivity(i);
-                       }
-            }
-        });
 
         lv_contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -146,12 +128,6 @@ public class ContactsFragment extends Fragment {
         return contactsListAdapter;
     }
 
-    public void searchViewBussinesslogic(){
-        if(searchView.isFocused()){
-            System.out.println("----->>>>>>comes here");
-            lv_functions.setVisibility(View.GONE);
-        }
-    }
 }
 
 
