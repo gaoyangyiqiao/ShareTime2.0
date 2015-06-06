@@ -9,33 +9,55 @@
     android:layout_height="match_parent"
     tools:context="turingmachine.com.sharetime.ContactsActivity">
 
-    <SearchView
-    android:id="@+id/sv_contacts"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:imeOptions="actionSearch"
-    android:inputType="textCapCharacters"
-    android:focusableInTouchMode="true"
-    android:iconifiedByDefault="true"
-    android:queryHint="search"/>
+    <LinearLayout
+        android:id="@+id/layout_searchview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <SearchView
+            android:id="@+id/sv_contacts"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch"
+            android:inputType="textCapCharacters"
+            android:focusableInTouchMode="true"
+            android:iconifiedByDefault="true"
+            android:queryHint="search"/>
+        </LinearLayout>
 
-    <ListView
-        android:id="@+id/contacts_lv_functions"
+
+    <LinearLayout
+        android:id="@+id/layout_buttons"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/sv_contacts"
-        android:layout_centerVertical="false"
-        android:visibility="gone"
-        />
-
-    <ListView
-        android:layout_below="@id/sv_contacts"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_below="@id/layout_searchview">
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
+        android:id="@+id/btn_add_friend"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/contacts_lv_contactlist"
-        android:layout_centerVertical="false"
-        />
+        android:text="添加朋友"/>
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
+            android:id="@+id/btn_create_group"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="新建群组"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_listview"
+        android:layout_below="@id/layout_buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:layout_below="@id/sv_contacts"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contacts_lv_contactlist"
+            android:layout_centerVertical="false"
+            />
+        </LinearLayout>
+
 
 
 </RelativeLayout>
