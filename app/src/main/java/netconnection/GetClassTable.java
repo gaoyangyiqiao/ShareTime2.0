@@ -10,21 +10,25 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import po.ClassPO;
+import turingmachine.com.sharetime20.ScheduleFragment;
+import turingmachine.com.sharetime20.weekview.WeekView;
+import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 /**
  * Created by gaoyang on 15/6/7.
  */
 public class GetClassTable {
 
-    public GetClassTable(String student_id,String student_password){
+    public GetClassTable(String student_id,String student_password, final ScheduleFragment fragment){
         AjaxParams params=new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_GET_CLASSTABLE);
         params.put(Config.KEY_STUDENT_ID,student_id);
         params.put(Config.KEY_STUDENT_PASSWORD,student_password);
-
+final ArrayList<WeekViewEvent> listclass=new ArrayList<>();
         FinalHttp finalHttp=new FinalHttp();
         finalHttp.post(Config.URL,params,new AjaxCallBack<String>() {
             @Override
@@ -43,7 +47,11 @@ public class GetClassTable {
                         String end_time_str=per_class.getString(Config.KEY_END_TIME);
                         Date start_time=sdf.parse(start_time_str);
                         Date end_time=sdf.parse(end_time_str);
-
+                        Calendar c1=Calendar.getInstance();
+                        Calendar c2=Calendar.getInstance();
+                        c1.setTime(start_time);
+                        c2.setTime(end_time);
+                       listclass.add(new WeekViewEvent(1,name,c1,c2));
                         ClassPO it=new ClassPO(name,place,start_time,end_time);
                         all_classes.add(it);
                     }
@@ -51,6 +59,7 @@ public class GetClassTable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                fragment.addEvent(listclass);
 
             }
 

@@ -15,6 +15,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import netconnection.Config;
+import netconnection.GetClassTable;
 import netconnection.GetUserSchedule;
 import turingmachine.com.sharetime20.weekview.DateTimeInterpreter;
 import turingmachine.com.sharetime20.weekview.WeekView;
@@ -52,7 +54,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         //  mWeekView=new WeekView();
         // this.getActivity().setContentView(mWeekView);
         GetUserSchedule getUserSchedule=new GetUserSchedule(1+"",1+"",this);
-
+        GetClassTable getClassTable=new GetClassTable(Config.getCachedStudentId(this.getActivity()),Config.getCachedStudentPassword(getActivity()),this);
         mWeekView.setOnEventClickListener(this);
 
         // The week draglayout has infinite scrolling horizontally. We have to provide the events of a
@@ -174,7 +176,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
 
 
-        return events;
+        return list;
     }
 
     private String getEventTitle(Calendar time) {
