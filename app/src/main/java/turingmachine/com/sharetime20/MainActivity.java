@@ -207,7 +207,20 @@ public class MainActivity extends Activity implements OnClickListener{
     public void  b(View view) {
         toDoListFragment2=new ToDoListFragment();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame,toDoListFragment2);
+        fragmentTransaction.replace(R.id.frame, toDoListFragment2);
+        fragmentTransaction.commit();
+    }
+    //从match界面跳转到match add界面
+    public void d(View view) {
+       MatchAddFragmet m=new MatchAddFragmet();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.matchframe,m);
+        fragmentTransaction.commit();
+    }
+    public void e(View view) {
+         matchFragment=new MatchFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.matchframe,matchFragment);
         fragmentTransaction.commit();
     }
     public void a(View view) {
