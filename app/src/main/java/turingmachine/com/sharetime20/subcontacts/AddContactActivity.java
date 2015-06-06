@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ import turingmachine.com.sharetime20.R;
 public class AddContactActivity extends Activity {
 
     private SearchView sv;
+    private TextView tv_back;
     private ListView lv;
     private List<ContactPO> contactPOList;
     private ContactsListAdapter contactsListAdapter;
@@ -31,7 +34,7 @@ public class AddContactActivity extends Activity {
         setContentView(R.layout.activity_add_contact);
 
         searchContactController=new SearchContactController();
-
+        initViews();
         sv= (SearchView) findViewById(R.id.sv_add_contact);
         lv= (ListView) findViewById(R.id.lv_add_contact);
 
@@ -61,28 +64,18 @@ public class AddContactActivity extends Activity {
 
         });
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_add_contact, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-        switch (id){
-            case R.id.action_settings:
-                return true;
-            default:
+    public void initViews(){
+        tv_back= (TextView) findViewById(R.id.tv_back);
+        tv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
-        }
-
-
-        return super.onOptionsItemSelected(item);
+            }
+        });
     }
+
+
+
 }

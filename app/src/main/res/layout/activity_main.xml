@@ -24,11 +24,12 @@
                 android:src="@drawable/m" />
 
             <TextView
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:text="BlueMor"
+                android:text="Share"
                 android:textColor="#ffffff"
                 android:textSize="25sp" />
         </LinearLayout>
@@ -38,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="gaoyang13@icloud.com"
+            android:text="ContactUs-gaoyang13@icloud.com"
             android:textColor="#ffffff"
             android:textSize="15sp" />
 

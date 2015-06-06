@@ -20,6 +20,7 @@ import businesslogic.contactbl.ContactsController;
 import netconnection.Config;
 import po.ContactPO;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
+import turingmachine.com.sharetime20.subcontacts.AddContactActivity;
 import turingmachine.com.sharetime20.subcontacts.ContactInfoActivity;
 import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
@@ -73,6 +74,14 @@ public class ContactsFragment extends Fragment {
         btn_createGroup= (BootstrapButton) getActivity().findViewById(R.id.btn_create_group);
         setListViewItemListener();
         setSearchViewListener();
+
+        btn_contacts_promotion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(), AddContactActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
 

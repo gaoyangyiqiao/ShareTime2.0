@@ -255,20 +255,5 @@ public class MainActivity extends Activity implements OnClickListener{
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch(item.getItemId()){
-            case R.id.action_settings_add_friend:
-//                Intent i=new Intent(MainActivity.this, PhoneContactsActivity.class);
-//                startActivity(i);
-                break;
-            default:
-                dl.open();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
 }

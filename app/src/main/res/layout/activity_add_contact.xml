@@ -7,28 +7,61 @@
     tools:context="businesslogic.contactsbl.AddContactActivity"
     >
 
-    <SearchView
+    <RelativeLayout
+        android:id="@+id/add_friend_title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#009990" >
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/textview_back"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="St"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:queryHint="搜索联系人"
-        android:id="@+id/sv_add_contact"
-        android:clickable="true"
-        android:focusableInTouchMode="true"
-        android:focusable="true">
-        <requestFocus
-            />
-    </SearchView>
+        android:layout_below="@id/add_friend_title"
+        >
+        <SearchView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="搜索联系人"
+            android:id="@+id/sv_add_contact"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true">
+            <requestFocus
+                />
+        </SearchView>
 
-    <ListView
-        android:id="@+id/lv_add_contact"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/sv_add_contact"
+        <ListView
+            android:id="@+id/lv_add_contact"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/sv_add_contact"
 
-        android:fastScrollAlwaysVisible="true"
-        android:fastScrollEnabled="true">
+            android:fastScrollAlwaysVisible="true"
+            android:fastScrollEnabled="true">
 
-    </ListView>
+        </ListView>
+        </RelativeLayout>
+
 
 
 </RelativeLayout>
