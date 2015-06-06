@@ -1,6 +1,7 @@
 package turingmachine.com.sharetime20;
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,12 @@ public class MatchAddFragmet extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         listView=(ListView)getActivity().findViewById(R.id.listView2);
         listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, strs));
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listView.getChildAt(position).setBackgroundColor(Color.GREEN);
+            }
+        });
 
     }
 }

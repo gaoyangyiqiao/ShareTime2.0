@@ -10,14 +10,6 @@
         android:layout_height="match_parent"
         />
 
-    <ImageButton
-        android:id="@+id/btn_match"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/lv_match_record"
-        android:background="@drawable/ib_bg"
-        android:onClick="d"
-        />
 
 
 </RelativeLayout>
