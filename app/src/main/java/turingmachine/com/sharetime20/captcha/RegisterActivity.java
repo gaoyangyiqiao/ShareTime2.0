@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.thinkland.sdk.sms.SMSCaptcha;
 import com.thinkland.sdk.util.BaseData.ResultCallBack;
 
+import netconnection.Register;
 import turingmachine.com.sharetime20.R;
 
 public class RegisterActivity extends BaseActivity implements OnClickListener,
@@ -28,6 +29,9 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 	private ImageView ivClear;
 	private Button btnNext;
 	private SMSCaptcha captcha;
+    private EditText username;
+    private EditText student_id;
+    private EditText student_password;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +43,14 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 	}
 
 	private void initView() {
-		TextView tv = (TextView) findViewById(R.id.tv_title);
-		tv.setText(R.string.smssdk_regist);
-
+//		TextView tv = (TextView) findViewById(R.id.tv_title);
+//		tv.setText(R.string.smssdk_regist);
 		btnNext = (Button) findViewById(R.id.btn_next);
 		tvCountryNum = (TextView) findViewById(R.id.tv_country_num);
 		ivClear = (ImageView) findViewById(R.id.iv_clear);
+        username= (EditText) findViewById(R.id.et_username);
+        student_id= (EditText) findViewById(R.id.et_student_id);
+        student_password= (EditText) findViewById(R.id.et_student_password);
 		etPhoneNum = (EditText) findViewById(R.id.et_write_phone);
 		etPhoneNum.addTextChangedListener(this);
 		etPhoneNum.setText("");
@@ -178,6 +184,12 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 		String fomatedPhone = code + " " + splitPhoneNum(phone);
 
 		Toast.makeText(this, "成功!", Toast.LENGTH_SHORT).show();
+
+        String name=username.getText().toString();
+        String id=student_id.getText().toString();
+        String password=student_password.getText().toString();
+        new Register(phone,name,id,password,this);
+
 		Intent intent = new Intent(RegisterActivity.this, CaptchaActivity.class);
 		intent.putExtra("formatedPhone", fomatedPhone);
 		intent.putExtra("phone", phone);

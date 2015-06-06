@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         />
 
-<<<<<<< HEAD
     <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
         android:id="@+id/btn_match"
         android:layout_width="fill_parent"
@@ -20,8 +19,6 @@
         android:background="@color/light_blue"
         android:onClick="d"
         />
-=======
->>>>>>> origin/master
 
 
 </RelativeLayout>
