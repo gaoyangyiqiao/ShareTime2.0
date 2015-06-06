@@ -215,14 +215,11 @@ public class MainActivity extends Activity implements OnClickListener{
     }
     //从match界面跳转到match add界面
     public void d(View view) {
-<<<<<<< HEAD
 
-=======
-        MatchAddFragmet m=new MatchAddFragmet();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.matchframe,m);
-        fragmentTransaction.commit();
->>>>>>> origin/master
+
+
+
+
     }
     public void e(View view) {
 
