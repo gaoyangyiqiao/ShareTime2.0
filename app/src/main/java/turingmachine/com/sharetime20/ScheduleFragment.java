@@ -39,7 +39,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         mWeekView=(WeekView)getActivity().findViewById(R.id.weekView);
       //  mWeekView=new WeekView();
       // this.getActivity().setContentView(mWeekView);
-        System.out.println(mWeekView);
+     //   System.out.println(mWeekView);
 
 
         return scheduleFragment;
@@ -266,6 +266,10 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
     @Override
     public void onEventLongPress(WeekViewEvent event, RectF eventRect) {
        // Toast.makeText(MainActivity.this, "Long pressed event: " + event.getName(), Toast.LENGTH_SHORT).show();
+    }
+    public void addEvent(WeekViewEvent weekViewEvent){
+
+
     }
 }
 
