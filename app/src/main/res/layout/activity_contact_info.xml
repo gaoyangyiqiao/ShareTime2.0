@@ -4,8 +4,10 @@
     android:orientation="vertical"
     tools:context="businesslogic.contactsbl.ContactInfoActivity">
 
+
+
     <RelativeLayout
-        android:id="@+id/contactinfo_friend_title"
+        android:id="@+id/contactinfo_title"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="#009990" >

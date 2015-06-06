@@ -10,8 +10,10 @@ public class Config {
 
     //日期的格式
     public static final String DATE_PATTERN="yyyy-MM-dd hh:mm:ss";
-
+    //the test server url
     public final static String URL="http://192.168.1.105:3306/sharetimedb/index.php";
+    //the SAE server url
+//    public final static String URL="http://sharetime.sinaapp.com";
     public static final String KEY_TOKEN="token";
     public static final String KEY_PHONE_NUM="phone";
     public static final String KEY_ACCOUNT="account";
@@ -48,6 +50,10 @@ public class Config {
     public static final String KEY_ACTIVITY_ID="activity_id";
     public static final String KEY_FRIEND_ID="friend_id";
     public static final String KEY_USER_INFO="user_info";
+    public static final String KEY_TIP="tip";
+    public static final String KEY_ROOT="root";
+    public static final String KEY_CLASSES="classes";
+    public static final String KEY_PLACE="place";
 
     public static final String ACTION_REGISTER="register";
     public static final String ACTION_GET_CONTACTS="get_contacts";
@@ -60,6 +66,7 @@ public class Config {
     public static final String ACTION_INIT="init";
     public static final String ACTION_SEARCH_USER="search_user";
     public static final String ACTION_ADD_ACTIVITY="add_activity";
+    public static final String ACTION_GET_CLASSTABLE="get_class_table";
 
     public static final int RESULT_STATUS_SUCCESS = 1;
     public static final int RESULT_STATUS_FAIL = 0;

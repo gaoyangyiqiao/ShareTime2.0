@@ -67,7 +67,7 @@ public class AddContactActivity extends Activity {
     }
 
     public void initViews(){
-        tv_back= (TextView) findViewById(R.id.tv_back);
+        tv_back= (TextView) findViewById(R.id.tv_back_in_addcontact);
         tv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

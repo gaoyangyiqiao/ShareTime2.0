@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,7 +27,7 @@ public class PhoneContactsActivity extends Activity {
     private SearchView sv_phonecontacts;
     private PhoneContactsAdapter adapter;
     private List<ContactPO> list;
-
+    private TextView tv_back;
     private CharacterParser characterParser;
 
     private PhoneContactsController phoneContactsController;
@@ -35,7 +37,7 @@ public class PhoneContactsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_contacts);
-
+        initView();
         phoneContactsController=new PhoneContactsController();
         //实例化汉字转拼音类
         characterParser = CharacterParser.getInstance();
@@ -104,36 +106,14 @@ public class PhoneContactsActivity extends Activity {
         return mSearchList;
     }
 
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //添加本地搜索功能
-        getMenuInflater().inflate(R.menu.menu_phone_contacts,menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-               default:
-                   finish();
-                   break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void searchViewBussinesslogic(){
-        if(sv_phonecontacts.isFocused()){
-
-        }
+    public void initView(){
+        tv_back= (TextView) findViewById(R.id.tv_back_in_phonecontacts);
+        tv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 
