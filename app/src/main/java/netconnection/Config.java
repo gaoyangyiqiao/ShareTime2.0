@@ -48,6 +48,8 @@ public class Config {
     public static final String KEY_ACTIVITY_ID="activity_id";
     public static final String KEY_FRIEND_ID="friend_id";
     public static final String KEY_USER_INFO="user_info";
+    public static final String KEY_TIP="tip";
+    public static final String KEY_ROOT="root";
 
     public static final String ACTION_REGISTER="register";
     public static final String ACTION_GET_CONTACTS="get_contacts";

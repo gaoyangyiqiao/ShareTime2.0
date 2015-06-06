@@ -27,7 +27,14 @@ public class AddContact {
                     JSONObject object=new JSONObject(o);
                     JSONObject contactinfo=object.getJSONObject(Config.KEY_USER_INFO);
 
-//                    ContactPO contactPO=new ContactPO();
+                    int id=contactinfo.getInt(Config.KEY_ID);
+                    String name=contactinfo.getString(Config.KEY_NAME);
+                    String tip=contactinfo.getString(Config.KEY_TIP);
+                    int root=contactinfo.getInt(Config.KEY_ROOT);
+                    ContactPO contactPO=new ContactPO(name);
+                    contactPO.setId(id);
+                    contactPO.setTip(tip);
+                    contactPO.setRoot(root);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
