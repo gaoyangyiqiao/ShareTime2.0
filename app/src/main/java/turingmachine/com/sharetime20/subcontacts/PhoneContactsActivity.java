@@ -65,8 +65,7 @@ public class PhoneContactsActivity extends Activity {
             }
 
         });
-          getActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     //为ListView填充数据

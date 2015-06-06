@@ -14,13 +14,15 @@ import java.util.Date;
 
 import po.ActivityPO;
 import po.SchedulePO;
+import turingmachine.com.sharetime20.ScheduleFragment;
+import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 /**
  * Created by gaoyang on 15/4/16.
  */
 public class GetUserSchedule {
 
-    public GetUserSchedule(String userId,String contactId){
+    public GetUserSchedule(String userId,String contactId, final ScheduleFragment fragment){
         final AjaxParams params=new AjaxParams();
         params.put(Config.KEY_ACTION,Config.ACTION_GET_USER_SCHEDULE);
         params.put(Config.KEY_USER_ID,userId);
