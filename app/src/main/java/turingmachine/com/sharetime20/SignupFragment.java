@@ -20,6 +20,7 @@ import java.util.Date;
 
 import netconnection.AddActivity;
 import netconnection.Config;
+import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 /**
  * Created by hello on 2015/6/5.
@@ -77,7 +78,7 @@ choosetime1.setText(hourOfDay+":"+minute);
             }
         },year,month,day);
         editText=(EditText)getActivity().findViewById(R.id.activity_get);
-        Button button=(Button)getActivity().findViewById(R.id.confirm);
+        final Button button=(Button)getActivity().findViewById(R.id.confirm);
         choosedate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,11 +109,17 @@ choosetime1.setText(hourOfDay+":"+minute);
                 String content="";
                 content=editText.getText().toString();
                 if(starttime!=null&&endtime!=null) {
-                    AddActivity addActivity = new AddActivity(Config.getCachedStudentId(getActivity()), content, content, starttime.toString(), endtime.toString(), 0);
+                    AddActivity addActivity = new AddActivity(Config.getCachedId(getActivity()), content, content, starttime.toString(), endtime.toString(), 0);
                     LayoutInflater li = LayoutInflater.from(getActivity());
                     View view = li.inflate(R.layout.activity_add_event, null);
                     new AlertDialog.Builder(getActivity()).setPositiveButton("确定", null)
                             .setTitle("新建完成").show();
+                    Calendar c1=Calendar.getInstance();
+                    Calendar c2=Calendar.getInstance();
+                    c1.setTime(starttime);
+                    c2.setTime(endtime);
+                   Button b=(Button)getActivity().findViewById(R.id.jump);
+                    b.setTag(new WeekViewEvent(0,content,c1,c2));
 
                 }
                 else{

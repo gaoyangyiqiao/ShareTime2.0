@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import turingmachine.com.sharetime20.draglayout.DragLayout;
+import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 
 public class MainActivity extends Activity implements OnClickListener{
@@ -30,6 +31,7 @@ public class MainActivity extends Activity implements OnClickListener{
     private FragmentManager fragmentManager2;
     private FrameLayout frame2;
     int index=1;
+    SignupFragment s;
     private ScheduleFragment scheduleFragment2;
     private ToDoListFragment toDoListFragment2;
     private DragLayout dl;
@@ -53,10 +55,14 @@ public class MainActivity extends Activity implements OnClickListener{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fragmentManager = getFragmentManager();
         initViews();
         initDragLayout();
-        fragmentManager = getFragmentManager();
+
         setTabSelection(0);
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame,scheduleFragment2);
+        fragmentTransaction.commit();
     }
 
     private void initViews(){
@@ -71,6 +77,18 @@ public class MainActivity extends Activity implements OnClickListener{
         contactsLayout.setOnClickListener(this);
         matchLayout.setOnClickListener(this);
         scheduleLayout.setOnClickListener(this);
+
+
+        toDoListFragment2=new ToDoListFragment();
+        matchFragment2=new MatchFragment();
+        matchAddFragmet=new MatchAddFragmet();
+        scheduleFragment2=new ScheduleFragment();
+        s=new SignupFragment();
+
+
+
+
+
 
         dl= (DragLayout) findViewById(R.id.dl);
         info_list= (ListView) findViewById(R.id.lv_infolist);
@@ -208,7 +226,7 @@ public class MainActivity extends Activity implements OnClickListener{
         //以下缺少字体颜色的设定
     }
     public void  b(View view) {
-        toDoListFragment2=new ToDoListFragment();
+
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame, toDoListFragment2);
         fragmentTransaction.commit();
@@ -221,8 +239,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
     }
     public void f(View view) {
-        matchFragment2=new MatchFragment();
-        matchAddFragmet=new MatchAddFragmet();
+
         fragmentTransaction = fragmentManager.beginTransaction();
         if(index==1) {
             fragmentTransaction.replace(R.id.matchchoose, matchFragment2);
@@ -235,15 +252,22 @@ public class MainActivity extends Activity implements OnClickListener{
         fragmentTransaction.commit();
     }
     public void a(View view) {
-        scheduleFragment2=new ScheduleFragment();
+
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame,scheduleFragment2);
         fragmentTransaction.commit();
     }
     public void c(View view) {
-        SignupFragment s=new SignupFragment();
+
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame,s);
+        fragmentTransaction.commit();
+    }
+    public void g(View view) {
+            WeekViewEvent w=(WeekViewEvent)view.getTag();
+        scheduleFragment2.add(w);
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame,scheduleFragment2);
         fragmentTransaction.commit();
     }
     private void hideFragments(FragmentTransaction fragmentTransaction){

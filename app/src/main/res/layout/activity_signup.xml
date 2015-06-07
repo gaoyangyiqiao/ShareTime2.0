@@ -62,6 +62,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,6 +72,15 @@
             android:text="Confirm"
             android:onClick="c"
             />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="jump"
+                android:id="@+id/jump"
+                android:onClick="g"
+                android:layout_below="@+id/confirm"
+                />
+        </RelativeLayout>
         </LinearLayout>
 
 
