@@ -16,7 +16,7 @@ import android.widget.ListView;
 public class MatchAddFragmet extends Fragment {
     private ListView listView;
     private static final String[] strs = new String[] {
-        "first", "second", "third", "fourth", "fifth"
+        "ShareTime Studio<联系人列表>"
     };
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
