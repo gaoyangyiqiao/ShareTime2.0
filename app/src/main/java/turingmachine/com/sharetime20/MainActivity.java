@@ -22,6 +22,7 @@ import com.nineoldandroids.view.ViewHelper;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import turingmachine.com.sharetime20.draglayout.DragLayout;
@@ -267,7 +268,10 @@ public class MainActivity extends Activity implements OnClickListener{
     }
     public void g(View view) {
             WeekViewEvent w=(WeekViewEvent)view.getTag();
-        String content=w.getName()+" "+w.getStartTime().getTime().toString()+"到"+w.getEndTime().getTime().toString();
+        if(w==null)return;
+        Date st=w.getStartTime().getTime();
+        Date et=w.getEndTime().getTime();
+        String content=w.getName()+"  "+st.getYear()+"/"+st.getMonth()+"/"+st.getDay()+" "+st.getHours()+":"+st.getMinutes()+" 到 "+et.getYear()+"/"+et.getMonth()+"/"+et.getDay()+" "+et.getHours();
         Resources resources=getResources();
         Drawable drawable=resources.getDrawable(R.drawable.logo);
         toDoListFragment2.update(drawable,content);

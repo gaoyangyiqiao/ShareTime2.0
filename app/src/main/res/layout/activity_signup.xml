@@ -9,15 +9,12 @@
         android:layout_height="wrap_content">
 
 
-     <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="选择日期"
-         />
+
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/choosedate"
+            android:text="选择日期"
             />
 
 
@@ -69,13 +66,13 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/confirm"
-            android:text="Confirm"
+            android:text="生成活动"
             android:onClick="c"
             />
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="jump"
+                android:text="确认"
                 android:id="@+id/jump"
                 android:onClick="g"
                 android:layout_below="@+id/confirm"
