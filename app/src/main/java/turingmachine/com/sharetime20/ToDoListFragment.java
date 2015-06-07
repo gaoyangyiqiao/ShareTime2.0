@@ -65,10 +65,6 @@ public class ToDoListFragment extends Fragment{
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
         listView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
-        String content="test";
-        Resources resources=getResources();
-        Drawable drawable=resources.getDrawable(R.drawable.logo);
-        itemlist.add(new Item(drawable,content));
         listView.setAdapter(mAdapter);
        // newEvent();
 
