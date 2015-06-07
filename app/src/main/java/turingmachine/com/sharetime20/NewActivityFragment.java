@@ -8,10 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.sql.Time;
@@ -27,7 +24,7 @@ import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 /**
  * Created by hello on 2015/6/5.
  */
-public class SignupFragment extends Fragment {
+public class NewActivityFragment extends Fragment {
     private BootstrapButton choosedate;
     private BootstrapButton choosetime1;
     private BootstrapButton choosetime2;
@@ -42,7 +39,7 @@ public class SignupFragment extends Fragment {
     int index=1;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View settingFragment = inflater.inflate(R.layout.activity_signup,container,false);
+        View settingFragment = inflater.inflate(R.layout.activity_newactivity,container,false);
         return settingFragment;
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
