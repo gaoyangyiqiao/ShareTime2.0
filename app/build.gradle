@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'zfy'
+            keyAlias 'gaoyang'
             keyPassword '123456'
-            storeFile file('K:/users/Android-Week-View-master/zfy.jks')
+            storeFile file('/Users/gaoyang/AndroidStudioProjects/android1.jks')
             storePassword '123456'
         }
     }

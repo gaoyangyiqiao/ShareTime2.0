@@ -23,6 +23,7 @@ import android.content.pm.ApplicationInfo;
 import java.util.ArrayList;
 import java.util.List;
 
+import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
 import turingmachine.com.sharetime20.swipeview.SwipeMenu;
 import turingmachine.com.sharetime20.swipeview.SwipeMenuCreator;
 import turingmachine.com.sharetime20.swipeview.SwipeMenuItem;
@@ -39,7 +40,7 @@ public class ToDoListFragment extends Fragment{
     private Context context;
     public ArrayList<Item> itemlist=new ArrayList<>();
     SwipeMenuListView listView;
-    private Button button;
+    private BootstrapButton button;
    // private SwipeMenuListView swipeMenuListView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

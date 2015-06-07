@@ -20,18 +20,20 @@ import java.util.Date;
 
 import netconnection.AddActivity;
 import netconnection.Config;
+import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
+import turingmachine.com.sharetime20.androidbootstrap.BootstrapEditText;
 import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 /**
  * Created by hello on 2015/6/5.
  */
 public class SignupFragment extends Fragment {
-    private Button choosedate;
-    private Button choosetime1;
-    private Button choosetime2;
+    private BootstrapButton choosedate;
+    private BootstrapButton choosetime1;
+    private BootstrapButton choosetime2;
     private  TimePickerDialog timePickerDialog;
     private DatePickerDialog datePickerDialog;
-    private EditText editText;
+    private BootstrapEditText editText;
     private Date cdate;
     private Time time1;
     private Time time2;
@@ -50,9 +52,9 @@ public class SignupFragment extends Fragment {
         int year=Calendar.getInstance().get(Calendar.YEAR);
         int month=Calendar.getInstance().get(Calendar.MONTH);
         int day=Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        choosedate=(Button)getActivity().findViewById(R.id.choosedate);
-        choosetime1=(Button)getActivity().findViewById(R.id.choosetime11);
-        choosetime2=(Button)getActivity().findViewById(R.id.choosetime22);
+        choosedate=(BootstrapButton)getActivity().findViewById(R.id.choosedate);
+        choosetime1=(BootstrapButton)getActivity().findViewById(R.id.choosetime11);
+        choosetime2=(BootstrapButton)getActivity().findViewById(R.id.choosetime22);
         timePickerDialog=new TimePickerDialog(getActivity(),new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -82,8 +84,8 @@ public class SignupFragment extends Fragment {
                 endtime=new Date(year - 1900, monthOfYear, dayOfMonth);
             }
         },year,month,day);
-        editText=(EditText)getActivity().findViewById(R.id.activity_get);
-        final Button button=(Button)getActivity().findViewById(R.id.confirm);
+        editText=(BootstrapEditText)getActivity().findViewById(R.id.activity_get);
+        final BootstrapButton button=(BootstrapButton)getActivity().findViewById(R.id.confirm);
         choosedate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,7 +125,7 @@ public class SignupFragment extends Fragment {
                     Calendar c2=Calendar.getInstance();
                     c1.setTime(starttime);
                     c2.setTime(endtime);
-                   Button b=(Button)getActivity().findViewById(R.id.jump);
+                   BootstrapButton b=(BootstrapButton)getActivity().findViewById(R.id.jump);
                     b.setTag(new WeekViewEvent(0,content,c1,c2));
 
 
