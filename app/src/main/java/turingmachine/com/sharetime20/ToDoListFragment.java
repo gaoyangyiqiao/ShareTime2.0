@@ -74,6 +74,8 @@ public class ToDoListFragment extends Fragment{
             @Override
             public void create(SwipeMenu menu) {
                 // Create different menus depending on the view type
+             //   createMenu2(menu);
+                /*
                 switch (menu.getViewType()) {
                     case 0:
                         createMenu1(menu);
@@ -85,6 +87,7 @@ public class ToDoListFragment extends Fragment{
                         createMenu3(menu);
                         break;
                 }
+                */
             }
 
             private void createMenu1(SwipeMenu menu) {
@@ -122,7 +125,7 @@ public class ToDoListFragment extends Fragment{
                         0x3F, 0x25)));
                 item2.setWidth(dp2px(90));
                 item2.setIcon(R.drawable.ic_action_discard);
-             //   menu.addMenuItem(item2);
+                 menu.addMenuItem(item2);
             }
 
             private void createMenu3(SwipeMenu menu) {
@@ -151,6 +154,8 @@ public class ToDoListFragment extends Fragment{
             public boolean onMenuItemClick(int position, SwipeMenu  menu, int index){
 
                 ApplicationInfo item = mAppList.get(position);
+                mAppList.remove(position);
+                mAdapter.notifyDataSetChanged();
                 switch (index) {
                     case 0:
                         // open

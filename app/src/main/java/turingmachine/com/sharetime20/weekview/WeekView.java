@@ -547,6 +547,7 @@ public class WeekView extends View {
      * @param canvas The canvas to draw upon.
      */
     private void drawEvents(Calendar date, float startFromPixel, Canvas canvas) {
+       System.out.println("Draw events size "+mEventRects.size());
         if (mEventRects != null && mEventRects.size() > 0) {
             for (int i = 0; i < mEventRects.size(); i++) {
                 if (isSameDay(mEventRects.get(i).event.getStartTime(), date)) {
@@ -602,6 +603,7 @@ public class WeekView extends View {
      * @param originalLeft The original left position of the rectangle. The rectangle may have some of its portion outside of the visible area.
      */
     private void drawText(String text, RectF rect, Canvas canvas, float originalTop, float originalLeft) {
+        System.out.println("Draw text "+text);
         if (rect.right - rect.left - mEventPadding * 2 < 0) return;
 
         // Get text dimensions
@@ -693,13 +695,14 @@ public class WeekView extends View {
         int nextMonth = (day.get(Calendar.MONTH)+2 == 13 ?1:day.get(Calendar.MONTH)+2);
         int[] lastFetchedMonth = mFetchedMonths.clone();
         if (mFetchedMonths[0] < 1 || mFetchedMonths[0] != previousMonth || mRefreshEvents) {
-            if (!containsValue(lastFetchedMonth, previousMonth) && !isInEditMode()){
+           /* if (!containsValue(lastFetchedMonth, previousMonth) && !isInEditMode()){
                 List<WeekViewEvent> events = mMonthChangeListener.onMonthChange((previousMonth==12)?day.get(Calendar.YEAR)-1:day.get(Calendar.YEAR), previousMonth);
                 sortEvents(events);
                 for (WeekViewEvent event: events) {
                     cacheEvent(event);
                 }
             }
+            */
             mFetchedMonths[0] = previousMonth;
         }
 
@@ -717,13 +720,14 @@ public class WeekView extends View {
 
         // Get events of next month.
         if (mFetchedMonths[2] < 1 || mFetchedMonths[2] != nextMonth || mRefreshEvents) {
-            if (!containsValue(lastFetchedMonth, nextMonth) && !isInEditMode()) {
+           /* if (!containsValue(lastFetchedMonth, nextMonth) && !isInEditMode()) {
                 List<WeekViewEvent> events = mMonthChangeListener.onMonthChange(nextMonth == 1 ? day.get(Calendar.YEAR) + 1 : day.get(Calendar.YEAR), nextMonth);
                 sortEvents(events);
                 for (WeekViewEvent event : events) {
                     cacheEvent(event);
                 }
             }
+            */
             mFetchedMonths[2] = nextMonth;
         }
 
@@ -767,7 +771,7 @@ public class WeekView extends View {
             WeekViewEvent event2 = new WeekViewEvent(event.getId(), event.getName(), startTime, event.getEndTime());
             event2.setColor(event.getColor());
             mEventRects.add(new EventRect(event1, event, null));
-            mEventRects.add(new EventRect(event2, event, null));
+          //  mEventRects.add(new EventRect(event2, event, null));
         }
         else
             mEventRects.add(new EventRect(event, event, null));
@@ -1416,8 +1420,13 @@ public class WeekView extends View {
      * Refreshes the draglayout and loads the events again.
      */
     public void notifyDatasetChanged(){
+        System.out.println("重绘");
+        System.out.println(mEventRects.size());
         mRefreshEvents = true;
         invalidate();
+    }
+    public int size(){
+        return mEventRects.size();
     }
 
     /**

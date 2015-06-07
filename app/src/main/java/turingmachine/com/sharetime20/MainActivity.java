@@ -25,6 +25,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+import netconnection.Config;
+import netconnection.GetClassTable;
+import netconnection.GetUserSchedule;
 import turingmachine.com.sharetime20.draglayout.DragLayout;
 import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
@@ -89,7 +92,8 @@ public class MainActivity extends Activity implements OnClickListener{
         s=new SignupFragment();
 
 
-
+        GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),Config.getCachedId(this),scheduleFragment2);
+        GetClassTable getClassTable=new GetClassTable(Config.getCachedStudentId(this),Config.getCachedStudentPassword(this),scheduleFragment2);
 
 
 
