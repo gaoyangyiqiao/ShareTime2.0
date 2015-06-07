@@ -169,13 +169,13 @@ public class ToDoListFragment extends Fragment{
         mAdapter.notifyDataSetChanged();
     }
 class AppAdapter extends BaseAdapter {
-    public ArrayList<Item> itemlist;
+    public ArrayList<Item> itemlist=new ArrayList<>();
     public void setItemlist(ArrayList<Item> itemlist){
         this.itemlist=itemlist;
     }
     @Override
     public int getCount() {
-        return mAppList.size();
+        return itemlist.size();
     }
 
 
@@ -194,6 +194,10 @@ class AppAdapter extends BaseAdapter {
     public int getViewTypeCount() {
         // menu type count
         return 3;
+    }
+    public void add(Item item){
+        itemlist.add(item);
+        notifyDataSetChanged();
     }
 
     @Override
