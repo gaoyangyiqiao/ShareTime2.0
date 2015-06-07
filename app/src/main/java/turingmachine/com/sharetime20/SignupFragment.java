@@ -71,7 +71,7 @@ choosetime1.setText(hourOfDay+":"+minute);
         datePickerDialog=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                choosedate.setText("日期："+(year)+ "/"+monthOfYear+"/"+ dayOfMonth);
+                choosedate.setText("日期："+(year)+ "/"+(monthOfYear+1)+"/"+ dayOfMonth);
                 cdate=new Date(year - 1900, monthOfYear, dayOfMonth);
                 starttime=new Date(year - 1900, monthOfYear, dayOfMonth);
                 endtime=new Date(year - 1900, monthOfYear, dayOfMonth);
@@ -120,6 +120,7 @@ choosetime1.setText(hourOfDay+":"+minute);
                     c2.setTime(endtime);
                    Button b=(Button)getActivity().findViewById(R.id.jump);
                     b.setTag(new WeekViewEvent(0,content,c1,c2));
+
 
                 }
                 else{
