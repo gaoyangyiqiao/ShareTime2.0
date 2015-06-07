@@ -70,7 +70,7 @@ choosetime1.setText(hourOfDay+":"+minute);
         datePickerDialog=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                choosedate.setText("日期："+(year - 1900)+ "/"+monthOfYear+"/"+ dayOfMonth);
+                choosedate.setText("日期："+(year)+ "/"+monthOfYear+"/"+ dayOfMonth);
                 cdate=new Date(year - 1900, monthOfYear, dayOfMonth);
                 starttime=new Date(year - 1900, monthOfYear, dayOfMonth);
                 endtime=new Date(year - 1900, monthOfYear, dayOfMonth);

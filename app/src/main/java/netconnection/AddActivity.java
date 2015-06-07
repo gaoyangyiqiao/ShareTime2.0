@@ -39,6 +39,7 @@ public class AddActivity {
                 super.onFailure(t, strMsg);
             }
         });
+        System.out.println("add activity :"+user_id+"  "+begin_time);
 
     }
 }
