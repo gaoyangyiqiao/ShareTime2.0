@@ -101,18 +101,9 @@ public class MainActivity extends Activity implements OnClickListener{
         dl= (DragLayout) findViewById(R.id.dl);
         info_list= (ListView) findViewById(R.id.lv_infolist);
         ArrayList info=new ArrayList();
-        info.add("姓名");
-        info.add("gaoyang");
-        info.add("账号");
-        info.add("001");
-        info.add("对外权限");
-        info.add("可见");
-        info.add("学号");
-        info.add("131250043");
-        info.add("导入教务网");
-        info.add("");
+
         info_list.setAdapter(new ArrayAdapter<String>(MainActivity.this,
-                R.layout.item_text, new String[]{"NewBee", "gaoyang", "131250043", "right"}));
+                R.layout.item_text, new String[]{Config.getCachedName(this),Config.getCachedId(this), Config.getCachedStudentId(this), "对外权限：1"}));
         info_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1,

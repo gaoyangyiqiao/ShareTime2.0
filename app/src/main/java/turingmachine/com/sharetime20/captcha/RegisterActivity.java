@@ -189,6 +189,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
         String name=username.getText().toString();
         String id=student_id.getText().toString();
         String password=student_password.getText().toString();
+        Config.cacheName(this,name);
         Config.cacheStudentId(this,id);
         Config.cacheStudentPassword(this,password);
         new Register(phone,name,id,password,this);
