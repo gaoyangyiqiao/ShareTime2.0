@@ -15,7 +15,7 @@
          android:text="选择日期"
          />
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/choosedate"
             />
@@ -54,9 +54,21 @@
             android:text="活动类型"
             />
         <EditText
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/activity_get"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirm"
+            android:text="Confirm"
+            android:onClick="c"
+            />
         </LinearLayout>
 
 
