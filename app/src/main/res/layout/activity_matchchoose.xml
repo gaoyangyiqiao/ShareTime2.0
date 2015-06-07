@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content"
         android:text="新建匹配"
         android:layout_alignBottom="@id/lv_match_record"
+        bootstrapbutton:bb_type="danger"
         android:background="@color/light_blue"
         android:onClick="f"
         />

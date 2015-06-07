@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:float="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
 
 
-        <Button
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/choosedate"
@@ -20,55 +20,62 @@
 
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="选择开始时间"
-    android:id="@+id/choosetime11"
-    />
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="选择开始时间"
+            android:id="@+id/choosetime11"
+            />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="到"
             />
-        <Button
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:text="选择结束时间"
             android:id="@+id/choosetime22"
             />
         </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="活动类型"
             />
-        <EditText
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapEditText
 
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/activity_get"/>
         </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <Button
+        <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/confirm"
             android:text="生成活动"
             android:onClick="c"
             />
-            <Button
+            <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="确认添加"

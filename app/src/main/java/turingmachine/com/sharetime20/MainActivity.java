@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
@@ -37,7 +36,7 @@ public class MainActivity extends Activity implements OnClickListener{
     private FragmentManager fragmentManager2;
     private FrameLayout frame2;
     int index=1;
-    SignupFragment s;
+    NewActivityFragment s;
     private ScheduleFragment scheduleFragment2;
     private ToDoListFragment toDoListFragment2;
     private DragLayout dl;
@@ -89,7 +88,7 @@ public class MainActivity extends Activity implements OnClickListener{
         matchFragment2=new MatchFragment();
         matchAddFragmet=new MatchAddFragmet();
         scheduleFragment2=new ScheduleFragment();
-        s=new SignupFragment();
+        s=new NewActivityFragment();
 
 
         GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),Config.getCachedId(this),scheduleFragment2);
