@@ -24,14 +24,14 @@
        <LinearLayout
            android:layout_alignParentBottom="true"
            android:layout_alignParentRight="true"
-<<<<<<< HEAD
+
            android:layout_marginRight="16dp"
            android:layout_marginBottom="16dp"
            android:onClick="c"
            android:text="添加"
 
 
-=======
+
            android:paddingRight="20dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content">
@@ -46,7 +46,7 @@
                />
 
            </LinearLayout>
->>>>>>> origin/master
+
 
    </RelativeLayout>
 

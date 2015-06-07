@@ -86,12 +86,12 @@ public class MatchFragment extends Fragment implements CustomSwipeListView.Remov
      * Generate some data that is shown in the CustomSwipeListview.
      */
     private void makeData() {
-        for (int i = 0; i < 10; i++) {
+
             SampleModel model = new SampleModel();
-            model.setTestDate("2015-01-0" + i);
-            model.setTestTitle("TestItem" + i);
+            model.setTestDate("2015-06-0" + 8);
+            model.setTestTitle("<联系人>");
             mSampleModels.add(model);
-        }
+
     }
 
     @Override
