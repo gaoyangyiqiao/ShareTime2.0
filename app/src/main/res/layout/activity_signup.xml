@@ -22,25 +22,24 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="选择开始时间"
+    android:id="@+id/choosetime11"
+    />
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Get time"
-
-           android:id="@+id/choosetime1"
-           android:background="#ff2d32ff" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="到"
             />
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get time"
-            android:id="@+id/choosetime2"
-            android:background="#ff5cff38" />
+            android:text="选择结束时间"
+            android:id="@+id/choosetime22"
+            />
         </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -72,7 +71,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="确认"
+                android:text="确认添加"
                 android:id="@+id/jump"
                 android:onClick="g"
                 android:layout_below="@+id/confirm"

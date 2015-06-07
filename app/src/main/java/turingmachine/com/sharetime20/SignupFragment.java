@@ -27,8 +27,8 @@ import turingmachine.com.sharetime20.weekview.WeekViewEvent;
  */
 public class SignupFragment extends Fragment {
     private Button choosedate;
-    private TextView choosetime1;
-    private TextView choosetime2;
+    private Button choosetime1;
+    private Button choosetime2;
     private  TimePickerDialog timePickerDialog;
     private DatePickerDialog datePickerDialog;
     private EditText editText;
@@ -51,20 +51,25 @@ public class SignupFragment extends Fragment {
         int month=Calendar.getInstance().get(Calendar.MONTH);
         int day=Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         choosedate=(Button)getActivity().findViewById(R.id.choosedate);
-        choosetime1=(TextView)getActivity().findViewById(R.id.choosetime1);
-        choosetime2=(TextView)getActivity().findViewById(R.id.choosetime2);
+        choosetime1=(Button)getActivity().findViewById(R.id.choosetime11);
+        choosetime2=(Button)getActivity().findViewById(R.id.choosetime22);
         timePickerDialog=new TimePickerDialog(getActivity(),new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 if(index==1) {
-                    starttime.setHours(hourOfDay);
-                    starttime.setMinutes(minute);
-choosetime1.setText(hourOfDay+":"+minute);
+                    if(starttime!=null) {
+                        starttime.setHours(hourOfDay);
+                        starttime.setMinutes(minute);
+                    }
+                 choosetime1.setText(hourOfDay+":"+minute);
                 }
                 else{
-                    endtime.setHours(hourOfDay);
-                    endtime.setMinutes(minute);
-                    choosetime2.setText(hourOfDay+":"+minute);
+                    if(endtime!=null) {
+                        endtime.setHours(hourOfDay);
+                        endtime.setMinutes(minute);
+                    }
+                        choosetime2.setText(hourOfDay + ":" + minute);
+
                 }
             }
         }, hoursofday,minute, true);
@@ -113,7 +118,7 @@ choosetime1.setText(hourOfDay+":"+minute);
                     LayoutInflater li = LayoutInflater.from(getActivity());
                     View view = li.inflate(R.layout.activity_add_event, null);
                     new AlertDialog.Builder(getActivity()).setPositiveButton("确定", null)
-                            .setTitle("新建完成").show();
+                            .setTitle("新建事件完成").show();
                     Calendar c1=Calendar.getInstance();
                     Calendar c2=Calendar.getInstance();
                     c1.setTime(starttime);
@@ -127,7 +132,7 @@ choosetime1.setText(hourOfDay+":"+minute);
                     LayoutInflater li = LayoutInflater.from(getActivity());
                     View view = li.inflate(R.layout.activity_add_event, null);
                     new AlertDialog.Builder(getActivity()).setPositiveButton("确定", null)
-                            .setTitle("新建没有完成").show();
+                            .setTitle("新建事件未完成").show();
                 }
 
 

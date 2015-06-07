@@ -271,7 +271,7 @@ public class MainActivity extends Activity implements OnClickListener{
         if(w==null)return;
         Date st=w.getStartTime().getTime();
         Date et=w.getEndTime().getTime();
-        String content=w.getName()+"  "+st.getYear()+"/"+st.getMonth()+"/"+st.getDay()+" "+st.getHours()+":"+st.getMinutes()+" 到 "+et.getYear()+"/"+et.getMonth()+"/"+et.getDay()+" "+et.getHours();
+        String content=w.getName()+"  "+(st.getYear()+1900)+"/"+st.getMonth()+"/"+st.getDay()+" "+st.getHours()+":"+st.getMinutes()+" 到 "+(et.getYear()+1900)+"/"+et.getMonth()+"/"+et.getDay()+" "+et.getHours()+":"+et.getMinutes();
         Resources resources=getResources();
         Drawable drawable=resources.getDrawable(R.drawable.logo);
         toDoListFragment2.update(drawable,content);
