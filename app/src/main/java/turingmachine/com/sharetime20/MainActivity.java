@@ -85,7 +85,7 @@ public class MainActivity extends Activity implements OnClickListener{
         matchLayout.setOnClickListener(this);
         scheduleLayout.setOnClickListener(this);
 
-        matchFragment=new MatchChoose();
+
         toDoListFragment2=new ToDoListFragment();
         matchFragment2=new MatchFragment();
         matchAddFragmet=new MatchAddFragmet();
