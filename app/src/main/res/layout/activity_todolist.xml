@@ -27,14 +27,12 @@
            android:paddingRight="20dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content">
-           <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
+           <ImageButton
                android:id="@+id/ss2"
                android:layout_above="@+id/listView"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="新建匹配"
-               bootstrapbutton:bb_type="danger"
-               bootstrapbutton:bb_roundedCorners="true"
+               android:background="@drawable/tab_match_pressed"
                android:layout_marginBottom="20dp"
                android:onClick="c"
                />
