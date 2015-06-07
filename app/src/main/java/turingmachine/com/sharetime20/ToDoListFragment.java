@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -36,6 +37,7 @@ public class ToDoListFragment extends Fragment{
     private List<ApplicationInfo> mAppList;
     private AppAdapter mAdapter;
     private Context context;
+    public ArrayList<Item> itemlist=new ArrayList<>();
     SwipeMenuListView listView;
     private Button button;
    // private SwipeMenuListView swipeMenuListView;
@@ -63,6 +65,10 @@ public class ToDoListFragment extends Fragment{
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
         listView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
+        String content="test";
+        Resources resources=getResources();
+        Drawable drawable=resources.getDrawable(R.drawable.logo);
+        itemlist.add(new Item(drawable,content));
         listView.setAdapter(mAdapter);
        // newEvent();
 
@@ -164,15 +170,16 @@ public class ToDoListFragment extends Fragment{
             }
         });
     }
-    public void update(){
-        mAppList.add(new ApplicationInfo());
+    public void update(Drawable drawable,String content){
+       itemlist.add(new Item(drawable,content));
+
         mAdapter.notifyDataSetChanged();
+
+
     }
 class AppAdapter extends BaseAdapter {
-    public ArrayList<Item> itemlist=new ArrayList<>();
-    public void setItemlist(ArrayList<Item> itemlist){
-        this.itemlist=itemlist;
-    }
+
+
     @Override
     public int getCount() {
         return itemlist.size();
@@ -195,10 +202,7 @@ class AppAdapter extends BaseAdapter {
         // menu type count
         return 3;
     }
-    public void add(Item item){
-        itemlist.add(item);
-        notifyDataSetChanged();
-    }
+
 
     @Override
     public int getItemViewType(int position) {

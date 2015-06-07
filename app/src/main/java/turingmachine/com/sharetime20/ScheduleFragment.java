@@ -196,7 +196,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         int length=weekViewEvent.size();
         for(int i=0;i<length;i++){
             list.add(weekViewEvent.get(i));
-            System.out.println("list add event "+weekViewEvent.get(i).getName());
+          //  System.out.println("list add event "+weekViewEvent.get(i).getName());
         }
         mWeekView.notifyDatasetChanged();
 
@@ -205,8 +205,8 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
     }
     public void add(WeekViewEvent w){
         list.add(w);
-        System.out.println("add w "+w.getName()+"size "+list.size());
-        System.out.println(mWeekView);
+      //  System.out.println("add w "+w.getName()+"size "+list.size());
+      //  System.out.println(mWeekView);
         mWeekView.notifyDatasetChanged();
     }
 }

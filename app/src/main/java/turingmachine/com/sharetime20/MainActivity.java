@@ -3,6 +3,8 @@ package turingmachine.com.sharetime20;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -265,6 +267,10 @@ public class MainActivity extends Activity implements OnClickListener{
     }
     public void g(View view) {
             WeekViewEvent w=(WeekViewEvent)view.getTag();
+        String content=w.getName()+" "+w.getStartTime().getTime().toString()+"到"+w.getEndTime().getTime().toString();
+        Resources resources=getResources();
+        Drawable drawable=resources.getDrawable(R.drawable.logo);
+        toDoListFragment2.update(drawable,content);
         scheduleFragment2.add(w);
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame,scheduleFragment2);
