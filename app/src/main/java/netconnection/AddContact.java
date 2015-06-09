@@ -24,6 +24,8 @@ public class AddContact {
             @Override
             public void onSuccess(String o) {
                 try {
+                    System.out.println(o);
+
                     JSONObject object=new JSONObject(o);
                     JSONObject contactinfo=object.getJSONObject(Config.KEY_USER_INFO);
 

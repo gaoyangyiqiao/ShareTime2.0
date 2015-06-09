@@ -55,7 +55,9 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 		etPhoneNum = (EditText) findViewById(R.id.et_write_phone);
 		etPhoneNum.addTextChangedListener(this);
 		etPhoneNum.setText("");
-		etPhoneNum.requestFocus();
+
+		username.requestFocus();
+
 		if (etPhoneNum.getText().length() > 0) {
 			btnNext.setEnabled(true);
 			ivClear.setVisibility(View.VISIBLE);
@@ -185,7 +187,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 		String fomatedPhone = code + " " + splitPhoneNum(phone);
 
 		Toast.makeText(this, "成功!", Toast.LENGTH_SHORT).show();
-
+        //缓存个人信息
         String name=username.getText().toString();
         String id=student_id.getText().toString();
         String password=student_password.getText().toString();

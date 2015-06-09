@@ -28,6 +28,8 @@ public class GetContactInfo {
                @Override
                public void onSuccess(String result) {
                    try {
+                       System.out.println(result);
+
                        JSONObject json_result=new JSONObject(result);
                        JSONObject info=json_result.getJSONObject(Config.KEY_INFO);
                        ContactPO contactPO=new ContactPO(info.getString(Config.KEY_NAME));

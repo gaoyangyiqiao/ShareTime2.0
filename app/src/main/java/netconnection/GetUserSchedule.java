@@ -41,6 +41,8 @@ public class GetUserSchedule {
             public void onSuccess(String result) {
                 SchedulePO schedule=new SchedulePO();
                 try {
+                    System.out.println(result);
+
                     JSONObject jsonObject=new JSONObject(result);
                     JSONObject userSchedule=jsonObject.getJSONObject(Config.KEY_USER_SCHEDULE);
                     JSONArray activities=userSchedule.getJSONArray(Config.KEY_ACTIVITY);

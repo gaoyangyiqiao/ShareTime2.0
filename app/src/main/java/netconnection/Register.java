@@ -32,6 +32,9 @@ public class Register {
             @Override
             public void onSuccess(String o) {
                 try {
+
+                    System.out.println(o);
+
                     JSONObject obj=new JSONObject(o);
                     String user_id=obj.getString(Config.KEY_USER_ID);
                     Config.cacheId(context,user_id);

@@ -36,6 +36,8 @@ public class Match {
             @Override
             public void onSuccess(String result) {
                 try {
+                    System.out.println(result);
+
                     JSONObject jsonObject=new JSONObject(result);
                     JSONObject userSchedule=jsonObject.getJSONObject(Config.KEY_COMMON_FREE_SCHEDULE);
                     JSONArray activities=userSchedule.getJSONArray(Config.KEY_ACTIVITY);
