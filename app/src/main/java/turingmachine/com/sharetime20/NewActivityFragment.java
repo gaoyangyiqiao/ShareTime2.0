@@ -113,6 +113,7 @@ public class NewActivityFragment extends Fragment {
                 String content="";
                 content=editText.getText().toString();
                 if(starttime!=null&&endtime!=null) {
+//                    System.out.println("---->>>>"+starttime.toString());
                     AddActivity addActivity = new AddActivity(Config.getCachedId(getActivity()), content, content, starttime.toString(), endtime.toString(), 0);
                     LayoutInflater li = LayoutInflater.from(getActivity());
                     View view = li.inflate(R.layout.activity_add_event, null);
