@@ -28,6 +28,7 @@ public class Config {
     public static final String KEY_USER_ID_ARRAY="user_id_array";
     public static final String KEY_KEYWORDS="keywords";
 
+
     //json中的key
     public static final String KEY_ID="id";
     public static final String KEY_ACTIVITY="activity";
