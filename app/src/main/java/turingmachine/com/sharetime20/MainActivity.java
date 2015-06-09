@@ -103,7 +103,7 @@ public class MainActivity extends Activity implements OnClickListener{
         ArrayList info=new ArrayList();
 
         info_list.setAdapter(new ArrayAdapter<String>(MainActivity.this,
-                R.layout.item_text, new String[]{Config.getCachedName(this),Config.getCachedId(this), Config.getCachedStudentId(this), "对外权限：1"}));
+                R.layout.item_text, new String[]{Config.getCachedName(this),""+Config.getCachedId(this), ""+Config.getCachedStudentId(this), "对外权限：1"}));
         info_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1,
