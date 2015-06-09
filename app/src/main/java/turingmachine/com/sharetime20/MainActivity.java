@@ -92,7 +92,7 @@ public class MainActivity extends Activity implements OnClickListener{
         scheduleFragment2=new ScheduleFragment();
         s=new NewActivityFragment();
 
-
+//        System.out.println("----->>>>"+Config.getCachedId(this));
         GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),Config.getCachedId(this),scheduleFragment2);
         GetClassTable getClassTable=new GetClassTable(Config.getCachedStudentId(this),Config.getCachedStudentPassword(this),scheduleFragment2);
 

@@ -71,15 +71,15 @@ public class GetUserSchedule {
                       //  c1.set(Calendar.MONTH, newMonth-1);
                     //    c1.set(Calendar.YEAR, newYear);
                         eventlist.add(new WeekViewEvent(Integer.parseInt(id), content, c1, c2));
-                       System.out.println("Add weekevent " + content);
-                        System.out.println("start time : "+start_time);
-                        System.out.println("end time : "+end_time_str);
+//                       System.out.println("Add weekevent " + content);
+//                        System.out.println("start time : "+start_time);
+//                        System.out.println("end time : "+end_time_str);
                     }
 
                     SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
                     schedule.setStartTime(dateFormat.parse(userSchedule.getString(Config.KEY_BEGIN_TIME)));
                     schedule.setLength(userSchedule.getInt(Config.KEY_SIZE));
-                    System.out.println("start addEvent!");
+//                    System.out.println("start addEvent!");
 
                     fragment.addEvent(eventlist);
 //                    SchedulePre schedulePre=new SchedulePre(schedule);

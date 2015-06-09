@@ -22,7 +22,7 @@
 
         <meta-data
             android:name="JUHE_KEY"
-            android:value="44a504c313b534d6c982faf84f7f009f" />
+            android:value="7ec1eef79b2aea8637ad8994899d0cd8" />
 
         <activity
             android:name=".SelectionActivity"

@@ -547,7 +547,7 @@ public class WeekView extends View {
      * @param canvas The canvas to draw upon.
      */
     private void drawEvents(Calendar date, float startFromPixel, Canvas canvas) {
-       System.out.println("Draw events size "+mEventRects.size());
+//       System.out.println("Draw events size "+mEventRects.size());
         if (mEventRects != null && mEventRects.size() > 0) {
             for (int i = 0; i < mEventRects.size(); i++) {
                 if (isSameDay(mEventRects.get(i).event.getStartTime(), date)) {

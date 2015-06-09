@@ -153,6 +153,9 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
 											public void onResult(int arg0,
 													String arg1, String arg2) {
 												// TODO Auto-generated method
+//                                                System.out.println(arg0);
+//                                                System.out.println(arg1);
+//                                                System.out.println(arg2);
 												// stub
 												closeDialog();
 												if (arg0 == 0) {
