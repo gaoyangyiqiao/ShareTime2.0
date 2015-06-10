@@ -81,6 +81,7 @@
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="afinal-0.3.32-bin" level="project" />
+    <orderEntry type="module" module-name="sMSSDK" exported="" />
   </component>
 </module>
 

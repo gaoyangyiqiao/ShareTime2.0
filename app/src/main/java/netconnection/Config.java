@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
  */
 public class Config {
 
+    public static final String APP_SMS_KEY="8096ccb972b0";
+    public static final String APP_SMS_SECRET="2f4966dc4e9c70d2e41b5e8086a67c5a";
     //日期的格式
     public static final String DATE_PATTERN="yyyy-MM-dd hh:mm:ss";
     //the test server url

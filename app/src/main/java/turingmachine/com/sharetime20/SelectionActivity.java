@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.thinkland.sdk.util.CommonFun;
 
+import cn.smssdk.SMSSDK;
 import netconnection.Config;
 import turingmachine.com.sharetime20.captcha.RegisterActivity;
 
@@ -18,7 +19,6 @@ public class SelectionActivity extends Activity {
         super.onCreate(savedInstanceState);
         String token = Config.getCachedToken(this);
         String phone_num = Config.getCachedPhoneNum(this);
-
         if (token!=null&&phone_num!=null) {
             Intent i =new Intent(this, MainActivity.class);
             i.putExtra(Config.KEY_TOKEN, token);
