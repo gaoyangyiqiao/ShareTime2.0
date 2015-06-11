@@ -17,12 +17,13 @@ public class SelectionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         String token = Config.getCachedToken(this);
-        String phone_num = Config.getCachedPhoneNum(this);
-        if (token!=null&&phone_num!=null) {
+        String id = Config.getCachedId(this);
+        if (token!=null&&id!=null) {
             Intent i =new Intent(this, MainActivity.class);
             i.putExtra(Config.KEY_TOKEN, token);
-            i.putExtra(Config.KEY_PHONE_NUM, phone_num);
+            i.putExtra(Config.KEY_PHONE_NUM, id);
             startActivity(i);
         }else{
             startActivity(new Intent(this, RegisterActivity.class));

@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="添加朋友"/>
         <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
-            android:id="@+id/btn_create_group"
+            android:id="@+id/btn_contact_promotion"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="联系人推介"/>

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+import cn.smssdk.SMSSDK;
 import netconnection.Config;
 import netconnection.GetClassTable;
 import netconnection.GetUserSchedule;
@@ -61,6 +62,8 @@ public class MainActivity extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentManager = getFragmentManager();
+        SMSSDK.initSDK(this, Config.APP_SMS_KEY, Config.APP_SMS_SECRET);
+
         initViews();
         initDragLayout();
 

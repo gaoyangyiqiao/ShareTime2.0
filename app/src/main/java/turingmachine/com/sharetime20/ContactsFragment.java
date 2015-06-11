@@ -17,6 +17,8 @@ import java.util.List;
 import adapter.ContactsFunctionAdapter;
 import adapter.ContactsListAdapter;
 import businesslogic.contactbl.ContactsController;
+import cn.smssdk.SMSSDK;
+import cn.smssdk.gui.ContactsPage;
 import netconnection.Config;
 import po.ContactPO;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
@@ -40,7 +42,7 @@ public class ContactsFragment extends Fragment {
     private ContactsController contactsController;
 
     private BootstrapButton btn_contacts_promotion;
-    private BootstrapButton btn_createGroup;
+    private BootstrapButton btn_add_friend;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,22 +72,26 @@ public class ContactsFragment extends Fragment {
     public void initViews(){
         searchView= (SearchView) getActivity().findViewById(R.id.sv_contacts);
         lv_contactList = (ListView) getActivity().findViewById(R.id.contacts_lv_contactlist);
-        btn_contacts_promotion= (BootstrapButton) getActivity().findViewById(R.id.btn_add_friend);
-        btn_createGroup= (BootstrapButton) getActivity().findViewById(R.id.btn_create_group);
+        btn_add_friend= (BootstrapButton) getActivity().findViewById(R.id.btn_add_friend);
+        btn_contacts_promotion= (BootstrapButton) getActivity().findViewById(R.id.btn_contact_promotion);
         setListViewItemListener();
         setSearchViewListener();
 
         btn_contacts_promotion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getActivity(), AddContactActivity.class);
-                startActivity(i);
+                SMSSDK.initSDK(getActivity(),Config.APP_SMS_KEY,Config.APP_SMS_SECRET);
+                ContactsPage contactsPage=new ContactsPage();
+                contactsPage.show(getActivity());
+//
+//                Intent i=new Intent(getActivity(),PhoneContactsActivity.class);
+//                startActivity(i);
             }
         });
-        btn_createGroup.setOnClickListener(new View.OnClickListener() {
+        btn_add_friend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getActivity(),PhoneContactsActivity.class);
+                Intent i=new Intent(getActivity(), AddContactActivity.class);
                 startActivity(i);
             }
         });

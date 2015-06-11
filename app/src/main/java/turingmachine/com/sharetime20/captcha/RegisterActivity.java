@@ -16,8 +16,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
+import cn.smssdk.gui.ContactsPage;
 import netconnection.Config;
 import netconnection.Register;
 import turingmachine.com.sharetime20.MainActivity;
@@ -37,6 +40,22 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
     private EditText student_id;
     private EditText student_password;
     private BootstrapEditText identifyCode;
+
+    // 短信注册，随机产生头像
+    private static final String[] AVATARS = {
+            "http://tupian.qqjay.com/u/2011/0729/e755c434c91fed9f6f73152731788cb3.jpg",
+            "http://99touxiang.com/public/upload/nvsheng/125/27-011820_433.jpg",
+            "http://img1.touxiang.cn/uploads/allimg/111029/2330264224-36.png",
+            "http://img1.2345.com/duoteimg/qqTxImg/2012/04/09/13339485237265.jpg",
+            "http://diy.qqjay.com/u/files/2012/0523/f466c38e1c6c99ee2d6cd7746207a97a.jpg",
+            "http://img1.touxiang.cn/uploads/20121224/24-054837_708.jpg",
+            "http://img1.touxiang.cn/uploads/20121212/12-060125_658.jpg",
+            "http://img1.touxiang.cn/uploads/20130608/08-054059_703.jpg",
+            "http://diy.qqjay.com/u2/2013/0422/fadc08459b1ef5fc1ea6b5b8d22e44b4.jpg",
+            "http://img1.2345.com/duoteimg/qqTxImg/2012/04/09/13339510584349.jpg",
+            "http://img1.touxiang.cn/uploads/20130515/15-080722_514.jpg",
+            "http://diy.qqjay.com/u2/2013/0401/4355c29b30d295b26da6f242a65bcaad.jpg"
+    };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -234,6 +253,11 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
         Config.cacheStudentPassword(this,password);
         new Register(phone,name,id,password,this);
 
+        registerUser("86",phone);
+
+//        ContactsPage contactsPage=new ContactsPage();
+//        contactsPage.show(this);
+
 		Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
 		intent.putExtra("formatedPhone", fomatedPhone);
 		intent.putExtra("phone", phone);
@@ -287,4 +311,14 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,
         }
 
     };
+
+    // 提交用户信息
+    private void registerUser(String country, String phone) {
+        Random rnd = new Random();
+        int id = Math.abs(rnd.nextInt());
+        String uid = String.valueOf(id);
+        String nickName = "SmsSDK_User_" + uid;
+        String avatar = AVATARS[id % 12];
+        SMSSDK.submitUserInfo(uid, nickName, avatar, country, phone);
+    }
 }

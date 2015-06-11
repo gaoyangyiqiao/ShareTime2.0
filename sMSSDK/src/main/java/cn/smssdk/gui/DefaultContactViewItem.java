@@ -122,9 +122,9 @@ public class DefaultContactViewItem implements cn.smssdk.gui.ContactItemMaker {
 						// 在这里添加第一组的按钮事件
 						Toast.makeText(parent.getContext(), String.valueOf(user), Toast.LENGTH_SHORT).show();
 					} else{
-						ContactDetailPage contactDetailPage = new ContactDetailPage();
-						contactDetailPage.setContact(user);
-						contactDetailPage.show(parent.getContext(), null);
+//						ContactDetailPage contactDetailPage = new ContactDetailPage();
+//						contactDetailPage.setContact(user);
+//						contactDetailPage.show(parent.getContext(), null);
 					}
 				}
 			});

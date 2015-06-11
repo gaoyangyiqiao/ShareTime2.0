@@ -603,7 +603,7 @@ public class WeekView extends View {
      * @param originalLeft The original left position of the rectangle. The rectangle may have some of its portion outside of the visible area.
      */
     private void drawText(String text, RectF rect, Canvas canvas, float originalTop, float originalLeft) {
-        System.out.println("Draw text "+text);
+//        System.out.println("Draw text "+text);
         if (rect.right - rect.left - mEventPadding * 2 < 0) return;
 
         // Get text dimensions
@@ -1420,8 +1420,8 @@ public class WeekView extends View {
      * Refreshes the draglayout and loads the events again.
      */
     public void notifyDatasetChanged(){
-        System.out.println("重绘");
-        System.out.println(mEventRects.size());
+//        System.out.println("重绘");
+//        System.out.println(mEventRects.size());
         mRefreshEvents = true;
         invalidate();
     }
