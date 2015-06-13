@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="smssdk_country_group_a">
+    <string-array tv_name="smssdk_country_group_a">
 		<item>Afghanistan,93,46,41220|41230|41240|41250|41201</item>
 		<item>Albania,355,110,27601|27602|27603|27604</item>
 		<item>Algeria,213,52,60303|60302|60301</item>
@@ -16,7 +16,7 @@
 		<item>Azerbaijan,994,193,40002|40001|40004</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_b">
+	<string-array tv_name="smssdk_country_group_b">
 		<item>Bahamas,1242,197,364390|36439</item>
 		<item>Bahrain,973,186,42604|42605|42601|42602</item>
 		<item>Bangladesh,880,172,47007|47005|47006|47003|47004|47001|47002</item>
@@ -37,7 +37,7 @@
 		<item>Burundi,257,90,64201|64203|64202|64207|64282</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_c">
+	<string-array tv_name="smssdk_country_group_c">
 		<item>Cambodia,855,170,45602|45601|45608|45618|45609|45604|45603|45606|45605|23455-KH</item>
 		<item>Cameroon,237,72,62401|62402|62404</item>
 		<item>Canada,1,1,302657|302656|302710|302655|302500|302610|302720|302702|302270|302490|302880|302220|302680|302360|302690|302510|302653|302861|302222|302640|302651|302530|302221|302320</item>
@@ -57,7 +57,7 @@
 		<item>Czech Republic,420,131,23001|23002|23003|23004|23005|23008</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_d">
+	<string-array tv_name="smssdk_country_group_d">
 		<item>Democratic Republic of the Congo,243,78,63086|63001|63089|63002|63005</item>
 		<item>Denmark,45,19,23801|23812|23802|23813|23803|23806|23828|23807|23808|23830|23820|23810|23866|23877</item>
 		<item>Djibouti,253,86,63801</item>
@@ -65,7 +65,7 @@
 		<item>Dominican Republic,1809,213,37001|37002|37003|37004</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_e">
+	<string-array tv_name="smssdk_country_group_e">
 		<item>East Timor,670,153,51401|51402</item>
 		<item>Ecuador,593,146,74002|74001|74000</item>
 		<item>Egypt,20,5,60203|60202|60201</item>
@@ -75,7 +75,7 @@
 		<item>Ethiopia,251,84,63601</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_f">
+	<string-array tv_name="smssdk_country_group_f">
 		<item>Faroe Islands,298,103,28801|28802|28803</item>
 		<item>Fiji,679,159,54202|54201</item>
 		<item>Finland,358,113,24409|24432|24410|24421|24412|24411|24414|24403|24413|24405|24426|24404|24491</item>
@@ -84,7 +84,7 @@
 		<item>French Polynesia,689,165,54720</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_g">
+	<string-array tv_name="smssdk_country_group_g">
 		<item>Gabon,241,76,62804|62801|62802|62803</item>
 		<item>Gambia,220,55,60702|60701|60704|60703</item>
 		<item>Georgia,995,194,28202|28201|28204|28205</item>
@@ -102,14 +102,14 @@
 		<item>Guyana,592,145,73802|73801</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_h">
+	<string-array tv_name="smssdk_country_group_h">
 		<item>Haiti,509,142,37201|37202</item>
 		<item>Honduras,504,137,70830|70840|70802|70801</item>
 		<item>Hong Kong,852,168,45413|45412|45401|45404|45403|45414|45400|45411|45409|45406|45405|45416|45408|45419|45429|45407</item>
 		<item>Hungary,36,12,21630|21670|21601</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_i">
+	<string-array tv_name="smssdk_country_group_i">
 		<item>Iceland,354,109,27409|27411|27404|27401|27402|27407</item>
 		<item>India,91,44,405893|405892|405895|405894|405897|405896|405899|405898|40501|40506|40505|405891|405890|40503|405889|405882|405881|405883|405886|405885|405888|405887|405880|405879|405878|405871|405750|405870|405873|405752|405872|405751|405875|405754|405874|405753|405877|405756|405876|405755|405868|405867|405869|405860|405862|405861|405864|405863|405866|405865|405856|405859|405858|40494|40493|40492|40491|40498|40497|40496|40495|40490|40483|40482|40481|40480|40487|40486|40485|405799|40484|40489|40488|40472|40471|40470|40476|40475|40474|40473|40479|40478|40477|40460|405930|405811|40462|405810|405931|40469|40468|40467|40466|405809|405802|405923|405801|405922|405804|405925|405803|405924|405806|405927|405805|405926|405808|405929|405807|405928|40450|40570|40454|40453|40452|405800|405921|40451|405920|40458|40457|40456|40455|40459|405919|405912|405914|405913|405916|405915|405918|405917|40443|40442|40441|40567|40446|40566|40449|405901|405900|405903|405902|405905|405904|405907|405906|40553|40552|40431|40551|40430|40436|40556|40435|40555|40434|40554|40433|40438|40437|405851|405850|40421|405853|40420|405852|405855|405854|40425|40424|40422|40429|40428|40427|40419|405846|405845|405848|405847|405849|405046|405045|405840|405047|40410|405842|405841|405843|40413|40412|405040|40411|40418|405042|40417|405041|40416|405044|40415|405043|40409|405835|405834|405837|405836|405839|405838|405035|405034|405037|405036|40520|405039|405831|405038|405830|405833|405832|40524|40403|40402|40523|40522|40401|40521|40400|40407|405031|40406|405030|40405|405033|40404|405032|40519|40518|405824|405823|405825|405828|405827|405829|405026|405025|405820|405027|405822|405029|405821|40513|40512|40511|40510|40517|40515|40514|40509|40508|40507|405813|405812|405815|405814|405817|405816|405819|405818</item>
 		<item>Indonesia,62,34,51010|51021|51089|51001|51011|51027|51007|51028|51009|51008</item>
@@ -121,14 +121,14 @@
 		<item>Ivory Coast,225,60,61205|61204|61203|61202</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_j">
+	<string-array tv_name="smssdk_country_group_j">
 		<item>Jamaica,1876,216,338180|338020|338110</item>
 		<item>Japan,81,39,44027|44026|44029|44028|44023|44144|44022|44143|44025|44024|44145|44140|44021|44142|44141|44020|44016|44015|44018|44017|44012|44011|44099|44014|44013|44019|44090|44096|44095|44010|44098|44097|44092|44091|44094|44093|44004|44007|44006|44001|44089|44000|44088|44003|44002|44009|44008|44087|44199|44078|44198|44077|44079|44074|44194|44073|44076|44075|44191|44070|44190|44193|44072|44192|44071|44067|44066|44069|44068|44063|44062|44065|44064|44061|44060|44056|44055|44058|44052|44051|44054|44053|44050|44170|44049|44048|44045|44044|44165|44047|44046|44041|44162|44040|44161|44043|44164|44042|44163|44038|44037|44039|44034|44033|44036|44035|44030|44032|44031</item>
 		<item>Jersey,44,17,</item>
 		<item>Jordan,962,176,41601|41677|41603</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_k">
+	<string-array tv_name="smssdk_country_group_k">
 		<item>Kazakhstan,7,4,40102|40101|40177|40108|40107</item>
 		<item>Kenya,254,87,63905|63907|63903|63902</item>
 		<item>Kiribati,686,163,54509</item>
@@ -136,7 +136,7 @@
 		<item>Kyrgyzstan,996,195,43705|43701</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_l">
+	<string-array tv_name="smssdk_country_group_l">
 		<item>Laos,856,171,45701|45708|45703|45702</item>
 		<item>Latvia,371,116,24703|24706|24705|24708|24707|24709|24702|24701</item>
 		<item>Lebanon,961,175,41503|41501</item>
@@ -148,7 +148,7 @@
 		<item>Luxembourg,352,107,27099|27077|27001</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_m">
+	<string-array tv_name="smssdk_country_group_m">
 		<item>Macau,853,169,45501|45500|45503|45502|45505|45504</item>
 		<item>Macedonia,389,130,29402|29401|29403</item>
 		<item>Madagascar,261,93,64601|64602|64604</item>
@@ -172,7 +172,7 @@
 		<item>Myanmar,95,48,41401|41406|41405</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_n">
+	<string-array tv_name="smssdk_country_group_n">
 		<item>Namibia,264,96,64902|64901|64903</item>
 		<item>Nepal,977,190,42901|42902</item>
 		<item>Netherlands,31,8,20423|20412|20410|20465|20420|20462|20409|20408|20407|20418|20406|20417|20428|20416|20405|20415|20404|20414|20469|20403|20468|20424|20402</item>
@@ -186,11 +186,11 @@
 		<item>Norway,47,21,24208|24209|24220|24221|24222|24201|24223|24202|24224|24204|24205|24206</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_o">
+	<string-array tv_name="smssdk_country_group_o">
 		<item>Oman,968,182,42202|42203</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_p">
+	<string-array tv_name="smssdk_country_group_p">
 		<item>Pakistan,92,45,</item>
 		<item>Palau,680,160,55201|55280</item>
 		<item>Palestinian Territory,970,183,42506-PS|42505-PS</item>
@@ -204,11 +204,11 @@
 		<item>Puerto Rico,1787,212,310970</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_q">
+	<string-array tv_name="smssdk_country_group_q">
 		<item>Qatar,974,187,42701|42702</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_r">
+	<string-array tv_name="smssdk_country_group_r">
 		<item>Republic Of The Congo,242,77,62907|62910|62901</item>
 		<item>Réunion Island,262,94,64710|64702</item>
 		<item>Romania,40,14,22603|22604|22605|22610|22601</item>
@@ -216,7 +216,7 @@
 		<item>Rwanda,250,83,63510|63512|63513|63514</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_s">
+	<string-array tv_name="smssdk_country_group_s">
 		<item>Saint Kitts and Nevis,1869,215,356110|356070</item>
 		<item>Saint Lucia,1758,209,358110</item>
 		<item>Saint Pierre and Miquelon,508,141,30801</item>
@@ -247,7 +247,7 @@
 		<item>Syria,963,177,41701|41702</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_t">
+	<string-array tv_name="smssdk_country_group_t">
 		<item>Taiwan,886,173,46602|46668|46603|46688|46699|46601|46689|46656|46697|46610|46609|46606|46607|46605|46693|46692</item>
 		<item>Tajikistan,992,191,43605|43601|43602|43603|43604</item>
 		<item>Tanzania,255,88,64011|64003|64002|64005|64004|64007|64006|64009|64008</item>
@@ -261,7 +261,7 @@
 		<item>Turks and Caicos Islands,1649,206,376352|376350</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_u">
+	<string-array tv_name="smssdk_country_group_u">
 		<item>Uganda,256,89,64111|64133|64166|64122|64110|64101|64114</item>
 		<item>Ukraine,380,124,25507|25506|25521|25501|25503|25502|25505|25504</item>
 		<item>United Arab Emirates,971,184,42402|42403</item>
@@ -271,7 +271,7 @@
 		<item>Uzbekistan,998,196,43401|43402|43407|43403|43404|43405|43406</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_v">
+	<string-array tv_name="smssdk_country_group_v">
 		<item>Vanuatu,678,158,54101|54105</item>
 		<item>Venezuela,58,31,73406|73404|73401</item>
 		<item>Vietnam,84,41,45204|45205|45202|45201|45207</item>
@@ -279,19 +279,19 @@
 		<item>Virgin Islands, US,1284,201,311470</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_w">
+	<string-array tv_name="smssdk_country_group_w">
 	    
 	</string-array>
 	
-	<string-array name="smssdk_country_group_x">
+	<string-array tv_name="smssdk_country_group_x">
 	    
 	</string-array>
 	
-	<string-array name="smssdk_country_group_y">
+	<string-array tv_name="smssdk_country_group_y">
 		<item>Yemen,967,181,42101|42102|42103</item>
 	</string-array>
 	
-	<string-array name="smssdk_country_group_z">
+	<string-array tv_name="smssdk_country_group_z">
 		<item>Zambia,260,92,64502|64501|64503</item>
 		<item>Zimbabwe,263,95,64801|64803|64804</item>
     </string-array>

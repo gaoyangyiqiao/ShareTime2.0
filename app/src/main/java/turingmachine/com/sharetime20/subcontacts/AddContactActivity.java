@@ -1,10 +1,12 @@
 package turingmachine.com.sharetime20.subcontacts;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -72,6 +74,17 @@ public class AddContactActivity extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(AddContactActivity.this,ContactInfoActivity.class);
+                ContactPO contactPO=contactsListAdapter.getItem(position);
+                intent.putExtra("id",contactPO.getId());
+                intent.putExtra("name",contactPO.getName());
+                intent.putExtra("img",contactPO.getImageurl());
+                startActivity(intent);
             }
         });
     }

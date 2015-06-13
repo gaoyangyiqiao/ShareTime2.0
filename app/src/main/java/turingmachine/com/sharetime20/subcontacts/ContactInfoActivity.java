@@ -1,9 +1,10 @@
 package turingmachine.com.sharetime20.subcontacts;
 
 import android.app.Activity;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,9 +16,11 @@ import turingmachine.com.sharetime20.R;
 public class ContactInfoActivity extends Activity {
 
     private ImageView icon;
-    private TextView name,account,tip;
+    private TextView tv_name, tv_account;
     private Button deleteBtn;
-    private int id;
+    private String id;
+    private String name;
+    private String imgurl;
     private TextView tv_back;
     private ContactsInfoController contactsInfoController;
 
@@ -28,11 +31,9 @@ public class ContactInfoActivity extends Activity {
 
         contactsInfoController=new ContactsInfoController();
         initViews();
-        id=getIntent().getIntExtra("id",-1);
-        if(id!=-1){
-            contactsInfoController.displayContactInfo(id+"",this);
-        }
-
+        id=getIntent().getStringExtra("id");
+        imgurl=getIntent().getStringExtra("img");
+        name=getIntent().getStringExtra("tv_name");
 
         //左上角返回按钮
     }
@@ -40,11 +41,17 @@ public class ContactInfoActivity extends Activity {
     public void initViews(){
         //初始化
         icon= (ImageView) findViewById(R.id.contact_info_img);
-        name= (TextView) findViewById(R.id.contact_info_name);
-        account= (TextView) findViewById(R.id.contact_info_account);
-        tip= (TextView) findViewById(R.id.contact_info_tv_tip);
+        tv_name = (TextView) findViewById(R.id.contact_info_name);
+        tv_account = (TextView) findViewById(R.id.contact_info_account);
+//        tip= (TextView) findViewById(R.id.contact_info_tv_tip);
         deleteBtn= (Button) findViewById(R.id.contact_info_btn_delete);
         tv_back= (TextView) findViewById(R.id.tv_back_in_contactinfo);
+
+        tv_name.setText(name);
+        tv_account.setText(id);
+        //TODO 获取网络头像
+
+
         tv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,44 +60,5 @@ public class ContactInfoActivity extends Activity {
         });
     }
 
-    public ImageView getIcon() {
-        return icon;
-    }
 
-    public TextView getTip() {
-        return tip;
-    }
-
-    public TextView getAccount() {
-        return account;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public TextView getName() {
-        return name;
-
-    }
-
-    public void setIcon(ImageView icon) {
-        this.icon = icon;
-    }
-
-    public void setName(TextView name) {
-        this.name = name;
-    }
-
-    public void setAccount(TextView account) {
-        this.account = account;
-    }
-
-    public void setTip(TextView tip) {
-        this.tip = tip;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

@@ -13,7 +13,9 @@ import java.util.HashMap;
 import com.mob.tools.gui.AsyncImageView;
 import com.mob.tools.gui.BitmapProcessor;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,11 +31,10 @@ import static com.mob.tools.utils.R.getLayoutRes;
 import static com.mob.tools.utils.R.getBitmapRes;
 
 public class DefaultContactViewItem implements cn.smssdk.gui.ContactItemMaker {
-
 	@Override
 	public View getView(final HashMap<String, Object> user, View convertView, final ViewGroup parent) {
 
-		ViewHolder viewHolder;
+		final ViewHolder viewHolder;
 		if (convertView == null) {
 			viewHolder = new ViewHolder();
 			LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -120,8 +121,21 @@ public class DefaultContactViewItem implements cn.smssdk.gui.ContactItemMaker {
 				public void onClick(View v) {
 					if(user.containsKey("fia")){
 						// 在这里添加第一组的按钮事件
+                        //TODO 在此处发起邀请好友的请求
 						Toast.makeText(parent.getContext(), String.valueOf(user), Toast.LENGTH_SHORT).show();
 					} else{
+                        //TODO 在此设置点击事件
+
+//                            System.out.println(String.valueOf(user));
+                        ArrayList<HashMap<String, Object>> phones
+                                = (ArrayList<HashMap<String, Object>>) user.get("phones");
+//                        System.out.println("---->>>>"+viewHolder.tvContact.getText().toString());
+                        Uri smsToUri = Uri.parse("smsto:"+phones.get(0).get("phone"));
+                        Intent intent = new Intent(Intent.ACTION_SENDTO, smsToUri);
+
+                        intent.putExtra("sms_body","嘿，下载ShareTime和我分享一下你的日程吧!"+Config.APP_DOWNLOAD_URL);
+
+                        parent.getContext().startActivity(intent);
 //						ContactDetailPage contactDetailPage = new ContactDetailPage();
 //						contactDetailPage.setContact(user);
 //						contactDetailPage.show(parent.getContext(), null);
@@ -131,6 +145,7 @@ public class DefaultContactViewItem implements cn.smssdk.gui.ContactItemMaker {
 		}
 		return convertView;
 	}
+
 
 	public class ViewHolder{
 		public View bg;

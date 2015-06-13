@@ -183,19 +183,19 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
     @Override
     public void onEventClick(WeekViewEvent event, RectF eventRect) {
-      //  Toast.makeText(MainActivity.this, "Clicked " + event.getName(), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(MainActivity.this, "Clicked " + event.getTv_name(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onEventLongPress(WeekViewEvent event, RectF eventRect) {
-       // Toast.makeText(MainActivity.this, "Long pressed event: " + event.getName(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(MainActivity.this, "Long pressed event: " + event.getTv_name(), Toast.LENGTH_SHORT).show();
     }
     public void addEvent(ArrayList<WeekViewEvent> weekViewEvent){
 
         int length=weekViewEvent.size();
         for(int i=0;i<length;i++){
             list.add(weekViewEvent.get(i));
-          //  System.out.println("list add event "+weekViewEvent.get(i).getName());
+          //  System.out.println("list add event "+weekViewEvent.get(i).getTv_name());
         }
         mWeekView.notifyDatasetChanged();
 
@@ -204,7 +204,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
     }
     public void add(WeekViewEvent w){
         list.add(w);
-      //  System.out.println("add w "+w.getName()+"size "+list.size());
+      //  System.out.println("add w "+w.getTv_name()+"size "+list.size());
       //  System.out.println(mWeekView);
         mWeekView.notifyDatasetChanged();
 

@@ -36,8 +36,8 @@ public class GetContactInfo {
                        contactPO.setAccount(info.getString(Config.KEY_ACCOUNT));
                        contactPO.setImageurl(info.getString(Config.KEY_IMG));
 
-                       contactInfoActivity.getName().setText(contactPO.getName());
-                       contactInfoActivity.getAccount().setText(contactPO.getAccount());
+                       contactInfoActivity.getTv_name().setText(contactPO.getName());
+                       contactInfoActivity.getTv_account().setText(contactPO.getAccount());
                        finalBitmap.display(contactInfoActivity.getIcon(),contactPO.getImageurl());
 
                    } catch (JSONException e) {

@@ -1,92 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="FloatLabeledEditText">
-        <attr name="fletTextAppearance" format="reference" />
-        <attr name="fletPadding" format="reference|dimension" />
-        <attr name="fletPaddingLeft" format="reference|dimension" />
-        <attr name="fletPaddingTop" format="reference|dimension" />
-        <attr name="fletPaddingRight" format="reference|dimension" />
-        <attr name="fletPaddingBottom" format="reference|dimension" />
-        <attr name="fletBackground" format="reference|color" />
+    <declare-styleable tv_name="FloatLabeledEditText">
+        <attr tv_name="fletTextAppearance" format="reference" />
+        <attr tv_name="fletPadding" format="reference|dimension" />
+        <attr tv_name="fletPaddingLeft" format="reference|dimension" />
+        <attr tv_name="fletPaddingTop" format="reference|dimension" />
+        <attr tv_name="fletPaddingRight" format="reference|dimension" />
+        <attr tv_name="fletPaddingBottom" format="reference|dimension" />
+        <attr tv_name="fletBackground" format="reference|color" />
     </declare-styleable>
 
-    <declare-styleable name="WeekView">
-        <attr name="firstDayOfWeek" format="enum">
-            <enum name="sunday" value="1"/>
-            <enum name="monday" value="2"/>
-            <enum name="tuesday" value="3"/>
-            <enum name="wednesday" value="4"/>
-            <enum name="thursday" value="5"/>
-            <enum name="friday" value="6"/>
-            <enum name="saturday" value="7"/>
+    <declare-styleable tv_name="WeekView">
+        <attr tv_name="firstDayOfWeek" format="enum">
+            <enum tv_name="sunday" value="1"/>
+            <enum tv_name="monday" value="2"/>
+            <enum tv_name="tuesday" value="3"/>
+            <enum tv_name="wednesday" value="4"/>
+            <enum tv_name="thursday" value="5"/>
+            <enum tv_name="friday" value="6"/>
+            <enum tv_name="saturday" value="7"/>
         </attr>
-        <attr name="hourHeight" format="dimension"/>
-        <attr name="textSize" format="dimension"/>
-        <attr name="eventTextSize" format="dimension"/>
-        <attr name="headerColumnPadding" format="dimension"/>
-        <attr name="headerRowPadding" format="dimension"/>
-        <attr name="columnGap" format="dimension"/>
-        <attr name="headerColumnTextColor" format="color"/>
-        <attr name="noOfVisibleDays" format="integer"/>
-        <attr name="headerRowBackgroundColor" format="color"/>
-        <attr name="dayBackgroundColor" format="color"/>
-        <attr name="hourSeparatorColor" format="color"/>
-        <attr name="todayBackgroundColor" format="color"/>
-        <attr name="todayHeaderTextColor" format="color"/>
-        <attr name="hourSeparatorHeight" format="dimension"/>
-        <attr name="eventTextColor" format="color"/>
-        <attr name="eventPadding" format="dimension"/>
-        <attr name="headerColumnBackground" format="color"/>
-        <attr name="dayNameLength" format="enum">
-            <enum name="length_short" value="1"/>
-            <enum name="length_long" value="2"/>
+        <attr tv_name="hourHeight" format="dimension"/>
+        <attr tv_name="textSize" format="dimension"/>
+        <attr tv_name="eventTextSize" format="dimension"/>
+        <attr tv_name="headerColumnPadding" format="dimension"/>
+        <attr tv_name="headerRowPadding" format="dimension"/>
+        <attr tv_name="columnGap" format="dimension"/>
+        <attr tv_name="headerColumnTextColor" format="color"/>
+        <attr tv_name="noOfVisibleDays" format="integer"/>
+        <attr tv_name="headerRowBackgroundColor" format="color"/>
+        <attr tv_name="dayBackgroundColor" format="color"/>
+        <attr tv_name="hourSeparatorColor" format="color"/>
+        <attr tv_name="todayBackgroundColor" format="color"/>
+        <attr tv_name="todayHeaderTextColor" format="color"/>
+        <attr tv_name="hourSeparatorHeight" format="dimension"/>
+        <attr tv_name="eventTextColor" format="color"/>
+        <attr tv_name="eventPadding" format="dimension"/>
+        <attr tv_name="headerColumnBackground" format="color"/>
+        <attr tv_name="dayNameLength" format="enum">
+            <enum tv_name="length_short" value="1"/>
+            <enum tv_name="length_long" value="2"/>
         </attr>
-        <attr name="overlappingEventGap" format="dimension"/>
-        <attr name="eventMarginVertical" format="dimension"/>
-        <attr name="xScrollingSpeed" format="float"/>
+        <attr tv_name="overlappingEventGap" format="dimension"/>
+        <attr tv_name="eventMarginVertical" format="dimension"/>
+        <attr tv_name="xScrollingSpeed" format="float"/>
     </declare-styleable>
 
-    <declare-styleable name="BootstrapButton">
-        <attr name="bb_type" format="string" />
-        <attr name="bb_icon_left" format="string" />
-        <attr name="bb_icon_right" format="string" />
-        <attr name="bb_roundedCorners" format="boolean" />
-        <attr name="bb_text_alignment" format="string" />
-        <attr name="bb_size" format="string" />
-        <attr name="bb_text_gravity" format="string" />
-        <attr name="android:textSize" />
-        <attr name="android:text" />
-        <attr name="android:enabled" />
-        <attr name="android:layout_width" />
-        <attr name="android:layout_weight" />
+    <declare-styleable tv_name="BootstrapButton">
+        <attr tv_name="bb_type" format="string" />
+        <attr tv_name="bb_icon_left" format="string" />
+        <attr tv_name="bb_icon_right" format="string" />
+        <attr tv_name="bb_roundedCorners" format="boolean" />
+        <attr tv_name="bb_text_alignment" format="string" />
+        <attr tv_name="bb_size" format="string" />
+        <attr tv_name="bb_text_gravity" format="string" />
+        <attr tv_name="android:textSize" />
+        <attr tv_name="android:text" />
+        <attr tv_name="android:enabled" />
+        <attr tv_name="android:layout_width" />
+        <attr tv_name="android:layout_weight" />
     </declare-styleable>
 
-    <declare-styleable name="FontAwesomeText">
-        <attr name="fa_icon" format="string" />
+    <declare-styleable tv_name="FontAwesomeText">
+        <attr tv_name="fa_icon" format="string" />
     </declare-styleable>
 
-    <declare-styleable name="BootstrapEditText">
-        <attr name="be_roundedCorners" format="boolean" />
-        <attr name="be_state" format="string" />
-        <attr name="android:textSize" />
-        <attr name="android:text" />
-        <attr name="android:hint" />
-        <attr name="android:enabled" />
+    <declare-styleable tv_name="BootstrapEditText">
+        <attr tv_name="be_roundedCorners" format="boolean" />
+        <attr tv_name="be_state" format="string" />
+        <attr tv_name="android:textSize" />
+        <attr tv_name="android:text" />
+        <attr tv_name="android:hint" />
+        <attr tv_name="android:enabled" />
     </declare-styleable>
 
-    <declare-styleable name="BootstrapThumbnail">
-        <attr name="bt_roundedCorners" format="boolean" />
-        <attr name="bt_image" format="integer" />
-        <attr name="bt_width" format="dimension" />
-        <attr name="bt_height" format="dimension" />
-        <attr name="bt_inside_padding" format="dimension" />
-        <attr name="android:text" />
+    <declare-styleable tv_name="BootstrapThumbnail">
+        <attr tv_name="bt_roundedCorners" format="boolean" />
+        <attr tv_name="bt_image" format="integer" />
+        <attr tv_name="bt_width" format="dimension" />
+        <attr tv_name="bt_height" format="dimension" />
+        <attr tv_name="bt_inside_padding" format="dimension" />
+        <attr tv_name="android:text" />
     </declare-styleable>
 
-    <declare-styleable name="BootstrapCircleThumbnail">
-        <attr name="bct_image" format="integer" />
-        <attr name="bct_size" format="string" />
-        <attr name="bct_minimal" format="boolean" />
-        <attr name="android:text" />
+    <declare-styleable tv_name="BootstrapCircleThumbnail">
+        <attr tv_name="bct_image" format="integer" />
+        <attr tv_name="bct_size" format="string" />
+        <attr tv_name="bct_minimal" format="boolean" />
+        <attr tv_name="android:text" />
     </declare-styleable>
 </resources>

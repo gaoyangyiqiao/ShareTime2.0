@@ -45,7 +45,7 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
     }
 
     @Override
-    public Object getItem(int position) {
+    public ContactPO getItem(int position) {
         return lists.get(position);
     }
 
