@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,6 +34,12 @@ public class MatchDetailActivity extends Activity {
     public void initViews(){
         matchDetailFragment=new MatchDetailFragment();
         tv_back= (TextView) findViewById(R.id.tv_back_in_matchdetail);
+        tv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
 
