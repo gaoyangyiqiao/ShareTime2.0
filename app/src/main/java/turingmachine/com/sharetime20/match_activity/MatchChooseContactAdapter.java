@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import po.ContactPO;
@@ -24,19 +25,26 @@ public class MatchChooseContactAdapter extends BaseAdapter{
 
     private List<ContactPO> lists;
     private Context context;
+    //保存选择的联系人
+    private List<ContactPO> selectedContacts=new ArrayList<>();
 
     public MatchChooseContactAdapter(List<ContactPO> lists,Context context){
         this.lists=lists;
         this.context=context;
 
     }
+
+    public List<ContactPO> getSelectedContacts() {
+        return selectedContacts;
+    }
+
     @Override
     public int getCount() {
         return lists.size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public ContactPO getItem(int position) {
         return lists.get(position);
     }
 
@@ -46,7 +54,7 @@ public class MatchChooseContactAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         //即使数据量非常庞大也不会卡顿
         ViewHolder holder;
@@ -73,6 +81,18 @@ public class MatchChooseContactAdapter extends BaseAdapter{
             holder= (ViewHolder) convertView.getTag();
             holder.tv_name.setText(lists.get(position).getName());
         }
+
+        holder.cb_add.setOnCheckedChangeListener(new TouchCheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(View buttonView, boolean isChecked) {
+                if(isChecked){
+                    selectedContacts.add(getItem(position));
+                }else{
+                    selectedContacts.remove(getItem(position));
+                }
+//                System.out.println(selectedContacts.size());
+            }
+        });
 
         return convertView;
     }

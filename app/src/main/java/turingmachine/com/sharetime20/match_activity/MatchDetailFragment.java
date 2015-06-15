@@ -59,6 +59,11 @@ public class MatchDetailFragment extends Fragment {
         test.setPhone("123456");
         list.add(test);
 
+        ContactPO test2=new ContactPO("One");
+        test.setId(2);
+        test.setPhone("123456");
+        list.add(test2);
+
         matchChooseContactAdapter=new MatchChooseContactAdapter(list,getActivity());
         lv_contacts= (ListView) getActivity().findViewById(R.id.lv_contacts_in_matchdetailfragment);
         mEtSearch = (EditText) getActivity().findViewById(R.id.et_search);
@@ -81,8 +86,10 @@ public class MatchDetailFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 int textLength = mEtSearch.getText().length();
                 if (textLength > 0) {
+                    matchChooseContactAdapter.updateListView(searchItem(mEtSearch.getText().toString()));
                     mLayoutClearSearchText.setVisibility(View.VISIBLE);
                 } else {
+                    matchChooseContactAdapter.updateListView(list);
                     mLayoutClearSearchText.setVisibility(View.GONE);
                 }
             }
@@ -107,5 +114,17 @@ public class MatchDetailFragment extends Fragment {
                 return false;
             }
         });
+    }
+    //搜索
+    public List<ContactPO> searchItem(String name) {
+        ArrayList<ContactPO> mSearchList = new ArrayList<ContactPO>();
+        for (int i = 0; i < list.size(); i++) {
+            int index = list.get(i).getName().indexOf(name);
+            // 存在匹配的数据
+            if (index != -1) {
+                mSearchList.add(list.get(i));
+            }
+        }
+        return mSearchList;
     }
 }
