@@ -31,6 +31,7 @@ import turingmachine.com.sharetime20.match_activity.SampleModel;
  * Created by admin on 2015/3/28.
  */
 public class MatchFragment extends Fragment implements CustomSwipeListView.RemoveItemCustomSwipeListener{
+    //TODO 左滑动更新匹配信息，删减成员，更改时间
     private CustomSwipeListView mSampleListView;
     private SampleAdapter mSampleAdapter;
     private List<SampleModel> mSampleModels = new ArrayList<SampleModel>();

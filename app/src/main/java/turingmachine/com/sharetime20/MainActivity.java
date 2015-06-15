@@ -3,6 +3,7 @@ package turingmachine.com.sharetime20;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -29,6 +30,8 @@ import netconnection.Config;
 import netconnection.GetClassTable;
 import netconnection.GetUserSchedule;
 import turingmachine.com.sharetime20.draglayout.DragLayout;
+import turingmachine.com.sharetime20.match_activity.MatchDetailActivity;
+import turingmachine.com.sharetime20.match_activity.MatchDetailFragment;
 import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 
@@ -241,17 +244,21 @@ public class MainActivity extends Activity implements OnClickListener{
 
     }
     public void f(View view) {
-
-        fragmentTransaction = fragmentManager.beginTransaction();
-        if(index==1) {
-            fragmentTransaction.replace(R.id.matchchoose, matchFragment2);
-            index=2;
-        }
-        else{
-            fragmentTransaction.replace(R.id.matchchoose, matchAddFragmet);
-            index=1;
-        }
-        fragmentTransaction.commit();
+          Intent intent=new Intent(MainActivity.this,MatchDetailActivity.class);
+          startActivity(intent);
+//        fragmentTransaction=fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.matchchoose,new MatchDetailFragment());
+//        fragmentTransaction.commit();
+//        fragmentTransaction = fragmentManager.beginTransaction();
+//        if(index==1) {
+//            fragmentTransaction.replace(R.id.matchchoose, matchFragment2);
+//            index=2;
+//        }
+//        else{
+//            fragmentTransaction.replace(R.id.matchchoose, matchAddFragmet);
+//            index=1;
+//        }
+//        fragmentTransaction.commit();
     }
     public void a(View view) {
 
@@ -289,14 +296,6 @@ public class MainActivity extends Activity implements OnClickListener{
         if(scheduleFragment != null){
             fragmentTransaction.hide(scheduleFragment);
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
-
     }
 
 

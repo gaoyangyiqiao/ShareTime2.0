@@ -66,6 +66,19 @@ public class AddContactActivity extends Activity {
 
         });
 
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i=new Intent(AddContactActivity.this,ContactInfoActivity.class);
+                ContactPO contactPO=contactsListAdapter.getItem(position);
+                i.putExtra("isFromPhone",ContactInfoFragment.NOT_FROM_PHONE);
+                i.putExtra("id",contactPO.getId());
+                i.putExtra("name",contactPO.getName());
+                i.putExtra("img",contactPO.getImageurl());
+                startActivity(i);
+            }
+        });
+
     }
 
     public void initViews(){
@@ -74,17 +87,6 @@ public class AddContactActivity extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
-            }
-        });
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(AddContactActivity.this,ContactInfoActivity.class);
-                ContactPO contactPO=contactsListAdapter.getItem(position);
-                intent.putExtra("id",contactPO.getId());
-                intent.putExtra("name",contactPO.getName());
-                intent.putExtra("img",contactPO.getImageurl());
-                startActivity(intent);
             }
         });
     }

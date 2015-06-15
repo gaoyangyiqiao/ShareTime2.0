@@ -1,60 +1,60 @@
 <resources>
     <!-- Base application theme. -->
-    <style tv_name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
     <!-- 按钮文字样式 -->
-    <style tv_name="tab_text_color">
-        <item tv_name="android:textColor">@color/tab_text</item>
-        <item tv_name="android:textSize">12dp</item>
+    <style name="tab_text_color">
+        <item name="android:textColor">@color/tab_text</item>
+        <item name="android:textSize">12dp</item>
         <!-- 从左向右跑马灯效果 -->
-        <item tv_name="android:ellipsize">marquee</item>
+        <item name="android:ellipsize">marquee</item>
         <!-- 单行显示 -->
-        <item tv_name="android:singleLine">true</item>
+        <item name="android:singleLine">true</item>
     </style>
     <!-- 按钮样式 -->
-    <style tv_name="tab_button_bg">
-        <item tv_name="android:textAppearance">@style/tab_text_color</item>
-        <item tv_name="android:gravity">center</item>
-        <!--<item tv_name="android:background">@drawable/tab_bg</item>-->
-        <item tv_name="android:layout_width">0dp</item>
-        <item tv_name="android:layout_height">wrap_content</item>
-        <item tv_name="android:button">@null</item>
-        <item tv_name="android:layout_weight">1</item>
+    <style name="tab_button_bg">
+        <item name="android:textAppearance">@style/tab_text_color</item>
+        <item name="android:gravity">center</item>
+        <!--<item name="android:background">@drawable/tab_bg</item>-->
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
-    <style tv_name="normalText" parent="@android:style/TextAppearance">
-        <item tv_name="android:textColor">#444</item>
-        <item tv_name="android:textSize">14sp</item>
+    <style name="normalText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#444</item>
+        <item name="android:textSize">14sp</item>
     </style>
-    <style tv_name="news_tab_button_bg">
-        <item tv_name="android:textAppearance">@style/tab_text_color</item>
-        <item tv_name="android:gravity">center</item>
-        <item tv_name="android:layout_width">0dp</item>
-        <item tv_name="android:layout_height">wrap_content</item>
-        <item tv_name="android:layout_weight">1</item>
-        <item tv_name="android:paddingTop">8dip</item>
-        <item tv_name="android:paddingBottom">4dip</item>
-        <item tv_name="android:button">@null</item>
+    <style name="news_tab_button_bg">
+        <item name="android:textAppearance">@style/tab_text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">8dip</item>
+        <item name="android:paddingBottom">4dip</item>
+        <item name="android:button">@null</item>
     </style>
 
-    <style tv_name="CommonDialog" parent="@android:style/Theme.Holo.Light.Dialog.NoActionBar">
-        <item tv_name="android:windowFrame">@null</item>
-        <item tv_name="android:windowNoTitle">true</item>
-        <item tv_name="android:windowIsFloating">true</item>
-        <item tv_name="android:windowBackground">@android:color/transparent</item>
+    <style name="CommonDialog" parent="@android:style/Theme.Holo.Light.Dialog.NoActionBar">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <!-- 背景透明 -->
-        <item tv_name="android:windowContentOverlay">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
         <!-- 去掉背景阴影 -->
-        <item tv_name="android:backgroundDimEnabled">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 
     <!-- Common Dialog Animation-->
-    <style tv_name="dialog_inout_anim" parent="android:Animation">
-        <item tv_name="@android:windowEnterAnimation">@anim/undodialog_enter</item>
-        <item tv_name="@android:windowExitAnimation">@anim/undodialog_exit</item>
+    <style name="dialog_inout_anim" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/undodialog_enter</item>
+        <item name="@android:windowExitAnimation">@anim/undodialog_exit</item>
     </style>
-    <style tv_name="floatlabelededittext">
-        <item tv_name="android:textColor">#FF0000</item>
+    <style name="floatlabelededittext">
+        <item name="android:textColor">#FF0000</item>
     </style>
 </resources>

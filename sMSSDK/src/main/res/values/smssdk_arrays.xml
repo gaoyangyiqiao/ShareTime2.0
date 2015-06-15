@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array tv_name="smssdk_country_group_a">
+    <string-array name="smssdk_country_group_a">
 		<item>阿尔巴尼亚,355,110,27601|27602|27603|27604</item>
 		<item>阿尔及利亚,213,52,60303|60302|60301</item>
 		<item>阿富汗,93,46,41220|41230|41240|41250|41201</item>
@@ -22,7 +22,7 @@
 		<item>澳门,853,169,45501|45500|45503|45502|45505|45504</item>
     </string-array>
     
-    <string-array tv_name="smssdk_country_group_b">
+    <string-array name="smssdk_country_group_b">
 		<item>巴巴多斯,1246,198,342600</item>
 		<item>巴布亚新几内亚,675,155,53701|53702|53703</item>
 		<item>巴哈马群岛,1242,197,364390|36439</item>
@@ -50,12 +50,12 @@
 		<item>布隆迪,257,90,64201|64203|64202|64207|64282</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_c">
+	<string-array name="smssdk_country_group_c">
 		<item>朝鲜,850,167,46703</item>
 		<item>赤道几内亚,240,75,62701|62703</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_d">
+	<string-array name="smssdk_country_group_d">
 		<item>丹麦,45,19,23801|23812|23802|23813|23803|23806|23828|23807|23808|23830|23820|23810|23866|23877</item>
 		<item>德国,49,23,26203|26202|26205|26216|26204|26207|26217|26206|26209|26208|26243|26276|26220|26242|26212|26201|26211|26277</item>
 		<item>东帝汶,670,153,51401|51402</item>
@@ -64,12 +64,12 @@
 		<item>多米尼克,1767,210,366110</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_e">
+	<string-array name="smssdk_country_group_e">
 		<item>俄罗斯,7,3,25020|25099|25035|25002|25012|25001|25003|25039|25005|25007</item>
 		<item>厄瓜多尔,593,146,74002|74001|74000</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_f">
+	<string-array name="smssdk_country_group_f">
 		<item>法国,33,10,20816|20804|20826|20815|20825|20813|20802|20823|20801|20811|20822|20888|20810|20821|20831|20820|20809|20808|20817</item>
 		<item>法罗群岛,298,103,28801|28802|28803</item>
 		<item>菲律宾,63,35,51518|51502|51501|51503|51505</item>
@@ -78,7 +78,7 @@
 		<item>佛得角,238,73,62501|62502</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_g">
+	<string-array name="smssdk_country_group_g">
 		<item>冈比亚,220,55,60702|60701|60704|60703</item>
 		<item>刚果共和国,242,77,62907|62910|62901</item>
 		<item>刚果民主共和国,243,78,63086|63001|63089|63002|63005</item>
@@ -94,7 +94,7 @@
 		<item>圭亚那（法属）,594,147,74201|74220</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_h">
+	<string-array name="smssdk_country_group_h">
 		<item>哈萨克斯坦,7,4,40102|40101|40177|40108|40107</item>
 		<item>海地,509,142,37201|37202</item>
 		<item>韩国,82,40,45006|45005|45008|45002|45004</item>
@@ -104,11 +104,11 @@
 		<item>洪都拉斯,504,137,70830|70840|70802|70801</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_i">
+	<string-array name="smssdk_country_group_i">
 	    
 	</string-array>
 	
-	<string-array tv_name="smssdk_country_group_j">
+	<string-array name="smssdk_country_group_j">
 		<item>基里巴斯,686,163,54509</item>
 		<item>吉布提,253,86,63801</item>
 		<item>吉尔吉斯斯坦,996,195,43705|43701</item>
@@ -122,7 +122,7 @@
 		<item>津巴布韦,263,95,64801|64803|64804</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_k">
+	<string-array name="smssdk_country_group_k">
 		<item>喀麦隆,237,72,62401|62402|62404</item>
 		<item>卡塔尔,974,187,42701|42702</item>
 		<item>开曼群岛,1345,203,346140</item>
@@ -134,7 +134,7 @@
 		<item>库克群岛,682,161,54801</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_l">
+	<string-array name="smssdk_country_group_l">
 		<item>拉脱维亚,371,116,24703|24706|24705|24708|24707|24709|24702|24701</item>
 		<item>莱索托,266,98,65101|65102</item>
 		<item>老挝,856,171,45701|45708|45703|45702</item>
@@ -149,7 +149,7 @@
 		<item>罗马尼亚,40,14,22603|22604|22605|22610|22601</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_m">
+	<string-array name="smssdk_country_group_m">
 		<item>马达加斯加,261,93,64601|64602|64604</item>
 		<item>马尔代夫,960,174,47201|47202</item>
 		<item>马耳他,356,111,27821|27877|27801</item>
@@ -174,7 +174,7 @@
 		<item>墨西哥,52,25,33402|33403|33401|33450|33406|334090|33404|33405</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_n">
+	<string-array name="smssdk_country_group_n">
 		<item>纳米比亚,264,96,64902|64901|64903</item>
 		<item>南非,27,6,65510|65512|65501|65502|65507|65519</item>
 		<item>南苏丹,211,50,65995</item>
@@ -185,25 +185,25 @@
 		<item>挪威,47,21,24208|24209|24220|24221|24222|24201|24223|24202|24224|24204|24205|24206</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_o">
+	<string-array name="smssdk_country_group_o">
 	    
 	</string-array>
 	
-	<string-array tv_name="smssdk_country_group_p">
+	<string-array name="smssdk_country_group_p">
 		<item>帕劳,680,160,55201|55280</item>
 		<item>葡萄牙,351,106,26804|26806|26801|26803</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_q">
+	<string-array name="smssdk_country_group_q">
 	</string-array>
 	
-	<string-array tv_name="smssdk_country_group_r">
+	<string-array name="smssdk_country_group_r">
 		<item>日本,81,39,44027|44026|44029|44028|44023|44144|44022|44143|44025|44024|44145|44140|44021|44142|44141|44020|44016|44015|44018|44017|44012|44011|44099|44014|44013|44019|44090|44096|44095|44010|44098|44097|44092|44091|44094|44093|44004|44007|44006|44001|44089|44000|44088|44003|44002|44009|44008|44087|44199|44078|44198|44077|44079|44074|44194|44073|44076|44075|44191|44070|44190|44193|44072|44192|44071|44067|44066|44069|44068|44063|44062|44065|44064|44061|44060|44056|44055|44058|44052|44051|44054|44053|44050|44170|44049|44048|44045|44044|44165|44047|44046|44041|44162|44040|44161|44043|44164|44042|44163|44038|44037|44039|44034|44033|44036|44035|44030|44032|44031</item>
 		<item>瑞典,46,20,24035|24013|24036|24014|24037|24015|24038|24016|24039|24017|24018|24019|24030|24031|24010|24032|24033|24012|24034|24002|24003|24026|24027|24028|24006|24029|24007|24008|24040|24020|24043|24022|24000|24044|24023|24001|24045</item>
 		<item>瑞士,41,15,22812|22801|22802|22803|22805|22809|22851|22853|22854</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_s">
+	<string-array name="smssdk_country_group_s">
 		<item>萨尔瓦多,503,136,70602|70601|70604|70603|70605</item>
 		<item>萨摩亚,685,162,54900</item>
 		<item>塞尔维亚,381,125,29341|22001|22003|22005</item>
@@ -228,7 +228,7 @@
 		<item>索马里,252,85,63782|63760|63730|63701|63725|63704</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_t">
+	<string-array name="smssdk_country_group_t">
 		<item>塔吉克斯坦,992,191,43605|43601|43602|43603|43604</item>
 		<item>台湾,886,173,46602|46668|46603|46688|46699|46601|46689|46656|46697|46610|46609|46606|46607|46605|46693|46692</item>
 		<item>泰国,66,38,52000|52099|52020|52003|52004|52015|52001|52023|52002|52018|52005</item>
@@ -241,15 +241,15 @@
 		<item>土库曼斯坦,993,192,43801|43802</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_u">
+	<string-array name="smssdk_country_group_u">
 	    
 	</string-array>
 	
-	<string-array tv_name="smssdk_country_group_v">
+	<string-array name="smssdk_country_group_v">
 	    
 	</string-array>
 	
-	<string-array tv_name="smssdk_country_group_w">
+	<string-array name="smssdk_country_group_w">
 		<item>瓦努阿图,678,158,54101|54105</item>
 		<item>危地马拉,502,135,70402|70401|70403</item>
 		<item>维尔京群岛（美属）,1284,201,311470</item>
@@ -262,7 +262,7 @@
 		<item>乌兹别克斯坦,998,196,43401|43402|43407|43403|43404|43405|43406</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_x">
+	<string-array name="smssdk_country_group_x">
 		<item>西班牙,34,11,21402|21401|21423|21411|21422|21410|21421|21432|21420|21409|21408|21419|21407|21418|21417|21406|21405|21427|21416|21404|21415|21425|21403</item>
 		<item>希腊,30,7,20203|20202|20201|20210|20209|20207|20205</item>
 		<item>香港,852,168,45413|45412|45401|45404|45403|45414|45400|45411|45409|45406|45405|45416|45408|45419|45429|45407</item>
@@ -273,7 +273,7 @@
 		<item>叙利亚,963,177,41701|41702</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_y">
+	<string-array name="smssdk_country_group_y">
 		<item>牙买加,1876,216,338180|338020|338110</item>
 		<item>亚美尼亚,374,119,28301|28310|28305|28304</item>
 		<item>也门,967,181,42101|42102|42103</item>
@@ -288,7 +288,7 @@
 		<item>越南,84,41,45204|45205|45202|45201|45207</item>
     </string-array>
     
-	<string-array tv_name="smssdk_country_group_z">
+	<string-array name="smssdk_country_group_z">
 		<item>赞比亚,260,92,64502|64501|64503</item>
 		<item>泽西,44,18,</item>
 		<item>乍得,235,70,62201|62203</item>
