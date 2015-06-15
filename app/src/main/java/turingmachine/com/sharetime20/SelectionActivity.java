@@ -10,6 +10,7 @@ import com.thinkland.sdk.util.CommonFun;
 import cn.smssdk.SMSSDK;
 import netconnection.Config;
 import turingmachine.com.sharetime20.captcha.RegisterActivity;
+import turingmachine.com.sharetime20.subcontacts.ContactInfoActivity;
 
 
 public class SelectionActivity extends Activity {

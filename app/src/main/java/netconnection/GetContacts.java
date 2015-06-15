@@ -43,7 +43,7 @@ public class GetContacts {
             public void onSuccess(String t) {
 
                 try {
-                    System.out.println(t);
+//                    System.out.println(t);
 
                     JSONObject return_info=new JSONObject(t);
                     JSONArray json_contacts=return_info.getJSONArray(Config.KEY_CONTACTS);

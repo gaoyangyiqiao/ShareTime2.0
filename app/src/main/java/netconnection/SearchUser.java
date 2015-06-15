@@ -35,7 +35,7 @@ public class SearchUser {
 
             @Override
             public void onSuccess(String o) {
-                System.out.println(o);
+//                System.out.println(o);
                 List<ContactPO> list=new ArrayList<>();
                 try {
                     list.clear();

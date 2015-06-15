@@ -56,7 +56,7 @@ public class ContactInfoFragment extends Fragment {
         schedule= (BootstrapButton) getActivity().findViewById(R.id.btn_schedule_in_contactinfo);
         icon= (ImageView) getActivity().findViewById(R.id.iv_icon_in_contactinfo);
         //TODO 未处理头像
-        tv_account.setText(id);
+        tv_account.setText(id+"");
         tv_name.setText(name);
     }
 }

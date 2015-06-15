@@ -26,7 +26,7 @@ public class AddActivity {
             @Override
             public void onSuccess(String o) {
                 try {
-                    System.out.println("---->>>>"+o);
+//                    System.out.println("---->>>>"+o);
                     JSONObject result=new JSONObject(o);
                     String activity_id=result.getString(Config.KEY_ACTIVITY_ID);
 

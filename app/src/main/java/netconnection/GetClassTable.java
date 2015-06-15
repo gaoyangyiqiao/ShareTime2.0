@@ -35,7 +35,7 @@ public class GetClassTable {
             public void onSuccess(String o) {
                 try {
 //                    System.out.println(params);
-                    System.out.println(o);
+//                    System.out.println(o);
                     ArrayList<ClassPO> all_classes=new ArrayList<ClassPO>();
                     JSONObject object=new JSONObject(o);
                     JSONArray classes=object.getJSONArray(Config.KEY_CLASSES);
