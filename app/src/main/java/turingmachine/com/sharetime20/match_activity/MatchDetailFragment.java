@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -31,6 +30,7 @@ public class MatchDetailFragment extends Fragment {
     private ListView lv_contacts;
     private MatchChooseContactAdapter matchChooseContactAdapter;
     private List<ContactPO> list;
+    public static List<ContactPO> selectedList=new ArrayList<>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +40,7 @@ public class MatchDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        selectedList.clear();
         return inflater.inflate(R.layout.fragment_match_detail, container, false);
 
     }
@@ -63,6 +64,11 @@ public class MatchDetailFragment extends Fragment {
         test.setId(2);
         test.setPhone("123456");
         list.add(test2);
+
+        ContactPO test3=new ContactPO("Three");
+        test.setId(3);
+        test.setPhone("123456");
+        list.add(test3);
 
         matchChooseContactAdapter=new MatchChooseContactAdapter(list,getActivity());
         lv_contacts= (ListView) getActivity().findViewById(R.id.lv_contacts_in_matchdetailfragment);
@@ -126,5 +132,11 @@ public class MatchDetailFragment extends Fragment {
             }
         }
         return mSearchList;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        selectedList.clear();
     }
 }

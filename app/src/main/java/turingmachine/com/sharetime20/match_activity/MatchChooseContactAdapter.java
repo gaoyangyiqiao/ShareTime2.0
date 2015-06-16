@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import po.ContactPO;
@@ -25,17 +27,12 @@ public class MatchChooseContactAdapter extends BaseAdapter{
 
     private List<ContactPO> lists;
     private Context context;
-    //保存选择的联系人
-    private List<ContactPO> selectedContacts=new ArrayList<>();
-
+    private HashMap<Integer,Boolean> checker;
     public MatchChooseContactAdapter(List<ContactPO> lists,Context context){
         this.lists=lists;
         this.context=context;
+        checker=new HashMap<>();
 
-    }
-
-    public List<ContactPO> getSelectedContacts() {
-        return selectedContacts;
     }
 
     @Override
@@ -50,14 +47,14 @@ public class MatchChooseContactAdapter extends BaseAdapter{
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return lists.get(position).getId();
     }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         //即使数据量非常庞大也不会卡顿
-        ViewHolder holder;
+        final ViewHolder holder;
         if(convertView==null){
             convertView= LayoutInflater.from(context).inflate(R.layout.match_choose_contact_listview_cell,null);
             holder=new ViewHolder();
@@ -65,6 +62,13 @@ public class MatchChooseContactAdapter extends BaseAdapter{
             holder.tv_name.setText(lists.get(position).getName());
             holder.imv_icon= (ImageView) convertView.findViewById(R.id.matchdetal_view_cell_iv);
             holder.cb_add= (TouchCheckBox) convertView.findViewById(R.id.matchdetail_view_cell_checkbox);
+            //如果已经选中
+//            System.out.println(getItem(position).getName()+" "+MatchDetailFragment.selectedList.contains(getItem(position)));
+            if(MatchDetailFragment.selectedList.contains(getItem(position))){
+                holder.cb_add.setChecked(true);
+            }else{
+                holder.cb_add.setChecked(false);
+            }
             holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.o));
 //            if(lists.get(position).getImageurl()!=null){
 //                try {
@@ -82,15 +86,29 @@ public class MatchChooseContactAdapter extends BaseAdapter{
             holder.tv_name.setText(lists.get(position).getName());
         }
 
-        holder.cb_add.setOnCheckedChangeListener(new TouchCheckBox.OnCheckedChangeListener() {
+//        holder.cb_add.setOnCheckedChangeListener(new TouchCheckBox.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(View buttonView, boolean isChecked) {
+//                if(isChecked){
+//                    MatchDetailFragment.selectedList.add(getItem(position));
+//                }else{
+//                    MatchDetailFragment.selectedList.remove(getItem(position));
+//                }
+//                System.out.println(MatchDetailFragment.selectedList.size());
+//            }
+//        });
+
+        holder.cb_add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(View buttonView, boolean isChecked) {
-                if(isChecked){
-                    selectedContacts.add(getItem(position));
+            public void onClick(View v) {
+                if(holder.cb_add.isChecked()){
+                    holder.cb_add.setChecked(false);
+                    MatchDetailFragment.selectedList.remove(getItem(position));
                 }else{
-                    selectedContacts.remove(getItem(position));
+                    holder.cb_add.setChecked(true);
+                    MatchDetailFragment.selectedList.add(getItem(position));
                 }
-//                System.out.println(selectedContacts.size());
+                System.out.println(MatchDetailFragment.selectedList.size());
             }
         });
 

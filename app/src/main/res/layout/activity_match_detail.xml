@@ -7,32 +7,49 @@
 
     >
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/match_detail_title"
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="55dp"
         android:background="#009990" >
 
         <TextView
             android:paddingLeft="5dp"
             android:id="@+id/tv_back_in_matchdetail"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_weight="1"
             android:text="@string/textview_back"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/tv_title_in_matchdetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
             android:text="St"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_confirm_in_matchdetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingRight="10dp"
+            android:gravity="right"
+            android:text="确认"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
 
-    </RelativeLayout>
+
+    </LinearLayout>
 
     <FrameLayout
         android:layout_below="@id/match_detail_title"

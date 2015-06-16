@@ -88,4 +88,13 @@ public class ContactPO {
     public void setAccount(String account) {
         this.account = account;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof ContactPO){
+            ContactPO contactPO= (ContactPO) o;
+            return this.getId()==contactPO.getId();
+        }
+        return super.equals(o);
+    }
 }
