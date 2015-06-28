@@ -1,6 +1,8 @@
 package turingmachine.com.sharetime20.match_activity;
 
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.text.Editable;
@@ -10,16 +12,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import po.ContactPO;
 import turingmachine.com.sharetime20.R;
+import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
+import turingmachine.com.sharetime20.androidbootstrap.BootstrapEditText;
 
 
 public class MatchDetailFragment extends Fragment {
@@ -31,6 +39,10 @@ public class MatchDetailFragment extends Fragment {
     private MatchChooseContactAdapter matchChooseContactAdapter;
     private List<ContactPO> list;
     public static List<ContactPO> selectedList=new ArrayList<>();
+    private TimePickerDialog timePickerDialog;
+    private DatePickerDialog datePickerDialog;
+    private BootstrapButton chooseEndDate;
+    private BootstrapButton chooseBeginDate;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +132,41 @@ public class MatchDetailFragment extends Fragment {
                 return false;
             }
         });
+        int hoursofday= Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        int minute=Calendar.getInstance().get(Calendar.MINUTE);
+        int year=Calendar.getInstance().get(Calendar.YEAR);
+        int month=Calendar.getInstance().get(Calendar.MONTH);
+        int day=Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        chooseBeginDate=(BootstrapButton)getActivity().findViewById(R.id.btn_begintime_in_matchdetail);
+        chooseEndDate=(BootstrapButton)getActivity().findViewById(R.id.btn_endtime_in_matchdetail);
+
+        datePickerDialog=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                chooseBeginDate.setText("开始时间："+(year)+ "/"+(monthOfYear+1)+"/"+ dayOfMonth);
+//                cdate=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
+//                starttime=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
+//                endtime=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
+            }
+        },year,month,day);
+
+        final BootstrapButton button=(BootstrapButton)getActivity().findViewById(R.id.confirm);
+        chooseBeginDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerDialog.show();
+
+            }
+        });
+        chooseEndDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerDialog.show();
+
+            }
+        });
+
+
     }
     //搜索
     public List<ContactPO> searchItem(String name) {

@@ -125,8 +125,6 @@ public class NewActivityFragment extends Fragment {
                     c2.setTime(endtime);
                    BootstrapButton b=(BootstrapButton)getActivity().findViewById(R.id.jump);
                     b.setTag(new WeekViewEvent(0,content,c1,c2));
-
-
                 }
                 else{
                     LayoutInflater li = LayoutInflater.from(getActivity());
