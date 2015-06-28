@@ -120,6 +120,7 @@ public class DefaultContactViewItem implements cn.smssdk.gui.ContactItemMaker {
 
 				@Override
 				public void onClick(View v) {
+                    //TODO 处理添加联系人点击事件
 					if(user.containsKey("fia")){
 						// 在这里添加第一组的按钮事件
 						Toast.makeText(parent.getContext(), String.valueOf(user), Toast.LENGTH_SHORT).show();

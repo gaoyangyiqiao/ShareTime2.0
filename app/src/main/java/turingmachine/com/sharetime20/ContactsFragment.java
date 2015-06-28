@@ -24,6 +24,7 @@ import po.ContactPO;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
 import turingmachine.com.sharetime20.subcontacts.AddContactActivity;
 import turingmachine.com.sharetime20.subcontacts.ContactInfoActivity;
+import turingmachine.com.sharetime20.subcontacts.ContactInfoFragment;
 import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
 /**
@@ -38,6 +39,8 @@ public class ContactsFragment extends Fragment {
     private ContactsListAdapter contactsListAdapter;
     //包含所有联系人
     private List<ContactPO> contacts;
+    //保存所有联系人的id
+    public static final ArrayList<Integer> id_list=new ArrayList<>();
 
     private ContactsController contactsController;
 
@@ -135,7 +138,10 @@ public class ContactsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i=new Intent(getActivity(),ContactInfoActivity.class);
-                i.putExtra("id",((ContactPO)contactsListAdapter.getItem(position)).getId());
+                i.putExtra("id",(contactsListAdapter.getItem(position)).getId());
+                i.putExtra("isFromPhone", ContactInfoFragment.NOT_FROM_PHONE);
+                i.putExtra("name",contactsListAdapter.getItem(position).getName());
+                i.putExtra("img",contactsListAdapter.getItem(position).getImageurl());
                 startActivity(i);
             }
         });

@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dip"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="#ff000000"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,14 +46,14 @@
                     android:layout_height="wrap_content"
                     android:text="account:"
                     android:textSize="14sp"
-                    android:textColor="#ff000000"/>
+                    android:textColor="@color/grey"/>
                 <TextView
                     android:id="@+id/tv_account_in_contactinfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dip"
                     android:textSize="14sp"
-                    android:textColor="#ff000000"/>
+                    android:textColor="@color/grey"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -90,6 +90,21 @@
         android:layout_marginLeft="16dip"
         android:layout_marginRight="16dip"
         android:text="新建匹配"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/smssdk_btn_enable"/>
+
+    <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
+        android:id="@+id/btn_add_friend_in_contactinfo"
+        android:layout_width="match_parent"
+        bootstrapbutton:bb_roundedCorners="true"
+        bootstrapbutton:bb_type="primary"
+        android:layout_height="48dip"
+        android:layout_marginTop="13dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:visibility="invisible"
+        android:text="添加好友"
         android:textSize="16sp"
         android:textColor="#ffffff"
         android:background="@drawable/smssdk_btn_enable"/>

@@ -16,6 +16,7 @@ import java.util.List;
 import adapter.ContactsListAdapter;
 import po.ContactPO;
 import tools.CharacterParser;
+import turingmachine.com.sharetime20.ContactsFragment;
 
 /**
  * Created by gaoyang on 15/4/1.
@@ -52,7 +53,7 @@ public class GetContacts {
                         ContactPO contact=new ContactPO(obj.getString(Config.KEY_NAME));
                         contact.setId(obj.getInt(Config.KEY_ID));
                         //TODO 此时存储的为服务器地址，后期需要下载到本地
-                        contact.setImageurl(obj.getString(Config.KEY_IMG));
+                        contact.setImageurl(obj.getString(Config.KEY_PHOTO_PATH));
                         contact.setPhone(obj.getString(Config.KEY_PHONE));
 
                         //设置首字母
@@ -64,7 +65,7 @@ public class GetContacts {
                         }else{
                             contact.setSortLetters("#");
                         }
-
+                        ContactsFragment.id_list.add(contact.getId());
                         list.add(contact);
                         adapter.getLists().add(contact);
                         if(list.size()!=0)

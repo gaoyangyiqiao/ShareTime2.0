@@ -29,13 +29,11 @@ import turingmachine.com.sharetime20.R;
 public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
     private List<ContactPO> lists=new ArrayList<>();
     private Context context;
-    private LinearLayout layout;
 
     public ContactsListAdapter(List<ContactPO> lists, Context context){
 
         lists.addAll(lists);
-//        this.lists=lists;
-//        notifyDataSetChanged();
+
         this.context=context;
 
     }
@@ -67,6 +65,9 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
             holder.tv_name= (TextView) convertView.findViewById(R.id.contacts_view_cell_tv_name);
             holder.tv_name.setText(lists.get(position).getName());
             holder.imv_icon= (ImageView) convertView.findViewById(R.id.contacts_view_cell_imv_icon);
+            holder.tv_isadded= (TextView) convertView.findViewById(R.id.contacts_view_cell_tv_isadded);
+            //TODO 判断从哪个界面进入从而判断是否显示本textview
+            holder.tv_isadded.setVisibility(View.INVISIBLE);
             if(!lists.get(position).getImageurl().contains("http"))
                 holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.logo));
             if(lists.get(position).getImageurl().contains("http")){
@@ -174,6 +175,8 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
         ImageView imv_icon;
         TextView tv_catalog;
         TextView tv_name;
+        //是否已添加，已添加则显示
+        TextView tv_isadded;
     }
 }
 

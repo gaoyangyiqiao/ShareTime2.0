@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import netconnection.AddContact;
+import netconnection.Config;
+import turingmachine.com.sharetime20.ContactsFragment;
 import turingmachine.com.sharetime20.R;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
 
@@ -22,6 +25,9 @@ public class ContactInfoFragment extends Fragment {
     private ImageView icon;
     private TextView tv_name;
     private TextView tv_account;
+    private ContactInfoFragment contactInfoFragment;
+    //如果存在该联系人则不显示
+    public BootstrapButton btn_add_friend;
     private BootstrapButton btn_match;
 
 
@@ -45,7 +51,7 @@ public class ContactInfoFragment extends Fragment {
     }
 
     public void initViews(){
-        int id=getActivity().getIntent().getIntExtra("id",0);
+        final int id=getActivity().getIntent().getIntExtra("id",0);
         String name=getActivity().getIntent().getStringExtra("name");
         String img=getActivity().getIntent().getStringExtra("img");
         int isFromPhone=getActivity().getIntent().getIntExtra("isFromPhone",NOT_FROM_PHONE);
@@ -55,8 +61,24 @@ public class ContactInfoFragment extends Fragment {
         tv_account= (TextView) getActivity().findViewById(R.id.tv_account_in_contactinfo);
         schedule= (BootstrapButton) getActivity().findViewById(R.id.btn_schedule_in_contactinfo);
         icon= (ImageView) getActivity().findViewById(R.id.iv_icon_in_contactinfo);
+        btn_add_friend= (BootstrapButton) getActivity().findViewById(R.id.btn_add_friend_in_contactinfo);
+        if(ContactsFragment.id_list.size()>0&&ContactsFragment.id_list.contains(id)){
+            btn_add_friend.setVisibility(View.INVISIBLE);
+        }else{
+            btn_add_friend.setVisibility(View.VISIBLE);
+            btn_add_friend.setOnClickListener(new View.OnClickListener() {
+                //TODO 添加好友事件
+                @Override
+                public void onClick(View v) {
+                      btn_add_friend.setBootstrapButtonEnabled(false);
+                      new AddContact(Config.getCachedId(getActivity()),id+"",contactInfoFragment);
+                }
+            });
+        }
         //TODO 未处理头像
         tv_account.setText(id+"");
         tv_name.setText(name);
+
+        contactInfoFragment=this;
     }
 }
