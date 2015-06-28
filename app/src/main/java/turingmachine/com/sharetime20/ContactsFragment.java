@@ -1,5 +1,6 @@
 package turingmachine.com.sharetime20;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,14 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.ContactsFunctionAdapter;
 import adapter.ContactsListAdapter;
 import businesslogic.contactbl.ContactsController;
 import cn.smssdk.SMSSDK;
@@ -25,20 +24,19 @@ import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
 import turingmachine.com.sharetime20.subcontacts.AddContactActivity;
 import turingmachine.com.sharetime20.subcontacts.ContactInfoActivity;
 import turingmachine.com.sharetime20.subcontacts.ContactInfoFragment;
-import turingmachine.com.sharetime20.subcontacts.PhoneContactsActivity;
 
 /**
  * Created by admin on 2015/3/28.
  */
 public class ContactsFragment extends Fragment {
-//    public static List<ContactPO> contacts =new ArrayList<>();
+//  public static List<ContactPO> contacts =new ArrayList<>();
 
     private View contactsFragment;
     private SearchView searchView;
     private ListView lv_contactList;
     private ContactsListAdapter contactsListAdapter;
     //包含所有联系人
-    private List<ContactPO> contacts;
+    public static List<ContactPO> contacts;
     //保存所有联系人的id
     public static final ArrayList<Integer> id_list=new ArrayList<>();
 
@@ -72,6 +70,7 @@ public class ContactsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
+
     public void initViews(){
         searchView= (SearchView) getActivity().findViewById(R.id.sv_contacts);
         lv_contactList = (ListView) getActivity().findViewById(R.id.contacts_lv_contactlist);
@@ -99,6 +98,14 @@ public class ContactsFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onResume() {
+//        System.out.println("---->>>"+contacts.size());
+        contactsListAdapter.updateListView(contacts);
+        super.onResume();
+    }
+
 
     //TODO
     public void initContactListLv(){
@@ -145,10 +152,6 @@ public class ContactsFragment extends Fragment {
                 startActivity(i);
             }
         });
-    }
-
-    public List<ContactPO> getContacts() {
-        return contacts;
     }
 
     public ContactsListAdapter getContactsListAdapter() {

@@ -65,6 +65,7 @@ public class GetContacts {
                         }else{
                             contact.setSortLetters("#");
                         }
+                        //初始化id_list
                         ContactsFragment.id_list.add(contact.getId());
                         list.add(contact);
                         adapter.getLists().add(contact);

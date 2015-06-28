@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import netconnection.AddContact;
 import netconnection.Config;
+import po.ContactPO;
 import turingmachine.com.sharetime20.ContactsFragment;
 import turingmachine.com.sharetime20.R;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
@@ -30,6 +31,7 @@ public class ContactInfoFragment extends Fragment {
     public BootstrapButton btn_add_friend;
     private BootstrapButton btn_match;
 
+    public ContactsFragment contactsFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
