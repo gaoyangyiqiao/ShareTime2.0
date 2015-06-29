@@ -25,6 +25,8 @@ public class Match {
         params.put(Config.KEY_ACTION,Config.ACTION_MATCH);
         params.put(Config.KEY_USER_ID,user_id);
         params.put(Config.KEY_USER_ID_ARRAY,user_id_array);
+        params.put(Config.KEY_BEGIN_TIME,begin_time);
+        params.put(Config.KEY_END_TIME,end_time);
 
         FinalHttp finalHttp=new FinalHttp();
         finalHttp.post(Config.URL,params,new AjaxCallBack<String>() {

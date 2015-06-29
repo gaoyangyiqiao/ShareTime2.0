@@ -54,7 +54,6 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         //即使数据量非常庞大也不会卡顿
         ViewHolder holder;
         if(convertView==null){

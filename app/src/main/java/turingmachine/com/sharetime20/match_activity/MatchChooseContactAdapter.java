@@ -52,12 +52,13 @@ public class MatchChooseContactAdapter extends BaseAdapter{
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-
+          //TODO 不能解决listview记录选择位置的缺点
         //即使数据量非常庞大也不会卡顿
         final ViewHolder holder;
         if(convertView==null){
             convertView= LayoutInflater.from(context).inflate(R.layout.match_choose_contact_listview_cell,null);
             holder=new ViewHolder();
+
             holder.tv_name= (TextView) convertView.findViewById(R.id.matchdetal_view_cell_tv_name);
             holder.tv_name.setText(lists.get(position).getName());
             holder.imv_icon= (ImageView) convertView.findViewById(R.id.matchdetal_view_cell_iv);
@@ -65,6 +66,7 @@ public class MatchChooseContactAdapter extends BaseAdapter{
             //如果已经选中
 //            System.out.println(getItem(position).getName()+" "+MatchDetailFragment.selectedList.contains(getItem(position)));
             if(MatchDetailFragment.selectedList.contains(getItem(position))){
+                System.out.println(getItem(position).getName());
                 holder.cb_add.setChecked(true);
             }else{
                 holder.cb_add.setChecked(false);
@@ -83,6 +85,11 @@ public class MatchChooseContactAdapter extends BaseAdapter{
 
         }else{
             holder= (ViewHolder) convertView.getTag();
+            if(MatchDetailFragment.selectedList.contains(getItem(position))){
+                holder.cb_add.setChecked(true);
+            }else{
+                holder.cb_add.setChecked(false);
+            }
             holder.tv_name.setText(lists.get(position).getName());
         }
 

@@ -36,7 +36,7 @@ public class ContactsFragment extends Fragment {
     private ListView lv_contactList;
     private ContactsListAdapter contactsListAdapter;
     //包含所有联系人
-    public static List<ContactPO> contacts;
+    public static List<ContactPO> contacts=new ArrayList<>();;
     //保存所有联系人的id
     public static final ArrayList<Integer> id_list=new ArrayList<>();
 
@@ -109,7 +109,6 @@ public class ContactsFragment extends Fragment {
 
     //TODO
     public void initContactListLv(){
-        contacts=new ArrayList<>();
         contactsListAdapter=new ContactsListAdapter(contacts,getActivity());
         contactsController=new ContactsController();
         contactsController.getContacts(Config.getCachedId(getActivity()), contactsListAdapter, contacts);

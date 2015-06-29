@@ -11,11 +11,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Collections;
 import java.util.List;
 
 import adapter.ContactsListAdapter;
 import po.ContactPO;
 import tools.CharacterParser;
+import tools.PinyinComparator;
+import tools.SortContactPO;
 import turingmachine.com.sharetime20.ContactsFragment;
 
 /**
@@ -26,7 +29,7 @@ public class GetContacts {
     private CharacterParser parser;
 
     public GetContacts(){
-        parser=new CharacterParser();
+        parser=CharacterParser.getInstance();
     }
 
     public void getContacts(String user_id, final ContactsListAdapter adapter,final List list){
@@ -55,23 +58,16 @@ public class GetContacts {
                         //TODO 此时存储的为服务器地址，后期需要下载到本地
                         contact.setImageurl(obj.getString(Config.KEY_PHOTO_PATH));
                         contact.setPhone(obj.getString(Config.KEY_PHONE));
-
-                        //设置首字母
-                        String pinyin = parser.getSelling(contact.getName());
-                        String sortString = pinyin.substring(0, 1).toUpperCase();
-                        // 正则表达式，判断首字母是否是英文字母
-                        if(sortString.matches("[A-Z]")){
-                            contact.setSortLetters(sortString.toUpperCase());
-                        }else{
-                            contact.setSortLetters("#");
-                        }
                         //初始化id_list
                         ContactsFragment.id_list.add(contact.getId());
                         list.add(contact);
-                        adapter.getLists().add(contact);
-                        if(list.size()!=0)
-                            adapter.notifyDataSetChanged();
+//                        adapter.getLists().add(contact);
                     }
+                    new SortContactPO().sort(list);
+                    if(list.size()!=0)
+                        adapter.addAll(list);
+                        adapter.notifyDataSetChanged();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
