@@ -12,6 +12,8 @@ import android.widget.TextView;
 import netconnection.AddContact;
 import netconnection.Config;
 import po.ContactPO;
+import tools.GetIconByLetter;
+import tools.SortContactPO;
 import turingmachine.com.sharetime20.ContactsFragment;
 import turingmachine.com.sharetime20.R;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
@@ -63,6 +65,8 @@ public class ContactInfoFragment extends Fragment {
         tv_account= (TextView) getActivity().findViewById(R.id.tv_account_in_contactinfo);
         schedule= (BootstrapButton) getActivity().findViewById(R.id.btn_schedule_in_contactinfo);
         icon= (ImageView) getActivity().findViewById(R.id.iv_icon_in_contactinfo);
+        icon.setImageDrawable(new GetIconByLetter().getIcon(getActivity(),new SortContactPO().getFirstLetter(name)));
+
         btn_add_friend= (BootstrapButton) getActivity().findViewById(R.id.btn_add_friend_in_contactinfo);
         if(ContactsFragment.id_list.size()>0&&ContactsFragment.id_list.contains(id)){
             btn_add_friend.setVisibility(View.INVISIBLE);

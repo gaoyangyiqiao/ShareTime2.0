@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -17,12 +18,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.view.View.OnClickListener;
+import android.widget.Spinner;
 
 import com.nineoldandroids.view.ViewHelper;
 
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import cn.smssdk.SMSSDK;
@@ -32,6 +35,9 @@ import netconnection.GetUserSchedule;
 import tools.GetIconByLetter;
 import tools.SortContactPO;
 import turingmachine.com.sharetime20.draglayout.DragLayout;
+import turingmachine.com.sharetime20.expandableselector.ExpandableItem;
+import turingmachine.com.sharetime20.expandableselector.ExpandableSelector;
+import turingmachine.com.sharetime20.expandableselector.OnExpandableItemClickListener;
 import turingmachine.com.sharetime20.match_activity.MatchDetailActivity;
 import turingmachine.com.sharetime20.match_activity.MatchDetailFragment;
 import turingmachine.com.sharetime20.weekview.WeekViewEvent;
@@ -63,6 +69,13 @@ public class MainActivity extends Activity implements OnClickListener{
     private ImageView iv_head_icon;
     private ImageView iv_drag_icon;
     private ListView info_list;
+
+    //下拉菜单
+//    private Spinner spinner;
+//    private ArrayList<String> spinner_list;
+//    private ArrayAdapter spinner_adapter;
+    ExpandableSelector sizesExpandableSelector;
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -81,6 +94,8 @@ public class MainActivity extends Activity implements OnClickListener{
     }
 
     private void initViews(){
+        initializeSizesExpandableSelector();
+
         contactsLayout = findViewById(R.id.tab_main_contact);
         matchLayout = findViewById(R.id.tab_main_match);
         scheduleLayout = findViewById(R.id.tab_main_schedule);
@@ -184,6 +199,7 @@ public class MainActivity extends Activity implements OnClickListener{
         switch (index) {
             case 0:
                 // 当点击了日程tab时，改变控件的图片和文字颜色
+                sizesExpandableSelector.setVisibility(View.VISIBLE);
                 iv_schedule.setImageResource(R.drawable.tab_schedule_pressed);
 //                tv_schedule.setTextColor(Color.WHITE);
                 if (scheduleFragment == null) {
@@ -197,6 +213,7 @@ public class MainActivity extends Activity implements OnClickListener{
                 }
                 break;
             case 1:
+                sizesExpandableSelector.setVisibility(View.INVISIBLE);
                 // 当点击了匹配tab时，改变控件的图片和文字颜色
                 iv_match.setImageResource(R.drawable.tab_match_pressed);
 //                tv_match.setTextColor(Color.WHITE);
@@ -210,6 +227,7 @@ public class MainActivity extends Activity implements OnClickListener{
                 }
                 break;
             case 2:
+                sizesExpandableSelector.setVisibility(View.INVISIBLE);
                 // 当点击了联系人tab时，改变控件的图片和文字颜色
                 iv_contacts.setImageResource(R.drawable.tab_contacts_pressed);
 //                tv_contacts.setTextColor(Color.WHITE);
@@ -236,7 +254,7 @@ public class MainActivity extends Activity implements OnClickListener{
         //以下缺少字体颜色的设定
     }
     public void  b(View view) {
-
+        sizesExpandableSelector.setVisibility(View.INVISIBLE);
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame, toDoListFragment2);
         fragmentTransaction.commit();
@@ -266,7 +284,7 @@ public class MainActivity extends Activity implements OnClickListener{
 //        fragmentTransaction.commit();
     }
     public void a(View view) {
-
+        sizesExpandableSelector.setVisibility(View.VISIBLE);
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame,scheduleFragment2);
         fragmentTransaction.commit();
@@ -301,6 +319,91 @@ public class MainActivity extends Activity implements OnClickListener{
         if(scheduleFragment != null){
             fragmentTransaction.hide(scheduleFragment);
         }
+    }
+
+    private void initializeSizesExpandableSelector() {
+        sizesExpandableSelector = (ExpandableSelector) findViewById(R.id.es_sizes);
+        List<ExpandableItem> expandableItems = new ArrayList<ExpandableItem>();
+        expandableItems.add(new ExpandableItem("0"));//今天
+        expandableItems.add(new ExpandableItem("L"));//一天
+        expandableItems.add(new ExpandableItem("M"));//三天
+        expandableItems.add(new ExpandableItem("S"));//一周
+        sizesExpandableSelector.showExpandableItems(expandableItems);
+        sizesExpandableSelector.setOnExpandableItemClickListener(new OnExpandableItemClickListener() {
+            @Override public void onExpandableItemClickListener(int index, View view) {
+                ExpandableItem item=new ExpandableItem();
+                switch (index) {
+                    case 0:
+                        break;
+                    case 1:
+                        item= sizesExpandableSelector.getExpandableItem(1);
+//                        System.out.println(firstItem.getTitle());
+                        swipeFirstItem(1, item);
+                        break;
+                    case 2:
+                        item = sizesExpandableSelector.getExpandableItem(2);
+                        swipeFirstItem(2, item);
+                        break;
+                    case 3:
+                        item = sizesExpandableSelector.getExpandableItem(3);
+                        swipeFirstItem(3, item);
+                        break;
+                    default:
+                        break;
+                }
+                if(item.getTitle()!=null)
+                switch (item.getTitle()){
+                    case "0":
+                        scheduleFragment2.getmWeekView().goToToday();
+                        break;
+                    case "S":
+                        if (scheduleFragment2.mWeekViewType != ScheduleFragment.TYPE_DAY_VIEW) {
+//                            item.setChecked(!item.isChecked());
+                            scheduleFragment2.mWeekViewType  = ScheduleFragment.TYPE_DAY_VIEW;
+                            scheduleFragment2.getmWeekView().setNumberOfVisibleDays(1);
+
+                            // Lets change some dimensions to best fit the draglayout.
+                            scheduleFragment2.getmWeekView().setColumnGap((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()));
+                            scheduleFragment2.getmWeekView().setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
+                            scheduleFragment2.getmWeekView().setEventTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
+                        }
+                        break;
+                    case "M":
+                        if (scheduleFragment2.mWeekViewType != ScheduleFragment.TYPE_THREE_DAY_VIEW) {
+//                            item.setChecked(!item.isChecked());
+                            scheduleFragment2.mWeekViewType = ScheduleFragment.TYPE_THREE_DAY_VIEW;
+                            scheduleFragment2.getmWeekView().setNumberOfVisibleDays(3);
+
+                            // Lets change some dimensions to best fit the draglayout.
+                            scheduleFragment2.getmWeekView().setColumnGap((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()));
+                            scheduleFragment2.getmWeekView().setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
+                            scheduleFragment2.getmWeekView().setEventTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
+                        }
+                        break;
+                    case "L":
+                        if (scheduleFragment2.mWeekViewType != ScheduleFragment.TYPE_WEEK_VIEW) {
+//                            item.setChecked(!item.isChecked());
+                            scheduleFragment2.mWeekViewType = ScheduleFragment.TYPE_WEEK_VIEW;
+                            scheduleFragment2.getmWeekView().setNumberOfVisibleDays(7);
+
+                            // Lets change some dimensions to best fit the draglayout.
+                            scheduleFragment2.getmWeekView().setColumnGap((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics()));
+                            scheduleFragment2.getmWeekView().setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
+                            scheduleFragment2.getmWeekView().setEventTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                sizesExpandableSelector.collapse();
+            }
+
+            private void swipeFirstItem(int position, ExpandableItem clickedItem) {
+                ExpandableItem firstItem = sizesExpandableSelector.getExpandableItem(0);
+                sizesExpandableSelector.updateExpandableItem(0, clickedItem);
+                sizesExpandableSelector.updateExpandableItem(position, firstItem);
+            }
+        });
     }
 
 
