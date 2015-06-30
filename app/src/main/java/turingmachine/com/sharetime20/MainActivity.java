@@ -29,6 +29,8 @@ import cn.smssdk.SMSSDK;
 import netconnection.Config;
 import netconnection.GetClassTable;
 import netconnection.GetUserSchedule;
+import tools.GetIconByLetter;
+import tools.SortContactPO;
 import turingmachine.com.sharetime20.draglayout.DragLayout;
 import turingmachine.com.sharetime20.match_activity.MatchDetailActivity;
 import turingmachine.com.sharetime20.match_activity.MatchDetailFragment;
@@ -86,6 +88,9 @@ public class MainActivity extends Activity implements OnClickListener{
         iv_match = (ImageView)findViewById(R.id.img_match);
         iv_schedule = (ImageView)findViewById(R.id.img_schedule);
         iv_head_icon = (ImageView) findViewById(R.id.iv_bottom);
+        if(Config.getCachedName(getApplicationContext()).length()>0){
+            iv_head_icon.setImageDrawable(new GetIconByLetter().getIcon(this,new SortContactPO().getFirstLetter(Config.getCachedName(getApplicationContext()))));
+        }
         iv_drag_icon= (ImageView) findViewById(R.id.iv_icon);
         contactsLayout.setOnClickListener(this);
         matchLayout.setOnClickListener(this);

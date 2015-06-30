@@ -1,26 +1,22 @@
 package adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import net.tsz.afinal.FinalBitmap;
 
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import po.ContactPO;
-import turingmachine.com.sharetime20.MainActivity;
+import tools.GetIconByLetter;
+import tools.SortContactPO;
 import turingmachine.com.sharetime20.R;
 
 /**
@@ -67,21 +63,23 @@ public class ContactsListAdapter extends BaseAdapter implements SectionIndexer {
             holder.tv_isadded= (TextView) convertView.findViewById(R.id.contacts_view_cell_tv_isadded);
             //TODO 判断从哪个界面进入从而判断是否显示本textview
             holder.tv_isadded.setVisibility(View.INVISIBLE);
-            if(!lists.get(position).getImageurl().contains("http"))
-                holder.imv_icon.setImageDrawable(convertView.getResources().getDrawable(R.drawable.logo));
-            if(lists.get(position).getImageurl().contains("http")){
-                try {
-                    //本地做法
-//                    FileInputStream fileInputStream=new FileInputStream(lists.get(position).getImageurl());
-//                    Bitmap bitmap= BitmapFactory.decodeStream(fileInputStream);
-//                    holder.imv_icon.setImageBitmap(bitmap);
-                    //网络做法
-                    FinalBitmap finalBitMap=FinalBitmap.create(context);
-                    finalBitMap.display(holder.imv_icon, lists.get(position).getImageurl());
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
+            //TODO 后期从服务器加载头像
+//            if(!lists.get(position).getImageurl().contains("http"))
+                holder.imv_icon.setImageDrawable(new GetIconByLetter().getIcon(convertView,new SortContactPO().getFirstLetter(holder.tv_name.getText().toString())));
+//            if(lists.get(position).getImageurl().contains("http")){
+//                try {
+//                    //本地做法
+////                    FileInputStream fileInputStream=new FileInputStream(lists.get(position).getImageurl());
+////                    Bitmap bitmap= BitmapFactory.decodeStream(fileInputStream);
+////                    holder.imv_icon.setImageBitmap(bitmap);
+//                    //网络做法
+//                    FinalBitmap finalBitMap=FinalBitmap.create(context);
+//                    finalBitMap.display(holder.imv_icon, lists.get(position).getImageurl());
+//                }catch (Exception e){
+//                    holder.imv_icon.setImageDrawable(new GetIconByLetter().getIcon(convertView,new SortContactPO().getFirstLetter(holder.tv_name.getText().toString())));
+//                    e.printStackTrace();
+//                }
+//            }
 
             convertView.setTag(holder);
 

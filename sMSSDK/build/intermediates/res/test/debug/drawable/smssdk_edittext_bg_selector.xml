@@ -6,4 +6,4 @@
     <item android:drawable="@drawable/smssdk_input_bg_focus" android:state_pressed="true"/>
     <item android:drawable="@drawable/smssdk_input_bg_focus" android:state_selected="true"/>
 
-</selector><!-- From: file:/Users/gaoyang/Desktop/ShareTime2.0/sMSSDK/src/main/res/drawable/smssdk_edittext_bg_selector.xml --><!-- From: file:/Users/gaoyang/Desktop/ShareTime2.0/sMSSDK/build/intermediates/bundles/debug/res/drawable/smssdk_edittext_bg_selector.xml -->
+</selector><!-- From: file:/Users/gaoyang/Documents/Development/ShareTime2.0/sMSSDK/src/main/res/drawable/smssdk_edittext_bg_selector.xml --><!-- From: file:/Users/gaoyang/Documents/Development/ShareTime2.0/sMSSDK/build/intermediates/bundles/debug/res/drawable/smssdk_edittext_bg_selector.xml -->
