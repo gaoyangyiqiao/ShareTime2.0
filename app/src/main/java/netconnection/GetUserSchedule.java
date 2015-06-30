@@ -66,17 +66,12 @@ public class GetUserSchedule {
                         ActivityPO activity=new ActivityPO(id,theme,content,founder,
                                 start_time,end_time,contacts_id,right);
                         schedule.getActivityList().add(activity);
-                      //  c1.set(Calendar.HOUR_OF_DAY, 3);
-                     //   c1.set(Calendar.MINUTE, 0);
-                      //  c1.set(Calendar.MONTH, newMonth-1);
-                    //    c1.set(Calendar.YEAR, newYear);
+
                         eventlist.add(new WeekViewEvent(Integer.parseInt(id), content, c1, c2));
-//                       System.out.println("Add weekevent " + content);
-//                        System.out.println("start time : "+start_time);
-//                        System.out.println("end time : "+end_time_str);
+
                     }
 
-                    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
+                    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                     schedule.setStartTime(dateFormat.parse(userSchedule.getString(Config.KEY_BEGIN_TIME)));
                     schedule.setLength(userSchedule.getInt(Config.KEY_SIZE));
 //                    System.out.println("start addEvent!");

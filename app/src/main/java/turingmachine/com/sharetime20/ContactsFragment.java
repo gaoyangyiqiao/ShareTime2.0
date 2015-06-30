@@ -70,6 +70,12 @@ public class ContactsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        contacts.clear();
+        id_list.clear();
+    }
 
     public void initViews(){
         searchView= (SearchView) getActivity().findViewById(R.id.sv_contacts);

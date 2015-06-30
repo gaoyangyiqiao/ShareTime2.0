@@ -65,23 +65,14 @@ public class MatchDetailFragment extends Fragment {
         lv_contacts.setAdapter(matchChooseContactAdapter);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        selectedList.clear();
+    }
+
     public void initViews(){
-//        list=new ArrayList<ContactPO>();
-//
-//        ContactPO test=new ContactPO("Han");
-//        test.setId(1);
-//        test.setPhone("123456");
-//        list.add(test);
-//
-//        ContactPO test2=new ContactPO("One");
-//        test.setId(2);
-//        test.setPhone("123456");
-//        list.add(test2);
-//
-//        ContactPO test3=new ContactPO("Three");
-//        test.setId(3);
-//        test.setPhone("123456");
-//        list.add(test3);
+
         //TODO 此处如果没有打开过联系人界面可能还不存在联系人
         list=new ArrayList<>();
         list.addAll(ContactsFragment.contacts);

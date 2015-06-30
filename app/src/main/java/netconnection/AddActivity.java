@@ -26,6 +26,7 @@ public class AddActivity {
             @Override
             public void onSuccess(String o) {
                 try {
+                    System.out.println(params);
 //                    System.out.println("---->>>>"+o);
                     JSONObject result=new JSONObject(o);
                     String activity_id=result.getString(Config.KEY_ACTIVITY_ID);
@@ -40,7 +41,7 @@ public class AddActivity {
                 System.out.println("---->>>>"+"net.error in addActivity");
             }
         });
-        System.out.println("add activity :"+user_id+"  "+begin_time);
+//        System.out.println("add activity :"+user_id+"  "+begin_time);
 
     }
 }
