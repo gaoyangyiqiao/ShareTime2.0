@@ -43,7 +43,7 @@ public class Match {
             @Override
             public void onSuccess(String result) {
                 try {
-//                    System.out.println(result);
+                   System.out.println(result);
 
                     JSONObject jsonObject=new JSONObject(result);
                     JSONObject userSchedule=jsonObject.getJSONObject(Config.KEY_COMMON_FREE_SCHEDULE);
@@ -71,15 +71,14 @@ public class Match {
                                 start_time,end_time,contacts_id,right);
 
                         eventlist.add(new WeekViewEvent(Integer.parseInt(id), content, c1, c2));
-                        System.out.println("match activity :"+content+"#"+c1.toString()+"#"+c2.toString());
+                      //  System.out.println("match activity :"+content+"#"+c1.toString()+"#"+c2.toString());
                     }
 
                     SimpleDateFormat dateFormat=new SimpleDateFormat(Config.DATE_PATTERN);
                    scheduleFragment.addEvent(eventlist);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (ParseException e) {
+                    System.out.println("event size :"+eventlist.size());
+                } catch (Exception e) {
+                    System.out.println("---->>>>>Net.Error int match");
                     e.printStackTrace();
                 }
             }

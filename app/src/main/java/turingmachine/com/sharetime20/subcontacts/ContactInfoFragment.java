@@ -59,10 +59,12 @@ public class ContactInfoFragment extends Fragment {
         String img=getActivity().getIntent().getStringExtra("img");
         int isFromPhone=getActivity().getIntent().getIntExtra("isFromPhone",NOT_FROM_PHONE);
 
-        btn_match= (BootstrapButton) getActivity().findViewById(R.id.btn_match_in_contactinfo);
+       // btn_match= (BootstrapButton) getActivity().findViewById(R.id.btn_match_in_contactinfo);
         tv_name= (TextView) getActivity().findViewById(R.id.tv_name_in_contactinfo);
         tv_account= (TextView) getActivity().findViewById(R.id.tv_account_in_contactinfo);
-        schedule= (BootstrapButton) getActivity().findViewById(R.id.btn_schedule_in_contactinfo);
+//        schedule= (BootstrapButton) getActivity().findViewById(R.id.btn_schedule_in_contactinfo);
+//        System.out.println("contact id "+id);
+//        schedule.setTag(id);
         icon= (ImageView) getActivity().findViewById(R.id.iv_icon_in_contactinfo);
         icon.setImageDrawable(new GetIconByLetter().getIcon(getActivity(),new SortContactPO().getFirstLetter(name)));
 

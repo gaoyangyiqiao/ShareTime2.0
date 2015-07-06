@@ -75,6 +75,7 @@
             android:id="@+id/btn_schedule_in_contactinfo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:onClick="toSchedule"
             android:text="查看日程"
             />
 
@@ -90,6 +91,7 @@
         android:layout_marginLeft="16dip"
         android:layout_marginRight="16dip"
         android:text="新建匹配"
+        android:onClick="bMatch"
         android:textSize="16sp"
         android:textColor="#ffffff"
         android:background="@drawable/smssdk_btn_enable"/>
