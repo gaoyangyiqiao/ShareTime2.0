@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.graphics.RectF;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -199,8 +200,6 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         }
         mWeekView.notifyDatasetChanged();
 
-
-
     }
     public void add(WeekViewEvent w){
         list.add(w);
@@ -209,6 +208,11 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         mWeekView.notifyDatasetChanged();
 
 //        System.out.println("重绘之后 size"+mWeekView.size());
+    }
+    public void resetActivity(ArrayList<WeekViewEvent> list){
+        this.list=list;
+        mWeekView.notifyDatasetChanged();
+
     }
 }
 

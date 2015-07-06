@@ -137,7 +137,7 @@ public class MatchDetailFragment extends Fragment {
         int year=Calendar.getInstance().get(Calendar.YEAR);
         int month=Calendar.getInstance().get(Calendar.MONTH);
         int day=Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        chooseBeginDate=(BootstrapButton)getActivity().findViewById(R.id.btn_begintime_in_matchdetail);
+        chooseBeginDate=(BootstrapButton)this.getActivity().findViewById(R.id.btn_begintime_in_matchdetail);
         chooseEndDate=(BootstrapButton)getActivity().findViewById(R.id.btn_endtime_in_matchdetail);
 
         datePickerDialog=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {

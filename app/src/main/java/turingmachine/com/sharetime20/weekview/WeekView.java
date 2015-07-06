@@ -683,7 +683,6 @@ public class WeekView extends View {
             mEventRects = new ArrayList<EventRect>();
         if (mMonthChangeListener == null && !isInEditMode())
             throw new IllegalStateException("You must provide a MonthChangeListener");
-
         // If a refresh was requested then reset some variables.
         if (mRefreshEvents) {
             mEventRects.clear();

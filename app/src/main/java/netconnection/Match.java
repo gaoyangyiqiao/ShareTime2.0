@@ -27,7 +27,7 @@ public class Match {
         params.put(Config.KEY_USER_ID_ARRAY,user_id_array);
 
         FinalHttp finalHttp=new FinalHttp();
-        finalHttp.post(Config.URL,params,new AjaxCallBack<String>() {
+        finalHttp.post(Config.URL,params,new AjaxCllBack<String>() {
             @Override
             public boolean isProgress() {
                 return super.isProgress();
