@@ -13,7 +13,7 @@ public class Config {
     //日期的格式
     public static final String DATE_PATTERN="yyyy-MM-dd hh:mm:ss";
     //the test server url
-    public final static String URL="http://192.168.1.125:3306/sharetimedb/real_index.php";
+    public final static String URL="http://192.168.2.125:3306/sharetimedb/real_index.php";
     //the SAE server url
 //    public final static String URL="http://sharetime.sinaapp.com";
     public static final String KEY_TOKEN="token";

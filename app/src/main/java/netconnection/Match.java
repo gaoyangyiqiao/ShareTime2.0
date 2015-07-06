@@ -29,7 +29,7 @@ public class Match {
         params.put(Config.KEY_END_TIME,end_time);
 
         FinalHttp finalHttp=new FinalHttp();
-        finalHttp.post(Config.URL,params,new AjaxCllBack<String>() {
+        finalHttp.post(Config.URL,params,new AjaxCallBack<String>() {
             @Override
             public boolean isProgress() {
                 return super.isProgress();

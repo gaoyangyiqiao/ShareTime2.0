@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.graphics.RectF;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
@@ -28,7 +29,7 @@ import turingmachine.com.sharetime20.weekview.WeekViewEvent;
  * 这个类用于管理schedule界面
  */
 public class ScheduleFragment extends Fragment implements WeekView.MonthChangeListener,
-        WeekView.EventClickListener, WeekView.EventLongPressListener {
+        WeekView.EventClickListener, WeekView.EventLongPressListener,WeekView.EmptyViewLongPressListener,WeekView.EmptyViewClickListener {
     public static final int TYPE_DAY_VIEW = 1;
     public static final int TYPE_THREE_DAY_VIEW = 2;
     public static final int TYPE_WEEK_VIEW = 3;
@@ -63,6 +64,10 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
         // Set long press listener for events.
         mWeekView.setEventLongPressListener(this);
+
+        //Set emptyView click-listener
+        mWeekView.setEmptyViewClickListener(this);
+        mWeekView.setEmptyViewLongPressListener(this);
 
         // Set up a date time interpreter to interpret how the date and time will be formatted in
         // the week draglayout. This is optional.
@@ -184,12 +189,12 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
     @Override
     public void onEventClick(WeekViewEvent event, RectF eventRect) {
-      //  Toast.makeText(MainActivity.this, "Clicked " + event.getName(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Clicked " + event.getName(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onEventLongPress(WeekViewEvent event, RectF eventRect) {
-       // Toast.makeText(MainActivity.this, "Long pressed event: " + event.getName(), Toast.LENGTH_SHORT).show();
+       Toast.makeText(getActivity(), "Long pressed event: " + event.getName(), Toast.LENGTH_SHORT).show();
     }
     public void addEvent(ArrayList<WeekViewEvent> weekViewEvent){
 
@@ -234,7 +239,15 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
     }
 
 
+    @Override
+    public void onEmptyViewLongPress(Calendar time) {
+        Toast.makeText(getActivity(),"emptyView LoingClicked"+time.getTime().toString(),Toast.LENGTH_LONG).show();
+    }
 
+    @Override
+    public void onEmptyViewClicked(Calendar time) {
+        Toast.makeText(getActivity(),"emptyView clicked"+time.getTime().toString(),Toast.LENGTH_LONG).show();
+    }
 }
 
 
