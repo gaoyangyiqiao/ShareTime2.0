@@ -29,10 +29,10 @@ import turingmachine.com.sharetime20.weekview.WeekViewEvent;
  */
 public class ScheduleFragment extends Fragment implements WeekView.MonthChangeListener,
         WeekView.EventClickListener, WeekView.EventLongPressListener {
-    private static final int TYPE_DAY_VIEW = 1;
-    private static final int TYPE_THREE_DAY_VIEW = 2;
-    private static final int TYPE_WEEK_VIEW = 3;
-    private int mWeekViewType = TYPE_THREE_DAY_VIEW;
+    public static final int TYPE_DAY_VIEW = 1;
+    public static final int TYPE_THREE_DAY_VIEW = 2;
+    public static final int TYPE_WEEK_VIEW = 3;
+    public int mWeekViewType = TYPE_THREE_DAY_VIEW;
     private WeekView mWeekView;
     private ArrayList<WeekViewEvent> list=new ArrayList<>();
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -209,11 +209,32 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
 //        System.out.println("重绘之后 size"+mWeekView.size());
     }
+
     public void resetActivity(ArrayList<WeekViewEvent> list){
         this.list=list;
         mWeekView.notifyDatasetChanged();
 
     }
+
+
+    public static int getTypeWeekView() {
+        return TYPE_WEEK_VIEW;
+    }
+
+    public int getmWeekViewType() {
+        return mWeekViewType;
+    }
+
+    public void setmWeekViewType(int mWeekViewType) {
+        this.mWeekViewType = mWeekViewType;
+    }
+
+    public WeekView getmWeekView() {
+        return mWeekView;
+    }
+
+
+
 }
 
 

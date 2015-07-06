@@ -403,7 +403,7 @@ public class FontAwesome {
         faMap.put("fa-pied-piper", "\uf1a7");
         faMap.put("fa-pied-piper-alt", "\uf1a8");
         faMap.put("fa-pinterest", "\uf0d2");
-        faMap.put("fa-pinterest-p", "\uf231");
+        faMap.put("fa-pinterest-P", "\uf231");
         faMap.put("fa-pinterest-square", "\uf0d3");
         faMap.put("fa-plane", "\uf072");
         faMap.put("fa-play", "\uf04b");

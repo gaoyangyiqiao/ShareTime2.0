@@ -1081,10 +1081,10 @@ public class WeekView extends View {
     /**
      * Set the first day of the week. First day of the week is used only when the week draglayout is first
      * drawn. It does not of any effect after user starts scrolling horizontally.
-     * <p>
+     * <P>
      *     <b>Note:</b> This method will only work if the week draglayout is set to display more than 6 days at
      *     once.
-     * </p>
+     * </P>
      * @param firstDayOfWeek The supported values are {@link java.util.Calendar#SUNDAY},
      * {@link java.util.Calendar#MONDAY}, {@link java.util.Calendar#TUESDAY},
      * {@link java.util.Calendar#WEDNESDAY}, {@link java.util.Calendar#THURSDAY},
@@ -1247,9 +1247,9 @@ public class WeekView extends View {
     /**
      * Set the length of the day name displayed in the header row. Example of short day names is
      * 'M' for 'Monday' and example of long day names is 'Mon' for 'Monday'.
-     * <p>
+     * <P>
      *     <b>Note:</b> Use {@link #setDateTimeInterpreter(DateTimeInterpreter)} instead.
-     * </p>
+     * </P>
      * @param length Supported values are {@link com.alamkanak.weekview.WeekView#LENGTH_SHORT} and
      * {@link com.alamkanak.weekview.WeekView#LENGTH_LONG}.
      */

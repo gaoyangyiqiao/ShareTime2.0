@@ -96,6 +96,7 @@
                  />
         </RelativeLayout>
 
+
     <LinearLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
@@ -103,6 +104,8 @@
         android:layout_height="50dp"
         android:background="@color/light_grey"
         android:orientation="horizontal">
+
+
         <RelativeLayout
             android:id="@+id/tab_main_schedule"
             android:layout_width="0dp"
@@ -161,6 +164,7 @@
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
+
      <FrameLayout
             android:id="@+id/main_content"
             android:layout_width="match_parent"
@@ -169,5 +173,16 @@
             android:layout_below="@id/rl_title"
             android:layout_above="@id/tabs"
             />
+
+
+     <turingmachine.com.sharetime20.expandableselector.ExpandableSelector
+           android:layout_alignParentRight="true"
+           android:id="@+id/es_sizes"
+           android:layout_width="wrap_content"
+           android:layout_above="@id/tabs"
+           android:layout_height="wrap_content"
+           android:layout_margin="@dimen/expandable_selector_margin"
+      />
+
     </turingmachine.com.sharetime20.draglayout.MyRelativeLayout>
 </turingmachine.com.sharetime20.draglayout.DragLayout>

@@ -25,6 +25,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import po.ContactPO;
+import turingmachine.com.sharetime20.ContactsFragment;
 import turingmachine.com.sharetime20.R;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapEditText;
@@ -64,23 +65,17 @@ public class MatchDetailFragment extends Fragment {
         lv_contacts.setAdapter(matchChooseContactAdapter);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        selectedList.clear();
+    }
+
     public void initViews(){
-        list=new ArrayList<ContactPO>();
 
-        ContactPO test=new ContactPO("Han");
-        test.setId(1);
-        test.setPhone("123456");
-        list.add(test);
-
-        ContactPO test2=new ContactPO("One");
-        test.setId(2);
-        test.setPhone("123456");
-        list.add(test2);
-
-        ContactPO test3=new ContactPO("Three");
-        test.setId(3);
-        test.setPhone("123456");
-        list.add(test3);
+        //TODO 此处如果没有打开过联系人界面可能还不存在联系人
+        list=new ArrayList<>();
+        list.addAll(ContactsFragment.contacts);
 
         matchChooseContactAdapter=new MatchChooseContactAdapter(list,getActivity());
         lv_contacts= (ListView) getActivity().findViewById(R.id.lv_contacts_in_matchdetailfragment);
@@ -170,7 +165,7 @@ public class MatchDetailFragment extends Fragment {
     }
     //搜索
     public List<ContactPO> searchItem(String name) {
-        ArrayList<ContactPO> mSearchList = new ArrayList<ContactPO>();
+        ArrayList<ContactPO> mSearchList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             int index = list.get(i).getName().indexOf(name);
             // 存在匹配的数据

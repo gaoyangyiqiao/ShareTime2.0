@@ -12,6 +12,8 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -113,8 +115,18 @@ public class NewActivityFragment extends Fragment {
                 String content="";
                 content=editText.getText().toString();
                 if(starttime!=null&&endtime!=null) {
-//                    System.out.println("---->>>>"+starttime.toString());
-                    AddActivity addActivity = new AddActivity(Config.getCachedId(getActivity()), content, content, starttime.toString(), endtime.toString(), 0);
+                    //日期格式转换
+                    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                    String begin_time="0000:00:00 00:00:00";
+                    String end_time="0000:00:00 00:00:00";
+                    try {
+                        begin_time=dateFormat.format(starttime);
+                        end_time=dateFormat.format(endtime);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    new AddActivity(Config.getCachedId(getActivity()), content, content, begin_time, end_time, 0);
                     LayoutInflater li = LayoutInflater.from(getActivity());
                     View view = li.inflate(R.layout.activity_add_event, null);
                     new AlertDialog.Builder(getActivity()).setPositiveButton("确定", null)

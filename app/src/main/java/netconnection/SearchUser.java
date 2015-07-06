@@ -14,6 +14,7 @@ import java.util.List;
 import adapter.ContactsListAdapter;
 import po.ContactPO;
 import tools.CharacterParser;
+import tools.SortContactPO;
 
 /**
  * Created by gaoyang on 15/5/2.
@@ -48,17 +49,9 @@ public class SearchUser {
                         //TODO 此时存储的为服务器地址，后期需要下载到本地
                         contact.setImageurl(user.getString(Config.KEY_PHOTO_PATH));
                         contact.setPhone(user.getString(Config.KEY_PHONE));
-                        //设置首字母
-                        String pinyin = new CharacterParser().getSelling(contact.getName());
-                        String sortString = pinyin.substring(0, 1).toUpperCase();
-                        // 正则表达式，判断首字母是否是英文字母
-                        if(sortString.matches("[A-Z]")){
-                            contact.setSortLetters(sortString.toUpperCase());
-                        }else{
-                            contact.setSortLetters("#");
-                        }
                         list.add(contact);
                     }
+                    new SortContactPO().sort(list);
                     if(key_words==""||key_words==null)
                         list.clear();
                     adapter.updateListView(list);
