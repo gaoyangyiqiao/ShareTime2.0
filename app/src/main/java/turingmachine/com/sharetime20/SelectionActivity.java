@@ -21,7 +21,7 @@ public class SelectionActivity extends Activity {
 
         String token = Config.getCachedToken(this);
         String id = Config.getCachedId(this);
-        if (token!=null&&id!=null) {
+       if (token!=null&&id!=null) {
             Intent i =new Intent(this, MainActivity.class);
             i.putExtra(Config.KEY_TOKEN, token);
             i.putExtra(Config.KEY_PHONE_NUM, id);

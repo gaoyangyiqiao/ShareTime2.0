@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -32,6 +33,7 @@ import cn.smssdk.SMSSDK;
 import netconnection.Config;
 import netconnection.GetClassTable;
 import netconnection.GetUserSchedule;
+import po.RecordPO;
 import tools.GetIconByLetter;
 import tools.SortContactPO;
 import turingmachine.com.sharetime20.draglayout.DragLayout;
@@ -47,6 +49,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
     private  boolean IS_IN_TODOLIST=false;
 
+    private ScheduleFragment scheduleFragmentForMatch;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager2;
     private FrameLayout frame2;
@@ -98,7 +101,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
     private void initViews(){
         initializeSizesExpandableSelector();
-
+        scheduleFragmentForMatch=new ScheduleFragment();
         contactsLayout = findViewById(R.id.tab_main_contact);
         matchLayout = findViewById(R.id.tab_main_match);
         scheduleLayout = findViewById(R.id.tab_main_schedule);
@@ -269,7 +272,18 @@ public class MainActivity extends Activity implements OnClickListener{
 
     }
     public void e(View view) {
-
+    }
+    public void buildMatch(View view){
+        if(scheduleFragmentForMatch==null){
+            scheduleFragmentForMatch=new ScheduleFragment();
+        }
+        else{
+            RecordPO record=(RecordPO)view.getTag();
+            scheduleFragmentForMatch.addEvent(record.getEventList());//
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.frame,scheduleFragmentForMatch);//切换成match的结果
+            fragmentTransaction.commit();
+        }
     }
     public void f(View view) {
           Intent intent=new Intent(MainActivity.this,MatchDetailActivity.class);
