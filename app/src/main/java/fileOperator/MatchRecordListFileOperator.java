@@ -25,12 +25,13 @@ public class MatchRecordListFileOperator {
     private ObjectInputStream objectInputStream;
 
     public MatchRecordListFileOperator(){
+
     }
 
     public void saveObject(MatchRecordListPO matchRecordListPO,String filename){
         try {
             //存入数据
-            File file = new File(Environment.getExternalStorageDirectory().toString() + File.separator +"ContactBackup"+File.separator +filename);
+            File file = new File(filename);
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
@@ -38,13 +39,14 @@ public class MatchRecordListFileOperator {
             if (!file.exists()) {
                 file.createNewFile();
             }
-
+            System.out.println("write file------>>>>>>>");
             fileOutputStream= new FileOutputStream(file.toString());
             objectOutputStream= new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(matchRecordListPO);
 
         } catch (Exception e) {
             // TODO: handle exception
+            e.printStackTrace();
         }finally{
             if (objectOutputStream!=null) {
                 try {
@@ -81,7 +83,7 @@ public class MatchRecordListFileOperator {
     public MatchRecordListPO getObject(String filename) {
         MatchRecordListPO matchRecordListPO=new MatchRecordListPO();
         try {
-            File file = new File(Environment.getExternalStorageDirectory().toString() + File.separator + "ContactBackup" + File.separator + filename);
+            File file = new File(filename);
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
@@ -90,7 +92,7 @@ public class MatchRecordListFileOperator {
                 file.createNewFile();
             }
 
-
+            System.out.println("read file---->>"+file.getAbsolutePath());
             //取出数据
             fileInputStream = new FileInputStream(file.toString());
             objectInputStream = new ObjectInputStream(fileInputStream);
@@ -99,6 +101,7 @@ public class MatchRecordListFileOperator {
 
         } catch (Exception e) {
             // TODO: handle exception
+            e.printStackTrace();
         } finally {
             if (objectOutputStream != null) {
                 try {

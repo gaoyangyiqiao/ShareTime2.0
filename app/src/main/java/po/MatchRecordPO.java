@@ -72,6 +72,7 @@ public class MatchRecordPO implements Parcelable{
         dest.writeString(getUser_id_array());
         dest.writeString(getBegin_time());
         dest.writeString(getEnd_time());
+        dest.writeString(getTitle());
     }
 
     public static final Parcelable.Creator<MatchRecordPO> CREATOR = new Creator<MatchRecordPO>()
