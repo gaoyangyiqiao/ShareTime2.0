@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements OnClickListener{
     private MatchChoose matchFragment;
     private TabHostFragment scheduleFragment;
     private ToDoListFragment toDoListFragment;
-    private MatchAddFragmet matchAddFragmet=new MatchAddFragmet();
+
     public View contactsLayout;
     public View matchLayout;
     public View scheduleLayout;
@@ -122,7 +122,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
         toDoListFragment2=new ToDoListFragment();
         matchFragment2=new MatchFragment();
-        matchAddFragmet=new MatchAddFragmet();
+
         scheduleFragment2=new ScheduleFragment();
         toDoListFragment2.setScheduleFragment(scheduleFragment2);
         s=new NewActivityFragment();
@@ -293,19 +293,15 @@ public class MainActivity extends Activity implements OnClickListener{
     public void f(View view) {
           Intent intent=new Intent(MainActivity.this,MatchDetailActivity.class);
           startActivity(intent);
-//        fragmentTransaction=fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.matchchoose,new MatchDetailFragment());
-//        fragmentTransaction.commit();
-//        fragmentTransaction = fragmentManager.beginTransaction();
-//        if(index==1) {
-//            fragmentTransaction.replace(R.id.matchchoose, matchFragment2);
-//            index=2;
-//        }
-//        else{
-//            fragmentTransaction.replace(R.id.matchchoose, matchAddFragmet);
-//            index=1;
-//        }
-//        fragmentTransaction.commit();
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.matchchoose,new MatchDetailFragment());
+        fragmentTransaction.commit();
+        fragmentTransaction = fragmentManager.beginTransaction();
+
+            fragmentTransaction.replace(R.id.matchchoose, matchFragment2);
+
+
+        fragmentTransaction.commit();
     }
     public void a(View view) {
 

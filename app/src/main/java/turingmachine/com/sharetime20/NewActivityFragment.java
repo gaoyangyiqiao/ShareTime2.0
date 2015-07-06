@@ -43,6 +43,7 @@ public class NewActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View settingFragment = inflater.inflate(R.layout.activity_newactivity,container,false);
         return settingFragment;
+
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
