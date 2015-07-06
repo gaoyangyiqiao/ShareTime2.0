@@ -41,6 +41,10 @@ public class ToDoListFragment extends Fragment{
     public ArrayList<Item> itemlist=new ArrayList<>();
     SwipeMenuListView listView;
     private BootstrapButton button;
+    private ScheduleFragment scheduleFragment;
+    public void setScheduleFragment(ScheduleFragment scheduleFragment){
+        this.scheduleFragment=scheduleFragment;
+    }
    // private SwipeMenuListView swipeMenuListView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,6 +78,7 @@ public class ToDoListFragment extends Fragment{
 
             @Override
             public void create(SwipeMenu menu) {
+                createMenu2(menu);
                 // Create different menus depending on the view type
              //   createMenu2(menu);
                 /*
@@ -124,8 +129,8 @@ public class ToDoListFragment extends Fragment{
                         getActivity().getApplicationContext());
                 item2.setBackground(new ColorDrawable(Color.rgb(0xF9,
                         0x3F, 0x25)));
-                item2.setWidth(dp2px(90));
-                item2.setIcon(R.drawable.ic_action_discard);
+                 item2.setWidth(dp2px(90));
+                 item2.setIcon(R.drawable.ic_action_discard);
                  menu.addMenuItem(item2);
             }
 
@@ -155,7 +160,8 @@ public class ToDoListFragment extends Fragment{
             public boolean onMenuItemClick(int position, SwipeMenu  menu, int index){
 
                 ApplicationInfo item = mAppList.get(position);
-                mAppList.remove(position);
+                scheduleFragment.remove(position);
+                itemlist.remove(position);
                 mAdapter.notifyDataSetChanged();
                 switch (index) {
                     case 0:
@@ -163,8 +169,8 @@ public class ToDoListFragment extends Fragment{
                         break;
                     case 1:
                         // delete
-//					delete(item);
-                        mAppList.remove(position);
+					//delete(item);
+                        itemlist.remove(position);
                         mAdapter.notifyDataSetChanged();
                         break;
                 }
@@ -174,10 +180,7 @@ public class ToDoListFragment extends Fragment{
     }
     public void update(Drawable drawable,String content){
        itemlist.add(new Item(drawable,content));
-
-        mAdapter.notifyDataSetChanged();
-
-
+//        mAdapter.notifyDataSetChanged();
     }
 class AppAdapter extends BaseAdapter {
 
