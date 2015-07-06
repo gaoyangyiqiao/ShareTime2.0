@@ -44,10 +44,10 @@ public class ContactInfoActivity extends Activity {
         fragmentTransaction.commit();
     }
     public void toSchedule(View view){
-       System.out.println("get contact schedule");
+        System.out.println("get contact schedule");
         int id=getIntent().getIntExtra("id",0);
         System.out.println(Config.getCachedId(this)+"#"+id+"#");
-        GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),id+"",scheduleFragment,null);
+        GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),id+"",scheduleFragment);
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_content_in_contactinfo,scheduleFragment);
         fragmentTransaction.commit();

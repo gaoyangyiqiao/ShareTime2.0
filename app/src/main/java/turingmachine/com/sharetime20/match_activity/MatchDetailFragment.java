@@ -212,12 +212,12 @@ public class MatchDetailFragment extends Fragment {
         endtime.setSeconds(59);
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Match match=new Match(Config.getCachedId(getActivity()),user_id_array,simpleDateFormat.format(starttime),simpleDateFormat.format(endtime),scheduleFragment);
-        MatchRecordListPO matchRecordListPO=new MatchRecordListPO();
-        MatchRecordListFileOperator  matchRecordListFileOperator=new MatchRecordListFileOperator();
-        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME);
-        MatchRecordPO matchRecordPO=new MatchRecordPO(Config.getCachedId(getActivity()),user_id_array,simpleDateFormat.format(starttime),simpleDateFormat.format(endtime),et_title.getText().toString());
-        matchRecordListPO.getMatchRecords().add(matchRecordPO);
-        matchRecordListFileOperator.saveObject(matchRecordListPO,FileConfig.MATCHRECORD_FILENAME);
+//        MatchRecordListPO matchRecordListPO=new MatchRecordListPO();
+//        MatchRecordListFileOperator  matchRecordListFileOperator=new MatchRecordListFileOperator();
+//        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME);
+//        MatchRecordPO matchRecordPO=new MatchRecordPO(Config.getCachedId(getActivity()),user_id_array,simpleDateFormat.format(starttime),simpleDateFormat.format(endtime),et_title.getText().toString());
+//        matchRecordListPO.getMatchRecords().add(matchRecordPO);
+//        matchRecordListFileOperator.saveObject(matchRecordListPO,FileConfig.MATCHRECORD_FILENAME);
 
         System.out.println("match : "+Config.getCachedId(getActivity())+"#"+user_id_array+"#"+simpleDateFormat.format(starttime)+"#"+simpleDateFormat.format(endtime));
     }
