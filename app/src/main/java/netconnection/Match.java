@@ -43,10 +43,14 @@ public class Match {
             @Override
             public void onSuccess(String result) {
                 try {
+<<<<<<< HEAD
                    System.out.println(result);
+=======
+                    System.out.println(result);
+>>>>>>> df1b81aa51fde61bdb4cb01ef51945e1a4b89679
 
                     JSONObject jsonObject=new JSONObject(result);
-                    JSONObject userSchedule=jsonObject.getJSONObject(Config.KEY_COMMON_FREE_SCHEDULE);
+                    JSONObject userSchedule=jsonObject.getJSONObject(Config.KEY_SCHEDULE);
                     JSONArray activities=userSchedule.getJSONArray(Config.KEY_ACTIVITY);
                     for(int i=0;i<activities.length();i++){
                         JSONObject json_activity=activities.getJSONObject(i);

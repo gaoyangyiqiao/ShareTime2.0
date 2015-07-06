@@ -1,9 +1,12 @@
 package po;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by gaoyang on 15/7/6.
  */
-public class MatchRecordPO {
+public class MatchRecordPO implements Parcelable{
     private String user_id;
     private String user_id_array;
     private String begin_time;
@@ -46,5 +49,41 @@ public class MatchRecordPO {
 
     public void setEnd_time(String end_time) {
         this.end_time = end_time;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(getUser_id());
+        dest.writeString(getUser_id_array());
+        dest.writeString(getBegin_time());
+        dest.writeString(getEnd_time());
+    }
+
+    public static final Parcelable.Creator<MatchRecordPO> CREATOR = new Creator<MatchRecordPO>()
+    {
+        @Override
+        public MatchRecordPO[] newArray(int size)
+        {
+            return new MatchRecordPO[size];
+        }
+
+        @Override
+        public MatchRecordPO createFromParcel(Parcel in)
+        {
+            return new MatchRecordPO(in);
+        }
+    };
+
+    public MatchRecordPO(Parcel in)
+    {
+        user_id = in.readString();
+        user_id_array = in.readString();
+        begin_time = in.readString();
+        end_time=in.readString();
     }
 }
