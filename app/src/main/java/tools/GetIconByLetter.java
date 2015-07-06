@@ -38,7 +38,7 @@ public class GetIconByLetter {
                    return view.getResources().getDrawable(R.drawable.g);
 
                case "H":
-                   return view.getResources().getDrawable(R.drawable.h);
+                  // return view.getResources().getDrawable(R.drawable.h);
 
                case "I":
                    return view.getResources().getDrawable(R.drawable.i);
