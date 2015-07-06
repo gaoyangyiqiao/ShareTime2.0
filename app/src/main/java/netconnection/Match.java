@@ -43,11 +43,9 @@ public class Match {
             @Override
             public void onSuccess(String result) {
                 try {
-<<<<<<< HEAD
-                   System.out.println(result);
-=======
-                    System.out.println(result);
->>>>>>> df1b81aa51fde61bdb4cb01ef51945e1a4b89679
+
+                   System.out.println("call the match : ##"+result);
+
 
                     JSONObject jsonObject=new JSONObject(result);
                     JSONObject userSchedule=jsonObject.getJSONObject(Config.KEY_SCHEDULE);

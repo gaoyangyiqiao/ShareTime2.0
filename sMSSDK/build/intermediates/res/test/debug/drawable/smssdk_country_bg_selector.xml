@@ -4,4 +4,4 @@
   <!-- 默认时的背景图片-->    
   <item android:drawable="@color/smssdk_white" /> 
 </selector>
-<!-- From: file:/C:/Users/hello/Documents/GitHub/ShareTime2.0/sMSSDK/src/main/res/drawable/smssdk_country_bg_selector.xml --><!-- From: file:/Users/gaoyang/Documents/Development/ShareTime2.0/sMSSDK/build/intermediates/bundles/debug/res/drawable/smssdk_country_bg_selector.xml -->
+<!-- From: file:/C:/Users/hello/Documents/GitHub/ShareTime2.0/sMSSDK/src/main/res/drawable/smssdk_country_bg_selector.xml --><!-- From: file:/C:/Users/hello/Documents/GitHub/ShareTime2.0/sMSSDK/build/intermediates/bundles/debug/res/drawable/smssdk_country_bg_selector.xml -->
