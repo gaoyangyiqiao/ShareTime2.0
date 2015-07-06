@@ -15,7 +15,7 @@ import po.MatchRecordListPO;
  */
 public class MatchRecordListFileOperator {
 
-    private void saveObject(MatchRecordListPO matchRecordListPO,String name,Activity activity){
+    public void saveObject(MatchRecordListPO matchRecordListPO,String name,Activity activity){
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
@@ -45,7 +45,7 @@ public class MatchRecordListFileOperator {
         }
     }
 
-    private MatchRecordListPO getObject(String name,Activity activity){
+    public MatchRecordListPO getObject(String name,Activity activity){
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {

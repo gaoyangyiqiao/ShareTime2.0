@@ -11,12 +11,14 @@ public class MatchRecordPO implements Parcelable{
     private String user_id_array;
     private String begin_time;
     private String end_time;
+    private String title;
 
-    public MatchRecordPO(String user_id,String user_id_array,String begin_time,String end_time){
+    public MatchRecordPO(String user_id,String user_id_array,String begin_time,String end_time,String title){
         setBegin_time(begin_time);
         setEnd_time(end_time);
         setUser_id(user_id);
         setUser_id_array(user_id_array);
+        setTitle(title);
     }
 
     public String getUser_id() {
@@ -25,6 +27,14 @@ public class MatchRecordPO implements Parcelable{
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getUser_id_array() {
@@ -85,5 +95,6 @@ public class MatchRecordPO implements Parcelable{
         user_id_array = in.readString();
         begin_time = in.readString();
         end_time=in.readString();
+        title=in.readString();
     }
 }

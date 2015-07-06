@@ -17,8 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapter.MatchListItemAdapter;
+import fileOperator.FileConfig;
+import fileOperator.MatchRecordListFileOperator;
 import matchBL.GetMatchInfoList;
 import matchBL.MatchBL;
+import po.MatchRecordListPO;
 import turingmachine.com.sharetime20.customswipelistview.CustomSwipeListView;
 import turingmachine.com.sharetime20.customswipelistview.CustomSwipeUndoDialog;
 import turingmachine.com.sharetime20.match_activity.MatchChooseContactsActivity;
@@ -36,15 +39,18 @@ public class MatchFragment extends Fragment implements CustomSwipeListView.Remov
     private SampleAdapter mSampleAdapter;
     private List<SampleModel> mSampleModels = new ArrayList<SampleModel>();
     private CustomSwipeUndoDialog mUndoDialog;
-
+    private MatchRecordListFileOperator matchRecordListFileOperator;
+    private MatchRecordListPO matchRecordListPO;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        matchRecordListPO=new MatchRecordListPO();
+        matchRecordListFileOperator=new MatchRecordListFileOperator();
         View matchFragment = inflater.inflate(R.layout.activity_match,container,false);
         return matchFragment;
     }
-
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+
         makeData();
 
         mSampleListView = (CustomSwipeListView) getActivity().findViewById(R.id.lv_match_record);
@@ -63,6 +69,7 @@ public class MatchFragment extends Fragment implements CustomSwipeListView.Remov
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+
                 Toast.makeText(
                         getActivity(),
                         "Click item-" + mSampleModels.get(position).getTestDate(),
@@ -87,11 +94,13 @@ public class MatchFragment extends Fragment implements CustomSwipeListView.Remov
      * Generate some data that is shown in the CustomSwipeListview.
      */
     private void makeData() {
-
-            SampleModel model = new SampleModel();
-            model.setTestDate("2015-06-0" + 8);
-            model.setTestTitle("<联系人>");
-            mSampleModels.add(model);
+        SampleModel model = new SampleModel();
+//        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME,getActivity());
+//            for (int i=0;i<matchRecordListPO.getMatchRecords().size();i++){
+//                model.setTestDate(matchRecordListPO.getMatchRecords().get(i).getBegin_time());
+//                model.setTestTitle(matchRecordListPO.getMatchRecords().get(i).getTitle());
+//            }
+//            mSampleModels.add(model);
 
     }
 

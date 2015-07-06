@@ -23,6 +23,7 @@
             android:layout_weight="1"/>
 
         <turingmachine.com.sharetime20.androidbootstrap.BootstrapEditText
+            android:id="@+id/et_title_in_matchdetail"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="8"/>

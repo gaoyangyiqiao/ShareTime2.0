@@ -26,9 +26,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import fileOperator.FileConfig;
+import fileOperator.MatchRecordListFileOperator;
 import netconnection.Config;
 import netconnection.Match;
 import po.ContactPO;
+import po.MatchRecordListPO;
+import po.MatchRecordPO;
 import turingmachine.com.sharetime20.ContactsFragment;
 import turingmachine.com.sharetime20.R;
 import turingmachine.com.sharetime20.ScheduleFragment;
@@ -45,6 +49,7 @@ public class MatchDetailFragment extends Fragment {
     private ListView lv_contacts;
     private MatchChooseContactAdapter matchChooseContactAdapter;
     private List<ContactPO> list;
+    private BootstrapEditText et_title;
     public static List<ContactPO> selectedList=new ArrayList<>();
     private TimePickerDialog timePickerDialog;
     private DatePickerDialog datePickerDialog;
@@ -88,6 +93,7 @@ public class MatchDetailFragment extends Fragment {
         list=new ArrayList<>();
         list.addAll(ContactsFragment.contacts);
 
+        et_title= (BootstrapEditText) getActivity().findViewById(R.id.et_title_in_matchdetail);
         matchChooseContactAdapter=new MatchChooseContactAdapter(list,getActivity());
         lv_contacts= (ListView) getActivity().findViewById(R.id.lv_contacts_in_matchdetailfragment);
         mEtSearch = (EditText) getActivity().findViewById(R.id.et_search);
@@ -206,8 +212,14 @@ public class MatchDetailFragment extends Fragment {
         endtime.setSeconds(59);
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Match match=new Match(Config.getCachedId(getActivity()),user_id_array,simpleDateFormat.format(starttime),simpleDateFormat.format(endtime),scheduleFragment);
+        MatchRecordListPO matchRecordListPO=new MatchRecordListPO();
+        MatchRecordListFileOperator  matchRecordListFileOperator=new MatchRecordListFileOperator();
+        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME,getActivity());
+        MatchRecordPO matchRecordPO=new MatchRecordPO(Config.getCachedId(getActivity()),user_id_array,simpleDateFormat.format(starttime),simpleDateFormat.format(endtime),et_title.getText().toString());
+        matchRecordListPO.getMatchRecords().add(matchRecordPO);
+        matchRecordListFileOperator.saveObject(matchRecordListPO,FileConfig.MATCHRECORD_FILENAME,getActivity());
 
-       System.out.println("match : "+Config.getCachedId(getActivity())+"#"+user_id_array+"#"+simpleDateFormat.format(starttime)+"#"+simpleDateFormat.format(endtime));
+        System.out.println("match : "+Config.getCachedId(getActivity())+"#"+user_id_array+"#"+simpleDateFormat.format(starttime)+"#"+simpleDateFormat.format(endtime));
     }
     //搜索
     public List<ContactPO> searchItem(String name) {

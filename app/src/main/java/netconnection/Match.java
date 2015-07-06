@@ -76,7 +76,8 @@ public class Match {
                     }
 
                     SimpleDateFormat dateFormat=new SimpleDateFormat(Config.DATE_PATTERN);
-                   scheduleFragment.addEvent(eventlist);
+                    scheduleFragment.addEvent(eventlist);
+
 //                    System.out.println("event size :"+eventlist.size());
                 } catch (Exception e) {
                     System.out.println("---->>>>>Net.Error int match");
