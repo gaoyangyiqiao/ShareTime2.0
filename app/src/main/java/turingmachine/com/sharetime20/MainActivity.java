@@ -54,6 +54,7 @@ public class MainActivity extends Activity implements OnClickListener{
     private FragmentManager fragmentManager2;
     private FrameLayout frame2;
     int index=1;
+    int set=0;
     NewActivityFragment s;
     private ScheduleFragment scheduleFragment2;
     private ToDoListFragment toDoListFragment2;
@@ -97,6 +98,7 @@ public class MainActivity extends Activity implements OnClickListener{
         fragmentTransaction.commit();
 
 
+
     }
 
     private void initViews(){
@@ -122,10 +124,11 @@ public class MainActivity extends Activity implements OnClickListener{
         matchFragment2=new MatchFragment();
         matchAddFragmet=new MatchAddFragmet();
         scheduleFragment2=new ScheduleFragment();
+        toDoListFragment2.setScheduleFragment(scheduleFragment2);
         s=new NewActivityFragment();
 
 //        System.out.println("----->>>>"+Config.getCachedId(this));
-        GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),Config.getCachedId(this),scheduleFragment2);
+        GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),Config.getCachedId(this),scheduleFragment2,toDoListFragment2);
         GetClassTable getClassTable=new GetClassTable(Config.getCachedStudentId(this),Config.getCachedStudentPassword(this),scheduleFragment2);
 
 
@@ -150,6 +153,7 @@ public class MainActivity extends Activity implements OnClickListener{
                 dl.open();
             }
         });
+
 
        }
 
@@ -260,6 +264,7 @@ public class MainActivity extends Activity implements OnClickListener{
         iv_schedule.setImageResource(R.drawable.tab_schedule);
         //以下缺少字体颜色的设定
     }
+
     public void  b(View view) {
         IS_IN_TODOLIST=true;
         sizesExpandableSelector.setVisibility(View.INVISIBLE);
@@ -303,6 +308,7 @@ public class MainActivity extends Activity implements OnClickListener{
 //        fragmentTransaction.commit();
     }
     public void a(View view) {
+
         IS_IN_TODOLIST=false;
         sizesExpandableSelector.setVisibility(View.VISIBLE);
         fragmentTransaction = fragmentManager.beginTransaction();

@@ -1,4 +1,6 @@
 package turingmachine.com.sharetime20;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -35,7 +38,9 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
     public static final int TYPE_WEEK_VIEW = 3;
     public int mWeekViewType = TYPE_THREE_DAY_VIEW;
     private WeekView mWeekView;
+
     private ArrayList<WeekViewEvent> list=new ArrayList<>();
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -50,6 +55,29 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         return scheduleFragment;
     }
 
+    public ArrayList<String> getActivityContent(){
+
+        ArrayList<String> l=new ArrayList<>();
+        int length=list.size();
+        for (int i=0;i<length;i++){
+            WeekViewEvent weekViewEvent=list.get(i);
+            Calendar c1= weekViewEvent.getStartTime();
+            Calendar c2= weekViewEvent.getEndTime();
+            System.out.println("b");
+            Date date2=c2.getTime();
+            Date date1=c1.getTime();
+            System.out.println("a");
+            SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy/MM/dd HH:mm:ss");
+            System.out.println("as");
+            String content= weekViewEvent.getName();
+
+
+            //toDoListFragment.update(drawable,content+" "+simpleDateFormat.format(c1)+" 到 "+simpleDateFormat.format(c2));
+            l.add(content+" "+simpleDateFormat.format(date1)+" 到 "+simpleDateFormat.format(date2));
+            System.out.println("activity content:"+content+" "+simpleDateFormat.format(date1)+" 到 "+simpleDateFormat.format(date2));
+        }
+        return l;
+    }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         mWeekView=(WeekView)getActivity().findViewById(R.id.weekView);
@@ -213,6 +241,10 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
         mWeekView.notifyDatasetChanged();
 
 //        System.out.println("重绘之后 size"+mWeekView.size());
+    }
+    public void remove(int index){
+        list.remove(index);
+        mWeekView.notifyDatasetChanged();
     }
 
     public void resetActivity(ArrayList<WeekViewEvent> list){

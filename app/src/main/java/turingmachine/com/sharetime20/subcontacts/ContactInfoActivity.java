@@ -47,7 +47,7 @@ public class ContactInfoActivity extends Activity {
        System.out.println("get contact schedule");
         int id=getIntent().getIntExtra("id",0);
         System.out.println(Config.getCachedId(this)+"#"+id+"#");
-        GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),id+"",scheduleFragment);
+        GetUserSchedule getUserSchedule=new GetUserSchedule(Config.getCachedId(this),id+"",scheduleFragment,null);
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_content_in_contactinfo,scheduleFragment);
         fragmentTransaction.commit();
