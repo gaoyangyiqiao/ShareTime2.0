@@ -44,6 +44,9 @@ import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 
 public class MainActivity extends Activity implements OnClickListener{
+
+    private  boolean IS_IN_TODOLIST=false;
+
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager2;
     private FrameLayout frame2;
@@ -199,7 +202,8 @@ public class MainActivity extends Activity implements OnClickListener{
         switch (index) {
             case 0:
                 // 当点击了日程tab时，改变控件的图片和文字颜色
-                sizesExpandableSelector.setVisibility(View.VISIBLE);
+                if(!IS_IN_TODOLIST)
+                    sizesExpandableSelector.setVisibility(View.VISIBLE);
                 iv_schedule.setImageResource(R.drawable.tab_schedule_pressed);
 //                tv_schedule.setTextColor(Color.WHITE);
                 if (scheduleFragment == null) {
@@ -254,6 +258,7 @@ public class MainActivity extends Activity implements OnClickListener{
         //以下缺少字体颜色的设定
     }
     public void  b(View view) {
+        IS_IN_TODOLIST=true;
         sizesExpandableSelector.setVisibility(View.INVISIBLE);
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame, toDoListFragment2);
@@ -284,6 +289,7 @@ public class MainActivity extends Activity implements OnClickListener{
 //        fragmentTransaction.commit();
     }
     public void a(View view) {
+        IS_IN_TODOLIST=false;
         sizesExpandableSelector.setVisibility(View.VISIBLE);
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame,scheduleFragment2);
