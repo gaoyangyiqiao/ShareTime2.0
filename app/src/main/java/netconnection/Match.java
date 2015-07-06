@@ -43,14 +43,9 @@ public class Match {
             @Override
             public void onSuccess(String result) {
                 try {
-<<<<<<< HEAD
 
 //                   System.out.println("call the match : ##"+result);
 
-
-=======
-                    System.out.println("call the match : ##"+result);
->>>>>>> origin/master
                     JSONObject jsonObject=new JSONObject(result);
                     JSONObject userSchedule=jsonObject.getJSONObject(Config.KEY_SCHEDULE);
                     JSONArray activities=userSchedule.getJSONArray(Config.KEY_ACTIVITY);
@@ -82,7 +77,7 @@ public class Match {
 
                     SimpleDateFormat dateFormat=new SimpleDateFormat(Config.DATE_PATTERN);
                    scheduleFragment.addEvent(eventlist);
-                    System.out.println("event size :"+eventlist.size());
+//                    System.out.println("event size :"+eventlist.size());
                 } catch (Exception e) {
                     System.out.println("---->>>>>Net.Error int match");
                     e.printStackTrace();
