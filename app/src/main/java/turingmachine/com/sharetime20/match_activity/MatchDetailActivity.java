@@ -34,6 +34,7 @@ public class MatchDetailActivity extends Activity {
     private FragmentTransaction fragmentTransaction;
     private MatchDetailFragment matchDetailFragment;
     private ScheduleFragment scheduleFragment;
+    private int contact_id;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -62,6 +63,7 @@ public class MatchDetailActivity extends Activity {
         fragmentTransaction.commit();
     }
     public void initViews(){
+        getIntent().getIntExtra("id",0);
         matchDetailFragment=new MatchDetailFragment();
         scheduleFragment=new ScheduleFragment();
         tv_back= (TextView) findViewById(R.id.tv_back_in_matchdetail);
@@ -71,6 +73,10 @@ public class MatchDetailActivity extends Activity {
                 finish();
             }
         });
+    }
+
+    public int getContact_id() {
+        return contact_id;
     }
 }
 

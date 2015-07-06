@@ -44,7 +44,7 @@ public class Match {
             public void onSuccess(String result) {
                 try {
 
-                   System.out.println("call the match : ##"+result);
+//                   System.out.println("call the match : ##"+result);
 
 
                     JSONObject jsonObject=new JSONObject(result);
