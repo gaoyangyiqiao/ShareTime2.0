@@ -214,10 +214,10 @@ public class MatchDetailFragment extends Fragment {
         Match match=new Match(Config.getCachedId(getActivity()),user_id_array,simpleDateFormat.format(starttime),simpleDateFormat.format(endtime),scheduleFragment);
         MatchRecordListPO matchRecordListPO=new MatchRecordListPO();
         MatchRecordListFileOperator  matchRecordListFileOperator=new MatchRecordListFileOperator();
-        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME,getActivity());
+        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME);
         MatchRecordPO matchRecordPO=new MatchRecordPO(Config.getCachedId(getActivity()),user_id_array,simpleDateFormat.format(starttime),simpleDateFormat.format(endtime),et_title.getText().toString());
         matchRecordListPO.getMatchRecords().add(matchRecordPO);
-        matchRecordListFileOperator.saveObject(matchRecordListPO,FileConfig.MATCHRECORD_FILENAME,getActivity());
+        matchRecordListFileOperator.saveObject(matchRecordListPO,FileConfig.MATCHRECORD_FILENAME);
 
         System.out.println("match : "+Config.getCachedId(getActivity())+"#"+user_id_array+"#"+simpleDateFormat.format(starttime)+"#"+simpleDateFormat.format(endtime));
     }

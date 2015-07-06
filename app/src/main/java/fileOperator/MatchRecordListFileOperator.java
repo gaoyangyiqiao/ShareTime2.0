@@ -18,11 +18,7 @@ import po.MatchRecordPO;
  */
 public class MatchRecordListFileOperator {
 
-<<<<<<< HEAD
-    public void saveObject(MatchRecordListPO matchRecordListPO,String name,Activity activity){
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-=======
+
     private FileInputStream fileInputStream;
     private FileOutputStream fileOutputStream;
     private ObjectOutputStream objectOutputStream;
@@ -31,8 +27,7 @@ public class MatchRecordListFileOperator {
     public MatchRecordListFileOperator(){
     }
 
-    private void saveObject(MatchRecordListPO matchRecordListPO,String filename){
->>>>>>> origin/master
+    public void saveObject(MatchRecordListPO matchRecordListPO,String filename){
         try {
             //存入数据
             File file = new File(Environment.getExternalStorageDirectory().toString() + File.separator +"ContactBackup"+File.separator +filename);
@@ -82,14 +77,9 @@ public class MatchRecordListFileOperator {
         }
     }
 
-<<<<<<< HEAD
-    public MatchRecordListPO getObject(String name,Activity activity){
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
-=======
-    private MatchRecordListPO getObject(String filename) {
+
+    public MatchRecordListPO getObject(String filename) {
         MatchRecordListPO matchRecordListPO=new MatchRecordListPO();
->>>>>>> origin/master
         try {
             File file = new File(Environment.getExternalStorageDirectory().toString() + File.separator + "ContactBackup" + File.separator + filename);
             if (!file.getParentFile().exists()) {

@@ -95,12 +95,12 @@ public class MatchFragment extends Fragment implements CustomSwipeListView.Remov
      */
     private void makeData() {
         SampleModel model = new SampleModel();
-//        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME,getActivity());
-//            for (int i=0;i<matchRecordListPO.getMatchRecords().size();i++){
-//                model.setTestDate(matchRecordListPO.getMatchRecords().get(i).getBegin_time());
-//                model.setTestTitle(matchRecordListPO.getMatchRecords().get(i).getTitle());
-//            }
-//            mSampleModels.add(model);
+        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME);
+            for (int i=0;i<matchRecordListPO.getMatchRecords().size();i++){
+                model.setTestDate(matchRecordListPO.getMatchRecords().get(i).getBegin_time());
+                model.setTestTitle(matchRecordListPO.getMatchRecords().get(i).getTitle());
+            }
+            mSampleModels.add(model);
 
     }
 
