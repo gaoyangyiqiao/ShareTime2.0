@@ -34,7 +34,6 @@ public class ContactInfoFragment extends Fragment {
     private BootstrapButton btn_match;
 
     public ContactsFragment contactsFragment;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

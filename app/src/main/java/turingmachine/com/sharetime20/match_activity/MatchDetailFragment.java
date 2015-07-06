@@ -19,16 +19,22 @@ import android.widget.ListView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.sql.Date;
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import netconnection.Config;
+import netconnection.Match;
 import po.ContactPO;
 import turingmachine.com.sharetime20.ContactsFragment;
 import turingmachine.com.sharetime20.R;
+import turingmachine.com.sharetime20.ScheduleFragment;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapButton;
 import turingmachine.com.sharetime20.androidbootstrap.BootstrapEditText;
+import turingmachine.com.sharetime20.weekview.WeekViewEvent;
 
 
 public class MatchDetailFragment extends Fragment {
@@ -42,8 +48,13 @@ public class MatchDetailFragment extends Fragment {
     public static List<ContactPO> selectedList=new ArrayList<>();
     private TimePickerDialog timePickerDialog;
     private DatePickerDialog datePickerDialog;
+    private DatePickerDialog datePickerDialog2;
     private BootstrapButton chooseEndDate;
     private BootstrapButton chooseBeginDate;
+    int kk=0;
+    private Date starttime;
+    private Date endtime;
+    private ArrayList<WeekViewEvent> li;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,16 +143,31 @@ public class MatchDetailFragment extends Fragment {
         int year=Calendar.getInstance().get(Calendar.YEAR);
         int month=Calendar.getInstance().get(Calendar.MONTH);
         int day=Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        chooseBeginDate=(BootstrapButton)this.getActivity().findViewById(R.id.btn_begintime_in_matchdetail);
+        chooseBeginDate=(BootstrapButton)getActivity().findViewById(R.id.btn_begintime_in_matchdetail);
         chooseEndDate=(BootstrapButton)getActivity().findViewById(R.id.btn_endtime_in_matchdetail);
 
         datePickerDialog=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 chooseBeginDate.setText("开始时间："+(year)+ "/"+(monthOfYear+1)+"/"+ dayOfMonth);
-//                cdate=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
-//                starttime=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
-//                endtime=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
+                System.out.println("begin time :"+"开始时间："+(year)+ "/"+(monthOfYear+1)+"/"+ dayOfMonth);
+
+
+              starttime=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
+               System.out.println(starttime.toString());
+            }
+        },year,month,day);
+        datePickerDialog2=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                    chooseEndDate.setText("开始时间：" + (year) + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
+
+                    System.out.println("结束时间：" + (year) + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
+
+
+                endtime=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
+                System.out.println(endtime.toString());
             }
         },year,month,day);
 
@@ -149,6 +175,7 @@ public class MatchDetailFragment extends Fragment {
         chooseBeginDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 datePickerDialog.show();
 
             }
@@ -156,12 +183,31 @@ public class MatchDetailFragment extends Fragment {
         chooseEndDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                datePickerDialog.show();
+
+                datePickerDialog2.show();
 
             }
         });
 
 
+    }
+
+    public void setContent(ScheduleFragment scheduleFragment){
+        getSchedule(scheduleFragment);
+    }
+    public void getSchedule(ScheduleFragment scheduleFragment){
+        String user_id_array="";
+        for (int i=0;i<selectedList.size();i++){
+            user_id_array+=selectedList.get(i).getId();
+            user_id_array+=",";
+        }
+        endtime.setHours(23);
+        endtime.setMinutes(59);
+        endtime.setSeconds(59);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Match match=new Match(Config.getCachedId(getActivity()),user_id_array,simpleDateFormat.format(starttime),simpleDateFormat.format(endtime),scheduleFragment);
+
+       System.out.println("match : "+Config.getCachedId(getActivity())+"#"+user_id_array+"#"+simpleDateFormat.format(starttime)+"#"+simpleDateFormat.format(endtime));
     }
     //搜索
     public List<ContactPO> searchItem(String name) {
