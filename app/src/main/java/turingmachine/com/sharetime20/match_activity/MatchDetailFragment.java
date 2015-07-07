@@ -155,25 +155,25 @@ public class MatchDetailFragment extends Fragment {
         datePickerDialog=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                chooseBeginDate.setText("开始时间："+(year)+ "/"+(monthOfYear+1)+"/"+ dayOfMonth);
-                System.out.println("begin time :"+"开始时间："+(year)+ "/"+(monthOfYear+1)+"/"+ dayOfMonth);
+                chooseBeginDate.setText((year)+ "/"+(monthOfYear+1)+"/"+ dayOfMonth);
+//                System.out.println("begin time :"+"开始时间："+(year)+ "/"+(monthOfYear+1)+"/"+ dayOfMonth);
 
 
               starttime=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
-               System.out.println(starttime.toString());
+//               System.out.println(starttime.toString());
             }
         },year,month,day);
         datePickerDialog2=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
-                    chooseEndDate.setText("开始时间：" + (year) + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
+                    chooseEndDate.setText((year) + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
 
-                    System.out.println("结束时间：" + (year) + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
+//                    System.out.println("结束时间：" + (year) + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
 
 
                 endtime=new java.util.Date(year - 1900, monthOfYear, dayOfMonth);
-                System.out.println(endtime.toString());
+//                System.out.println(endtime.toString());
             }
         },year,month,day);
 

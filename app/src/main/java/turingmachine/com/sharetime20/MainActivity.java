@@ -294,9 +294,9 @@ public class MainActivity extends Activity implements OnClickListener{
     public void f(View view) {
           Intent intent=new Intent(MainActivity.this,MatchDetailActivity.class);
           startActivity(intent);
-        fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.matchchoose,new MatchDetailFragment());
-        fragmentTransaction.commit();
+//        fragmentTransaction=fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.matchchoose,new MatchDetailFragment());
+//        fragmentTransaction.commit();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.matchchoose, matchFragment2);
         fragmentTransaction.commit();

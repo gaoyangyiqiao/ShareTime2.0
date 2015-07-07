@@ -84,6 +84,8 @@ public class MatchRecordListFileOperator {
         MatchRecordListPO matchRecordListPO=new MatchRecordListPO();
         try {
             File file = new File(filename);
+            System.out.println(file.getParentFile());
+//            System.out.println(file);
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }

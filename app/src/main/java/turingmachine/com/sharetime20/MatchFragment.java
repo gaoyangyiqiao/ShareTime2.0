@@ -93,14 +93,14 @@ public class MatchFragment extends Fragment implements CustomSwipeListView.Remov
      * Generate some data that is shown in the CustomSwipeListview.
      */
     private void makeData() {
-        System.out.println("---->>>mackdate");
+//        System.out.println("---->>>mackdate");
         SampleModel model = new SampleModel();
-//        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME);
-//            for (int i=0;i<matchRecordListPO.getMatchRecords().size();i++){
-//                model.setTestDate(matchRecordListPO.getMatchRecords().get(i).getBegin_time());
-//                model.setTestTitle(matchRecordListPO.getMatchRecords().get(i).getTitle());
-//            }
-//            mSampleModels.add(model);
+        matchRecordListPO=matchRecordListFileOperator.getObject(FileConfig.MATCHRECORD_FILENAME);
+            for (int i=0;i<matchRecordListPO.getMatchRecords().size();i++){
+                model.setTestDate(matchRecordListPO.getMatchRecords().get(i).getBegin_time());
+                model.setTestTitle(matchRecordListPO.getMatchRecords().get(i).getTitle());
+            }
+            mSampleModels.add(model);
 
     }
 

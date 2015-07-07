@@ -76,15 +76,22 @@ public class GetUserSchedule {
                         schedule.getActivityList().add(activity);
                         Date date2=c2.getTime();
                         Date date1=c1.getTime();
-                        System.out.println("a");
+//                        System.out.println("a");
                         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy/MM/dd HH:mm:ss");
-                        System.out.println("as");
+//                        System.out.println("as");
                         Resources resources=fragment.getActivity().getResources();
                         Drawable drawable=resources.getDrawable(R.drawable.logo);
                         if(toDoListFragment!=null);
                            toDoListFragment.update(drawable,content+" "+simpleDateFormat.format(start_time)+" "+simpleDateFormat.format(end_time));
                         WeekViewEvent w=new WeekViewEvent(Integer.parseInt(id), content, c1, c2);
-                        w.setColor(colors[i%l]);
+                        if (i%4==0)
+                            w.setColor(fragment.getActivity().getResources().getColor(R.color.event_color_01));
+                        if (i%4==1)
+                            w.setColor(fragment.getActivity().getResources().getColor(R.color.event_color_02));
+                        if (i%4==2)
+                            w.setColor(fragment.getActivity().getResources().getColor(R.color.event_color_03));
+                        if (i%4==3)
+                            w.setColor(fragment.getActivity().getResources().getColor(R.color.event_color_04));
                         eventlist.add(w);
                     }
                     SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

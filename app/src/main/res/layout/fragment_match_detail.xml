@@ -42,17 +42,19 @@
             android:id="@+id/btn_begintime_in_matchdetail"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:text="开始时间"
             android:layout_weight="3"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:text="---"/>
+            android:text="到"/>
 
         <turingmachine.com.sharetime20.androidbootstrap.BootstrapButton
             android:id="@+id/btn_endtime_in_matchdetail"
             android:layout_weight="3"
+            android:text="结束时间"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"/>
 

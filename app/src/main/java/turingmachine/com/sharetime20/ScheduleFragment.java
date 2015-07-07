@@ -228,6 +228,15 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
         int length=weekViewEvent.size();
         for(int i=0;i<length;i++){
+            //随机颜色
+            if (i%4==0)
+                weekViewEvent.get(i).setColor(getActivity().getResources().getColor(R.color.event_color_01));
+            if (i%4==1)
+                weekViewEvent.get(i).setColor(getActivity().getResources().getColor(R.color.event_color_02));
+            if (i%4==2)
+                weekViewEvent.get(i).setColor(getActivity().getResources().getColor(R.color.event_color_03));
+            if (i%4==3)
+                weekViewEvent.get(i).setColor(getActivity().getResources().getColor(R.color.event_color_04));
             list.add(weekViewEvent.get(i));
           //  System.out.println("list add event "+weekViewEvent.get(i).getName());
         }
@@ -235,6 +244,7 @@ public class ScheduleFragment extends Fragment implements WeekView.MonthChangeLi
 
     }
     public void add(WeekViewEvent w){
+        //在此处设置随机颜色
         list.add(w);
       //  System.out.println("add w "+w.getName()+"size "+list.size());
       //  System.out.println(mWeekView);
